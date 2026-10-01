@@ -447,25 +447,48 @@ export function vehicleGallery(v: Vehicle): string[] {
       return a.localeCompare(b);
     });
 
-    if (v.slug === "urbania-12-seater-maharaja") {
-      const extraHighlights = [
+    if (v.slug === "force-urbania" || v.slug === "urbania-12-seater-maharaja") {
+      const allUrbaniaAssets = [
+        v.slug === "force-urbania"
+          ? "/assets/images/vehicles/force-urbania--front-grey.webp"
+          : "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp",
+        v.slug === "force-urbania"
+          ? "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp"
+          : "/assets/images/vehicles/force-urbania--front-grey.webp",
+        "/assets/images/vehicles/force-urbania--hero-interior.webp",
+        "/assets/images/vehicles/urbania-12-seater-maharaja--interior.webp",
+        "/assets/images/vehicles/urbania-maharaja--tan-seats.webp",
         "/assets/images/vehicles/force-urbania--maharaja-recliner.webp",
         "/assets/images/vehicles/force-urbania--ambient-lighting.webp",
         "/assets/images/vehicles/force-urbania--sony-tv.webp",
         "/assets/images/vehicles/force-urbania--fridge-open.webp",
-        "/assets/images/vehicles/force-urbania--window-blind.webp"
+        "/assets/images/vehicles/force-urbania--fridge-closed.webp",
+        "/assets/images/vehicles/force-urbania--cockpit-dashboard.webp",
+        "/assets/images/vehicles/force-urbania--passenger-cabin.webp",
+        "/assets/images/vehicles/force-urbania--aisle-seats.webp",
+        "/assets/images/vehicles/force-urbania--window-blind.webp",
+        "/assets/images/vehicles/force-urbania--ac-vents.webp",
+        "/assets/images/vehicles/force-urbania--footrest-detail.webp",
+        "/assets/images/vehicles/force-urbania--panoramic-view.webp",
+        "/assets/images/vehicles/force-urbania--rear-grey.webp"
       ];
-      for (const extra of extraHighlights) {
-        if (!matches.includes(extra) && fs.existsSync(path.join(publicDir, extra.replace(/^\//, "")))) {
-          matches.push(extra);
+      for (const asset of allUrbaniaAssets) {
+        if (!matches.includes(asset) && fs.existsSync(path.join(publicDir, asset.replace(/^\//, "")))) {
+          matches.push(asset);
         }
       }
     }
 
-    // Ensure primary resolved image is always in gallery if available
+    // Ensure primary resolved image is always first in gallery if available
     const primary = resolveVehicleImage(v);
-    if (primary && !matches.includes(primary) && fs.existsSync(path.join(publicDir, primary.replace(/^\//, "")))) {
-      matches.unshift(primary);
+    if (primary && fs.existsSync(path.join(publicDir, primary.replace(/^\//, "")))) {
+      const existingIdx = matches.indexOf(primary);
+      if (existingIdx > 0) {
+        matches.splice(existingIdx, 1);
+      }
+      if (existingIdx !== 0) {
+        matches.unshift(primary);
+      }
     }
 
     return matches;
