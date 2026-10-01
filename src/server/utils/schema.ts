@@ -142,24 +142,50 @@ export function vehicleServiceSchema(input: {
   description: string;
   url: string;
   imageUrl?: string;
+  images?: string[];
+  features?: string[];
+  seats?: number;
+  brand?: string;
+  model?: string;
   /** Real confirmed per-km rate in INR — omitted (no `offers` block) rather than faked when not yet confirmed. */
   ratePerKm?: number | null;
   /** Raw DB "YYYY-MM-DD HH:MM:SS" updatedAt — converted to ISO 8601. */
   dateModified?: string;
 }): Record<string, unknown> {
-  // A chauffeur-driven vehicle-for-hire is a rental service, not a purchasable
-  // good — "Service" matches what's actually being sold; "Product" implies
-  // Merchant-listing eligibility (priceValidUntil, shipping, etc.) this isn't.
+  const allImages = Array.from(
+    new Set([input.imageUrl, ...(input.images || [])].filter((img): img is string => Boolean(img)))
+  ).map((img) => (img.startsWith("http") ? img : `${env.siteUrl}${img}`));
+
+  const amenities = (input.features || []).map((f) => ({
+    "@type": "LocationFeatureSpecification",
+    name: f,
+    value: true
+  }));
+
   return {
     "@context": "https://schema.org",
-    "@type": "Service",
-    serviceType: input.name,
+    "@type": ["Service", "AutoRental"],
+    serviceType: `${input.name} Rental in Bangalore`,
     name: input.name,
     description: input.description,
     url: `${env.siteUrl}${input.url}`,
-    ...(input.imageUrl ? { image: input.imageUrl } : {}),
+    ...(allImages.length > 0 ? { image: allImages } : {}),
     provider: { "@id": `${env.siteUrl}/#organization` },
-    areaServed: { "@type": "City", name: "Bangalore", alternateName: "Bengaluru" },
+    areaServed: [
+      { "@type": "City", name: "Bangalore", alternateName: "Bengaluru" },
+      ...business.areaServed.filter((a) => a !== "Bangalore").map((a) => ({ "@type": "City", name: a }))
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: business.googleRating.value,
+      reviewCount: business.googleRating.count,
+      bestRating: "5",
+      worstRating: "1"
+    },
+    ...(input.seats ? { seatingCapacity: input.seats } : {}),
+    ...(input.brand ? { brand: { "@type": "Brand", name: input.brand } } : {}),
+    ...(input.model ? { model: input.model } : {}),
+    ...(amenities.length > 0 ? { amenityFeature: amenities } : {}),
     ...(input.dateModified ? { dateModified: toIso(input.dateModified) } : {}),
     ...(input.ratePerKm
       ? {
@@ -175,7 +201,7 @@ export function vehicleServiceSchema(input: {
             },
             availability: "https://schema.org/InStock",
             url: `${env.siteUrl}${input.url}`,
-            description: "Per-kilometre rate — final quotation confirmed on enquiry.",
+            description: `₹${input.ratePerKm}/km — driver Bata and itemised quotation confirmed on enquiry.`,
             areaServed: { "@type": "City", name: "Bangalore", alternateName: "Bengaluru" }
           }
         }
@@ -213,11 +239,16 @@ export function touristTripSchema(input: {
  * fine on its own) rather than assuming the plain-format case unconditionally.
  */
 export function toIso(dbTimestamp: string): string {
-  const trimmed = dbTimestamp.trim();
-  const hasOffset = /(Z|[+-]\d{2}(:?\d{2})?)$/.test(trimmed);
-  const candidate = hasOffset ? trimmed : `${trimmed.replace(" ", "T")}Z`;
-  const d = new Date(candidate);
-  return Number.isNaN(d.getTime()) ? dbTimestamp : d.toISOString();
+  try {
+    if (!dbTimestamp) return new Date().toISOString();
+    const trimmed = dbTimestamp.trim();
+    const hasOffset = /(Z|[+-]\d{2}(:?\d{2})?)$/.test(trimmed);
+    const candidate = hasOffset ? trimmed : `${trimmed.replace(" ", "T")}Z`;
+    const d = new Date(candidate);
+    return Number.isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  } catch {
+    return new Date().toISOString();
+  }
 }
 
 export function blogPostingSchema(input: {
@@ -292,3 +323,63 @@ export function speakableSchema(canonicalPath: string, cssSelectors: string[]): 
     }
   };
 }
+
+/**
+ * ImageObject schema for authentic photography — aids Google Images indexing,
+ * Image Search ranking, and Google Lens entity association.
+ */
+export function imageObjectSchema(input: {
+  url: string;
+  caption?: string;
+  name?: string;
+}): Record<string, unknown> {
+  const fullUrl = input.url.startsWith("http") ? input.url : `${env.siteUrl}${input.url}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    contentUrl: fullUrl,
+    url: fullUrl,
+    license: `${env.siteUrl}/privacy-policy`,
+    acquireLicensePage: `${env.siteUrl}/contact`,
+    creditText: business.name,
+    creator: {
+      "@type": "Organization",
+      name: business.name,
+      url: env.siteUrl
+    },
+    copyrightNotice: `© ${new Date().getFullYear()} ${business.name}. All rights reserved.`,
+    ...(input.caption ? { caption: input.caption } : {}),
+    ...(input.name ? { name: input.name } : {})
+  };
+}
+
+/**
+ * VideoObject schema for authentic vehicle walkthrough video — enables Google Video Search,
+ * Google SERP video snippets, and video carousels.
+ */
+export function videoObjectSchema(input: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  contentUrl: string;
+  embedUrl: string;
+  duration?: string;
+}): Record<string, unknown> {
+  const fullThumbnail = input.thumbnailUrl.startsWith("http") ? input.thumbnailUrl : `${env.siteUrl}${input.thumbnailUrl}`;
+  const fullContent = input.contentUrl.startsWith("http") ? input.contentUrl : `${env.siteUrl}${input.contentUrl}`;
+  const fullEmbed = input.embedUrl.startsWith("http") ? input.embedUrl : `${env.siteUrl}${input.embedUrl}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: input.name,
+    description: input.description,
+    thumbnailUrl: [fullThumbnail],
+    uploadDate: input.uploadDate,
+    contentUrl: fullContent,
+    embedUrl: fullEmbed,
+    ...(input.duration ? { duration: input.duration } : {}),
+    publisher: { "@id": `${env.siteUrl}/#organization` }
+  };
+}
+

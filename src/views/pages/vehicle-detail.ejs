@@ -12,15 +12,49 @@
       </div>
 
       <% if (gallery.length) { %>
-      <div class="grid grid-cols-3 gap-3 mt-3">
-        <% gallery.forEach(function(img, i) { %>
-        <a href="<%= img %>" target="_blank" rel="noopener" class="block rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-ink-100 hover:ring-brand-300 transition-shadow">
-          <%- include('../components/smart-image', {
-            src: img, seed: `${vehicle.slug}-${i}`, icon: vehicleCategoryIcon(vehicle.category), label: '',
-            alt: `${vehicle.name} — additional photo ${i + 1}`, cls: 'w-full h-full'
-          }) %>
-        </a>
-        <% }); %>
+      <div class="mt-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-ink-500 uppercase tracking-wider">Fleet Photo Gallery (<%= gallery.length %> photos)</span>
+          <span class="text-xs text-ink-400">Click to view full resolution</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+          <% gallery.forEach(function(img, i) { %>
+          <a href="<%= img %>" target="_blank" rel="noopener" class="group relative block rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-ink-100 hover:ring-brand-500 transition-all hover:shadow-md">
+            <%- include('../components/smart-image', {
+              src: img, seed: `${vehicle.slug}-${i}`, icon: vehicleCategoryIcon(vehicle.category), label: '',
+              alt: `${vehicle.name} — Bangalore fleet photo ${i + 1}`, cls: 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+            }) %>
+            <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/20 transition-colors flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-ink-900 rounded-full p-1.5 shadow-sm">
+                <%- include('../partials/icon', { name: 'external-link', cls: 'w-3.5 h-3.5' }) %>
+              </span>
+            </div>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+      <% } %>
+
+      <% if (typeof videoUrl !== "undefined" && videoUrl) { %>
+      <div class="mt-8 rounded-2xl bg-ink-900 text-white p-5 sm:p-6 shadow-xl border border-ink-800">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-brand-500 text-white">
+              <%- include('../partials/icon', { name: 'play', cls: 'w-4 h-4 translate-x-0.5' }) %>
+            </span>
+            <div>
+              <h2 class="font-display font-bold text-lg text-white">Vehicle Video Walkthrough</h2>
+              <p class="text-xs text-ink-300">Genuine cabin interior, Maharaja recliners &amp; luxury amenities</p>
+            </div>
+          </div>
+          <span class="badge bg-brand-500/20 text-brand-300 border-brand-500/40 text-[11px] font-semibold">Verified Real Fleet</span>
+        </div>
+        <div class="relative rounded-xl overflow-hidden aspect-video bg-black/80 shadow-inner">
+          <video controls playsinline preload="metadata" poster="<%= gallery[0] || vehicle.imageKey || '' %>" class="w-full h-full object-cover">
+            <source src="<%= videoUrl %>" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
       </div>
       <% } %>
 

@@ -67,9 +67,10 @@ router.get("/:slug", async (req, res, next) => {
     ];
 
     const canonicalPath = `/routes/${route.slug}`;
+    const destTitle = route.destination ? route.destination.split(" (")[0] || route.destination : "Destination";
     res.render("pages/route-detail", {
-      title: `Bangalore to ${route.destination.split(' (')[0]} Cab | Yogi Tours`,
-      metaDescription: `Bangalore to ${route.destination} cab — approx ${route.distanceKm} km, ${route.travelTimeHours}. Innova, Tempo Traveller rental and more with transparent per-km pricing.`,
+      title: `Bangalore to ${destTitle} Cab | Yogi Tours`,
+      metaDescription: `Bangalore to ${route.destination || "Destination"} cab — approx ${route.distanceKm} km, ${route.travelTimeHours}. Innova, Tempo Traveller rental and more with transparent per-km pricing.`,
       canonicalPath,
       crumbs: [
         { name: "Home", url: "/" },

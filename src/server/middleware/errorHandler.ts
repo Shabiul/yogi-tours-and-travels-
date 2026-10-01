@@ -19,6 +19,7 @@ function ensureViewLocals(req: Request, res: Response): void {
 
 export function notFoundHandler(req: Request, res: Response): void {
   ensureViewLocals(req, res);
+  res.set("X-Robots-Tag", "noindex, nofollow");
   res.status(404).render("pages/404", {
     title: "Page Not Found | Yogi Tours & Travels",
     metaDescription: "The page you're looking for doesn't exist or may have moved.",
@@ -28,8 +29,9 @@ export function notFoundHandler(req: Request, res: Response): void {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function errorHandler(err: Error, req: Request, res: Response, _next: NextFunction): void {
-  console.error("Unhandled error:", err);
+  console.error(`[500 ERROR] ${req.method} ${req.originalUrl}:`, err);
   ensureViewLocals(req, res);
+  res.set("X-Robots-Tag", "noindex, nofollow");
   const status = 500;
   res.status(status).render("pages/500", {
     title: "Something Went Wrong | Yogi Tours & Travels",

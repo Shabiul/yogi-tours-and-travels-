@@ -99,4 +99,13 @@ router.get("/car-rental-:slug", async (req, res, next) => {
   }
 });
 
+router.get("/:slug", (req, res, next) => {
+  const location = findLocation(req.params.slug);
+  if (location) {
+    res.redirect(301, `/locations/car-rental-${location.slug}`);
+    return;
+  }
+  next();
+});
+
 export default router;

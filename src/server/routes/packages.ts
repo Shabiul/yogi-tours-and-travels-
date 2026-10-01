@@ -21,6 +21,13 @@ router.get("/", async (req, res, next) => {
       packages = packages.filter((p) => !p.destination.includes("Karnataka"));
     }
 
+    // Soft 404 Prevention: If user/crawler requests a filter combo with 0 packages,
+    // redirect 301 to the canonical /tour-packages so Google doesn't flag an empty page.
+    if ((categoryFilter || regionFilter) && packages.length === 0) {
+      res.redirect(301, "/tour-packages");
+      return;
+    }
+
     res.render("pages/packages-list", {
       title: "Tour Packages from Bangalore | Coorg, Mysore, Goa",
       metaDescription:
@@ -82,14 +89,12 @@ router.get("/:slug", async (req, res, next) => {
       }
     ];
 
-    res.render("pages/package-detail", {
-      title: `${pkg.title} | ${shortDuration(pkg.duration)} from Bangalore`,
-      metaDescription: clampDescription(`${pkg.title} — ${pkg.duration} tour package from Bangalore to ${pkg.destination}. ${pkg.idealFor}`),
-      // destination is often "Place, State" — split off just the place name
-      // for the "bangalore to X" phrase so it doesn't read as one run-on
-      // phrase with a comma buried in the middle of it.
-      metaKeywords: `${pkg.title.toLowerCase()}, bangalore to ${pkg.destination.split(",")[0]!.trim().toLowerCase()} package, ${pkg.destination.toLowerCase()} tour package from bangalore, ${pkg.travelCategory.toLowerCase()} tour package bangalore`,
-      canonicalPath: `/tour-packages/${pkg.slug}`,
+      const destCity = (pkg.destination || "").split(",")[0]?.trim().toLowerCase() || "destination";
+      res.render("pages/package-detail", {
+        title: `${pkg.title} | ${shortDuration(pkg.duration)} from Bangalore`,
+        metaDescription: clampDescription(`${pkg.title} — ${pkg.duration} tour package from Bangalore to ${pkg.destination || "South India"}. ${pkg.idealFor}`),
+        metaKeywords: `${pkg.title.toLowerCase()}, bangalore to ${destCity} package, ${(pkg.destination || "south india").toLowerCase()} tour package from bangalore, ${pkg.travelCategory.toLowerCase()} tour package bangalore`,
+        canonicalPath: `/tour-packages/${pkg.slug}`,
       crumbs: [
         { name: "Home", url: "/" },
         { name: "Tours & Packages", url: "/tour-packages" },

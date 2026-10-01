@@ -9,7 +9,7 @@ import {
   packagesForVehicle,
   findVehicleBySlugOrAlias
 } from "../db/content.js";
-import { vehicleServiceSchema, breadcrumbSchema, serviceSchema, faqSchema, speakableSchema } from "../utils/schema.js";
+import { vehicleServiceSchema, breadcrumbSchema, serviceSchema, faqSchema, speakableSchema, videoObjectSchema } from "../utils/schema.js";
 import { env, business } from "../config/env.js";
 import { clampDescription } from "../utils/meta.js";
 import { TRIP_ROUTES } from "../config/tripRoutes.js";
@@ -32,8 +32,11 @@ const CATEGORY_RENTAL_LABEL: Record<VehicleCategory, string> = {
 // claim on every vehicle) since it's backed by the business's real 4.9★/210
 // Google rating stated in the meta description below, not an empty boast.
 const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
+  "force-urbania": "Force Urbania Rental Bangalore | Luxury 17 Seater Maharaja Van | Yogi Tours",
+  "urbania-12-seater-maharaja": "12 Seater Maharaja Force Urbania Bangalore | Luxury Recliner Van | Yogi Tours",
   "maharaja-tempo-traveller": "Best 12 Seater Tempo Traveller Bangalore | Yogi Tours",
-  "tempo-traveller-17-seater": "Best 17 Seater Tempo Traveller Bangalore | Yogi Tours"
+  "tempo-traveller-17-seater": "Best 17 Seater Tempo Traveller Bangalore | Yogi Tours",
+  "innova-crysta": "Toyota Innova Crysta Rental Bangalore | Premium 7 Seater Cab | Yogi Tours"
 };
 
 // Real, honest Q&A phrased close to how people actually search/ask AI
@@ -43,6 +46,55 @@ const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
 // addition, so nothing here overstates what's true for a vehicle without
 // a written answer.
 const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
+  "force-urbania": [
+    {
+      question: "Where can I rent a luxury Force Urbania in Bangalore?",
+      answer:
+        "Yogi Tours & Travels provides luxury Force Urbania rentals across Bangalore (Bengaluru) with verified commercial chauffeurs. Pickups are available from Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Yelahanka, Hebbal, Jayanagar, JP Nagar, Marathahalli, and Kempegowda International Airport (BLR)."
+    },
+    {
+      question: "What luxury features and amenities are included in the Force Urbania?",
+      answer:
+        "Our Force Urbania is custom-equipped with Maharaja reclining captain seats with deployed calf/leg rest support, mounted Sony Bravia LED Smart TV, built-in on-board Blackcat refrigerator/chiller box for cold drinks, ambient blue neon mood lighting, panoramic side windows with retractable sunblinds, individual USB fast-charging ports, and individual AC louvers."
+    },
+    {
+      question: "How many passenger seats are available in the Force Urbania?",
+      answer:
+        "We offer the Force Urbania in two configurations: a 12-seater Maharaja edition with extra-wide business-class recliner captain seats (2+1 and 1+1 layout), and a 17-seater executive configuration for larger family groups, corporate offsites, wedding guest transportation, and pilgrimage tours."
+    },
+    {
+      question: "What is the rental price for Force Urbania in Bangalore?",
+      answer:
+        "Force Urbania starts at ₹38/km with a standard 300 km daily minimum and a ₹700/day driver Bata. Tolls, parking, and interstate permits are billed at actuals. Every quotation is itemised and confirmed upfront before you book."
+    },
+    {
+      question: "Can I book the Force Urbania for outstation trips from Bangalore?",
+      answer:
+        "Yes — the Force Urbania is our most popular luxury group vehicle for multi-day outstation tours across Karnataka and South India, including Coorg, Ooty, Chikmagalur, Wayanad, Mysore, Hampi, Tirupati, and Goa."
+    }
+  ],
+  "urbania-12-seater-maharaja": [
+    {
+      question: "What makes the Urbania 12 Seater Maharaja different from regular Tempo Travellers?",
+      answer:
+        "The 12 Seater Maharaja Force Urbania features bespoke individual captain chairs trimmed in quilted tan and ivory leather with calf-support leg recliners, dual blue neon ceiling light rails, high-roof walkthrough cabin, Sony Bravia Smart TV, on-board cold storage, and panoramic tinted windows with privacy curtains — offering business-class flight comfort on the highway."
+    },
+    {
+      question: "Is the 12 Seater Maharaja Urbania suitable for corporate and wedding travel in Bangalore?",
+      answer:
+        "Yes. It is specifically designed for executive delegations, client visits, luxury wedding VIP guest shuttles, and premium family getaways where cabin quietness, legroom, and presentation matter as much as capacity."
+    },
+    {
+      question: "What is the seating arrangement inside the 12 Seater Maharaja Urbania?",
+      answer:
+        "It features a spacious 2x1 and 1x1 captain seat layout with a central walkthrough aisle, wide legroom, individual armrests, cup holders, USB charging points at every seat, and a dedicated rear luggage boot for 12+ large suitcases."
+    },
+    {
+      question: "How do I book the 12 Seater Maharaja Urbania in Bangalore?",
+      answer:
+        "You can book directly through our website booking widget, call, or WhatsApp us at +91 98867 70099 anytime. Our team operates 24/7 to provide instant availability and a transparent quotation."
+    }
+  ],
   "tempo-traveller-17-seater": [
     {
       question: "Where can I find the best 17 seater Tempo Traveller in Bangalore?",
@@ -112,7 +164,16 @@ function vehicleKeywords(vehicle: Vehicle, label: string): string {
     `${vehicle.seats} seater ${label.toLowerCase()} in bangalore`
   ];
   if (n.includes("urbania")) {
-    base.push(`force urbania tempo traveller in bangalore`, `${vehicle.seats} seater force urbania tempo traveller in bangalore`);
+    base.push(
+      `force urbania tempo traveller in bangalore`,
+      `${vehicle.seats} seater force urbania tempo traveller in bangalore`,
+      `force urbania rental bangalore`,
+      `luxury force urbania in bangalore`,
+      `maharaja urbania rental bangalore`,
+      `force urbania price per km bangalore`,
+      `force urbania outstation bangalore`,
+      `12 seater maharaja urbania bangalore`
+    );
   }
   return base.join(", ");
 }
@@ -244,6 +305,19 @@ router.get("/:category/:slug", async (req, res, next) => {
     // Crysta, etc.) get it appended.
     const seatSuffix = vehicle.name.toLowerCase().includes(`${vehicle.seats} seat`) ? "" : ` (${vehicle.seats} seater)`;
     const vehicleFaqs = VEHICLE_FAQS[vehicle.slug] ?? genericVehicleFaqs(vehicle, CATEGORY_RENTAL_LABEL[category]);
+    const features = vehicleFeatures(vehicle);
+    const gallery = vehicleGallery(vehicle);
+    const hasWalkthroughVideo = vehicle.slug === "force-urbania" || vehicle.slug === "urbania-12-seater-maharaja";
+    const videoUrl = hasWalkthroughVideo ? "/assets/video/force-urbania-luxury-walkthrough.mp4" : undefined;
+    const brandName = vehicle.name.toLowerCase().includes("force") || vehicle.name.toLowerCase().includes("urbania")
+      ? "Force Motors"
+      : vehicle.name.toLowerCase().includes("innova") || vehicle.name.toLowerCase().includes("toyota")
+      ? "Toyota"
+      : vehicle.name.toLowerCase().includes("maruti") || vehicle.name.toLowerCase().includes("dzire") || vehicle.name.toLowerCase().includes("ertiga")
+      ? "Maruti Suzuki"
+      : vehicle.category === "tempo-traveller"
+      ? "Force Motors"
+      : undefined;
 
     res.render("pages/vehicle-detail", {
       title: VEHICLE_TITLE_OVERRIDE[vehicle.slug] ?? `${vehicle.name} Rental Bangalore | Yogi Tours`,
@@ -258,8 +332,9 @@ router.get("/:category/:slug", async (req, res, next) => {
       ],
       vehicle,
       label,
-      features: vehicleFeatures(vehicle),
-      gallery: vehicleGallery(vehicle),
+      features,
+      gallery,
+      videoUrl,
       related,
       featuredInPackages,
       relevantRoutes,
@@ -270,6 +345,11 @@ router.get("/:category/:slug", async (req, res, next) => {
           description: vehicle.description,
           url: `/fleet/${category}/${vehicle.slug}`,
           imageUrl: vehicle.imageKey ? `${env.siteUrl}${vehicle.imageKey}` : undefined,
+          images: gallery.map((g) => `${env.siteUrl}${g}`),
+          features,
+          seats: vehicle.seats,
+          brand: brandName,
+          model: vehicle.name,
           ratePerKm: vehicle.ratePerKm,
           dateModified: vehicle.updatedAt
         }),
@@ -279,6 +359,19 @@ router.get("/:category/:slug", async (req, res, next) => {
           { name: label, url: `/fleet/${category}` },
           { name: vehicle.name, url: `/fleet/${category}/${vehicle.slug}` }
         ]),
+        ...(hasWalkthroughVideo
+          ? [
+              videoObjectSchema({
+                name: `${vehicle.name} Luxury Walkthrough Video — Bangalore Rental`,
+                description: `Full interior and exterior video tour of the ${vehicle.name} featuring motorized Maharaja recliners, Sony Bravia Smart TV, and on-board chiller box.`,
+                thumbnailUrl: gallery[0] ?? (vehicle.imageKey || "/assets/images/gallery/force-urbania-luxury-cabin-interior.webp"),
+                uploadDate: "2026-10-01T10:30:00+05:30",
+                contentUrl: "/assets/video/force-urbania-luxury-walkthrough.mp4",
+                embedUrl: `/fleet/${category}/${vehicle.slug}`,
+                duration: "PT1M44S"
+              })
+            ]
+          : []),
         ...(vehicleFaqs
           ? [faqSchema(vehicleFaqs), speakableSchema(`/fleet/${category}/${vehicle.slug}`, ["#faq"])]
           : [])

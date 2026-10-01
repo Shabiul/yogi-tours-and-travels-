@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { createRepo, parseJsonArray } from "./repo.js";
 import { cached } from "../utils/cache.js";
 import type {
@@ -11,6 +14,9 @@ import type {
   VehicleCategory,
   GalleryCategory
 } from "../types/models.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const publicDir = path.resolve(__dirname, "../../../public");
 
 export const vehiclesRepo = createRepo<Vehicle>({ table: "vehicles" });
 export const servicesRepo = createRepo<Service>({ table: "services" });
@@ -120,10 +126,157 @@ export async function publishedBlogPosts(): Promise<BlogPost[]> {
   return cached("blog:published", CONTENT_CACHE_TTL_SECONDS, () => blogRepo.allWhere("published = 1"));
 }
 
+const DEFAULT_CATEGORY_PHOTOS: Record<GalleryCategory, Array<{ imageKey: string; altText: string; caption: string }>> = {
+  Vehicles: [
+    {
+      imageKey: "/assets/images/gallery/force-urbania-luxury-cabin-interior.webp",
+      altText: "Force Urbania Maharaja luxury cabin interior with Sony TV and recliner captain seats",
+      caption: "Force Urbania Maharaja Cabin"
+    },
+    {
+      imageKey: "/assets/images/gallery/force-urbania-front-exterior.webp",
+      altText: "Force Urbania metallic dark grey exterior front view in Bangalore",
+      caption: "Force Urbania Exterior"
+    },
+    {
+      imageKey: "/assets/images/gallery/urbania-12-seater-maharaja-white-exterior.webp",
+      altText: "12 Seater Maharaja Force Urbania pearl white van with tinted panoramic windows",
+      caption: "12 Seater Maharaja Urbania"
+    },
+    {
+      imageKey: "/assets/images/gallery/force-urbania-maharaja-recliner-seat.webp",
+      altText: "Custom Maharaja recliner captain seat with extendable calf rest and footrest",
+      caption: "Maharaja Recliner Seat with Footrest"
+    },
+    {
+      imageKey: "/assets/images/gallery/urbania-12-seater-maharaja-neon-ceiling.webp",
+      altText: "Urbania 12 Seater Maharaja cabin with dual blue neon ceiling mood lighting",
+      caption: "Dual Blue Neon Ambient Ceiling"
+    }
+  ],
+  Corporate: [
+    {
+      imageKey: "/assets/images/gallery/force-urbania-driver-cockpit-dashboard.webp",
+      altText: "Executive cockpit with ivory dash, wood-finish center console and infotainment screen",
+      caption: "Executive Cockpit & Dashboard"
+    },
+    {
+      imageKey: "/assets/images/gallery/force-urbania-onboard-chiller-fridge.webp",
+      altText: "On-board Blackcat refrigerator and chiller box for corporate delegating travel",
+      caption: "On-board Beverage Chiller"
+    },
+    {
+      imageKey: "/assets/images/gallery/force-urbania-entertainment-smart-tv.webp",
+      altText: "Mounted Sony Bravia Smart LED TV for on-road corporate presentations and media",
+      caption: "Sony Bravia Smart TV"
+    }
+  ],
+  "Group Travel": [
+    {
+      imageKey: "/assets/images/gallery/urbania-12-seater-maharaja-tan-leather-seats.webp",
+      altText: "Tan leather luxury captain seating for group outstation travel from Bangalore",
+      caption: "Tan Leather Captain Seating"
+    },
+    {
+      imageKey: "/assets/images/gallery/force-urbania-blue-ambient-lighting.webp",
+      altText: "Ambient blue LED seat illumination and USB fast chargers for night travel",
+      caption: "Night Travel Ambient Illumination"
+    },
+    {
+      imageKey: "/assets/images/gallery/tempo-traveller-exterior-view.jpg",
+      altText: "Tempo Traveller prepared for group outstation journey",
+      caption: "Group Tempo Traveller"
+    }
+  ],
+  Tours: [
+    {
+      imageKey: "/assets/images/gallery/ooty-tea-garden-panorama-01.jpg",
+      altText: "Scenic tea estate vista on Bangalore to Ooty hill tour",
+      caption: "Ooty Tea Garden Vista"
+    },
+    {
+      imageKey: "/assets/images/gallery/ghat-road-mountain-viewpoint-01.jpg",
+      altText: "Mountain pass drive on Karnataka Western Ghats route",
+      caption: "Western Ghats Mountain Drive"
+    },
+    {
+      imageKey: "/assets/images/gallery/misty-hills-panorama.jpg",
+      altText: "Misty morning hill roads on outstation holiday",
+      caption: "Misty Mountain Trail"
+    }
+  ],
+  Weddings: [
+    {
+      imageKey: "/assets/images/gallery/coastal-resort-lawn-palms-01.jpg",
+      altText: "Wedding destination resort venue transportation in Karnataka",
+      caption: "Destination Wedding Venue"
+    },
+    {
+      imageKey: "/assets/images/gallery/urbania-12-seater-maharaja-white-exterior.webp",
+      altText: "White Force Urbania VIP wedding guest shuttle in Bangalore",
+      caption: "White Urbania Wedding Shuttle"
+    }
+  ],
+  Destinations: [
+    {
+      imageKey: "/assets/images/gallery/tirupati-hills-temple-gopuram.jpg",
+      altText: "Tirupati Balaji temple gopuram on outstation pilgrimage package from Bangalore",
+      caption: "Tirupati Temple Gopuram"
+    },
+    {
+      imageKey: "/assets/images/gallery/forest-waterfall-view.jpg",
+      altText: "Waterfalls near Coorg and Western Ghats tour",
+      caption: "Coorg Waterfall Sight"
+    },
+    {
+      imageKey: "/assets/images/gallery/coastal-resort-palm-silhouette-dusk.jpg",
+      altText: "Goa beach road trip sunset destination",
+      caption: "Coastal Goa Road Trip"
+    }
+  ]
+};
+
 export async function galleryByCategory(category: GalleryCategory | "All"): Promise<GalleryItem[]> {
-  return cached(`gallery:byCategory:${category}`, CONTENT_CACHE_TTL_SECONDS, () =>
-    category === "All" ? galleryRepo.all() : galleryRepo.allWhere("category = ?", category)
-  );
+  return cached(`gallery:byCategory:${category}`, CONTENT_CACHE_TTL_SECONDS, async () => {
+    const rawItems = category === "All" ? await galleryRepo.all() : await galleryRepo.allWhere("category = ?", category);
+    
+    // If raw items have photos set, return them
+    const withPhotos = rawItems.filter((i) => i.imageKey && i.imageKey.trim() !== "");
+    if (withPhotos.length > 0) return rawItems;
+
+    // Fallback enrich with authentic fleet assets
+    if (category === "All") {
+      const allDefaults: GalleryItem[] = [];
+      let nextId = 1;
+      for (const [cat, photos] of Object.entries(DEFAULT_CATEGORY_PHOTOS)) {
+        for (const p of photos) {
+          allDefaults.push({
+            id: nextId++,
+            category: cat as GalleryCategory,
+            imageKey: p.imageKey,
+            altText: p.altText,
+            caption: p.caption,
+            sortOrder: nextId,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          });
+        }
+      }
+      return allDefaults;
+    }
+
+    const defaults = DEFAULT_CATEGORY_PHOTOS[category] || [];
+    return defaults.map((p, idx) => ({
+      id: idx + 1,
+      category,
+      imageKey: p.imageKey,
+      altText: p.altText,
+      caption: p.caption,
+      sortOrder: idx + 1,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }));
+  });
 }
 
 const GALLERY_CATEGORY_ICONS: Record<GalleryCategory, string> = {
@@ -136,10 +289,7 @@ const GALLERY_CATEGORY_ICONS: Record<GalleryCategory, string> = {
 };
 
 /**
- * One real photo per gallery category, for the homepage teaser. Categories
- * with no real photo yet (imageKey never set) are skipped entirely rather
- * than shown as an empty placeholder tile — the "View Full Gallery" link
- * covers the rest.
+ * One real photo per gallery category, for the homepage teaser.
  */
 export async function galleryPreview(): Promise<
   Array<{ category: GalleryCategory; icon: string; imageKey: string; altText: string }>
@@ -149,7 +299,13 @@ export async function galleryPreview(): Promise<
     const items = await Promise.all(
       categories.map(async (category) => {
         const [first] = await galleryRepo.allWhere('category = ? AND "imageKey" != \'\'', category);
-        return first ? { category, icon: GALLERY_CATEGORY_ICONS[category], imageKey: first.imageKey, altText: first.altText } : null;
+        if (first) {
+          return { category, icon: GALLERY_CATEGORY_ICONS[category], imageKey: first.imageKey, altText: first.altText };
+        }
+        const defaultItem = DEFAULT_CATEGORY_PHOTOS[category]?.[0];
+        return defaultItem
+          ? { category, icon: GALLERY_CATEGORY_ICONS[category], imageKey: defaultItem.imageKey, altText: defaultItem.altText }
+          : null;
       })
     );
     return items.filter((i): i is NonNullable<typeof i> => i !== null);
@@ -191,7 +347,49 @@ export function vehicleFeatures(v: Vehicle): string[] {
 }
 
 export function vehicleGallery(v: Vehicle): string[] {
-  return parseJsonArray(v.gallery);
+  const fromDb = parseJsonArray(v.gallery);
+  if (fromDb.length > 0) return fromDb;
+
+  // Dynamically discover all matching vehicle photos saved in public/assets/images/vehicles
+  const vDir = path.join(publicDir, "assets/images/vehicles");
+  if (!fs.existsSync(vDir)) return [];
+  try {
+    const files = fs.readdirSync(vDir);
+    const prefix = `${v.slug}--`;
+    const aliasPrefix = VEHICLE_SLUG_ALIASES[v.slug] ? `${VEHICLE_SLUG_ALIASES[v.slug]}--` : null;
+    const matches = files
+      .filter(
+        (f) =>
+          (f.startsWith(prefix) || (aliasPrefix && f.startsWith(aliasPrefix))) &&
+          /\.(webp|jpg|jpeg|png)$/i.test(f)
+      )
+      .map((f) => `/assets/images/vehicles/${f}`);
+
+    // Prefer WebP versions and sort hero/front first
+    matches.sort((a, b) => {
+      if (a.includes("hero") || a.includes("front")) return -1;
+      if (b.includes("hero") || b.includes("front")) return 1;
+      return a.localeCompare(b);
+    });
+
+    if (v.slug === "urbania-12-seater-maharaja") {
+      const extraHighlights = [
+        "/assets/images/vehicles/force-urbania--maharaja-recliner.webp",
+        "/assets/images/vehicles/force-urbania--ambient-lighting.webp",
+        "/assets/images/vehicles/force-urbania--sony-tv.webp",
+        "/assets/images/vehicles/force-urbania--fridge-open.webp",
+        "/assets/images/vehicles/force-urbania--window-blind.webp"
+      ];
+      for (const extra of extraHighlights) {
+        if (!matches.includes(extra) && fs.existsSync(path.join(publicDir, extra.replace(/^\//, "")))) {
+          matches.push(extra);
+        }
+      }
+    }
+    return matches;
+  } catch {
+    return [];
+  }
 }
 
 export function serviceHighlights(s: Service): string[] {

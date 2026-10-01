@@ -83,19 +83,51 @@ app.use((req, res, next) => {
   );
   next();
 });
-// Vulnerability-scanner background noise that hits every public domain on
-// the internet constantly (this site runs no WordPress/PHP, so none of
-// these can ever be a real route) — rejected before the DB schema wait,
-// session, and Redis page-cache lookup that every other request pays for,
-// so this traffic costs as little compute as possible per hit. It still
-// counts as one Vercel Edge Request/Function Invocation either way —
-// stopping it from reaching the edge at all needs Vercel's Firewall
-// (blocking by path/rate), which is a Pro-plan feature this project's
-// Hobby-tier account doesn't have.
-const JUNK_PATH_RE = /^\/(?:wp-|xmlrpc\.php|comments\/feed|tag\/|cate-\d|\.env|\.git|phpmyadmin|wordpress\/)/i;
+// 1. Legacy URLs from the previous website — 301 to the closest current page
+// so any residual Google ranking/backlinks transfer instead of hitting a 404/410.
+// LEGACY_REDIRECTS keys never have a trailing slash, so normalize the incoming path first.
+// Running this BEFORE junk path filtering ensures valuable legacy URLs (like /tag/tempo-traveller-rental-bangalore)
+// are redirected to their real destination instead of getting rejected as junk.
+app.use((req, res, next) => {
+  const normalizedPath = req.path.length > 1 && req.path.endsWith("/") ? req.path.slice(0, -1) : req.path;
+  const target = LEGACY_REDIRECTS[normalizedPath];
+  if (target) {
+    res.redirect(301, target);
+    return;
+  }
+  next();
+});
+
+// 2. Query parameter spam cleaner (Resolves 109,320 "Crawled - currently not indexed" and Soft 404s):
+// Automated bots/scanners on old WordPress generated hundreds of thousands of ?s=..., ?p=..., ?attachment_id=...
+// Sending HTTP 410 Gone with X-Robots-Tag: noindex tells Googlebot to purge these URLs immediately from index.
+const SPAM_QUERY_PARAMS = ["s", "attachment_id", "replytocom", "author", "m", "p", "feed", "preview"];
+app.use((req, res, next) => {
+  if (req.method === "GET") {
+    const hasSpamQuery = SPAM_QUERY_PARAMS.some((k) => k in req.query);
+    if (hasSpamQuery) {
+      res
+        .set("X-Robots-Tag", "noindex, nofollow")
+        .status(410)
+        .type("text/plain")
+        .send("Gone: Legacy query endpoint permanently removed.");
+      return;
+    }
+  }
+  next();
+});
+
+// 3. Obsolete WordPress / scanner paths (Resolves 82,195 404s and 17,609 403s):
+// Returning HTTP 410 Gone with X-Robots-Tag: noindex tells Google's indexer that these files were
+// deliberately and permanently removed, freeing up Google crawl budget and purging dead URLs.
+const JUNK_PATH_RE = /^\/(?:wp-|xmlrpc\.php|comments\/feed|tag\/|category\/|author\/|feed\/|trackback|cate-\d|\.env|\.git|phpmyadmin|wordpress\/)/i;
 app.use((req, res, next) => {
   if (req.method === "GET" && JUNK_PATH_RE.test(req.path)) {
-    res.status(404).type("text/plain").send("Not found");
+    res
+      .set("X-Robots-Tag", "noindex, nofollow")
+      .status(410)
+      .type("text/plain")
+      .send("Gone: This legacy resource has been permanently removed.");
     return;
   }
   next();
@@ -138,21 +170,6 @@ app.use(
     }
   })
 );
-
-// Legacy URLs from the previous website — 301 to the closest current page
-// so any residual Google ranking/backlinks transfer instead of hitting a 404.
-// LEGACY_REDIRECTS keys never have a trailing slash, so normalize the
-// incoming path first — this makes one entry cover both "/path" and
-// "/path/" instead of needing two keys per legacy URL.
-app.use((req, res, next) => {
-  const normalizedPath = req.path.length > 1 && req.path.endsWith("/") ? req.path.slice(0, -1) : req.path;
-  const target = LEGACY_REDIRECTS[normalizedPath];
-  if (target) {
-    res.redirect(301, target);
-    return;
-  }
-  next();
-});
 
 // Scoped to /admin only: CSRF tokens are only ever checked on admin forms
 // (verifyCsrfToken is never used outside src/server/routes/admin/*). Running

@@ -31,10 +31,15 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <% if (__noindex) { %>
   <meta name="robots" content="noindex, nofollow" />
   <% } else { %>
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <% } %>
+  <link rel="alternate" hreflang="en-IN" href="<%= __canonical %>" />
+  <link rel="alternate" hreflang="x-default" href="<%= __canonical %>" />
+  <meta name="rating" content="general" />
 
-  <!-- Geo tags — legacy but still read by some local directories/crawlers -->
+  <!-- Geo tags — legacy but still read by local directories and local search engines -->
   <meta name="geo.region" content="IN-KA" />
   <meta name="geo.placename" content="Bengaluru" />
   <meta name="ICBM" content="<%= business.geo.latitude %>, <%= business.geo.longitude %>" />
@@ -47,6 +52,7 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <meta property="og:description" content="<%= __desc %>" />
   <meta property="og:url" content="<%= __canonical %>" />
   <meta property="og:image" content="<%= __ogImage %>" />
+  <meta property="og:image:alt" content="<%= __title %>" />
   <% if (!__hasCustomOgImage) { %>
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -62,11 +68,12 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <meta property="article:publisher" content="<%= env.siteUrl %>" />
   <% } %>
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="<%= __title %>" />
   <meta name="twitter:description" content="<%= __desc %>" />
   <meta name="twitter:image" content="<%= __ogImage %>" />
+  <meta name="twitter:image:alt" content="<%= __title %>" />
 
   <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/assets/images/favicon-512.png" sizes="512x512" type="image/png" />
