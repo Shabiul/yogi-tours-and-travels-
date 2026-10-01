@@ -18,7 +18,82 @@ import type {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.resolve(__dirname, "../../../public");
 
-export const vehiclesRepo = createRepo<Vehicle>({ table: "vehicles" });
+export const VEHICLE_SLUG_ALIASES: Record<string, string> = {
+  "9-seater-tempo-traveller": "tempo-traveller-12-seater",
+  "tempo-traveller-12-seater": "9-seater-tempo-traveller"
+};
+
+/**
+ * Resolves the primary customer-facing image for a vehicle.
+ * Checks the database imageKey first; if empty, missing, or pointing to a non-existent file,
+ * dynamically discovers the best matching photo from public/assets/images/vehicles.
+ */
+export function resolveVehicleImage(v: { slug: string; category?: string; imageKey?: string | null }): string {
+  if (v.imageKey && v.imageKey.trim() !== "") {
+    const local = path.join(publicDir, v.imageKey.replace(/^\//, ""));
+    if (fs.existsSync(local)) return v.imageKey;
+  }
+
+  const vDir = path.join(publicDir, "assets/images/vehicles");
+  if (!fs.existsSync(vDir)) return v.imageKey || "";
+
+  const extensions = [".webp", ".jpg", ".jpeg", ".png"];
+  const suffixes = ["--front-01", "--exterior-hero", "--exterior", "--front-grey", ""];
+
+  const slugsToTry = [v.slug];
+  const alias = VEHICLE_SLUG_ALIASES[v.slug];
+  if (alias) slugsToTry.push(alias);
+
+  for (const s of slugsToTry) {
+    for (const suffix of suffixes) {
+      for (const ext of extensions) {
+        const candidate = `${s}${suffix}${ext}`;
+        if (fs.existsSync(path.join(vDir, candidate))) {
+          return `/assets/images/vehicles/${candidate}`;
+        }
+      }
+    }
+  }
+
+  // Fallbacks by category
+  if (v.category === "tourist-bus") {
+    if (fs.existsSync(path.join(vDir, "tourist-bus-40-seater--front-01.jpg"))) {
+      return "/assets/images/vehicles/tourist-bus-40-seater--front-01.jpg";
+    }
+  }
+
+  return v.imageKey || "";
+}
+
+export function hydrateVehicle<T extends Vehicle>(v: T): T {
+  const resolved = resolveVehicleImage(v);
+  if (resolved && v.imageKey !== resolved) {
+    return { ...v, imageKey: resolved };
+  }
+  return v;
+}
+
+const baseVehiclesRepo = createRepo<Vehicle>({ table: "vehicles" });
+export const vehiclesRepo = {
+  ...baseVehiclesRepo,
+  async all(): Promise<Vehicle[]> {
+    const list = await baseVehiclesRepo.all();
+    return list.map((item) => hydrateVehicle(item));
+  },
+  async allWhere(whereSql: string, ...params: unknown[]): Promise<Vehicle[]> {
+    const list = await baseVehiclesRepo.allWhere(whereSql, ...params);
+    return list.map((item) => hydrateVehicle(item));
+  },
+  async findById(id: number): Promise<Vehicle | undefined> {
+    const item = await baseVehiclesRepo.findById(id);
+    return item ? hydrateVehicle(item) : undefined;
+  },
+  async findBySlug(slug: string): Promise<Vehicle | undefined> {
+    const item = await baseVehiclesRepo.findBySlug(slug);
+    return item ? hydrateVehicle(item) : undefined;
+  }
+};
+
 export const servicesRepo = createRepo<Service>({ table: "services" });
 export const packagesRepo = createRepo<TourPackage>({ table: "packages" });
 export const faqsRepo = createRepo<Faq>({ table: "faqs" });
@@ -386,6 +461,13 @@ export function vehicleGallery(v: Vehicle): string[] {
         }
       }
     }
+
+    // Ensure primary resolved image is always in gallery if available
+    const primary = resolveVehicleImage(v);
+    if (primary && !matches.includes(primary) && fs.existsSync(path.join(publicDir, primary.replace(/^\//, "")))) {
+      matches.unshift(primary);
+    }
+
     return matches;
   } catch {
     return [];
@@ -404,21 +486,6 @@ export function packageVehicleOptions(p: TourPackage): string[] {
   return parseJsonArray(p.vehicleOptions);
 }
 
-/**
- * Vehicle slugs that have been renamed, mapped in both directions.
- *
- * Slugs live in the database (the admin regenerates them from the vehicle
- * name on save), so code must never assume a rename has already been applied
- * — a hardcoded slug that doesn't match the DB row yields a dead page. This
- * map lets a lookup succeed under either the old or the new slug, whichever
- * the DB currently holds, so the site stays correct before and after the
- * rename lands rather than depending on a manual step.
- */
-const VEHICLE_SLUG_ALIASES: Record<string, string> = {
-  "9-seater-tempo-traveller": "tempo-traveller-12-seater",
-  "tempo-traveller-12-seater": "9-seater-tempo-traveller"
-};
-
 /** Resolves a vehicle by slug, falling back to its known alias if the DB holds the other spelling. */
 export async function findVehicleBySlugOrAlias(slug: string): Promise<Vehicle | undefined> {
   const direct = await vehiclesRepo.findBySlug(slug);
@@ -426,3 +493,4 @@ export async function findVehicleBySlugOrAlias(slug: string): Promise<Vehicle | 
   const alias = VEHICLE_SLUG_ALIASES[slug];
   return alias ? await vehiclesRepo.findBySlug(alias) : undefined;
 }
+
