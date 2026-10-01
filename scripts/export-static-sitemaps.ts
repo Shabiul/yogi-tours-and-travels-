@@ -53,6 +53,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
 
 async function generateAll() {
   console.log("Generating static GSC XML sitemaps and robots.txt...");
+  const siteUrl = "https://www.yogitourstravels.com";
   const today = new Date().toISOString().slice(0, 10);
 
   const urls: Array<{
@@ -144,7 +145,7 @@ async function generateAll() {
     galleryEntry.images = galleryItems
       .filter((g) => Boolean(g.imageKey))
       .map((g) => ({
-        loc: g.imageKey.startsWith("http") ? g.imageKey : `${env.siteUrl}${g.imageKey}`,
+        loc: g.imageKey.startsWith("http") ? g.imageKey : `${siteUrl}${g.imageKey}`,
         title: g.caption || "Yogi Tours & Travels Fleet Gallery Bangalore",
         caption: g.altText || "Bangalore car, tempo traveller, and tourist bus rental photo"
       }));
@@ -156,14 +157,14 @@ async function generateAll() {
 
     if (v.imageKey) {
       vehicleImages.push({
-        loc: v.imageKey.startsWith("http") ? v.imageKey : `${env.siteUrl}${v.imageKey}`,
+        loc: v.imageKey.startsWith("http") ? v.imageKey : `${siteUrl}${v.imageKey}`,
         title: `${v.name} Rental Bangalore`,
         caption: `${v.name} available for hire with driver in Bangalore — ${v.tagline}`
       });
     }
 
     for (const g of gallery) {
-      const fullUrl = g.startsWith("http") ? g : `${env.siteUrl}${g}`;
+      const fullUrl = g.startsWith("http") ? g : `${siteUrl}${g}`;
       if (!vehicleImages.some((img) => img.loc === fullUrl)) {
         vehicleImages.push({
           loc: fullUrl,
@@ -195,7 +196,7 @@ async function generateAll() {
       changefreq: "weekly",
       lastmod: toLastmod(s.updatedAt),
       images: s.imageKey
-        ? [{ loc: s.imageKey.startsWith("http") ? s.imageKey : `${env.siteUrl}${s.imageKey}`, title: `${s.name} Bangalore`, caption: s.shortDescription }]
+        ? [{ loc: s.imageKey.startsWith("http") ? s.imageKey : `${siteUrl}${s.imageKey}`, title: `${s.name} Bangalore`, caption: s.shortDescription }]
         : undefined
     });
   }
@@ -206,7 +207,7 @@ async function generateAll() {
       priority: "0.8",
       changefreq: "weekly",
       images: p.imageKey
-        ? [{ loc: p.imageKey.startsWith("http") ? p.imageKey : `${env.siteUrl}${p.imageKey}`, title: `${p.title} Tour from Bangalore`, caption: `${p.title} (${p.duration}, ${p.destination}) by Yogi Tours & Travels` }]
+        ? [{ loc: p.imageKey.startsWith("http") ? p.imageKey : `${siteUrl}${p.imageKey}`, title: `${p.title} Tour from Bangalore`, caption: `${p.title} (${p.duration}, ${p.destination}) by Yogi Tours & Travels` }]
         : undefined
     });
   }
@@ -218,7 +219,7 @@ async function generateAll() {
       changefreq: "monthly",
       lastmod: toLastmod(post.updatedAt),
       images: post.coverImageKey
-        ? [{ loc: post.coverImageKey.startsWith("http") ? post.coverImageKey : `${env.siteUrl}${post.coverImageKey}`, title: post.title, caption: post.excerpt }]
+        ? [{ loc: post.coverImageKey.startsWith("http") ? post.coverImageKey : `${siteUrl}${post.coverImageKey}`, title: post.title, caption: post.excerpt }]
         : undefined
     });
   }
@@ -245,7 +246,7 @@ async function generateAll() {
 ${urls
   .map(
     (u) => `  <url>
-    <loc>${env.siteUrl}${escapeXml(u.path)}</loc>
+    <loc>${siteUrl}${escapeXml(u.path)}</loc>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ""}
   </url>`
@@ -263,7 +264,7 @@ ${urls
 ${urlsWithImages
   .map(
     (u) => `  <url>
-    <loc>${env.siteUrl}${escapeXml(u.path)}</loc>
+    <loc>${siteUrl}${escapeXml(u.path)}</loc>
 ${(u.images || [])
   .map(
     (img) => `    <image:image>
@@ -284,13 +285,13 @@ ${(u.images || [])
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>${env.siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</loc>
+    <loc>${siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</loc>
     <video:video>
-      <video:thumbnail_loc>${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
       <video:title>Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore</video:title>
       <video:description>Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.</video:description>
-      <video:content_loc>${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${env.siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</video:player_loc>
+      <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
+      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -298,13 +299,13 @@ ${(u.images || [])
     </video:video>
   </url>
   <url>
-    <loc>${env.siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</loc>
+    <loc>${siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</loc>
     <video:video>
-      <video:thumbnail_loc>${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
       <video:title>Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental</video:title>
       <video:description>Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.</video:description>
-      <video:content_loc>${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${env.siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</video:player_loc>
+      <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
+      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -312,13 +313,13 @@ ${(u.images || [])
     </video:video>
   </url>
   <url>
-    <loc>${env.siteUrl}/fleet/tempo-traveller/force-urbania</loc>
+    <loc>${siteUrl}/fleet/tempo-traveller/force-urbania</loc>
     <video:video>
-      <video:thumbnail_loc>${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
       <video:title>Force Urbania Luxury Van Hire Bangalore — Full Interior &amp; Features Walkthrough</video:title>
       <video:description>Detailed video demonstration of the Force Urbania luxury passenger van fleet in Bangalore by Yogi Tours &amp; Travels.</video:description>
-      <video:content_loc>${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${env.siteUrl}/fleet/tempo-traveller/force-urbania</video:player_loc>
+      <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
+      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -326,13 +327,13 @@ ${(u.images || [])
     </video:video>
   </url>
   <url>
-    <loc>${env.siteUrl}/</loc>
+    <loc>${siteUrl}/</loc>
     <video:video>
-      <video:thumbnail_loc>${env.siteUrl}/assets/images/destinations/hero-bangalore.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>${siteUrl}/assets/images/destinations/hero-bangalore.webp</video:thumbnail_loc>
       <video:title>Yogi Tours &amp; Travels Bangalore — Luxury Fleet &amp; Outstation Cab Service</video:title>
       <video:description>Overview of Yogi Tours &amp; Travels verified passenger fleet in Bangalore, covering cars, tempo travellers, and tourist buses across Karnataka and South India.</video:description>
-      <video:content_loc>${env.siteUrl}/assets/video/hero-background.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${env.siteUrl}/</video:player_loc>
+      <video:content_loc>${siteUrl}/assets/video/hero-background.mp4</video:content_loc>
+      <video:player_loc allow_embed="yes">${siteUrl}/</video:player_loc>
       <video:duration>30</video:duration>
       <video:publication_date>2026-10-01T09:00:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -347,15 +348,15 @@ ${(u.images || [])
   const masterIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>${env.siteUrl}/sitemap-pages.xml</loc>
+    <loc>${siteUrl}/sitemap-pages.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${env.siteUrl}/sitemap-images.xml</loc>
+    <loc>${siteUrl}/sitemap-images.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${env.siteUrl}/sitemap-videos.xml</loc>
+    <loc>${siteUrl}/sitemap-videos.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
 </sitemapindex>`;
@@ -448,10 +449,10 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: ${env.siteUrl}/sitemap.xml
-Sitemap: ${env.siteUrl}/sitemap-pages.xml
-Sitemap: ${env.siteUrl}/sitemap-images.xml
-Sitemap: ${env.siteUrl}/sitemap-videos.xml
+Sitemap: ${siteUrl}/sitemap.xml
+Sitemap: ${siteUrl}/sitemap-pages.xml
+Sitemap: ${siteUrl}/sitemap-images.xml
+Sitemap: ${siteUrl}/sitemap-videos.xml
 `;
   fs.writeFileSync(path.join(publicDir, "robots.txt"), robotsTxt, "utf8");
   console.log(`  ✓ Updated:   public/robots.txt (Master & Sub Sitemaps, AI Search Engines)`);
