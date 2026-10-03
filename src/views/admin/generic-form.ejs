@@ -47,7 +47,9 @@ const __item = item || {};
           <label class="form-label"><%= field.label %></label>
           <div class="flex items-center gap-4">
             <div class="w-24 h-20 rounded-lg overflow-hidden shrink-0 ring-1 ring-ink-200">
-              <%- include('../components/smart-image', { src: value, seed: String(__item.id || field.name), icon: 'image', label: '', alt: 'Current photo preview', cls: 'w-full h-full' }) %>
+              <a href="<%= value || '#' %>" target="_blank" rel="noopener" title="Current photo preview — Click to view full image" class="block w-full h-full group">
+                <%- include('../components/smart-image', { src: value, seed: String(__item.id || field.name), icon: 'image', label: '', alt: 'Current photo preview', title: 'Current photo preview', cls: 'w-full h-full group-hover:scale-105 transition-transform duration-300' }) %>
+              </a>
             </div>
             <div class="flex-1">
               <input type="file" name="imageFile" accept="image/*" class="form-input file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:bg-brand-50 file:text-brand-700 file:text-xs file:font-medium" />

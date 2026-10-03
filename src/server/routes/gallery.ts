@@ -18,9 +18,9 @@ router.get("/", async (req, res, next) => {
     ]);
 
     res.render("pages/gallery", {
-      title: "Gallery | Yogi Tours & Travels, Bangalore",
+      title: "Fleet & Tour Photo Gallery | Yogi Tours & Travels Bangalore",
       metaDescription:
-        "Browse photos of our vehicle fleet, group tours, corporate travel and wedding transportation from Yogi Tours & Travels, Bangalore.",
+        "View real photos of our Bangalore fleet: luxury Force Urbania, Innova Crysta, Tempo Travellers, tourist buses and memorable Karnataka group tours.",
       canonicalPath: "/gallery",
       crumbs: [
         { name: "Home", url: "/" },

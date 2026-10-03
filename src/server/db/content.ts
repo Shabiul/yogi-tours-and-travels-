@@ -20,7 +20,10 @@ const publicDir = path.resolve(__dirname, "../../../public");
 
 export const VEHICLE_SLUG_ALIASES: Record<string, string> = {
   "9-seater-tempo-traveller": "tempo-traveller-12-seater",
-  "tempo-traveller-12-seater": "9-seater-tempo-traveller"
+  "tempo-traveller-12-seater": "9-seater-tempo-traveller",
+  "swift-dzire": "maruti-swift-dzire",
+  "force-urbania-12-seater-maharaja": "urbania-12-seater-maharaja",
+  "force-urbania-17-seater-luxury": "force-urbania"
 };
 
 /**
@@ -73,32 +76,148 @@ export function hydrateVehicle<T extends Vehicle>(v: T): T {
   return v;
 }
 
+import {
+  DEFAULT_VEHICLES,
+  DEFAULT_SERVICES,
+  DEFAULT_PACKAGES,
+  DEFAULT_FAQS,
+  DEFAULT_TESTIMONIALS,
+  DEFAULT_GALLERY
+} from "../data/defaultData.js";
+
 const baseVehiclesRepo = createRepo<Vehicle>({ table: "vehicles" });
 export const vehiclesRepo = {
   ...baseVehiclesRepo,
   async all(): Promise<Vehicle[]> {
-    const list = await baseVehiclesRepo.all();
+    let list = await baseVehiclesRepo.all();
+    if (list.length === 0) list = DEFAULT_VEHICLES;
     return list.map((item) => hydrateVehicle(item));
   },
   async allWhere(whereSql: string, ...params: unknown[]): Promise<Vehicle[]> {
-    const list = await baseVehiclesRepo.allWhere(whereSql, ...params);
+    let list = await baseVehiclesRepo.allWhere(whereSql, ...params);
+    if (list.length === 0) {
+      if (whereSql.includes("category = ? AND seats = ?")) {
+        const [cat, seats] = params;
+        list = DEFAULT_VEHICLES.filter((v) => v.category === cat && v.seats === seats);
+      } else if (whereSql.includes("category = ?")) {
+        const [cat] = params;
+        list = DEFAULT_VEHICLES.filter((v) => v.category === cat);
+      } else if (whereSql.includes("featured = 1")) {
+        list = DEFAULT_VEHICLES.filter((v) => v.featured === 1);
+      } else {
+        list = DEFAULT_VEHICLES;
+      }
+    }
     return list.map((item) => hydrateVehicle(item));
   },
   async findById(id: number): Promise<Vehicle | undefined> {
-    const item = await baseVehiclesRepo.findById(id);
+    const item = (await baseVehiclesRepo.findById(id)) || DEFAULT_VEHICLES.find((v) => v.id === id);
     return item ? hydrateVehicle(item) : undefined;
   },
   async findBySlug(slug: string): Promise<Vehicle | undefined> {
-    const item = await baseVehiclesRepo.findBySlug(slug);
+    const item = (await baseVehiclesRepo.findBySlug(slug)) || DEFAULT_VEHICLES.find((v) => v.slug === slug);
     return item ? hydrateVehicle(item) : undefined;
+  },
+  async count(): Promise<number> {
+    const c = await baseVehiclesRepo.count();
+    return c > 0 ? c : DEFAULT_VEHICLES.length;
   }
 };
 
-export const servicesRepo = createRepo<Service>({ table: "services" });
-export const packagesRepo = createRepo<TourPackage>({ table: "packages" });
-export const faqsRepo = createRepo<Faq>({ table: "faqs" });
-export const testimonialsRepo = createRepo<Testimonial>({ table: "testimonials" });
-export const galleryRepo = createRepo<GalleryItem>({ table: "gallery" });
+const baseServicesRepo = createRepo<Service>({ table: "services" });
+export const servicesRepo = {
+  ...baseServicesRepo,
+  async all(): Promise<Service[]> {
+    const list = await baseServicesRepo.all();
+    return list.length > 0 ? list : DEFAULT_SERVICES;
+  },
+  async allWhere(whereSql: string, ...params: unknown[]): Promise<Service[]> {
+    const list = await baseServicesRepo.allWhere(whereSql, ...params);
+    if (list.length > 0) return list;
+    if (whereSql.includes("featured = 1")) return DEFAULT_SERVICES.filter((s) => s.featured === 1);
+    return DEFAULT_SERVICES;
+  },
+  async findById(id: number): Promise<Service | undefined> {
+    return (await baseServicesRepo.findById(id)) || DEFAULT_SERVICES.find((s) => s.id === id);
+  },
+  async findBySlug(slug: string): Promise<Service | undefined> {
+    return (await baseServicesRepo.findBySlug(slug)) || DEFAULT_SERVICES.find((s) => s.slug === slug);
+  },
+  async count(): Promise<number> {
+    const c = await baseServicesRepo.count();
+    return c > 0 ? c : DEFAULT_SERVICES.length;
+  }
+};
+
+const basePackagesRepo = createRepo<TourPackage>({ table: "packages" });
+export const packagesRepo = {
+  ...basePackagesRepo,
+  async all(): Promise<TourPackage[]> {
+    const list = await basePackagesRepo.all();
+    return list.length > 0 ? list : DEFAULT_PACKAGES;
+  },
+  async allWhere(whereSql: string, ...params: unknown[]): Promise<TourPackage[]> {
+    const list = await basePackagesRepo.allWhere(whereSql, ...params);
+    if (list.length > 0) return list;
+    if (whereSql.includes("featured = 1")) return DEFAULT_PACKAGES.filter((p) => p.featured === 1);
+    return DEFAULT_PACKAGES;
+  },
+  async findById(id: number): Promise<TourPackage | undefined> {
+    return (await basePackagesRepo.findById(id)) || DEFAULT_PACKAGES.find((p) => p.id === id);
+  },
+  async findBySlug(slug: string): Promise<TourPackage | undefined> {
+    return (await basePackagesRepo.findBySlug(slug)) || DEFAULT_PACKAGES.find((p) => p.slug === slug);
+  },
+  async count(): Promise<number> {
+    const c = await basePackagesRepo.count();
+    return c > 0 ? c : DEFAULT_PACKAGES.length;
+  }
+};
+
+const baseFaqsRepo = createRepo<Faq>({ table: "faqs" });
+export const faqsRepo = {
+  ...baseFaqsRepo,
+  async all(): Promise<Faq[]> {
+    const list = await baseFaqsRepo.all();
+    return list.length > 0 ? list : DEFAULT_FAQS;
+  },
+  async allWhere(whereSql: string, ...params: unknown[]): Promise<Faq[]> {
+    const list = await baseFaqsRepo.allWhere(whereSql, ...params);
+    if (list.length > 0) return list;
+    return DEFAULT_FAQS;
+  },
+  async count(): Promise<number> {
+    const c = await baseFaqsRepo.count();
+    return c > 0 ? c : DEFAULT_FAQS.length;
+  }
+};
+
+const baseTestimonialsRepo = createRepo<Testimonial>({ table: "testimonials" });
+export const testimonialsRepo = {
+  ...baseTestimonialsRepo,
+  async all(): Promise<Testimonial[]> {
+    const list = await baseTestimonialsRepo.all();
+    return list.length > 0 ? list : DEFAULT_TESTIMONIALS;
+  },
+  async count(): Promise<number> {
+    const c = await baseTestimonialsRepo.count();
+    return c > 0 ? c : DEFAULT_TESTIMONIALS.length;
+  }
+};
+
+const baseGalleryRepo = createRepo<GalleryItem>({ table: "gallery" });
+export const galleryRepo = {
+  ...baseGalleryRepo,
+  async all(): Promise<GalleryItem[]> {
+    const list = await baseGalleryRepo.all();
+    return list.length > 0 ? list : DEFAULT_GALLERY;
+  },
+  async count(): Promise<number> {
+    const c = await baseGalleryRepo.count();
+    return c > 0 ? c : DEFAULT_GALLERY.length;
+  }
+};
+
 export const blogRepo = createRepo<BlogPost>({ table: "blog_posts", orderBy: '"publishedAt" DESC' });
 
 /**
@@ -197,8 +316,30 @@ export async function featuredServices(limit = 6): Promise<Service[]> {
   );
 }
 
+import { CURATED_BLOG_POSTS } from "../data/blogPosts.js";
+
 export async function publishedBlogPosts(): Promise<BlogPost[]> {
-  return cached("blog:published", CONTENT_CACHE_TTL_SECONDS, () => blogRepo.allWhere("published = 1"));
+  return cached("blog:published", CONTENT_CACHE_TTL_SECONDS, async () => {
+    let dbPosts: BlogPost[] = [];
+    try {
+      dbPosts = await blogRepo.allWhere("published = 1");
+    } catch {
+      dbPosts = [];
+    }
+    const existingSlugs = new Set(dbPosts.map((p) => p.slug));
+    const missing = CURATED_BLOG_POSTS.filter((p) => !existingSlugs.has(p.slug) && p.published === 1);
+    return [...dbPosts, ...missing].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  });
+}
+
+export async function findBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  try {
+    const post = await blogRepo.findBySlug(slug);
+    if (post && post.published) return post;
+  } catch {
+    // fallback to curated
+  }
+  return CURATED_BLOG_POSTS.find((p) => p.slug === slug && p.published === 1);
 }
 
 const DEFAULT_CATEGORY_PHOTOS: Record<GalleryCategory, Array<{ imageKey: string; altText: string; caption: string }>> = {

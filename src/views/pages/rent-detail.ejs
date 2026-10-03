@@ -1,0 +1,442 @@
+<%- include('../partials/page-start') %>
+<%- include('../partials/breadcrumbs') %>
+
+<%
+  const v = resolved.vehicle;
+  const o = resolved.origin;
+  const d = resolved.destination;
+  const photoUrl = (dbVehicle && dbVehicle.imageKey) || v.imageKey || "/assets/images/destinations/hero-bangalore.webp";
+  const photoAlt = `${v.name} outstation cab from ${o.name} to ${d.name} — Yogi Tours Bangalore`;
+  const photoTitle = `View ${v.name} details and seating layout for travel from ${o.name} to ${d.name}`;
+  const ratePerKm = (dbVehicle && dbVehicle.ratePerKm) || v.ratePerKm || 18;
+  const minKm = (tariff && tariff.minKmPerDay) || 300;
+  const driverBata = (tariff && tariff.driverBata) || 400;
+%>
+
+<section class="py-10 lg:py-16">
+  <div class="container grid lg:grid-cols-5 gap-8 lg:gap-12">
+    <!-- Main Left Column -->
+    <div class="lg:col-span-3">
+      <!-- Badge & Primary H1 -->
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="badge badge-accent text-[12px] font-semibold tracking-wide uppercase">
+          <%- include('../partials/icon', { name: 'shield-check', cls: 'w-3.5 h-3.5' }) %>
+          Doorstep Pickup in <%= o.name %>
+        </span>
+        <span class="badge badge-outline text-[12px]">
+          <%- include('../partials/icon', { name: 'route', cls: 'w-3.5 h-3.5' }) %>
+          <%= d.state %> Outstation
+        </span>
+      </div>
+
+      <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 tracking-tight leading-tight">
+        <%= v.name %> Rental from <%= o.name %> to <%= d.name %>
+      </h1>
+
+      <p class="text-[16px] text-ink-600 leading-relaxed mt-4">
+        Hire a sanitized, chauffeur-driven <strong><%= v.name %></strong> for your journey from <strong><%= o.name %>, Bangalore</strong> to <strong><%= d.name %></strong>. Enjoy guaranteed doorstep boarding, transparent per-km billing, and reliable outstation chauffeurs.
+      </p>
+
+      <!-- Key Trip Metrics Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-7">
+        <div class="rounded-xl bg-ink-50/80 border border-ink-100/60 p-4 text-center">
+          <p class="text-[11px] font-medium text-ink-500 uppercase tracking-wider">Distance</p>
+          <p class="font-display font-bold text-lg text-ink-900 mt-1">~<%= resolved.distanceKm %> km</p>
+          <span class="text-[11px] text-ink-400">One-way road</span>
+        </div>
+        <div class="rounded-xl bg-ink-50/80 border border-ink-100/60 p-4 text-center">
+          <p class="text-[11px] font-medium text-ink-500 uppercase tracking-wider">Est. Drive Time</p>
+          <p class="font-display font-bold text-lg text-ink-900 mt-1"><%= resolved.driveTimeHours %></p>
+          <span class="text-[11px] text-ink-400">Via expressway</span>
+        </div>
+        <div class="rounded-xl bg-ink-50/80 border border-ink-100/60 p-4 text-center">
+          <p class="text-[11px] font-medium text-ink-500 uppercase tracking-wider">Capacity</p>
+          <p class="font-display font-bold text-lg text-ink-900 mt-1"><%= v.seats %> Passengers</p>
+          <span class="text-[11px] text-ink-400"><%= v.luggage %></span>
+        </div>
+        <div class="rounded-xl bg-brand-50/70 border border-brand-100 p-4 text-center">
+          <p class="text-[11px] font-medium text-brand-700 uppercase tracking-wider">Base Tariff</p>
+          <p class="font-display font-bold text-lg text-brand-900 mt-1">₹<%= ratePerKm %>/km</p>
+          <span class="text-[11px] text-brand-600 font-medium">Driver Bata extra</span>
+        </div>
+      </div>
+
+      <!-- Vehicle Image Preview with Anchor + Title + Alt -->
+      <div class="mt-8 rounded-2xl overflow-hidden border border-ink-200/80 bg-ink-900 shadow-sm relative group">
+        <a
+          href="<%= photoUrl %>"
+          target="_blank"
+          rel="noopener"
+          title="<%= photoTitle %>"
+          class="block aspect-[16/9] w-full overflow-hidden relative"
+        >
+          <%- include('../components/smart-image', {
+            src: photoUrl,
+            alt: photoAlt,
+            title: photoTitle,
+            cls: 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105',
+            eager: true,
+            icon: 'car',
+            label: `${v.name} Fleet Photo`
+          }) %>
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent flex items-end p-5">
+            <div>
+              <p class="text-white font-display font-semibold text-lg drop-shadow"><%= v.name %></p>
+              <p class="text-white/80 text-xs mt-0.5"><%= v.highlight %></p>
+            </div>
+          </div>
+          <span class="absolute top-4 right-4 bg-ink-900/80 backdrop-blur-sm text-white text-[11px] font-medium py-1 px-2.5 rounded-full flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+            <%- include('../partials/icon', { name: 'camera', cls: 'w-3 h-3 text-brand-300' }) %>
+            Verified Fleet Photo
+          </span>
+        </a>
+      </div>
+
+      <!-- Additional vehicle gallery thumbnails if DB vehicle has photos -->
+      <% if (galleryPhotos && galleryPhotos.length > 1) { %>
+      <div class="mt-3 flex gap-3 overflow-x-auto pb-2">
+        <% galleryPhotos.slice(0, 4).forEach(function(gPhoto, idx) { %>
+        <a
+          href="<%= gPhoto %>"
+          target="_blank"
+          rel="noopener"
+          title="View <%= v.name %> photo angle <%= idx + 1 %> for <%= o.name %> to <%= d.name %>"
+          class="block w-24 h-16 rounded-lg overflow-hidden border border-ink-200 flex-shrink-0 hover:border-brand-500 transition-colors"
+        >
+          <img
+            src="<%= gPhoto %>"
+            alt="<%= v.name %> seating view <%= idx + 1 %>"
+            title="<%= v.name %> cabin interior angle <%= idx + 1 %>"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </a>
+        <% }); %>
+      </div>
+      <% } %>
+
+      <!-- Route Mechanics & Vehicle Dynamics Hook (pSEO Core) -->
+      <div id="route-hook" class="mt-8 rounded-2xl bg-gradient-to-br from-amber-50/60 to-orange-50/40 border border-amber-200/70 p-6 sm:p-7">
+        <div class="flex items-start gap-3.5">
+          <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-700 flex-shrink-0 mt-0.5">
+            <%- include('../partials/icon', { name: 'mountain', cls: 'w-6 h-6' }) %>
+          </div>
+          <div>
+            <h2 class="font-display font-bold text-xl text-ink-900">The Route &amp; Terrain Advantage</h2>
+            <p class="text-[15px] text-ink-700 leading-relaxed mt-2.5">
+              <%= resolved.uniqueRouteHook %>
+            </p>
+            <div class="mt-4 pt-4 border-t border-amber-200/60 grid sm:grid-cols-2 gap-3 text-xs text-ink-600">
+              <div class="flex items-center gap-2">
+                <%- include('../partials/icon', { name: 'check-circle', cls: 'w-4 h-4 text-emerald-600 flex-shrink-0' }) %>
+                <span><strong>Highway:</strong> <%= d.highway %></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <%- include('../partials/icon', { name: 'check-circle', cls: 'w-4 h-4 text-emerald-600 flex-shrink-0' }) %>
+                <span><strong>Key Stops:</strong> <%= d.keyStops %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doorstep Pickup Logistics in the specific Bangalore Locality -->
+      <div id="pickup-logistics" class="mt-8 rounded-2xl bg-white border border-ink-200/80 p-6 sm:p-7 shadow-sm">
+        <h2 class="font-display font-bold text-xl text-ink-900 flex items-center gap-2.5">
+          <%- include('../partials/icon', { name: 'map-pin', cls: 'w-5 h-5 text-brand-600' }) %>
+          Doorstep Boarding in <%= o.name %>
+        </h2>
+        <p class="text-[15px] text-ink-600 mt-2 leading-relaxed">
+          <%= o.pickupNote %>
+        </p>
+        <div class="mt-4 p-4 rounded-xl bg-ink-50/80 border border-ink-100 flex items-start gap-3 text-sm text-ink-700">
+          <%- include('../partials/icon', { name: 'route', cls: 'w-5 h-5 text-brand-700 flex-shrink-0 mt-0.5' }) %>
+          <div>
+            <p class="font-medium text-ink-900">Highway Transit Strategy:</p>
+            <p class="text-xs text-ink-600 mt-0.5"><%= o.highwayAccess %></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transparent Itemized Fare Breakdown -->
+      <div class="mt-8 rounded-2xl bg-white border border-ink-200/80 p-6 sm:p-7 shadow-sm">
+        <h2 class="font-display font-bold text-xl text-ink-900 flex items-center gap-2.5">
+          <%- include('../partials/icon', { name: 'wallet', cls: 'w-5 h-5 text-brand-600' }) %>
+          Transparent Tariff &amp; Inclusions
+        </h2>
+        <p class="text-sm text-ink-500 mt-1">No hidden surprises. Clear billing based on confirmed kilometers.</p>
+
+        <div class="mt-5 overflow-hidden rounded-xl border border-ink-200">
+          <table class="w-full text-left text-sm text-ink-700">
+            <thead class="bg-ink-50/80 text-ink-900 font-semibold text-xs uppercase tracking-wider border-b border-ink-200">
+              <tr>
+                <th class="py-3 px-4">Billing Item</th>
+                <th class="py-3 px-4">Rate / Specification</th>
+                <th class="py-3 px-4 hidden sm:table-cell">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-ink-100">
+              <tr>
+                <td class="py-3 px-4 font-medium text-ink-900">Base Running Rate</td>
+                <td class="py-3 px-4 text-brand-700 font-semibold">₹<%= ratePerKm %>/km</td>
+                <td class="py-3 px-4 text-xs text-ink-500 hidden sm:table-cell">Full AC transit on outstation duty</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-ink-900">Minimum Daily Billing</td>
+                <td class="py-3 px-4"><%= minKm %> km / calendar day</td>
+                <td class="py-3 px-4 text-xs text-ink-500 hidden sm:table-cell">Standard outstation commercial rule</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-ink-900">Chauffeur Bata</td>
+                <td class="py-3 px-4">₹<%= driverBata %> / day</td>
+                <td class="py-3 px-4 text-xs text-ink-500 hidden sm:table-cell">Covers driver food and stay</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-ink-900">Tolls &amp; State Permits</td>
+                <td class="py-3 px-4">At Actuals or All-Inclusive</td>
+                <td class="py-3 px-4 text-xs text-ink-500 hidden sm:table-cell">Confirmed upfront in written quotation</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-ink-900">GST Invoice</td>
+                <td class="py-3 px-4 text-emerald-700 font-medium">Provided (5% / 12%)</td>
+                <td class="py-3 px-4 text-xs text-ink-500 hidden sm:table-cell">Valid for corporate ITC claim &amp; reimbursement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Vehicle Comfort & Safety Features -->
+      <div class="mt-8 rounded-2xl bg-white border border-ink-200/80 p-6 sm:p-7 shadow-sm">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-4">On-Board Comfort &amp; Amenities</h2>
+        <div class="grid sm:grid-cols-2 gap-3 text-sm text-ink-700">
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-ink-50/70 border border-ink-100/60">
+            <%- include('../partials/icon', { name: 'users', cls: 'w-5 h-5 text-brand-600' }) %>
+            <span><strong>Seating:</strong> <%= v.seats %> Pushback Reclining Seats</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-ink-50/70 border border-ink-100/60">
+            <%- include('../partials/icon', { name: 'snowflake', cls: 'w-5 h-5 text-brand-600' }) %>
+            <span><strong>Climate:</strong> High-output individual AC vents</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-ink-50/70 border border-ink-100/60">
+            <%- include('../partials/icon', { name: 'luggage', cls: 'w-5 h-5 text-brand-600' }) %>
+            <span><strong>Boot Storage:</strong> <%= v.luggage %></span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-ink-50/70 border border-ink-100/60">
+            <%- include('../partials/icon', { name: 'shield-check', cls: 'w-5 h-5 text-brand-600' }) %>
+            <span><strong>Safety:</strong> GPS tracking &amp; speed governors</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contextual Visible FAQs matching Schema.org -->
+      <div id="faq" class="mt-10 rounded-2xl bg-ink-50/80 border border-ink-200/70 p-6 sm:p-8">
+        <h2 class="font-display font-bold text-2xl text-ink-900 mb-2">
+          Frequently Asked Questions: <%= v.name %> from <%= o.name %> to <%= d.name %>
+        </h2>
+        <p class="text-sm text-ink-500 mb-6">Everything you need to know about planning your outstation journey.</p>
+
+        <div class="space-y-4">
+          <% faqs.forEach(function(f, idx) { %>
+          <div class="bg-white rounded-xl border border-ink-100 p-5 shadow-xs">
+            <p class="font-display font-semibold text-ink-900 text-[15px]">
+              <%= f.question %>
+            </p>
+            <p class="mt-2 text-sm text-ink-600 leading-relaxed">
+              <%= f.answer %>
+            </p>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Zero-Cannibalization Interlinking Sections -->
+      <!-- Section 1: Alternative vehicles on this same route -->
+      <% if (altVehicles.length) { %>
+      <div class="mt-12">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-4">
+          Compare Other Vehicles: <%= o.name %> to <%= d.name %>
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <% altVehicles.forEach(function(av) { %>
+          <a
+            href="<%= av.canonicalPath %>"
+            title="Book <%= av.vehicle.name %> from <%= o.name %> to <%= d.name %>"
+            class="flex items-center justify-between p-3.5 rounded-xl border border-ink-200 bg-white hover:border-brand-400 hover:shadow-xs transition-all group"
+          >
+            <div>
+              <p class="font-semibold text-ink-900 group-hover:text-brand-700 text-sm"><%= av.vehicle.name %></p>
+              <p class="text-xs text-ink-500 mt-0.5"><%= av.vehicle.seats %> Seats &bull; ₹<%= av.vehicle.ratePerKm %>/km</p>
+            </div>
+            <%- include('../partials/icon', { name: 'arrow-right', cls: 'w-4 h-4 text-ink-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all' }) %>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+      <% } %>
+
+      <!-- Section 2: Same vehicle to other popular destinations from this origin -->
+      <% if (otherDestinations.length) { %>
+      <div class="mt-8">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-4">
+          More Outstation Routes for <%= v.name %> from <%= o.name %>
+        </h2>
+        <div class="flex flex-wrap gap-2.5">
+          <% otherDestinations.forEach(function(od) { %>
+          <a
+            href="<%= od.canonicalPath %>"
+            title="Rent <%= v.name %> from <%= o.name %> to <%= od.destination.name %>"
+            class="badge badge-outline !py-2.5 !px-4 text-[13px] hover:border-brand-300 hover:text-brand-700 transition-colors bg-white shadow-2xs"
+          >
+            <%- include('../partials/icon', { name: 'map-pin', cls: 'w-3.5 h-3.5 text-brand-600' }) %>
+            <%= o.name %> to <%= od.destination.name %> (<%= od.distanceKm %> km)
+          </a>
+          <% }); %>
+        </div>
+      </div>
+      <% } %>
+
+      <!-- Section 3: More destinations from this Bangalore locality -->
+      <% if (otherLocalRoutes.length) { %>
+      <div class="mt-8">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-4">
+          Other Popular Getaways Departing from <%= o.name %>
+        </h2>
+        <div class="flex flex-wrap gap-2.5">
+          <% otherLocalRoutes.forEach(function(ol) { %>
+          <a
+            href="<%= ol.canonicalPath %>"
+            title="Cabs and rentals from <%= o.name %> to <%= ol.destination.name %>"
+            class="badge badge-outline !py-2.5 !px-4 text-[13px] hover:border-brand-300 hover:text-brand-700 transition-colors bg-white shadow-2xs"
+          >
+            <%- include('../partials/icon', { name: 'route', cls: 'w-3.5 h-3.5 text-ink-400' }) %>
+            <%= o.name %> to <%= ol.destination.name %>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- Sticky Right Booking Sidebar -->
+    <div class="lg:col-span-2">
+      <div class="admin-card !border-ink-200/90 p-6 sticky top-24 shadow-md bg-white rounded-2xl">
+        <div class="flex items-center justify-between pb-4 border-b border-ink-100">
+          <div>
+            <p class="text-xs font-semibold text-brand-700 uppercase tracking-wider">Fast Instant Quotation</p>
+            <h3 class="font-display font-bold text-xl text-ink-900 mt-0.5">Book <%= v.name %></h3>
+          </div>
+          <span class="rounded-lg bg-emerald-50 text-emerald-700 font-bold text-xs py-1 px-2.5 border border-emerald-200">
+            Available
+          </span>
+        </div>
+
+        <div class="py-4 space-y-2 text-sm text-ink-600 border-b border-ink-100">
+          <div class="flex items-center justify-between">
+            <span>Pickup Locality:</span>
+            <strong class="text-ink-900"><%= o.name %></strong>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Destination:</span>
+            <strong class="text-ink-900"><%= d.name %></strong>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Round-Trip Distance:</span>
+            <strong class="text-ink-900">~<%= resolved.distanceKm * 2 %> km</strong>
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Running Rate:</span>
+            <strong class="text-brand-700 font-semibold">₹<%= ratePerKm %>/km</strong>
+          </div>
+        </div>
+
+        <p class="text-xs text-ink-500 my-4 leading-normal">
+          Share your departure date and duration. Our reservation team responds in under 5 minutes with an itemized quote.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="space-y-3">
+          <button
+            type="button"
+            class="btn btn-accent w-full py-3.5 font-semibold text-base shadow-sm"
+            data-enquiry-trigger
+            data-enquiry-type="outstation"
+            data-enquiry-context="Vehicle: <%= v.name %> | Route: <%= o.name %> to <%= d.name %>"
+          >
+            <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %>
+            <span>Get Guaranteed Quote</span>
+          </button>
+
+          <a
+            href="https://wa.me/<%= whatsappDigits %>?text=<%= encodeURIComponent('Hi Yogi Tours, I need a quote for ' + v.name + ' from ' + o.name + ' to ' + d.name + '. Please share vehicle availability and final tariff.') %>"
+            target="_blank"
+            rel="noopener"
+            title="Chat with reservation team on WhatsApp about <%= v.name %> from <%= o.name %> to <%= d.name %>"
+            class="btn btn-outline w-full py-3 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300"
+          >
+            <%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4 text-emerald-600' }) %>
+            <span>WhatsApp Quotation</span>
+          </a>
+
+          <a
+            href="<%= telHref %>"
+            title="Call Yogi Tours directly for immediate booking"
+            class="btn btn-ghost w-full text-xs text-ink-500 py-2"
+          >
+            <%- include('../partials/icon', { name: 'phone', cls: 'w-3.5 h-3.5' }) %>
+            <span>Call Us: <%= business.phone %></span>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-6 pt-5 border-t border-ink-100 grid grid-cols-2 gap-2 text-[11px] text-ink-500">
+          <div class="flex items-center gap-1.5">
+            <%- include('../partials/icon', { name: 'check', cls: 'w-3.5 h-3.5 text-emerald-600' }) %>
+            <span>No Hidden Surcharges</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <%- include('../partials/icon', { name: 'check', cls: 'w-3.5 h-3.5 text-emerald-600' }) %>
+            <span>GST Invoice Ready</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <%- include('../partials/icon', { name: 'check', cls: 'w-3.5 h-3.5 text-emerald-600' }) %>
+            <span>Verified Hill Drivers</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <%- include('../partials/icon', { name: 'check', cls: 'w-3.5 h-3.5 text-emerald-600' }) %>
+            <span>24/7 Trip Support</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mt-6 pt-5 border-t border-ink-100">
+          <p class="text-xs font-semibold text-ink-900 mb-2">Explore Related Services</p>
+          <ul class="space-y-1.5 text-xs text-ink-600">
+            <li>
+              <a href="/rent" title="View all outstation vehicle options" class="hover:text-brand-700 flex items-center justify-between py-1">
+                <span>Browse All Vehicle Rentals</span>
+                <%- include('../partials/icon', { name: 'chevron-right', cls: 'w-3 h-3 text-ink-400' }) %>
+              </a>
+            </li>
+            <li>
+              <a href="/fleet/<%= v.category %>" title="Browse all <%= v.category %> vehicles" class="hover:text-brand-700 flex items-center justify-between py-1">
+                <span>Full <%= v.category.replace(/-/g, ' ') %> Fleet</span>
+                <%- include('../partials/icon', { name: 'chevron-right', cls: 'w-3 h-3 text-ink-400' }) %>
+              </a>
+            </li>
+            <li>
+              <a href="/tour-packages" title="Browse curated tour packages" class="hover:text-brand-700 flex items-center justify-between py-1">
+                <span>All-Inclusive Tour Packages</span>
+                <%- include('../partials/icon', { name: 'chevron-right', cls: 'w-3 h-3 text-ink-400' }) %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-section') %>
+<%- include('../partials/page-end') %>

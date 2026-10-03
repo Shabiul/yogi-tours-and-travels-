@@ -2,7 +2,9 @@
 <body class="font-body text-ink-800 antialiased bg-ink-950 min-h-screen flex items-center justify-center p-4">
   <div class="w-full max-w-sm">
     <div class="flex flex-col items-center mb-6">
-      <img src="/assets/images/logo.png" alt="<%= business.name %>" class="h-14 w-14 rounded-full object-cover mb-3 shadow-md" />
+      <a href="/" title="<%= business.name %> — Home" class="inline-block transition-transform hover:scale-105">
+        <img src="/assets/images/logo.png" alt="<%= business.name %>" title="<%= business.name %>" class="h-14 w-14 rounded-full object-cover mb-3 shadow-md" />
+      </a>
       <h1 class="font-display font-bold text-white text-lg">Yogi Admin</h1>
       <p class="text-ink-400 text-sm mt-0.5">Sign in to manage your website</p>
     </div>

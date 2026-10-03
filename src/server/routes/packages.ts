@@ -29,9 +29,9 @@ router.get("/", async (req, res, next) => {
     }
 
     res.render("pages/packages-list", {
-      title: "Tour Packages from Bangalore | Coorg, Mysore, Goa",
+      title: "Tour Packages from Bangalore | Coorg, Ooty, Mysore & Goa",
       metaDescription:
-        "Tour packages from Bangalore — Coorg, Ooty, Mysore, Chikmagalur, Hampi, Goa and Kerala backwaters. Customisable itineraries, your choice of vehicle.",
+        "Customizable tour packages from Bangalore to Coorg, Ooty, Chikmagalur, Mysore & Goa. Private chauffeured cars, Tempo Travellers & buses with transparent tariffs.",
       metaKeywords: `tour packages from bangalore, weekend getaway packages bangalore, family tour packages bangalore, ${TRAVEL_CATEGORIES.map(
         (c) => `${c.toLowerCase()} tour packages bangalore`
       ).join(", ")}`,
@@ -91,8 +91,8 @@ router.get("/:slug", async (req, res, next) => {
 
       const destCity = (pkg.destination || "").split(",")[0]?.trim().toLowerCase() || "destination";
       res.render("pages/package-detail", {
-        title: `${pkg.title} | ${shortDuration(pkg.duration)} from Bangalore`,
-        metaDescription: clampDescription(`${pkg.title} — ${pkg.duration} tour package from Bangalore to ${pkg.destination || "South India"}. ${pkg.idealFor}`),
+        title: `${pkg.title} | ${shortDuration(pkg.duration)} Tour from Bangalore`,
+        metaDescription: clampDescription(`Book ${pkg.title} (${pkg.duration}) from Bangalore to ${pkg.destination || "South India"}. ${pkg.idealFor}. Dedicated chauffeur & custom vehicle options.`),
         metaKeywords: `${pkg.title.toLowerCase()}, bangalore to ${destCity} package, ${(pkg.destination || "south india").toLowerCase()} tour package from bangalore, ${pkg.travelCategory.toLowerCase()} tour package bangalore`,
         canonicalPath: `/tour-packages/${pkg.slug}`,
       crumbs: [

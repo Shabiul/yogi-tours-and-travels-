@@ -1,0 +1,252 @@
+<%- include('../partials/page-start') %>
+<%- include('../partials/breadcrumbs') %>
+
+<%
+  const photo = post.vehicle.imageKey || "/assets/images/destinations/hero-bangalore.webp";
+  const photoAlt = `${post.origin.name} to ${post.destination.name} ${post.days}-day road trip itinerary photo`;
+  const photoTitle = `View ${post.origin.name} to ${post.destination.name} itinerary vehicle and route details`;
+%>
+
+<article class="py-10 lg:py-16">
+  <div class="container grid lg:grid-cols-5 gap-8 lg:gap-12">
+    <div class="lg:col-span-3">
+      <!-- Header -->
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="badge badge-accent text-xs font-semibold tracking-wide uppercase">
+          <%- include('../partials/icon', { name: 'calendar', cls: 'w-3.5 h-3.5' }) %>
+          <%= post.days %>-Day Road Trip Itinerary
+        </span>
+        <span class="badge badge-outline text-xs">
+          Pickup: <%= post.origin.name %>
+        </span>
+      </div>
+
+      <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 tracking-tight leading-tight">
+        <%= post.h1 %>
+      </h1>
+
+      <p class="text-sm text-ink-500 mt-2">
+        Curated by <strong>Yogi Tours Travel Planners</strong> &bull; Doorstep Boarding in <%= post.origin.name %>
+      </p>
+
+      <!-- AI OVERVIEW DIRECT ANSWER BLOCK -->
+      <div id="ai-overview-answer" class="mt-6 rounded-2xl bg-gradient-to-br from-brand-50/80 via-white to-brand-50/40 border-2 border-brand-200/90 p-5 sm:p-6 shadow-xs">
+        <div class="flex items-center gap-2 text-xs font-bold text-brand-800 uppercase tracking-wider mb-2">
+          <%- include('../partials/icon', { name: 'badge-check', cls: 'w-4 h-4 text-brand-600' }) %>
+          <span>Direct Answer / Quick Trip Plan</span>
+        </div>
+        <p class="text-ink-900 font-semibold text-base sm:text-[17px] leading-relaxed">
+          <%= post.directAnswerAio %>
+        </p>
+      </div>
+
+      <!-- Departure Traffic Strategy Callout -->
+      <div class="mt-6 rounded-xl bg-amber-50/80 border border-amber-200 p-4 flex items-start gap-3 text-xs text-amber-950">
+        <%- include('../partials/icon', { name: 'clock', cls: 'w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5' }) %>
+        <div>
+          <strong class="font-semibold text-amber-900 text-sm block mb-0.5">Bangalore Traffic Avoidance Tip:</strong>
+          <%= post.trafficAdvice %>
+        </div>
+      </div>
+
+      <!-- Vehicle Photo with Anchor + Title + Alt -->
+      <div class="mt-8 rounded-2xl overflow-hidden border border-ink-200 bg-ink-900 relative group aspect-[16/9]">
+        <a
+          href="<%= photo %>"
+          target="_blank"
+          rel="noopener"
+          title="<%= photoTitle %>"
+          class="block w-full h-full"
+        >
+          <img
+            src="<%= photo %>"
+            alt="<%= photoAlt %>"
+            title="<%= photoTitle %>"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent flex items-end p-4">
+            <span class="text-white text-xs font-semibold drop-shadow">Recommended Vehicle: <%= post.vehicle.name %></span>
+          </div>
+        </a>
+      </div>
+
+      <!-- DAY-BY-DAY TIMELINE -->
+      <div class="mt-10">
+        <h2 class="font-display font-bold text-2xl text-ink-900 mb-6">
+          Day-by-Day Travel Schedule
+        </h2>
+
+        <div class="space-y-6">
+          <% post.timeline.forEach(function(item) { %>
+          <div class="rounded-2xl border border-ink-200 bg-white p-5 sm:p-6 shadow-xs relative">
+            <span class="badge badge-accent text-xs font-bold uppercase mb-2">
+              Day <%= item.day %>
+            </span>
+            <h3 class="font-display font-bold text-lg text-ink-900 mb-3"><%= item.title %></h3>
+            <ul class="space-y-2 text-sm text-ink-700">
+              <% item.activities.forEach(function(act) { %>
+              <li class="flex items-start gap-2.5">
+                <%- include('../partials/icon', { name: 'check-circle', cls: 'w-4 h-4 text-emerald-600 flex-shrink-0 mt-1' }) %>
+                <span class="leading-relaxed"><%= act %></span>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- COMPLETE GROUP BUDGET BREAKDOWN TABLE -->
+      <div class="mt-10">
+        <h2 class="font-display font-bold text-2xl text-ink-900 mb-4">
+          Estimated Group Travel Budget (<%= post.vehicle.name %>)
+        </h2>
+
+        <div class="overflow-x-auto rounded-xl border border-ink-200 shadow-2xs">
+          <table class="w-full text-left text-sm text-ink-800">
+            <thead class="bg-ink-50 text-ink-900 font-semibold text-xs uppercase tracking-wider border-b border-ink-200">
+              <tr>
+                <th class="py-3 px-4">Expense Component</th>
+                <th class="py-3 px-4">Inclusions</th>
+                <th class="py-3 px-4 text-right">Estimated Amount</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-ink-100">
+              <tr>
+                <td class="py-3 px-4 font-medium"><%= post.vehicle.name %> Rental</td>
+                <td class="py-3 px-4 text-xs text-ink-500"><%= post.days %> Days round-trip outstation transit</td>
+                <td class="py-3 px-4 text-right font-semibold text-ink-900">₹<%= post.budgetSummary.vehicleRent.toLocaleString('en-IN') %></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium">Chauffeur Bata</td>
+                <td class="py-3 px-4 text-xs text-ink-500">Day duty &amp; night halt allowance</td>
+                <td class="py-3 px-4 text-right font-semibold text-ink-900">₹<%= post.budgetSummary.fuelAndDriver.toLocaleString('en-IN') %></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium">Highway Tolls &amp; Parking</td>
+                <td class="py-3 px-4 text-xs text-ink-500">Expressway FASTag tolls</td>
+                <td class="py-3 px-4 text-right font-semibold text-ink-900">₹<%= post.budgetSummary.tollsAndEntry.toLocaleString('en-IN') %></td>
+              </tr>
+              <tr class="bg-brand-50/60 text-brand-900 font-bold border-t-2 border-brand-200">
+                <td class="py-3.5 px-4 text-base">Total Trip Vehicle Budget</td>
+                <td class="py-3.5 px-4 text-xs font-normal text-brand-700">For the entire group of up to <%= post.vehicle.seats %> passengers</td>
+                <td class="py-3.5 px-4 text-right text-lg text-brand-900 font-display">₹<%= post.budgetSummary.totalPerGroup.toLocaleString('en-IN') %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Frequently Asked Questions -->
+      <div id="faq" class="mt-10 rounded-2xl bg-ink-50/80 border border-ink-200 p-6 sm:p-7">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-4">
+          Itinerary Planning FAQs
+        </h2>
+        <div class="space-y-4">
+          <% post.faqs.forEach(function(faq) { %>
+          <div class="bg-white rounded-xl border border-ink-100 p-4 shadow-2xs">
+            <p class="font-semibold text-ink-900 text-sm"><%= faq.question %></p>
+            <p class="text-xs text-ink-600 mt-1.5 leading-relaxed"><%= faq.answer %></p>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Money Page CTA -->
+      <div class="mt-10 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-brand-900 to-ink-900 text-white shadow-md">
+        <h3 class="font-display font-bold text-xl mb-2">Book This <%= post.days %>-Day Trip with Yogi Tours</h3>
+        <p class="text-sm text-white/80 mb-5 leading-relaxed">
+          Doorstep boarding across all apartments and tech parks in <%= post.origin.name %>. Punctual, verified chauffeurs.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="<%= post.moneyPageUrl %>"
+            title="Book vehicle for this itinerary"
+            class="btn btn-accent text-sm font-semibold"
+          >
+            <span>Book <%= post.vehicle.name %> for This Route Here</span>
+            <%- include('../partials/icon', { name: 'arrow-right', cls: 'w-4 h-4' }) %>
+          </a>
+          <a
+            href="/tour-packages"
+            title="Browse pre-packaged holiday tours"
+            class="btn btn-outline text-white border-white/30 hover:bg-white/10 text-sm"
+          >
+            <span>Browse All Tour Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="lg:col-span-2">
+      <div class="admin-card !border-ink-200 p-6 sticky top-24 shadow-md bg-white rounded-2xl">
+        <p class="text-xs font-bold text-brand-700 uppercase tracking-wider">Itinerary Highlights</p>
+        <h3 class="font-display font-bold text-xl text-ink-900 mt-1"><%= post.days %>-Day <%= post.destination.name %> Tour</h3>
+
+        <div class="py-4 space-y-2.5 text-xs text-ink-600 border-b border-ink-100">
+          <div class="flex justify-between">
+            <span>Pickup Point:</span>
+            <strong class="text-ink-900"><%= post.origin.name %></strong>
+          </div>
+          <div class="flex justify-between">
+            <span>Destination:</span>
+            <strong class="text-ink-900"><%= post.destination.name %></strong>
+          </div>
+          <div class="flex justify-between">
+            <span>Duration:</span>
+            <strong class="text-ink-900"><%= post.days %> Days</strong>
+          </div>
+          <div class="flex justify-between">
+            <span>Total Cab Fare:</span>
+            <strong class="text-brand-800 text-sm font-bold">₹<%= post.budgetSummary.totalPerGroup.toLocaleString('en-IN') %></strong>
+          </div>
+        </div>
+
+        <div class="mt-5 space-y-2.5">
+          <a
+            href="<%= post.moneyPageUrl %>"
+            title="Book cab for this itinerary"
+            class="btn btn-accent w-full py-3 text-sm font-semibold"
+          >
+            <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %>
+            <span>Get Itinerary Quotation</span>
+          </a>
+          <a
+            href="https://wa.me/<%= whatsappDigits %>?text=<%= encodeURIComponent('Hi Yogi Tours, I am planning a ' + post.days + '-day trip from ' + post.origin.name + ' to ' + post.destination.name + '. Can you assist with vehicle quotation?') %>"
+            target="_blank"
+            rel="noopener"
+            title="Chat with itinerary planner on WhatsApp"
+            class="btn btn-outline w-full py-2.5 text-xs"
+          >
+            <%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4 text-emerald-600' }) %>
+            <span>WhatsApp Trip Planner</span>
+          </a>
+        </div>
+
+        <div class="mt-6 pt-5 border-t border-ink-100">
+          <p class="text-xs font-semibold text-ink-900 mb-2">Related Outstation Reads</p>
+          <ul class="space-y-1.5 text-xs text-ink-600">
+            <li>
+              <a href="/blog/cost/<%= post.origin.slug %>-to-<%= post.destination.slug %>-innova-crysta" class="hover:text-brand-700 flex items-center justify-between py-1">
+                <span>Innova Crysta Fare to <%= post.destination.name %></span>
+                <%- include('../partials/icon', { name: 'chevron-right', cls: 'w-3 h-3 text-ink-400' }) %>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/compare/force-urbania-vs-innova-crysta-for-<%= post.destination.slug %>" class="hover:text-brand-700 flex items-center justify-between py-1">
+                <span>Urbania vs Crysta for <%= post.destination.name %></span>
+                <%- include('../partials/icon', { name: 'chevron-right', cls: 'w-3 h-3 text-ink-400' }) %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<%- include('../partials/cta-section') %>
+<%- include('../partials/page-end') %>

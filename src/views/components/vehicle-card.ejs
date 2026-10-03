@@ -9,10 +9,11 @@ const __halfStar = __v.rating ? __v.rating - __fullStars >= 0.5 : false;
 const __tariff = dutyTariff(__v.slug);
 %>
 <article class="card-vehicle group flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
-  <a href="<%= __detailUrl %>" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
+  <a href="<%= __detailUrl %>" title="<%= __v.name %> rental in Bangalore — <%= __v.seats %> seater" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
     <%- include('smart-image', {
       src: __v.imageKey, seed: __v.slug, icon: vehicleCategoryIcon(__v.category), label: __v.name,
       alt: `${__v.name} rental in Bangalore — ${__v.seats} seater`,
+      title: `${__v.name} rental in Bangalore — ${__v.seats} seater`,
       cls: 'w-full h-full group-hover:scale-[1.04] transition-transform duration-500'
     }) %>
     <% if (__showCategory) { %>

@@ -200,6 +200,32 @@ const CATEGORY_INTRO: Record<VehicleCategory, string> = {
   "tourist-bus": "40 and 55 seater tourist buses for large group tours, institutional travel and big event logistics, available for outstation and local hire."
 };
 
+const CATEGORY_META_DESCRIPTIONS: Record<VehicleCategory, string> = {
+  car: "Book chauffeured cars in Bangalore: Swift Dzire, Maruti Ertiga and Toyota Innova Crysta. Punctual airport transfers, local rides & outstation trips at ₹13/km onwards.",
+  "tempo-traveller": "Hire 9, 12 & 17 seater Tempo Travellers in Bangalore with push-back seats, AC & experienced drivers. Perfect for family getaways, outstation tours & airport pickups.",
+  "mini-bus": "Rent 21 & 25 seater AC mini buses in Bangalore for corporate offsites, wedding shuttles & group tours. Clean interiors, vetted chauffeurs & upfront per-km pricing.",
+  "tourist-bus": "Hire 40 to 55 seater luxury tourist buses in Bangalore for large group tours, college excursions & events. Equipped with pushback seats, AC & ample luggage space."
+};
+
+function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
+  if (vehicle.slug === "force-urbania") {
+    return "Rent luxury Force Urbania in Bangalore with Maharaja recliner captain seats, Sony Bravia Smart TV & chiller box. Verified chauffeur & transparent per-km rates.";
+  }
+  if (vehicle.slug === "urbania-12-seater-maharaja") {
+    return "Book 12 Seater Maharaja Force Urbania in Bangalore with ultra-plush calf-support recliners & ambient lighting. Ideal for VIP wedding guest & corporate travel.";
+  }
+  if (vehicle.slug === "innova-crysta") {
+    return "Hire Toyota Innova Crysta in Bangalore with experienced driver for outstation trips, Kempegowda airport transfers & family vacations. Starting ₹19/km.";
+  }
+  if (vehicle.slug === "tempo-traveller-17-seater") {
+    return "Book 17 Seater Tempo Traveller in Bangalore for group outstation trips & Tirupati pilgrimage. Pushback seats, ample luggage space & transparent pricing.";
+  }
+  if (vehicle.slug === "maharaja-tempo-traveller") {
+    return "Rent 12 Seater Maharaja Tempo Traveller in Bangalore featuring sofa-style pushback seats & spacious legroom. Rated 4.9★ for Karnataka group tours.";
+  }
+  return clampDescription(`Hire ${vehicle.name}${seatSuffix} in Bangalore with driver. ${vehicle.tagline} Transparent per-km billing and 24/7 booking.`);
+}
+
 router.get("/", async (req, res, next) => {
   try {
     const categories = await Promise.all(
@@ -211,9 +237,9 @@ router.get("/", async (req, res, next) => {
       }))
     );
     res.render("pages/vehicles-list", {
-      title: "Vehicle Fleet | Car & Tempo Traveller Rental Bangalore",
+      title: "Vehicle Fleet Rental Bangalore | Cars, Tempo Travellers & Buses",
       metaDescription:
-        "Browse the full Yogi Tours & Travels fleet in Bangalore — sedans, Innova Crysta, Tempo Travellers, mini buses and tourist buses.",
+        "Browse Bangalore's complete passenger fleet: sedans, Toyota Innova Crysta, 9 to 17 seater Tempo Travellers, Force Urbania & 55-seater tourist coaches.",
       canonicalPath: "/fleet",
       crumbs: [
         { name: "Home", url: "/" },
@@ -245,7 +271,7 @@ router.get("/:category", async (req, res, next) => {
     const categoryPath = `/fleet/${category}`;
     res.render("pages/vehicles-category", {
       title: `${rentalLabel} Rental Bangalore | Yogi Tours`,
-      metaDescription: clampDescription(`${CATEGORY_INTRO[category]} Transparent quotations, experienced drivers and well-maintained vehicles.`),
+      metaDescription: CATEGORY_META_DESCRIPTIONS[category] || clampDescription(`${CATEGORY_INTRO[category]} Transparent quotations, experienced drivers and well-maintained vehicles.`),
       metaKeywords: CATEGORY_KEYWORDS[category],
       canonicalPath: categoryPath,
       crumbs: [
@@ -321,7 +347,7 @@ router.get("/:category/:slug", async (req, res, next) => {
 
     res.render("pages/vehicle-detail", {
       title: VEHICLE_TITLE_OVERRIDE[vehicle.slug] ?? `${vehicle.name} Rental Bangalore | Yogi Tours`,
-      metaDescription: clampDescription(`Book the ${vehicle.name}${seatSuffix} with driver in Bangalore for outstation trips, airport transfers and group travel. ${vehicle.tagline}`),
+      metaDescription: vehicleMetaDescription(vehicle, seatSuffix),
       metaKeywords: vehicleKeywords(vehicle, label),
       canonicalPath: `/fleet/${category}/${vehicle.slug}`,
       crumbs: [

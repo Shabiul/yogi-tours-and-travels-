@@ -3,10 +3,11 @@ const __s = service;
 const __detailUrl = `/services/${__s.slug}`;
 %>
 <article class="card-service group flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
-  <a href="<%= __detailUrl %>" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
+  <a href="<%= __detailUrl %>" title="<%= __s.name %> in Bangalore — Yogi Tours & Travels" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
     <%- include('smart-image', {
       src: __s.imageKey, seed: __s.slug, icon: __s.icon, label: __s.name,
       alt: `${__s.name} in Bangalore — Yogi Tours & Travels`,
+      title: `${__s.name} in Bangalore — Yogi Tours & Travels`,
       cls: 'w-full h-full group-hover:scale-[1.04] transition-transform duration-500'
     }) %>
     <span class="absolute top-3 left-3 flex items-center justify-center w-9 h-9 rounded-lg bg-white/90 backdrop-blur text-brand-600 shadow-sm">

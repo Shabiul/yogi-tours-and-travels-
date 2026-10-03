@@ -4,10 +4,10 @@ const __path = currentPath;
 function isActive(prefix) { return __path === prefix || __path.startsWith(prefix + "/"); }
 %>
 <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-ink-950 text-ink-300 -translate-x-full lg:translate-x-0 transition-transform duration-200 flex flex-col">
-  <div class="h-16 flex items-center gap-2.5 px-5 border-b border-white/10 shrink-0">
-    <img src="/assets/images/logo.png" alt="<%= business.name %>" class="h-9 w-9 rounded-lg object-cover" />
+  <a href="/admin" title="Yogi Admin" class="h-16 flex items-center gap-2.5 px-5 border-b border-white/10 shrink-0 hover:bg-white/5 transition-colors">
+    <img src="/assets/images/logo.png" alt="<%= business.name %>" title="<%= business.name %>" class="h-9 w-9 rounded-lg object-cover" />
     <span class="text-white font-display font-semibold text-sm leading-tight">Yogi Admin</span>
-  </div>
+  </a>
 
   <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-0.5" aria-label="Admin navigation">
     <a href="/admin" class="admin-nav-link <%= __path === '/admin' ? 'is-active' : '' %>">

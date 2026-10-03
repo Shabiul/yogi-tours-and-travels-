@@ -26,11 +26,15 @@ if (isProd && (!process.env.ENCRYPTION_KEY || !process.env.ENCRYPTION_KEY.trim()
   );
 }
 
+const rawSiteUrl = process.env.SITE_URL && process.env.SITE_URL.trim() !== "" ? process.env.SITE_URL.trim() : "";
+const defaultSiteUrl = isProd ? "https://www.yogitourstravels.com" : "http://localhost:3000";
+const cleanSiteUrl = (rawSiteUrl || defaultSiteUrl).replace(/\/+$/, "");
+
 export const env = {
   port: Number(process.env.PORT) || 3000,
   nodeEnv: process.env.NODE_ENV || "development",
   isProd,
-  siteUrl: required("SITE_URL", "http://localhost:3000"),
+  siteUrl: cleanSiteUrl,
   /** GA4 Measurement ID (e.g. "G-XXXXXXX") — leave unset to skip loading Google Analytics entirely. */
   gaMeasurementId: process.env.GA_MEASUREMENT_ID || "",
   /** Google Search Console HTML-tag verification token (the content= value only, not the whole meta tag) — leave unset to skip the tag. */
@@ -68,8 +72,8 @@ export const business = {
   tagline: "Travel Comfortably. Explore Freely.",
   description:
     "Yogi Tours & Travels is a Bengaluru (Bangalore)-based tours and travels agency — serving India's Silicon City and areas up to 150 km around it — offering car rentals, Tempo Traveller and mini bus hire, tourist bus rental, airport transfers, outstation cabs and customised tour packages across Karnataka and South India.",
-  phone: process.env.BUSINESS_PHONE || "+91 90000 00000",
-  whatsapp: process.env.BUSINESS_WHATSAPP || "+91 90000 00000",
+  phone: process.env.BUSINESS_PHONE || "+91 97410 32020",
+  whatsapp: process.env.BUSINESS_WHATSAPP || "+91 98867 70099",
   email: process.env.BUSINESS_EMAIL || "info@yogitourstravels.com",
   // Real address + rating, sourced directly from the verified Google Business
   // Profile ("YOGI TOURS AND TRAVELS", Bengaluru) — the phone number on that

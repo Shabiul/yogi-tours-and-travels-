@@ -13,8 +13,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
       <% posts.forEach(function(post) { %>
       <article class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
-        <a href="/blog/<%= post.slug %>" class="relative block aspect-[16/10] overflow-hidden rounded-t-2xl">
-          <%- include('../components/smart-image', { src: post.coverImageKey, seed: post.slug, icon: 'route', label: '', alt: post.title, cls: 'w-full h-full hover:scale-105 transition-transform duration-500' }) %>
+        <a href="/blog/<%= post.slug %>" title="<%= post.title %>" class="relative block aspect-[16/10] overflow-hidden rounded-t-2xl">
+          <%- include('../components/smart-image', { src: post.coverImageKey, seed: post.slug, icon: 'route', label: '', alt: post.title, title: post.title, cls: 'w-full h-full hover:scale-105 transition-transform duration-500' }) %>
         </a>
         <div class="p-5 flex flex-col flex-1">
           <p class="text-xs text-ink-400"><%= new Date(post.publishedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>

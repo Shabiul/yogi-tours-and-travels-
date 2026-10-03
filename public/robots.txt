@@ -17,6 +17,8 @@ Disallow: /*?*p=*
 Disallow: /*?*attachment_id=*
 Disallow: /*?*replytocom=*
 Disallow: /*?*author=*
+Disallow: /*.php$
+Disallow: /*.php?
 
 # Major Search Engines
 User-agent: Googlebot

@@ -26,6 +26,7 @@ import seoRouter from "./routes/seo.js";
 import adminRouter from "./routes/admin/index.js";
 import locationsRouter from "./routes/locations.js";
 import tripRoutesRouter from "./routes/tripRoutes.js";
+import { rentRouter } from "./routes/rent.js";
 import vehicleLocationsRouter from "./routes/vehicleLocations.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -83,6 +84,25 @@ app.use((req, res, next) => {
   );
   next();
 });
+// Canonical Host & Protocol Enforcement (GSC Zero-Duplicate Protection):
+// Enforces single primary canonical domain (https://www.yogitourstravels.com) in production.
+// Redirects bare domain (yogitourstravels.com) to www, and plain http to https with 301.
+app.use((req, res, next) => {
+  if (env.isProd) {
+    const host = ((req.headers["x-forwarded-host"] || req.headers.host || "") as string).toLowerCase().split(":")[0];
+    const proto = ((req.headers["x-forwarded-proto"] || req.protocol || "") as string).toLowerCase();
+    if (host === "yogitourstravels.com") {
+      res.redirect(301, `https://www.yogitourstravels.com${req.originalUrl}`);
+      return;
+    }
+    if (proto === "http" && host && !host.includes("localhost") && !host.includes("127.0.0.1")) {
+      res.redirect(301, `https://${host}${req.originalUrl}`);
+      return;
+    }
+  }
+  next();
+});
+
 // 1. Legacy URLs from the previous website — 301 to the closest current page
 // so any residual Google ranking/backlinks transfer instead of hitting a 404/410.
 // LEGACY_REDIRECTS keys never have a trailing slash, so normalize the incoming path first.
@@ -117,10 +137,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// 3. Obsolete WordPress / scanner paths (Resolves 82,195 404s and 17,609 403s):
-// Returning HTTP 410 Gone with X-Robots-Tag: noindex tells Google's indexer that these files were
-// deliberately and permanently removed, freeing up Google crawl budget and purging dead URLs.
-const JUNK_PATH_RE = /^\/(?:wp-|xmlrpc\.php|comments\/feed|tag\/|category\/|author\/|feed\/|trackback|cate-\d|\.env|\.git|phpmyadmin|wordpress\/)/i;
+// 3. Obsolete WordPress / scanner / defaced PHP paths (Resolves 82,195 404s, 17,609 403s & April 2026 legacy artifacts):
+// Returning HTTP 410 Gone with X-Robots-Tag: noindex tells Googlebot that these legacy resources
+// were permanently removed, protecting domain reputation and clearing crawl waste.
+const JUNK_PATH_RE = /(?:\.php(?:\/|$)|^\/(?:wp-|xmlrpc|comments\/feed|tag\/|category\/|author\/|feed\/|trackback|cate-\d|\.env|\.git|phpmyadmin|wordpress\/|shell|wso|c99|alfa|adminer|cgi-bin))/i;
 app.use((req, res, next) => {
   if (req.method === "GET" && JUNK_PATH_RE.test(req.path)) {
     res
@@ -149,15 +169,13 @@ app.use((req, res, next) => {
   initSchema().then(() => next(), next);
 });
 
-const PgSession = connectPgSimple(session);
+const sessionStore = env.databaseUrl
+  ? new (connectPgSimple(session))({ pool, tableName: "session", createTableIfMissing: true })
+  : undefined;
 
 app.use(
   session({
-    // Serverless instances don't share memory (and are recycled constantly),
-    // so the default in-memory session store would log admins out at random.
-    // Postgres-backed sessions survive across invocations the same way the
-    // rest of the app's data does. createTableIfMissing handles first run.
-    store: new PgSession({ pool, tableName: "session", createTableIfMissing: true }),
+    ...(sessionStore ? { store: sessionStore } : {}),
     name: "ytt.sid",
     secret: env.sessionSecret,
     resave: false,
@@ -305,6 +323,7 @@ app.use("/services", servicesRouter);
 app.use("/tour-packages", packagesRouter);
 app.use("/locations", locationsRouter);
 app.use("/routes", tripRoutesRouter);
+app.use("/rent", rentRouter);
 app.use("/gallery", galleryRouter);
 app.use("/blog", blogRouter);
 app.use("/api", apiRouter);

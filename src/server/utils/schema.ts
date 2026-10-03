@@ -175,13 +175,6 @@ export function vehicleServiceSchema(input: {
       { "@type": "City", name: "Bangalore", alternateName: "Bengaluru" },
       ...business.areaServed.filter((a) => a !== "Bangalore").map((a) => ({ "@type": "City", name: a }))
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: business.googleRating.value,
-      reviewCount: business.googleRating.count,
-      bestRating: "5",
-      worstRating: "1"
-    },
     ...(input.seats ? { seatingCapacity: input.seats } : {}),
     ...(input.brand ? { brand: { "@type": "Brand", name: input.brand } } : {}),
     ...(input.model ? { model: input.model } : {}),

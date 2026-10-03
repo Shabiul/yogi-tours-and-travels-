@@ -66,9 +66,9 @@ router.get("/about", async (req, res, next) => {
   try {
     const testimonials = await testimonialsRepo.all();
     res.render("pages/about", {
-      title: "About Us | Yogi Tours & Travels, Bangalore",
+      title: "About Yogi Tours & Travels | Bangalore Travel Agency Since 2011",
       metaDescription:
-        "Yogi Tours & Travels is a Bangalore tours and travels agency serving families, corporates and groups with cars, Tempo Travellers, mini buses and tourist buses.",
+        "Learn about Yogi Tours & Travels: Bangalore's trusted travel partner for 14+ years. Verified commercial chauffeurs, 4.9★ rating & transparent per-km fleet tariffs.",
       canonicalPath: "/about",
       crumbs: [
         { name: "Home", url: "/" },
@@ -90,9 +90,9 @@ router.get("/about", async (req, res, next) => {
 
 router.get("/contact", (req, res) => {
   res.render("pages/contact", {
-    title: "Contact Us | Yogi Tours & Travels — Bangalore",
+    title: "Contact Yogi Tours & Travels | 24/7 Bangalore Cab & Bus Booking",
     metaDescription:
-      "Contact Yogi Tours & Travels for cab bookings, Tempo Traveller rentals, bus hire and tour packages in Bangalore. Call, WhatsApp or send an enquiry.",
+      "Contact Yogi Tours & Travels for 24/7 cab, Tempo Traveller and bus bookings in Bangalore. Call, WhatsApp, or get an instant itemized quotation for your trip.",
     canonicalPath: "/contact",
     crumbs: [
       { name: "Home", url: "/" },
@@ -110,8 +110,8 @@ router.get("/contact", (req, res) => {
 
 router.get("/privacy-policy", (req, res) => {
   res.render("pages/legal", {
-    title: "Privacy Policy | Yogi Tours & Travels",
-    metaDescription: "Read the privacy policy for Yogi Tours & Travels covering how enquiry and booking information is collected and used.",
+    title: "Privacy Policy | Yogi Tours & Travels Bangalore",
+    metaDescription: "Privacy policy for Yogi Tours & Travels detailing how customer enquiry, booking and passenger data is collected, securely encrypted and protected.",
     canonicalPath: "/privacy-policy",
     crumbs: [
       { name: "Home", url: "/" },
@@ -131,8 +131,8 @@ router.get("/privacy-policy", (req, res) => {
 
 router.get("/terms-and-conditions", (req, res) => {
   res.render("pages/legal", {
-    title: "Terms & Conditions | Yogi Tours & Travels",
-    metaDescription: "Terms and conditions for using the Yogi Tours & Travels website and booking services.",
+    title: "Terms and Conditions | Yogi Tours & Travels Bangalore",
+    metaDescription: "Read the terms and conditions for vehicle rental, chauffeur services, outstation trips and tour bookings with Yogi Tours & Travels Bangalore.",
     canonicalPath: "/terms-and-conditions",
     crumbs: [
       { name: "Home", url: "/" },
@@ -152,8 +152,8 @@ router.get("/terms-and-conditions", (req, res) => {
 
 router.get("/cancellation-policy", (req, res) => {
   res.render("pages/legal", {
-    title: "Cancellation Policy | Yogi Tours & Travels",
-    metaDescription: "Cancellation and rescheduling policy for bookings made with Yogi Tours & Travels.",
+    title: "Cancellation & Rescheduling Policy | Yogi Tours & Travels",
+    metaDescription: "Clear cancellation, refund and rescheduling terms for car, Tempo Traveller and tourist bus rentals with Yogi Tours & Travels Bangalore. Zero hidden fees.",
     canonicalPath: "/cancellation-policy",
     crumbs: [
       { name: "Home", url: "/" },
@@ -179,8 +179,8 @@ router.get("/photo-credits", (req, res) => {
     credits = [];
   }
   res.render("pages/photo-credits", {
-    title: "Photo Credits | Yogi Tours & Travels",
-    metaDescription: "Attribution for destination and vehicle photography used on this site, sourced from Wikimedia Commons under free-culture licenses.",
+    title: "Photo Credits & Attribution | Yogi Tours & Travels",
+    metaDescription: "Attribution and licensing details for destination and vehicle photography on Yogi Tours & Travels, sourced under verified Creative Commons licenses.",
     canonicalPath: "/photo-credits",
     noindex: true,
     crumbs: [

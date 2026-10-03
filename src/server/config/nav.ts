@@ -14,18 +14,18 @@ export const mainNav: NavLink[] = [
 export const footerServiceLinks: NavLink[] = [
   { label: "Car Rental", href: "/fleet/car", match: "/fleet/car" },
   { label: "Tempo Traveller", href: "/fleet/tempo-traveller", match: "/fleet/tempo-traveller" },
-  { label: "Mini Bus", href: "/fleet/mini-bus", match: "/fleet/mini-bus" },
-  { label: "Tourist Bus", href: "/fleet/tourist-bus", match: "/fleet/tourist-bus" },
-  { label: "Airport Transfer", href: "/services/airport-transfer", match: "/services/airport-transfer" },
-  { label: "Outstation Travel", href: "/services/outstation-travel", match: "/services/outstation-travel" }
+  { label: "Force Urbania Hire", href: "/rent/force-urbania", match: "/rent/force-urbania" },
+  { label: "Mini Bus Rental", href: "/fleet/mini-bus", match: "/fleet/mini-bus" },
+  { label: "Tourist Bus Hire", href: "/fleet/tourist-bus", match: "/fleet/tourist-bus" },
+  { label: "Airport Transfers", href: "/services/airport-transfer", match: "/services/airport-transfer" },
+  { label: "Outstation Vehicle Rentals", href: "/rent", match: "/rent" }
 ];
 
 export const footerToursLinks: NavLink[] = [
-  { label: "Karnataka Tours", href: "/tour-packages?region=karnataka", match: "/tour-packages" },
-  { label: "South India Tours", href: "/tour-packages?region=south-india", match: "/tour-packages" },
-  { label: "Corporate Tours", href: "/services/corporate-travel", match: "/services/corporate-travel" },
-  { label: "Family Tours", href: "/services/family-tours", match: "/services/family-tours" },
-  { label: "Pilgrimage Tours", href: "/services/pilgrimage-tours", match: "/services/pilgrimage-tours" },
+  { label: "Karnataka Tour Packages", href: "/tour-packages?region=karnataka", match: "/tour-packages" },
+  { label: "South India Packages", href: "/tour-packages?region=south-india", match: "/tour-packages" },
+  { label: "Corporate Travel", href: "/services/corporate-travel", match: "/services/corporate-travel" },
+  { label: "Wedding Transportation", href: "/services/wedding-transportation", match: "/services/wedding-transportation" },
   { label: "Bangalore to Mysore Cab", href: "/routes/bangalore-to-mysore-cab", match: "/routes" },
   { label: "Bangalore to Coorg Cab", href: "/routes/bangalore-to-coorg-cab", match: "/routes" },
   { label: "All Outstation Routes", href: "/routes", match: "/routes" }

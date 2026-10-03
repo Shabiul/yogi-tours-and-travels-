@@ -20,7 +20,8 @@ const __src = typeof src !== "undefined" ? src : "";
 const __seed = typeof seed !== "undefined" ? String(seed) : "placeholder";
 const __icon = typeof icon !== "undefined" ? icon : "image";
 const __label = typeof label !== "undefined" ? label : "";
-const __alt = typeof alt !== "undefined" ? alt : __label;
+const __alt = typeof alt !== "undefined" && alt ? alt : (__label || "Yogi Tours & Travels photo");
+const __title = typeof title !== "undefined" && title ? title : __alt;
 const __cls = typeof cls !== "undefined" ? cls : "w-full h-full";
 const __eager = typeof eager !== "undefined" ? eager : false;
 
@@ -34,13 +35,14 @@ const __tone = __hash % 5;
   <img
     src="<%= __src %>"
     alt="<%= __alt %>"
+    title="<%= __title %>"
     loading="<%= __eager ? 'eager' : 'lazy' %>"
     <% if (__eager) { %>fetchpriority="high"<% } %>
     decoding="async"
     class="<%= __cls %> object-cover"
   />
 <% } else { %>
-  <div class="<%= __cls %> ph ph-tone-<%= __tone %>" role="img" aria-label="<%= __alt %>">
+  <div class="<%= __cls %> ph ph-tone-<%= __tone %>" role="img" aria-label="<%= __alt %>" title="<%= __title %>">
     <span class="ph-content">
       <%- include('../partials/icon', { name: __icon, cls: 'w-7 h-7 sm:w-9 sm:h-9 text-white/85' }) %>
       <% if (__label) { %><span class="ph-label"><%= __label %></span><% } %>

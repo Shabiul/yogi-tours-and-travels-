@@ -1,0 +1,216 @@
+<%- include('../partials/page-start') %>
+<%- include('../partials/breadcrumbs') %>
+
+<%
+  const photoA = post.vehicleA.imageKey || "/assets/images/destinations/hero-bangalore.webp";
+  const photoB = post.vehicleB.imageKey || "/assets/images/destinations/hero-bangalore.webp";
+%>
+
+<article class="py-10 lg:py-16">
+  <div class="container max-w-4xl">
+    <!-- Header -->
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <span class="badge badge-accent text-xs font-semibold tracking-wide uppercase">
+        <%- include('../partials/icon', { name: 'sliders', cls: 'w-3.5 h-3.5' }) %>
+        Vehicle Comparison Guide
+      </span>
+      <span class="badge badge-outline text-xs">
+        Destination: <%= post.destination.name %> (~<%= post.distanceKm %> km)
+      </span>
+    </div>
+
+    <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 tracking-tight leading-tight">
+      <%= post.h1 %>
+    </h1>
+
+    <p class="text-sm text-ink-500 mt-2">
+      Published by <strong>Yogi Tours Fleet Advisory</strong> &bull; Objective Technical &amp; Cost Evaluation
+    </p>
+
+    <!-- AI OVERVIEW DIRECT ANSWER BLOCK -->
+    <div id="ai-overview-answer" class="mt-6 rounded-2xl bg-gradient-to-br from-brand-50/80 via-white to-brand-50/40 border-2 border-brand-200/90 p-5 sm:p-6 shadow-xs">
+      <div class="flex items-center gap-2 text-xs font-bold text-brand-800 uppercase tracking-wider mb-2">
+        <%- include('../partials/icon', { name: 'badge-check', cls: 'w-4 h-4 text-brand-600' }) %>
+        <span>Direct Answer / Comparison Summary</span>
+      </div>
+      <p class="text-ink-900 font-semibold text-base sm:text-[17px] leading-relaxed">
+        <%= post.directAnswerAio %>
+      </p>
+    </div>
+
+    <!-- Side-by-Side Visual Cards (Images in <a> with title & alt) -->
+    <div class="grid sm:grid-cols-2 gap-5 mt-8">
+      <!-- Vehicle A -->
+      <div class="rounded-2xl border border-ink-200 bg-white overflow-hidden shadow-xs">
+        <div class="aspect-[16/10] overflow-hidden bg-ink-900 relative">
+          <a
+            href="<%= photoA %>"
+            target="_blank"
+            rel="noopener"
+            title="View <%= post.vehicleA.name %> specs and seating layout"
+            class="block w-full h-full"
+          >
+            <img
+              src="<%= photoA %>"
+              alt="<%= post.vehicleA.name %> for hire to <%= post.destination.name %>"
+              title="View <%= post.vehicleA.name %> exterior and cabin"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+          </a>
+          <span class="absolute top-3 left-3 bg-ink-950/80 text-white text-[11px] font-semibold py-0.5 px-2.5 rounded-full">
+            Option A
+          </span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-display font-bold text-lg text-ink-900"><%= post.vehicleA.name %></h3>
+          <p class="text-xs text-ink-500 mt-0.5"><%= post.vehicleA.seats %> Passengers &bull; ₹<%= post.vehicleA.ratePerKm %>/km</p>
+          <p class="text-xs text-ink-700 mt-2"><%= post.vehicleA.highlight %></p>
+          <div class="mt-4 pt-3 border-t border-ink-100 flex items-center justify-between">
+            <span class="text-xs text-ink-500">Est. Base Fare:</span>
+            <span class="font-display font-bold text-sm text-ink-900">₹<%= post.fareA.toLocaleString('en-IN') %></span>
+          </div>
+          <a
+            href="<%= post.moneyUrlA %>"
+            title="Book <%= post.vehicleA.name %> for <%= post.destination.name %>"
+            class="btn btn-outline w-full text-xs font-semibold mt-3"
+          >
+            <span>Book <%= post.vehicleA.name %></span>
+            <%- include('../partials/icon', { name: 'arrow-right', cls: 'w-3.5 h-3.5' }) %>
+          </a>
+        </div>
+      </div>
+
+      <!-- Vehicle B -->
+      <div class="rounded-2xl border border-ink-200 bg-white overflow-hidden shadow-xs">
+        <div class="aspect-[16/10] overflow-hidden bg-ink-900 relative">
+          <a
+            href="<%= photoB %>"
+            target="_blank"
+            rel="noopener"
+            title="View <%= post.vehicleB.name %> specs and seating layout"
+            class="block w-full h-full"
+          >
+            <img
+              src="<%= photoB %>"
+              alt="<%= post.vehicleB.name %> for hire to <%= post.destination.name %>"
+              title="View <%= post.vehicleB.name %> exterior and cabin"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+          </a>
+          <span class="absolute top-3 left-3 bg-brand-900/90 text-white text-[11px] font-semibold py-0.5 px-2.5 rounded-full">
+            Option B
+          </span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-display font-bold text-lg text-ink-900"><%= post.vehicleB.name %></h3>
+          <p class="text-xs text-ink-500 mt-0.5"><%= post.vehicleB.seats %> Passengers &bull; ₹<%= post.vehicleB.ratePerKm %>/km</p>
+          <p class="text-xs text-ink-700 mt-2"><%= post.vehicleB.highlight %></p>
+          <div class="mt-4 pt-3 border-t border-ink-100 flex items-center justify-between">
+            <span class="text-xs text-ink-500">Est. Base Fare:</span>
+            <span class="font-display font-bold text-sm text-ink-900">₹<%= post.fareB.toLocaleString('en-IN') %></span>
+          </div>
+          <a
+            href="<%= post.moneyUrlB %>"
+            title="Book <%= post.vehicleB.name %> for <%= post.destination.name %>"
+            class="btn btn-accent w-full text-xs font-semibold mt-3"
+          >
+            <span>Book <%= post.vehicleB.name %></span>
+            <%- include('../partials/icon', { name: 'arrow-right', cls: 'w-3.5 h-3.5' }) %>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDE-BY-SIDE COMPARISON TABLE -->
+    <div class="mt-10">
+      <h2 class="font-display font-bold text-2xl text-ink-900 mb-4">
+        Feature-by-Feature Comparison Matrix
+      </h2>
+
+      <div class="overflow-x-auto rounded-xl border border-ink-200 shadow-2xs">
+        <table class="w-full text-left text-sm text-ink-800">
+          <thead class="bg-ink-50 text-ink-900 font-semibold text-xs uppercase tracking-wider border-b border-ink-200">
+            <tr>
+              <th class="py-3 px-4">Evaluation Criteria</th>
+              <th class="py-3 px-4"><%= post.vehicleA.name %></th>
+              <th class="py-3 px-4"><%= post.vehicleB.name %></th>
+              <th class="py-3 px-4">Analysis &amp; Winner</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-ink-100">
+            <% post.comparisonPoints.forEach(function(cp) { %>
+            <tr>
+              <td class="py-3.5 px-4 font-semibold text-ink-900"><%= cp.feature %></td>
+              <td class="py-3.5 px-4"><%= cp.vehicleAValue %></td>
+              <td class="py-3.5 px-4"><%= cp.vehicleBValue %></td>
+              <td class="py-3.5 px-4 text-xs text-ink-600">
+                <span class="font-semibold text-brand-700 block mb-0.5">
+                  <% if (cp.winner === 'Tie') { %>Tie / Route Equal<% } else if (cp.winner === 'A') { %>Advantage: <%= post.vehicleA.name %><% } else { %>Advantage: <%= post.vehicleB.name %><% } %>
+                </span>
+                <%= cp.rationale %>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Final Verdict Callout -->
+    <div class="mt-10 rounded-2xl bg-amber-50/70 border border-amber-200 p-6 sm:p-7">
+      <h2 class="font-display font-bold text-xl text-ink-900 flex items-center gap-2 mb-2">
+        <%- include('../partials/icon', { name: 'badge-check', cls: 'w-5 h-5 text-amber-700' }) %>
+        Final Expert Verdict for the <%= post.destination.name %> Trip
+      </h2>
+      <p class="text-[15px] text-ink-800 leading-relaxed">
+        <%= post.verdict %>
+      </p>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div id="faq" class="mt-10 rounded-2xl bg-ink-50/80 border border-ink-200 p-6 sm:p-7">
+      <h2 class="font-display font-bold text-xl text-ink-900 mb-4">
+        Comparison FAQs
+      </h2>
+      <div class="space-y-4">
+        <% post.faqs.forEach(function(faq) { %>
+        <div class="bg-white rounded-xl border border-ink-100 p-4 shadow-2xs">
+          <p class="font-semibold text-ink-900 text-sm"><%= faq.question %></p>
+          <p class="text-xs text-ink-600 mt-1.5 leading-relaxed"><%= faq.answer %></p>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Dual Booking Money CTA -->
+    <div class="mt-10 p-6 sm:p-8 rounded-2xl bg-ink-900 text-white shadow-md text-center">
+      <h3 class="font-display font-bold text-2xl mb-2">Book Your Vehicle to <%= post.destination.name %> Today</h3>
+      <p class="text-sm text-white/80 max-w-xl mx-auto mb-6">
+        Verified chauffeurs, sanitized interiors, and guaranteed doorstep pickup across all Bangalore neighborhoods.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="<%= post.moneyUrlA %>"
+          title="Hire <%= post.vehicleA.name %> to <%= post.destination.name %>"
+          class="btn btn-outline text-white border-white/40 hover:bg-white/10 text-sm font-semibold"
+        >
+          <span>Book <%= post.vehicleA.name %> &rarr;</span>
+        </a>
+        <a
+          href="<%= post.moneyUrlB %>"
+          title="Hire <%= post.vehicleB.name %> to <%= post.destination.name %>"
+          class="btn btn-accent text-sm font-semibold"
+        >
+          <span>Book <%= post.vehicleB.name %> &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<%- include('../partials/cta-section') %>
+<%- include('../partials/page-end') %>

@@ -22,6 +22,7 @@ export const DUTY_POLICY = {
 /** Keyed by vehicle slug. */
 const TARIFFS: Record<string, DutyTariff> = {
   "maruti-swift-dzire": { minKmPerDay: 300, driverBata: 400 },
+  "swift-dzire": { minKmPerDay: 300, driverBata: 400 },
   "toyota-innova": { minKmPerDay: 300, driverBata: 400 },
   "innova-crysta": { minKmPerDay: 300, driverBata: 400 },
   // Keyed under both spellings — the DB may hold either until the rename lands.
@@ -29,7 +30,8 @@ const TARIFFS: Record<string, DutyTariff> = {
   "tempo-traveller-12-seater": { minKmPerDay: 300, driverBata: 500 },
   "maharaja-tempo-traveller": { minKmPerDay: 300, driverBata: 500, nonAcRatePerKm: 20 },
   "tempo-traveller-17-seater": { minKmPerDay: 300, driverBata: 700, nonAcRatePerKm: 28 },
-  "force-urbania": { minKmPerDay: 300, driverBata: 700 }
+  "force-urbania": { minKmPerDay: 300, driverBata: 700 },
+  "urbania-12-seater-maharaja": { minKmPerDay: 300, driverBata: 700 }
 };
 
 export function dutyTariff(slug: string): DutyTariff | null {

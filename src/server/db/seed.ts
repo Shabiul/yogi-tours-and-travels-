@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { initSchema } from "./connection.js";
 import { vehiclesRepo, servicesRepo, packagesRepo, faqsRepo, testimonialsRepo, galleryRepo, blogRepo } from "./content.js";
 import { adminUserCount, createAdminUser } from "./adminUsers.js";
+import { CURATED_BLOG_POSTS } from "../data/blogPosts.js";
 import type { VehicleCategory, GalleryCategory } from "../types/models.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -514,54 +515,36 @@ async function seedGallery(): Promise<void> {
 }
 
 async function seedBlog(): Promise<void> {
-  if ((await blogRepo.count()) > 0) {
-    console.log("• blog posts already seeded, skipping");
-    return;
-  }
-  const rows = [
-    {
-      title: "A Karnataka to Gujarat Road Trip: Driving to the Statue of Unity",
-      slug: "karnataka-to-gujarat-road-trip-statue-of-unity",
-      excerpt: "What a genuine 1,500 km outstation drive from Bangalore to the Statue of Unity in Gujarat looks like — the route through Maharashtra, the arrival at Kevadia, and which vehicle actually suits a trip this long.",
-      coverImageKey: "/assets/images/blog/gujarat-blog-4.webp",
-      content: `<p>Most of the routes we write about start and end within a day's drive of Bangalore — Coorg, Mysore, Chikmagalur. This one didn't. A recent outstation booking took a Yogi Tours &amp; Travels vehicle over 1,500 km north from Karnataka to Kevadia in Gujarat, home to the Statue of Unity — the 182-metre statue of Sardar Vallabhbhai Patel overlooking the Narmada river and the Sardar Sarovar Dam. It's one of the longer drives we plan for, and a good example of what a genuine multi-day outstation trip from Bangalore actually involves.</p>
-
-<h2>The route: Karnataka to Gujarat</h2>
-<p>The drive north runs through Karnataka into Maharashtra — past Pune and Nashik — before crossing into Gujarat via Surat and Vadodara, then on to Kevadia in Narmada district. At around 1,500 km one-way, it's not a route we'd ever suggest doing in one push. Groups typically split it into two driving days with an overnight halt in Maharashtra, arriving in Kevadia fresh enough to actually enjoy the site rather than just collapse at the hotel.</p>
-
-<img src="/assets/images/blog/gujarat-blog-2.webp" alt="Hillside 'Statue of Unity' signage overlooking the Narmada river valley, Gujarat" loading="lazy" />
-<figcaption>The valley approach to the Statue of Unity, with the Narmada river below.</figcaption>
-
-<h2>Arriving at the Statue of Unity</h2>
-<p>Nothing about the drive quite prepares you for the scale of it up close — at 182 metres, it's the tallest statue in the world, and it's visible from well before you reach the viewing gallery. The site sits right on the Narmada, with the Sardar Sarovar Dam nearby, so the statue, the river and the surrounding hills of the Satpura and Vindhya ranges all frame each other rather than competing.</p>
-
-<img src="/assets/images/blog/gujarat-blog-1.webp" alt="The Statue of Unity viewed from the visitor viewing gallery, Kevadia, Gujarat" loading="lazy" />
-<figcaption>The viewing gallery deck, with the statue rising directly above.</figcaption>
-
-<img src="/assets/images/blog/gujarat-blog-5.webp" alt="Full view of the Statue of Unity against a cloudy sky, Gujarat" loading="lazy" />
-
-<h2>What kind of trip is this?</h2>
-<p>A drive this long isn't an airport-transfer booking — it's closer to how we plan a <a href="/services/outstation-travel">multi-day outstation trip</a>, with route planning, overnight stops and a vehicle built for long hours on the highway rather than short city hops. For a trip like this, we'd typically suggest an <a href="/fleet/car/innova-crysta">Innova Crysta</a> for a small family or friend group, or a <a href="/fleet/tempo-traveller">Tempo Traveller</a> if you're travelling as a larger group and want everyone on one vehicle for the full two-day drive each way.</p>
-
-<img src="/assets/images/blog/gujarat-blog-3.webp" alt="Narmada river valley near the Statue of Unity, Gujarat" loading="lazy" />
-
-<h2>Is it worth the drive from Bangalore?</h2>
-<p>If Gujarat is one stop on a longer North India itinerary, flying makes more sense. But for a dedicated trip built specifically around the Statue of Unity — with the freedom to stop, detour and set your own pace across two full days of highway — a booked outstation vehicle from Bangalore is a genuinely practical way to do it, not just a scenic alternative to flying.</p>
-
-<img src="/assets/images/blog/gujarat-blog-6.webp" alt="Statue of Unity and the surrounding viewing plaza at Kevadia, Gujarat" loading="lazy" />
-
-<p>Planning a long-distance outstation trip from Bangalore — whether it's Gujarat or somewhere closer? <a href="/contact">Get in touch</a> and we'll help you plan the route and pick the right vehicle for it.</p>`,
-      author: "Yogi Tours & Travels", sortOrder: 1
+  let inserted = 0;
+  for (const r of CURATED_BLOG_POSTS) {
+    const existing = await blogRepo.findBySlug(r.slug);
+    if (!existing) {
+      await blogRepo.insert({
+        title: r.title,
+        slug: r.slug,
+        excerpt: r.excerpt,
+        content: r.content,
+        coverImageKey: r.coverImageKey,
+        author: r.author,
+        published: 1,
+        publishedAt: r.publishedAt || new Date().toISOString().replace("T", " ").slice(0, 19),
+        sortOrder: r.sortOrder
+      });
+      inserted++;
+    } else if (existing.id) {
+      await blogRepo.update(existing.id, {
+        content: r.content,
+        excerpt: r.excerpt,
+        title: r.title,
+        coverImageKey: r.coverImageKey
+      });
     }
-  ];
-  for (const r of rows) {
-    await blogRepo.insert({
-      title: r.title, slug: r.slug, excerpt: r.excerpt, content: r.content,
-      coverImageKey: r.coverImageKey, author: r.author, published: 1,
-      publishedAt: new Date().toISOString().replace("T", " ").slice(0, 19), sortOrder: r.sortOrder
-    });
   }
-  console.log(`• seeded ${rows.length} blog posts`);
+  if (inserted > 0) {
+    console.log(`• seeded ${inserted} new blog posts (total curated: ${CURATED_BLOG_POSTS.length})`);
+  } else {
+    console.log(`• blog posts up to date (${CURATED_BLOG_POSTS.length} posts present)`);
+  }
 }
 
 async function seedAdmin(): Promise<void> {

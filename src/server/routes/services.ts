@@ -9,7 +9,8 @@ const router = Router();
 // not a generic "read our blog" pointer, so it only appears where it's
 // actually on-topic.
 const SERVICE_RELATED_POSTS: Record<string, { slug: string; title: string }> = {
-  "outstation-travel": { slug: "outstation-taxi-service-bangalore-what-to-expect", title: "What to Expect From an Outstation Taxi Booking" }
+  "outstation-travel": { slug: "bangalore-to-coorg-road-trip-itinerary-tempo-traveller", title: "Bangalore to Coorg Road Trip: Complete 3-Day Itinerary" },
+  "airport-transfer": { slug: "bangalore-airport-taxi-cab-guide-kempegowda-blr-transfers", title: "Bangalore Airport Taxi & Cab Guide: Kempegowda (BLR) Transfers" }
 };
 
 // Real alternate phrasings people search for each service — not fabricated
@@ -33,6 +34,21 @@ const SERVICE_KEYWORDS: Record<string, string> = {
   "event-transportation": "event transportation bangalore, conference cab service bangalore, exhibition transport bangalore"
 };
 
+const SERVICE_META_DESCRIPTIONS: Record<string, string> = {
+  "outstation-travel": "Book outstation cabs in Bangalore for round trips & one-way drops across Karnataka & South India. Sedans, Innova Crysta & Tempo Travellers with verified drivers.",
+  "airport-transfer": "Reliable Bangalore airport taxi & cab transfers to Kempegowda International Airport (BLR). On-time pickup, flight tracking, AC sedans & Tempo Travellers 24/7.",
+  "local-intercity-travel": "Rent cabs for local Bangalore city travel & short intercity trips. Hourly 8hr/80km packages & per-km billing with verified drivers for errands and sightseeing.",
+  "corporate-travel": "Dependable corporate cab & bus rentals in Bangalore. Employee transport, executive airport transfers, client visits & company offsites with GST invoicing.",
+  "wedding-transportation": "Luxury wedding car hire & guest shuttle bus rentals in Bangalore. Decorated cars, Tempo Travellers & AC buses coordinated to your wedding schedule.",
+  "educational-tours": "Safe, reliable bus & mini bus rentals for Bangalore schools and colleges. Excursions, industrial visits & study tours with experienced commercial drivers.",
+  "pilgrimage-tours": "Group vehicle rentals for pilgrimage circuits from Bangalore to Tirupati, Dharmasthala, Murudeshwar & Kukke. Clean Tempo Travellers with courteous chauffeurs.",
+  "family-tours": "Comfortable family vacation cabs & Tempo Traveller hire in Bangalore. Spacious seating, generous luggage capacity & child-friendly drivers for South India trips.",
+  "resort-trips": "Book round-trip cabs & group vans to luxury resorts around Bangalore (Kabini, Sakleshpur, Nandi Hills). Flexible waiting & transparent upfront pricing.",
+  "customized-tours": "Plan your custom Karnataka & South India road trip with Yogi Tours Bangalore. Tailor your itinerary, vehicle choice & multi-day stops with zero hidden fees.",
+  "group-transportation": "Coordinated multi-vehicle fleet hire in Bangalore for large groups, associations & community gatherings. Tempo Travellers & 55-seater tourist coaches.",
+  "event-transportation": "On-time event transportation in Bangalore for conferences, exhibitions & private functions. Dedicated guest shuttles & experienced fleet coordinators."
+};
+
 function serviceKeywords(service: Service): string {
   const name = service.name.toLowerCase();
   const generic = `${name} bangalore, ${name} near me, book ${name} bangalore`;
@@ -44,9 +60,9 @@ router.get("/", async (req, res, next) => {
   try {
     const services = await servicesRepo.all();
     res.render("pages/services-list", {
-      title: "Travel & Cab Services in Bangalore | Yogi Tours",
+      title: "Travel & Chauffeur Services in Bangalore | Yogi Tours",
       metaDescription:
-        "Outstation trips, airport transfers, corporate travel, wedding transportation and custom itineraries — travel services from Yogi Tours & Travels, Bangalore.",
+        "Comprehensive Bangalore travel services: outstation cabs, Kempegowda airport transfers, corporate employee transport & luxury wedding shuttles. Available 24/7.",
       // The list page gets one line per service name (not each service's full
       // detail-page keyword set below — stacking all of those here would be
       // 60+ near-duplicate phrases on one tag, which is exactly the keyword-
@@ -85,9 +101,15 @@ router.get("/:slug", async (req, res, next) => {
     const relatedFaqs = relatedFaqsAll.slice(0, 5);
     const related = allServices.filter((s) => s.id !== service.id).slice(0, 3);
 
+    const fullDesc =
+      SERVICE_META_DESCRIPTIONS[service.slug] ||
+      (service.shortDescription.length >= 130
+        ? service.shortDescription
+        : `${service.shortDescription} Book chauffeur-driven vehicles with transparent per-km billing and 24/7 support in Bangalore.`);
+
     res.render("pages/service-detail", {
       title: `${service.name} Service in Bangalore | Yogi Tours`,
-      metaDescription: service.shortDescription,
+      metaDescription: fullDesc,
       metaKeywords: serviceKeywords(service),
       canonicalPath: `/services/${service.slug}`,
       crumbs: [

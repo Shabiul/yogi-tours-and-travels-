@@ -5,10 +5,12 @@
   <div class="container grid lg:grid-cols-5 gap-8 lg:gap-12">
     <div class="lg:col-span-3">
       <div class="rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
-        <%- include('../components/smart-image', {
-          src: vehicle.imageKey, seed: vehicle.slug, icon: vehicleCategoryIcon(vehicle.category), label: vehicle.name, eager: true,
-          alt: `${vehicle.name} rental in Bangalore`, cls: 'w-full h-full'
-        }) %>
+        <a href="<%= vehicle.imageKey || '#' %>" target="_blank" rel="noopener" title="<%= vehicle.name %> rental in Bangalore — Click to view full image" class="block w-full h-full group">
+          <%- include('../components/smart-image', {
+            src: vehicle.imageKey, seed: vehicle.slug, icon: vehicleCategoryIcon(vehicle.category), label: vehicle.name, eager: true,
+            alt: `${vehicle.name} rental in Bangalore`, title: `${vehicle.name} rental in Bangalore`, cls: 'w-full h-full group-hover:scale-105 transition-transform duration-500'
+          }) %>
+        </a>
       </div>
 
       <% if (gallery.length) { %>
@@ -19,10 +21,10 @@
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
           <% gallery.forEach(function(img, i) { %>
-          <a href="<%= img %>" target="_blank" rel="noopener" class="group relative block rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-ink-100 hover:ring-brand-500 transition-all hover:shadow-md">
+          <a href="<%= img %>" target="_blank" rel="noopener" title="<%= vehicle.name %> — Bangalore fleet photo <%= i + 1 %>" class="group relative block rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-ink-100 hover:ring-brand-500 transition-all hover:shadow-md">
             <%- include('../components/smart-image', {
               src: img, seed: `${vehicle.slug}-${i}`, icon: vehicleCategoryIcon(vehicle.category), label: '',
-              alt: `${vehicle.name} — Bangalore fleet photo ${i + 1}`, cls: 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+              alt: `${vehicle.name} — Bangalore fleet photo ${i + 1}`, title: `${vehicle.name} — Bangalore fleet photo ${i + 1}`, cls: 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
             }) %>
             <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/20 transition-colors flex items-center justify-center">
               <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 text-ink-900 rounded-full p-1.5 shadow-sm">

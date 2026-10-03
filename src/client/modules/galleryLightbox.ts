@@ -25,7 +25,17 @@ export function initGalleryLightbox(): void {
       const clone = visual.cloneNode(true) as HTMLElement;
       clone.classList.add("w-full", "h-full");
       if (clone.tagName === "IMG") clone.classList.add("object-cover");
-      imageWrap.appendChild(clone);
+
+      const link = document.createElement("a");
+      const href = (clone as HTMLImageElement).src || item.getAttribute("href") || "#";
+      const title = item.dataset.caption || item.dataset.alt || "View full resolution photo";
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.title = title;
+      link.className = "block w-full h-full";
+      link.appendChild(clone);
+      imageWrap.appendChild(link);
     }
     if (captionEl) captionEl.textContent = item.dataset.caption || item.dataset.alt || "";
   }
@@ -70,7 +80,8 @@ export function initGalleryLightbox(): void {
   }
 
   qsa<HTMLElement>("[data-gallery-item]", grid).forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
       const visible = getVisibleItems();
       const index = visible.indexOf(item);
       openAt(index === -1 ? 0 : index);

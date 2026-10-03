@@ -28,8 +28,9 @@
       <% allItems.forEach(function(item, i) {
         const isVisible = activeCategory === "All" || activeCategory === item.category;
       %>
-      <button
-        type="button"
+      <a
+        href="<%= item.imageKey || '#' %>"
+        title="<%= item.caption || item.altText %>"
         class="gallery-item relative block aspect-square rounded-xl overflow-hidden group text-left <%= isVisible ? '' : 'hidden' %>"
         data-gallery-item
         data-gallery-category="<%= item.category %>"
@@ -37,17 +38,17 @@
         data-caption="<%= item.caption %>"
         data-alt="<%= item.altText %>"
         data-seed="<%= item.id %>"
-        data-icon="<%= { Vehicles: 'car', Tours: 'mountain', 'Group Travel': 'users-group', Corporate: 'building', Weddings: 'heart', Destinations: 'map-pin' }[item.category] || 'image' %>"
+        data-icon="<%= ({ Vehicles: 'car', Tours: 'mountain', 'Group Travel': 'users-group', Corporate: 'building', Weddings: 'heart', Destinations: 'map-pin' })[item.category] || 'image' %>"
         aria-label="Open photo: <%= item.caption || item.altText %>"
       >
         <%- include('../components/smart-image', {
           src: item.imageKey, seed: String(item.id), icon: ({ Vehicles: 'car', Tours: 'mountain', 'Group Travel': 'users-group', Corporate: 'building', Weddings: 'heart', Destinations: 'map-pin' })[item.category] || 'image',
-          label: '', alt: item.altText, cls: 'w-full h-full group-hover:scale-110 transition-transform duration-500'
+          label: '', alt: item.altText, title: item.caption || item.altText, cls: 'w-full h-full group-hover:scale-110 transition-transform duration-500'
         }) %>
         <div class="absolute inset-0 bg-ink-950/0 group-hover:bg-ink-950/30 transition-colors flex items-end p-3 opacity-0 group-hover:opacity-100">
           <span class="text-white text-xs font-medium"><%= item.caption %></span>
         </div>
-      </button>
+      </a>
       <% }); %>
     </div>
     <p class="text-center text-ink-400 text-sm mt-10 hidden" data-gallery-empty>No photos in this category yet.</p>

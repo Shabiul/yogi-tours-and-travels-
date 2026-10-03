@@ -4,10 +4,11 @@ const __detailUrl = `/tour-packages/${__p.slug}`;
 const __highlights = parseJsonArray(__p.highlights);
 %>
 <article class="card-package group flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
-  <a href="<%= __detailUrl %>" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
+  <a href="<%= __detailUrl %>" title="<%= __p.title %> — tour package from Bangalore" class="relative block aspect-[4/3] overflow-hidden rounded-t-2xl">
     <%- include('smart-image', {
       src: __p.imageKey, seed: __p.slug, icon: 'mountain', label: __p.destination,
       alt: `${__p.title} — tour package from Bangalore`,
+      title: `${__p.title} — tour package from Bangalore`,
       cls: 'w-full h-full group-hover:scale-[1.04] transition-transform duration-500'
     }) %>
     <span class="absolute top-3 left-3 badge badge-dark"><%= __p.travelCategory %></span>

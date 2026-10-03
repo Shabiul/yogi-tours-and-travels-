@@ -55,9 +55,9 @@
           From airport transfers and city rides to outstation getaways and large group tours — Yogi Tours &amp; Travels connects you with the right car, Tempo Traveller or bus, backed by experienced drivers and clear, upfront pricing.
         </p>
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-8">
-          <button type="button" class="btn btn-accent" data-enquiry-trigger data-enquiry-type="quote" data-enquiry-context="General Enquiry">
-            <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %><span>Get a Free Quote</span>
-          </button>
+          <a href="#fleet" class="btn btn-accent">
+            <%- include('../partials/icon', { name: 'car', cls: 'w-4 h-4' }) %><span>Explore Fleet &amp; Rates</span>
+          </a>
           <a href="<%= telHref %>" class="btn btn-outline-white">
             <%- include('../partials/icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Call Now</span>
           </a>
@@ -143,11 +143,14 @@
 <section class="py-16 lg:py-24" data-reveal>
   <div class="container grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
     <div class="rounded-2xl overflow-hidden shadow-card aspect-[4/3] order-2 lg:order-1">
-      <%- include('../components/smart-image', {
-        src: '/assets/images/destinations/vidhana-soudha.webp', seed: 'about-teaser', icon: 'users-group', label: 'Family & Group Travel',
-        alt: 'Vidhana Soudha, Bangalore — Yogi Tours & Travels serves families, corporates and groups across the city',
-        cls: 'w-full h-full'
-      }) %>
+      <a href="/about" title="About Yogi Tours & Travels — Vidhana Soudha, Bangalore" class="block w-full h-full group">
+        <%- include('../components/smart-image', {
+          src: '/assets/images/destinations/vidhana-soudha.webp', seed: 'about-teaser', icon: 'users-group', label: 'Family & Group Travel',
+          alt: 'Vidhana Soudha, Bangalore — Yogi Tours & Travels serves families, corporates and groups across the city',
+          title: 'Vidhana Soudha, Bangalore — Yogi Tours & Travels serves families, corporates and groups across the city',
+          cls: 'w-full h-full group-hover:scale-105 transition-transform duration-500'
+        }) %>
+      </a>
     </div>
     <div class="order-1 lg:order-2">
       <%- include('../components/section-heading', {
@@ -206,7 +209,7 @@
 </section>
 
 <!-- FLEET -->
-<section class="py-16 lg:py-24 bg-ink-50/60" data-reveal>
+<section id="fleet" class="py-16 lg:py-24 bg-ink-50/60" data-reveal>
   <div class="container">
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
       <%- include('../components/section-heading', {
@@ -293,10 +296,11 @@
     }) %>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-10">
       <% packages.slice(0, 9).forEach(function(p) { %>
-        <a href="/tour-packages/<%= p.slug %>" class="group relative rounded-2xl overflow-hidden aspect-[4/5] sm:aspect-[4/3] shadow-card hover:shadow-card-hover transition-shadow">
+        <a href="/tour-packages/<%= p.slug %>" title="<%= p.destination %> tour from Bangalore" class="group relative rounded-2xl overflow-hidden aspect-[4/5] sm:aspect-[4/3] shadow-card hover:shadow-card-hover transition-shadow">
           <%- include('../components/smart-image', {
             src: p.imageKey, seed: p.slug, icon: 'mountain', label: '',
             alt: `${p.destination} tour from Bangalore`,
+            title: `${p.destination} tour from Bangalore`,
             cls: 'absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-500'
           }) %>
           <div class="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/10 to-transparent"></div>
@@ -421,8 +425,8 @@
     </div>
     <div class="grid grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3">
       <% galleryTeaser.forEach(function(g) { %>
-        <a href="/gallery?category=<%= encodeURIComponent(g.category) %>" class="relative block aspect-square rounded-xl overflow-hidden group">
-          <%- include('../components/smart-image', { src: g.imageKey, seed: g.category, icon: g.icon, label: '', alt: g.altText || (g.category + ' — Yogi Tours & Travels gallery'), cls: 'w-full h-full group-hover:scale-110 transition-transform duration-500' }) %>
+        <a href="/gallery?category=<%= encodeURIComponent(g.category) %>" title="<%= g.altText || (g.category + ' — Yogi Tours & Travels gallery') %>" class="relative block aspect-square rounded-xl overflow-hidden group">
+          <%- include('../components/smart-image', { src: g.imageKey, seed: g.category, icon: g.icon, label: '', alt: g.altText || (g.category + ' — Yogi Tours & Travels gallery'), title: g.altText || (g.category + ' — Yogi Tours & Travels gallery'), cls: 'w-full h-full group-hover:scale-110 transition-transform duration-500' }) %>
         </a>
       <% }); %>
     </div>

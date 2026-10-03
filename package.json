@@ -27,7 +27,8 @@
     "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit && tsc -p tsconfig.scripts.json --noEmit",
     "build": "npm run typecheck && npm run build:css && npm run build:client && npm run build:server",
     "start": "node dist/server/app.js",
-    "smoke": "tsx scripts/smoke-test.ts"
+    "smoke": "tsx scripts/smoke-test.ts",
+    "generate:pseo": "tsx scripts/generate-pseo-matrix.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.4",

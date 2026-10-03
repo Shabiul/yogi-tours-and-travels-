@@ -36,22 +36,41 @@ export async function query<T extends QueryResultRow = QueryResultRow>(
   sql: string,
   params: unknown[] = []
 ): Promise<T[]> {
-  const result = await pool.query<T>(toPgSql(sql), params);
-  return result.rows;
+  if (!env.databaseUrl) return [];
+  try {
+    const result = await pool.query<T>(toPgSql(sql), params);
+    return result.rows;
+  } catch (err: unknown) {
+    const error = err as { code?: string; message?: string };
+    if (!env.isProd && (error.code === "ECONNREFUSED" || error.code === "ENOTFOUND")) {
+      return [];
+    }
+    throw err;
+  }
 }
 
 export async function queryOne<T extends QueryResultRow = QueryResultRow>(
   sql: string,
   params: unknown[] = []
 ): Promise<T | undefined> {
+  if (!env.databaseUrl) return undefined;
   const rows = await query<T>(sql, params);
   return rows[0];
 }
 
 /** Runs a write query and returns the affected row count. */
 export async function run(sql: string, params: unknown[] = []): Promise<{ rowCount: number }> {
-  const result = await pool.query(toPgSql(sql), params);
-  return { rowCount: result.rowCount ?? 0 };
+  if (!env.databaseUrl) return { rowCount: 0 };
+  try {
+    const result = await pool.query(toPgSql(sql), params);
+    return { rowCount: result.rowCount ?? 0 };
+  } catch (err: unknown) {
+    const error = err as { code?: string; message?: string };
+    if (!env.isProd && (error.code === "ECONNREFUSED" || error.code === "ENOTFOUND")) {
+      return { rowCount: 0 };
+    }
+    throw err;
+  }
 }
 
 let schemaReady: Promise<void> | null = null;
@@ -59,7 +78,21 @@ let schemaReady: Promise<void> | null = null;
 /** Idempotent — safe to call on every cold start of a serverless function. */
 export function initSchema(): Promise<void> {
   if (!schemaReady) {
-    schemaReady = pool.query(SCHEMA_SQL).then(() => undefined);
+    if (!env.databaseUrl) {
+      schemaReady = Promise.resolve();
+    } else {
+      schemaReady = pool
+        .query(SCHEMA_SQL)
+        .then(() => undefined)
+        .catch((err: unknown) => {
+          if (!env.isProd) {
+            const error = err as { message?: string };
+            console.warn("[db] initSchema skipped in development:", error.message || err);
+            return;
+          }
+          throw err;
+        });
+    }
   }
   return schemaReady;
 }

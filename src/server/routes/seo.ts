@@ -14,6 +14,7 @@ import { DUTY_POLICY, dutyTariff } from "../db/pricing.js";
 import { LOCATIONS } from "../config/locations.js";
 import { TRIP_ROUTES } from "../config/tripRoutes.js";
 import { VEHICLE_GROUPS } from "../config/vehicleGroups.js";
+import { PSEO_VEHICLES, PSEO_ORIGINS, PSEO_DESTINATIONS } from "../config/pseoData.js";
 
 const router = Router();
 
@@ -55,6 +56,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
   { path: "/tour-packages", priority: "0.9", changefreq: "weekly" },
   { path: "/locations", priority: "0.7", changefreq: "monthly" },
   { path: "/routes", priority: "0.8", changefreq: "monthly" },
+  { path: "/rent", priority: "0.8", changefreq: "weekly" },
   { path: "/gallery", priority: "0.8", changefreq: "weekly" },
   { path: "/blog", priority: "0.7", changefreq: "weekly" },
   { path: "/contact", priority: "0.6", changefreq: "monthly" },
@@ -76,22 +78,12 @@ interface VideoSitemapEntry {
 
 const VIDEO_ENTRIES: VideoSitemapEntry[] = [
   {
-    pagePath: "/fleet/tempo-traveller/force-urbania-12-seater-maharaja",
+    pagePath: "/fleet/tempo-traveller/urbania-12-seater-maharaja",
     thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
     title: "Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore",
     description: "Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.",
     contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
-    playerLoc: `${env.siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja`,
-    duration: 104,
-    publicationDate: "2026-10-01T10:30:00+05:30"
-  },
-  {
-    pagePath: "/fleet/tempo-traveller/force-urbania-17-seater-luxury",
-    thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
-    title: "Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental",
-    description: "Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.",
-    contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
-    playerLoc: `${env.siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury`,
+    playerLoc: `${env.siteUrl}/fleet/tempo-traveller/urbania-12-seater-maharaja`,
     duration: 104,
     publicationDate: "2026-10-01T10:30:00+05:30"
   },
@@ -264,6 +256,97 @@ async function buildSitemapData(): Promise<SitemapUrl[]> {
     }
   }
 
+  // Dedicated pSEO Vehicle Rental Directory Hubs
+  for (const pv of PSEO_VEHICLES) {
+    const vImages: SitemapImage[] = pv.imageKey
+      ? [
+          {
+            loc: pv.imageKey.startsWith("http") ? pv.imageKey : `${env.siteUrl}${pv.imageKey}`,
+            title: `${pv.name} Outstation Rental Bangalore`,
+            caption: `${pv.name} for hire from Bangalore — ${pv.highlight}`
+          }
+        ]
+      : [];
+    urls.push({
+      path: `/rent/${pv.slug}`,
+      priority: "0.8",
+      changefreq: "weekly",
+      images: vImages.length > 0 ? vImages : undefined
+    });
+  }
+
+  // High-priority canonical outstation pSEO landing pages
+  const topDestSlugs = [
+    "coorg",
+    "mysore",
+    "ooty",
+    "wayanad",
+    "tirupati",
+    "chikmagalur",
+    "sakleshpur",
+    "goa",
+    "pondicherry",
+    "hampi",
+    "gokarna",
+    "kabini"
+  ];
+  const priorityVehicles = PSEO_VEHICLES.filter((v) =>
+    ["swift-dzire", "ertiga", "innova-crysta", "innova-hycross", "force-urbania", "12-seater-tempo"].includes(v.slug)
+  );
+
+  for (const v of priorityVehicles) {
+    const vPhoto = v.imageKey
+      ? [
+          {
+            loc: v.imageKey.startsWith("http") ? v.imageKey : `${env.siteUrl}${v.imageKey}`,
+            title: `${v.name} Outstation Cab Rental Bangalore`,
+            caption: `Hire ${v.name} from Bangalore with driver`
+          }
+        ]
+      : undefined;
+
+    for (const o of PSEO_ORIGINS) {
+      for (const dSlug of topDestSlugs) {
+        urls.push({
+          path: `/rent/${v.slug}/${o.slug}-to-${dSlug}`,
+          priority: "0.7",
+          changefreq: "monthly",
+          images: vPhoto
+        });
+      }
+    }
+  }
+
+  // Programmatic Blog Spoke Pages (Cost, Compare, Itinerary)
+  for (const dSlug of topDestSlugs) {
+    for (const v of priorityVehicles) {
+      urls.push({
+        path: `/blog/cost/bangalore-to-${dSlug}-${v.slug}`,
+        priority: "0.7",
+        changefreq: "monthly"
+      });
+    }
+
+    urls.push({
+      path: `/blog/compare/force-urbania-vs-innova-crysta-for-${dSlug}`,
+      priority: "0.7",
+      changefreq: "monthly"
+    });
+    urls.push({
+      path: `/blog/compare/ertiga-vs-innova-crysta-for-${dSlug}`,
+      priority: "0.7",
+      changefreq: "monthly"
+    });
+
+    for (const o of PSEO_ORIGINS.slice(0, 5)) {
+      urls.push({
+        path: `/blog/itinerary/${o.slug}-to-${dSlug}-weekend-trip`,
+        priority: "0.7",
+        changefreq: "monthly"
+      });
+    }
+  }
+
   return urls;
 }
 
@@ -430,6 +513,8 @@ Disallow: /*?*p=*
 Disallow: /*?*attachment_id=*
 Disallow: /*?*replytocom=*
 Disallow: /*?*author=*
+Disallow: /*.php$
+Disallow: /*.php?
 
 # Major Search Engines
 User-agent: Googlebot
