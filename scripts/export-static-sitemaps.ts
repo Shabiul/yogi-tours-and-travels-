@@ -384,7 +384,6 @@ ${(u.images || [])
       <video:title>Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore</video:title>
       <video:description>Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.</video:description>
       <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -398,7 +397,6 @@ ${(u.images || [])
       <video:title>Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental</video:title>
       <video:description>Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.</video:description>
       <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -412,7 +410,6 @@ ${(u.images || [])
       <video:title>Force Urbania Luxury Van Hire Bangalore — Full Interior &amp; Features Walkthrough</video:title>
       <video:description>Detailed video demonstration of the Force Urbania luxury passenger van fleet in Bangalore by Yogi Tours &amp; Travels.</video:description>
       <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${siteUrl}/fleet/tempo-traveller/force-urbania</video:player_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -426,7 +423,6 @@ ${(u.images || [])
       <video:title>Yogi Tours &amp; Travels Bangalore — Luxury Fleet &amp; Outstation Cab Service</video:title>
       <video:description>Overview of Yogi Tours &amp; Travels verified passenger fleet in Bangalore, covering cars, tempo travellers, and tourist buses across Karnataka and South India.</video:description>
       <video:content_loc>${siteUrl}/assets/video/hero-background.mp4</video:content_loc>
-      <video:player_loc allow_embed="yes">${siteUrl}/</video:player_loc>
       <video:duration>30</video:duration>
       <video:publication_date>2026-10-01T09:00:00+05:30</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>

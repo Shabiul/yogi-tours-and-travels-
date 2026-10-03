@@ -78,12 +78,20 @@ interface VideoSitemapEntry {
 
 const VIDEO_ENTRIES: VideoSitemapEntry[] = [
   {
-    pagePath: "/fleet/tempo-traveller/urbania-12-seater-maharaja",
+    pagePath: "/fleet/tempo-traveller/force-urbania-12-seater-maharaja",
     thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
     title: "Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore",
     description: "Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.",
     contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
-    playerLoc: `${env.siteUrl}/fleet/tempo-traveller/urbania-12-seater-maharaja`,
+    duration: 104,
+    publicationDate: "2026-10-01T10:30:00+05:30"
+  },
+  {
+    pagePath: "/fleet/tempo-traveller/force-urbania-17-seater-luxury",
+    thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
+    title: "Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental",
+    description: "Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.",
+    contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
     duration: 104,
     publicationDate: "2026-10-01T10:30:00+05:30"
   },
@@ -93,7 +101,6 @@ const VIDEO_ENTRIES: VideoSitemapEntry[] = [
     title: "Force Urbania Luxury Van Hire Bangalore — Full Interior & Features Walkthrough",
     description: "Detailed video demonstration of the Force Urbania luxury passenger van fleet in Bangalore by Yogi Tours & Travels.",
     contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
-    playerLoc: `${env.siteUrl}/fleet/tempo-traveller/force-urbania`,
     duration: 104,
     publicationDate: "2026-10-01T10:30:00+05:30"
   },
@@ -103,7 +110,6 @@ const VIDEO_ENTRIES: VideoSitemapEntry[] = [
     title: "Yogi Tours & Travels Bangalore — Luxury Fleet & Outstation Cab Service",
     description: "Overview of Yogi Tours & Travels verified passenger fleet in Bangalore, covering cars, tempo travellers, and tourist buses across Karnataka and South India.",
     contentLoc: `${env.siteUrl}/assets/video/hero-background.mp4`,
-    playerLoc: `${env.siteUrl}/`,
     duration: 30,
     publicationDate: "2026-10-01T09:00:00+05:30"
   }
@@ -421,7 +427,7 @@ ${VIDEO_ENTRIES.map(
       <video:thumbnail_loc>${escapeXml(v.thumbnailLoc)}</video:thumbnail_loc>
       <video:title>${escapeXml(v.title)}</video:title>
       <video:description>${escapeXml(v.description)}</video:description>
-      <video:content_loc>${escapeXml(v.contentLoc)}</video:content_loc>${v.playerLoc ? `\n      <video:player_loc allow_embed="yes">${escapeXml(v.playerLoc)}</video:player_loc>` : ""}
+      <video:content_loc>${escapeXml(v.contentLoc)}</video:content_loc>
       <video:duration>${v.duration}</video:duration>
       <video:publication_date>${v.publicationDate}</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -491,6 +497,13 @@ ${urls
   } catch (err) {
     next(err);
   }
+});
+
+/**
+ * 301 Redirects for legacy CMS / WordPress sitemaps (resolves Google Search Console 404 crawl errors)
+ */
+router.get(["/sitemap_index.xml", "/wp-sitemap.xml", "/sitemap1.xml", "/sitemap.xml.gz"], (req, res) => {
+  res.redirect(301, "/sitemap.xml");
 });
 
 router.get("/robots.txt", (req, res) => {
