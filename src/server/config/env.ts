@@ -125,7 +125,11 @@ export const business = {
   // no tracking parameters and points at a stable entity identifier.
   googleBusinessProfile: "https://www.google.com/search?kgmid=/g/11ld89nkjl",
   /** Google Knowledge Graph machine ID for this business — used as a schema.org identifier so search/AI engines tie this site to the verified listing. */
-  googleKnowledgeGraphId: "/g/11ld89nkjl"
+  googleKnowledgeGraphId: "/g/11ld89nkjl",
+  /** Real named author/owner for E-E-A-T. Leave `name` empty until supplied — schema then falls back to the Organization instead of a fabricated Person. */
+  author: { name: "Yogesh G J", jobTitle: "", url: "", sameAs: [] as string[] },
+  /** Site launch date (first commit) — homepage datePublished. */
+  sitePublished: "2026-08-13"
 } as const;
 
 /** No-API-key Google Maps embed URL, pinned to the real geocoded coordinates above. Used for the embedded map on /contact and location pages. */

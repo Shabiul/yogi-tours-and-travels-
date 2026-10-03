@@ -51,7 +51,7 @@
           <a href="#" data-success-whatsapp target="_blank" rel="noopener" class="btn btn-primary w-full">
             <%- include('icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span>Continue on WhatsApp</span>
           </a>
-          <a href="<%= telHref %>" class="btn btn-outline w-full">
+          <a href="<%= telHref %>" title="Call Yogi Tours &amp; Travels" class="btn btn-outline w-full">
             <%- include('icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Call Us Instead</span>
           </a>
           <button type="button" class="btn btn-ghost w-full" data-modal-close>Done</button>
@@ -67,7 +67,7 @@
         <p class="text-sm text-ink-500 mt-1.5 mb-6">We couldn't submit your enquiry right now. Please try again, or reach us directly.</p>
         <div class="space-y-2.5">
           <button type="button" class="btn btn-primary w-full" data-form-retry>Try Again</button>
-          <a href="<%= telHref %>" class="btn btn-outline w-full">
+          <a href="<%= telHref %>" title="Call Yogi Tours &amp; Travels" class="btn btn-outline w-full">
             <%- include('icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Call <%= business.phone %></span>
           </a>
         </div>

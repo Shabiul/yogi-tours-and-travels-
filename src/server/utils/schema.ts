@@ -269,8 +269,22 @@ export function blogPostingSchema(input: {
     ...(input.mentions?.length
       ? { mentions: input.mentions.map((m) => ({ "@type": m.type ?? "Place", name: m.name })) }
       : {}),
-    author: { "@type": "Organization", name: input.author },
+    author: authorSchema(input.author),
     publisher: { "@id": `${env.siteUrl}/#organization` }
+  };
+}
+
+/** Person author (name, url, sameAs) once business.author.name is configured; otherwise the Organization — never a made-up person. */
+export function authorSchema(fallbackName: string): Record<string, unknown> {
+  const a = business.author;
+  if (!a.name) return { "@type": "Organization", name: fallbackName, url: env.siteUrl };
+  return {
+    "@type": "Person",
+    name: a.name,
+    ...(a.jobTitle ? { jobTitle: a.jobTitle } : {}),
+    worksFor: { "@id": `${env.siteUrl}/#organization` },
+    ...(a.url ? { url: a.url } : {}),
+    ...(a.sameAs.length ? { sameAs: a.sameAs } : {})
   };
 }
 
@@ -286,8 +300,9 @@ export function websiteSchema(): Record<string, unknown> {
     "@type": "WebSite",
     "@id": `${env.siteUrl}/#website`,
     url: env.siteUrl,
-    name: business.name,
-    alternateName: "Yogi Tours and Travels",
+    // Google's displayed site name (above the URL) — keep it the full brand, ampersand-free; "&" and short "Yogi Tours" are alternates.
+    name: "Yogi Tours and Travels",
+    alternateName: [business.name, "Yogi Tours"],
     description: business.description,
     inLanguage: "en-IN",
     publisher: { "@id": `${env.siteUrl}/#organization` }
@@ -304,12 +319,20 @@ export function websiteSchema(): Record<string, unknown> {
  * rendered HTML of the same page (each faqSchema()-emitting route wraps its
  * visible FAQ block in `id="faq"` specifically so this can target it).
  */
-export function speakableSchema(canonicalPath: string, cssSelectors: string[]): Record<string, unknown> {
+export function speakableSchema(
+  canonicalPath: string,
+  cssSelectors: string[],
+  dates?: { datePublished?: string; dateModified?: string }
+): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${env.siteUrl}${canonicalPath}`,
     url: `${env.siteUrl}${canonicalPath}`,
+    ...(dates?.datePublished ? { datePublished: toIso(dates.datePublished) } : {}),
+    ...(dates?.dateModified ? { dateModified: toIso(dates.dateModified) } : {}),
+    author: authorSchema(business.name),
+    publisher: { "@id": `${env.siteUrl}/#organization` },
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: cssSelectors

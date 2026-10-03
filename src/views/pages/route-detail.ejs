@@ -81,10 +81,10 @@
           <button type="button" class="btn btn-accent w-full" data-enquiry-trigger data-enquiry-type="outstation" data-enquiry-context="Route: Bangalore to <%= route.destination %>">
             <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %><span>Get Best Quote</span>
           </button>
-          <a href="https://wa.me/<%= whatsappDigits %>?text=<%= encodeURIComponent('Hi, I would like a quote for Bangalore to ' + route.destination + '.') %>" target="_blank" rel="noopener" class="btn btn-outline w-full">
+          <a href="https://wa.me/<%= whatsappDigits %>?text=<%= encodeURIComponent('Hi, I would like a quote for Bangalore to ' + route.destination + '.') %>" title="Chat on WhatsApp" target="_blank" rel="noopener" class="btn btn-outline w-full">
             <%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span>WhatsApp About This Trip</span>
           </a>
-          <a href="<%= telHref %>" class="btn btn-ghost w-full"><%- include('../partials/icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Or Call <%= business.phone %></span></a>
+          <a href="<%= telHref %>" title="Call Yogi Tours &amp; Travels" class="btn btn-ghost w-full"><%- include('../partials/icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Or Call <%= business.phone %></span></a>
         </div>
 
         <% if (vehicles.length) { %>

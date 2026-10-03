@@ -87,12 +87,14 @@ const __tariff = dutyTariff(__v.slug);
         rel="noopener"
         class="shine flex items-center justify-center w-11 h-11 rounded-lg bg-[#25D366] text-white hover:bg-[#1ebe5a] transition-colors shrink-0"
         aria-label="Ask about <%= __v.name %> on WhatsApp"
-      ><%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %></a>
+        title="Ask about <%= __v.name %> on WhatsApp"
+      ><%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span class="sr-only">WhatsApp enquiry for <%= __v.name %></span></a>
       <a
         href="<%= telHref %>"
         class="shine flex items-center justify-center w-11 h-11 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors shrink-0"
         aria-label="Call about <%= __v.name %>"
-      ><%- include('../partials/icon', { name: 'phone', cls: 'w-4 h-4' }) %></a>
+        title="Call about <%= __v.name %>"
+      ><%- include('../partials/icon', { name: 'phone', cls: 'w-4 h-4' }) %><span class="sr-only">Call about <%= __v.name %></span></a>
     </div>
   </div>
 </article>

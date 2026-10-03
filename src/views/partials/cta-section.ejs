@@ -11,10 +11,10 @@ const __sub = typeof ctaSub !== "undefined" ? ctaSub : "Tell us where you're goi
       <button type="button" class="btn btn-accent ring-2 ring-white/40" data-enquiry-trigger data-enquiry-type="quote" data-enquiry-context="General Enquiry">
         <%- include('icon', { name: 'send', cls: 'w-4 h-4' }) %><span>Get a Free Quote</span>
       </button>
-      <a href="https://wa.me/<%= whatsappDigits %>" target="_blank" rel="noopener" class="btn btn-white">
+      <a href="https://wa.me/<%= whatsappDigits %>" title="Chat on WhatsApp" target="_blank" rel="noopener" class="btn btn-white">
         <%- include('icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span>WhatsApp Us</span>
       </a>
-      <a href="<%= telHref %>" class="btn btn-outline-white">
+      <a href="<%= telHref %>" title="Call Yogi Tours &amp; Travels" class="btn btn-outline-white">
         <%- include('icon', { name: 'phone', cls: 'w-4 h-4' }) %><span>Call Now</span>
       </a>
     </div>

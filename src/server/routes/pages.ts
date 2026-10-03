@@ -14,7 +14,8 @@ import {
   galleryPreview,
   sortVehiclesAlphabetically
 } from "../db/content.js";
-import { faqSchema, websiteSchema, breadcrumbSchema, speakableSchema } from "../utils/schema.js";
+import { faqSchema, websiteSchema, breadcrumbSchema, speakableSchema, toIso } from "../utils/schema.js";
+import { business } from "../config/env.js";
 import { orgSchemaWithRating } from "../middleware/viewLocals.js";
 import { TRIP_ROUTES } from "../config/tripRoutes.js";
 
@@ -35,9 +36,11 @@ router.get("/", async (req, res, next) => {
       galleryPreview()
     ]);
     const faqs = allFaqs.slice(0, 12);
+    // Freshness signal: newest content row feeding the homepage.
+    const dateModified = [...vehicles, ...services, ...packages].map((r) => toIso(r.updatedAt)).sort().pop();
     res.render("pages/home", {
       vehicles: sortVehiclesAlphabetically(vehicles),
-      title: "Tours and Travels Near Me Bangalore | Yogi Tours",
+      title: "Tours and Travels Near Me Bangalore | Yogi Tours and Travels",
       metaDescription:
         "Tours and travels near me in Bangalore — car, cab, Tempo Traveller, Urbania & bus rental for local, airport and outstation trips. Transparent pricing, 24/7.",
       canonicalPath: "/",
@@ -54,7 +57,7 @@ router.get("/", async (req, res, next) => {
       schemas: [
         websiteSchema(),
         faqSchema(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
-        ...(faqs.length ? [speakableSchema("/", ["#faq"])] : [])
+        speakableSchema("/", faqs.length ? ["#faq"] : ["h1"], { datePublished: business.sitePublished, dateModified })
       ]
     });
   } catch (err) {

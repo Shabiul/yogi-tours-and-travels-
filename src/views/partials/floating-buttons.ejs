@@ -5,8 +5,9 @@
   rel="noopener"
   class="shine fixed z-40 right-4 bottom-[calc(5rem+env(safe-area-inset-bottom))] lg:right-6 lg:bottom-6 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-popover hover:scale-105 active:scale-95 transition-transform"
   aria-label="Chat with us on WhatsApp"
+  title="Chat with us on WhatsApp"
 >
-  <%- include('icon', { name: 'whatsapp', cls: 'w-7 h-7' }) %>
+  <%- include('icon', { name: 'whatsapp', cls: 'w-7 h-7' }) %><span class="sr-only">Chat with us on WhatsApp</span>
 </a>
 
 <!-- Mobile sticky CTA bar -->
@@ -23,11 +24,11 @@
       <%- include('icon', { name: 'car', cls: 'w-5 h-5' }) %>
       <span class="text-[11px] font-medium">Fleet</span>
     </a>
-    <a href="https://wa.me/<%= whatsappDigits %>" target="_blank" rel="noopener" class="shine shine-dark flex flex-col items-center justify-center gap-0.5 text-[#128C53] bg-[#25D366]/10 active:bg-[#25D366]/20" aria-label="WhatsApp <%= business.name %>">
+    <a href="https://wa.me/<%= whatsappDigits %>" target="_blank" rel="noopener" class="shine shine-dark flex flex-col items-center justify-center gap-0.5 text-[#128C53] bg-[#25D366]/10 active:bg-[#25D366]/20" aria-label="WhatsApp <%= business.name %>" title="WhatsApp <%= business.name %>">
       <%- include('icon', { name: 'whatsapp', cls: 'w-5 h-5' }) %>
       <span class="text-[11px] font-medium">WhatsApp</span>
     </a>
-    <a href="<%= telHref %>" class="shine shine-dark flex flex-col items-center justify-center gap-0.5 text-ink-600 active:bg-ink-50" aria-label="Call <%= business.name %>">
+    <a href="<%= telHref %>" class="shine shine-dark flex flex-col items-center justify-center gap-0.5 text-ink-600 active:bg-ink-50" aria-label="Call <%= business.name %>" title="Call <%= business.name %>">
       <%- include('icon', { name: 'phone', cls: 'w-5 h-5' }) %>
       <span class="text-[11px] font-medium">Call</span>
     </a>
