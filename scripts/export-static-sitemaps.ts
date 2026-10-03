@@ -14,6 +14,7 @@ import {
 import { LOCATIONS } from "../src/server/config/locations.js";
 import { TRIP_ROUTES } from "../src/server/config/tripRoutes.js";
 import { VEHICLE_GROUPS } from "../src/server/config/vehicleGroups.js";
+import { PSEO_VEHICLES, PSEO_ORIGINS } from "../src/server/config/pseoData.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,6 +44,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
   { path: "/tour-packages", priority: "0.9", changefreq: "weekly" },
   { path: "/locations", priority: "0.7", changefreq: "monthly" },
   { path: "/routes", priority: "0.8", changefreq: "monthly" },
+  { path: "/rent", priority: "0.8", changefreq: "weekly" },
   { path: "/gallery", priority: "0.8", changefreq: "weekly" },
   { path: "/blog", priority: "0.7", changefreq: "weekly" },
   { path: "/contact", priority: "0.6", changefreq: "monthly" },
@@ -237,6 +239,97 @@ async function generateAll() {
     if (!hasVehicle) continue;
     for (const l of LOCATIONS) {
       urls.push({ path: `/${g.slug}/${l.slug}`, priority: "0.6", changefreq: "monthly" });
+    }
+  }
+
+  // Outstation Rental Directory Hub and Vehicle Hubs
+  for (const pv of PSEO_VEHICLES) {
+    const vImages = pv.imageKey
+      ? [
+          {
+            loc: pv.imageKey.startsWith("http") ? pv.imageKey : `${siteUrl}${pv.imageKey}`,
+            title: `${pv.name} Outstation Rental Bangalore`,
+            caption: `${pv.name} for hire from Bangalore — ${pv.highlight}`
+          }
+        ]
+      : [];
+    urls.push({
+      path: `/rent/${pv.slug}`,
+      priority: "0.8",
+      changefreq: "weekly",
+      images: vImages.length > 0 ? vImages : undefined
+    });
+  }
+
+  // High-priority canonical outstation pSEO landing pages
+  const topDestSlugs = [
+    "coorg",
+    "mysore",
+    "ooty",
+    "wayanad",
+    "tirupati",
+    "chikmagalur",
+    "sakleshpur",
+    "goa",
+    "pondicherry",
+    "hampi",
+    "gokarna",
+    "kabini"
+  ];
+  const priorityVehicles = PSEO_VEHICLES.filter((v) =>
+    ["swift-dzire", "ertiga", "innova-crysta", "innova-hycross", "force-urbania", "12-seater-tempo"].includes(v.slug)
+  );
+
+  for (const v of priorityVehicles) {
+    const vPhoto = v.imageKey
+      ? [
+          {
+            loc: v.imageKey.startsWith("http") ? v.imageKey : `${siteUrl}${v.imageKey}`,
+            title: `${v.name} Outstation Cab Rental Bangalore`,
+            caption: `Hire ${v.name} from Bangalore with driver`
+          }
+        ]
+      : undefined;
+
+    for (const o of PSEO_ORIGINS) {
+      for (const dSlug of topDestSlugs) {
+        urls.push({
+          path: `/rent/${v.slug}/${o.slug}-to-${dSlug}`,
+          priority: "0.7",
+          changefreq: "monthly",
+          images: vPhoto
+        });
+      }
+    }
+  }
+
+  // Programmatic Blog Spoke Pages (Cost, Compare, Itinerary)
+  for (const dSlug of topDestSlugs) {
+    for (const v of priorityVehicles) {
+      urls.push({
+        path: `/blog/cost/bangalore-to-${dSlug}-${v.slug}`,
+        priority: "0.7",
+        changefreq: "monthly"
+      });
+    }
+
+    urls.push({
+      path: `/blog/compare/force-urbania-vs-innova-crysta-for-${dSlug}`,
+      priority: "0.7",
+      changefreq: "monthly"
+    });
+    urls.push({
+      path: `/blog/compare/ertiga-vs-innova-crysta-for-${dSlug}`,
+      priority: "0.7",
+      changefreq: "monthly"
+    });
+
+    for (const o of PSEO_ORIGINS.slice(0, 5)) {
+      urls.push({
+        path: `/blog/itinerary/${o.slug}-to-${dSlug}-weekend-trip`,
+        priority: "0.7",
+        changefreq: "monthly"
+      });
     }
   }
 
