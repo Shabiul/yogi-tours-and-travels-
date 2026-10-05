@@ -32,6 +32,7 @@ const CATEGORY_RENTAL_LABEL: Record<VehicleCategory, string> = {
 // claim on every vehicle) since it's backed by the business's real 4.9★/210
 // Google rating stated in the meta description below, not an empty boast.
 const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
+  "9-seater-tempo-traveller": "9 Seater Tempo Traveller Rental Bangalore | AC Luxury Van | Yogi Tours",
   "force-urbania": "Force Urbania Rental Bangalore | Luxury 17 Seater Maharaja Van | Yogi Tours",
   "urbania-12-seater-maharaja": "12 Seater Maharaja Force Urbania Bangalore | Luxury Recliner Van | Yogi Tours",
   "maharaja-tempo-traveller": "Best 12 Seater Tempo Traveller Bangalore | Yogi Tours",
@@ -46,6 +47,33 @@ const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
 // addition, so nothing here overstates what's true for a vehicle without
 // a written answer.
 const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
+  "9-seater-tempo-traveller": [
+    {
+      question: "Where can I rent a 9 seater Tempo Traveller in Bangalore?",
+      answer:
+        "Yogi Tours & Travels provides 9 seater Tempo Traveller rentals across Bangalore (Bengaluru) with verified commercial chauffeurs. Pickups are available from Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Yelahanka, Hebbal, Jayanagar, JP Nagar, Marathahalli, and Kempegowda International Airport (BLR)."
+    },
+    {
+      question: "What is the rental rate for a 9 seater Tempo Traveller in Bangalore?",
+      answer:
+        "Our 9 seater Tempo Traveller starts at ₹28/km with AC, a standard 300 km daily minimum, and a ₹500/day driver Bata. Tolls, parking, and interstate permits are billed at actuals with transparent upfront itemisation."
+    },
+    {
+      question: "What luxury features and amenities are included in the 9 seater Tempo Traveller?",
+      answer:
+        "The vehicle features forward-facing push-back recliner seats (1x1 and 2x1 configuration), individual AC louvers, dedicated luggage boot plus roof carrier for 9+ large bags, audio system, mobile charging points, and wide tinted windows."
+    },
+    {
+      question: "Can I book a 9 seater Tempo Traveller for outstation trips from Bangalore?",
+      answer:
+        "Yes — the 9 seater Tempo Traveller is one of Bangalore's most booked options for outstation family trips and pilgrimage tours, including Bangalore to Coorg, Ooty, Chikmagalur, Mysore, Wayanad, and Tirupati."
+    },
+    {
+      question: "Why hire a 9 seater Tempo Traveller instead of booking two separate cabs?",
+      answer:
+        "A 9 seater Tempo Traveller keeps your entire family or team together in a single air-conditioned cabin with generous legroom and dedicated luggage space, saving up to 30% compared to booking two separate sedans or SUVs."
+    }
+  ],
   "force-urbania": [
     {
       question: "Where can I rent a luxury Force Urbania in Bangalore?",
@@ -208,6 +236,9 @@ const CATEGORY_META_DESCRIPTIONS: Record<VehicleCategory, string> = {
 };
 
 function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
+  if (vehicle.slug === "9-seater-tempo-traveller") {
+    return "Hire 9 Seater Tempo Traveller in Bangalore with verified driver. Pushback recliner seats, AC, carrier & ₹28/km transparent tariff. Rated 4.9★ for outstation trips.";
+  }
   if (vehicle.slug === "force-urbania") {
     return "Rent luxury Force Urbania in Bangalore with Maharaja recliner captain seats, Sony Bravia Smart TV & chiller box. Verified chauffeur & transparent per-km rates.";
   }
