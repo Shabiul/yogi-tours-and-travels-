@@ -235,5 +235,219 @@ export const CURATED_BLOG_POSTS: BlogPost[] = [
     sortOrder: 6,
     createdAt: "2026-09-30 10:45:00",
     updatedAt: "2026-10-02 12:00:00"
+  },
+  {
+    id: 7,
+    title: "9 Seater Tempo Traveller in Bangalore: A Complete Hiring Guide from Yogi Tours & Travels",
+    slug: "9-seater-tempo-traveller-bangalore-guide",
+    excerpt: "Everything to know before you hire a 9 seater Tempo Traveller in Bangalore: who it suits, seating and luggage space, how the ₹28/km pricing works, the best routes from Bangalore, and why groups book it with Yogi Tours & Travels.",
+    coverImageKey: "/assets/images/vehicles/9-seater-tempo-traveller--front-01.webp",
+    content: `<p><strong>The short answer:</strong> A 9 seater Tempo Traveller is an air-conditioned van with nine forward-facing push-back seats, a dedicated luggage boot and a roof carrier. Yogi Tours &amp; Travels rents one in Bangalore from ₹28/km for outstation trips, with a 300 km daily minimum and a ₹500/day driver Bata. Pickups are available across the city and from Kempegowda International Airport. It is one of the company's most-booked vehicles for family trips, office outings and pilgrimages to places like Coorg, Ooty, Mysore and Tirupati.</p>
+
+<p>A 7-seater is too small once your group reaches eight or nine people, and booking two cars means two drivers, two sets of tolls and a group split across vehicles. The 9 seater Tempo Traveller fills that gap. If you've been searching for a <em>9 seater Tempo Traveller near me</em> or comparing <em>tours and travels in Bangalore</em>, this guide covers what the vehicle offers, what it costs, where it works best and what to check before you book.</p>
+
+<h2>9 Seater Tempo Traveller at a Glance</h2>
+<ul>
+  <li><strong>Seating:</strong> 9 forward-facing push-back seats in a 1x1 and 2x1 layout.</li>
+  <li><strong>Luggage:</strong> A dedicated luggage boot plus a roof carrier, with room for about 9 bags.</li>
+  <li><strong>Comfort:</strong> Air conditioning with individual louvers, reading lights, charging points, an audio system and wide tinted windows, so every passenger gets a window view.</li>
+  <li><strong>Outstation rate:</strong> ₹28/km (AC), a 300 km daily minimum and ₹500/day driver Bata. That comes to at least ₹8,900 per day before tolls and permits.</li>
+  <li><strong>Duty hours:</strong> 6:00 AM to 10:00 PM. Extra driver Bata applies after 10:00 PM.</li>
+  <li><strong>Driver:</strong> An experienced chauffeur with a commercial badge.</li>
+  <li><strong>Availability:</strong> Bookings and support 24 hours a day.</li>
+</ul>
+<p>See photos and the full specification on the <a href="/fleet/tempo-traveller/9-seater-tempo-traveller" class="text-brand-700 underline font-medium">9 seater Tempo Traveller rental in Bangalore</a> page.</p>
+
+<h2>Who the 9 Seater Tempo Traveller Is Right For</h2>
+<p>The 9 seater is a dependable middle-ground choice. It's bigger than any car in the fleet, but smaller and easier to handle than a 12 or 17-seater. These are the trips it's booked for most.</p>
+
+<h3>Families and multi-family trips</h3>
+<p>Two families travelling together, or three generations on one holiday, fit comfortably with their bags. Push-back seats and individual windows make long drives easier for grandparents and children. The <a href="/services/family-tours" class="text-brand-700 underline font-medium">family tours service</a> helps you plan stops and pace around your group.</p>
+
+<h3>Office outings and small corporate teams</h3>
+<p>For a team day out, a client visit with several colleagues or a short offsite, one 9 seater Tempo Traveller keeps the team together and arriving at the same time. The <a href="/services/corporate-travel" class="text-brand-700 underline font-medium">corporate travel service in Bangalore</a> supports one-off and recurring bookings with GST invoicing.</p>
+
+<h3>Pilgrimage groups</h3>
+<p>Pilgrimage trips often mean early starts, several temple stops in a day and family groups travelling together. The 9 seater suits circuits like Tirupati, Dharmasthala, Murudeshwar and Kukke, with drivers who know common pilgrimage routes and timings. See <a href="/services/pilgrimage-tours" class="text-brand-700 underline font-medium">pilgrimage tours</a>.</p>
+
+<h3>Friend groups on weekend getaways</h3>
+<p>Coorg, Chikmagalur and Wayanad are the classic weekend escapes from Bangalore. A 9 seater Tempo Traveller lets the whole group share the drive, with space for trekking bags in the boot and on the roof carrier.</p>
+
+<h3>Group airport pickups</h3>
+<p>Families returning from abroad, or a visiting team with checked luggage, rarely fit in one sedan. The <a href="/services/airport-transfer" class="text-brand-700 underline font-medium">airport transfer service in Bangalore</a> covers Kempegowda International Airport pickups and drops, with drivers briefed on your flight timing. When the group is bigger than a car, a 9 seater Tempo Traveller is the simplest airport taxi in Bangalore for everyone at once.</p>
+
+<h3>Wedding guests</h3>
+<p>For moving relatives between the venue, hotels and family homes, the <a href="/services/wedding-transportation" class="text-brand-700 underline font-medium">wedding transportation service</a> schedules Tempo Travellers alongside cars and buses around your function timings.</p>
+
+<h2>9 Seater Tempo Traveller vs Other Options</h2>
+
+<h3>One 9 seater instead of two cars</h3>
+<p>Two cars mean two drivers, two driver Batas, two sets of tolls and a group split across vehicles. A single Tempo Traveller keeps everyone together, with one driver and one set of tolls. On hill roads, one experienced driver is also easier to coordinate than two cars in convoy.</p>
+
+<h3>9 seater Tempo Traveller vs Innova Crysta</h3>
+<p>The <a href="/fleet/car/innova-crysta" class="text-brand-700 underline font-medium">Toyota Innova Crysta</a> seats 7 and starts at ₹19/km with ₹400/day Bata. If your group is seven or fewer with normal luggage, the Crysta is the more economical choice. Once you're eight or nine people, or carrying a lot of luggage, the 9 seater Tempo Traveller is the better fit.</p>
+
+<h3>9 seater vs larger Tempo Travellers</h3>
+<p>For 10 to 12 people, the <a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="text-brand-700 underline font-medium">12 seater Tempo Traveller</a> comes in a Maharaja layout with wide, sofa-style seating. For 13 to 17, choose the <a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">17 seater Tempo Traveller</a> or the premium <a href="/fleet/tempo-traveller/force-urbania" class="text-brand-700 underline font-medium">Force Urbania</a>. Bigger groups move up to the <a href="/fleet/mini-bus" class="text-brand-700 underline font-medium">21 and 25-seater mini buses</a>, or to <a href="/fleet/tourist-bus" class="text-brand-700 underline font-medium">tourist bus rental in Bangalore</a> with 33 to 50-seater coaches. The full <a href="/fleet/tempo-traveller" class="text-brand-700 underline font-medium">Tempo Traveller rental in Bangalore</a> range is on one page.</p>
+
+<h2>How 9 Seater Tempo Traveller Pricing Works</h2>
+<p>Outstation hire of the 9 seater Tempo Traveller is billed on four terms, all stated in your quotation before you pay:</p>
+<ol>
+  <li><strong>Per-km rate:</strong> ₹28/km with AC.</li>
+  <li><strong>Daily minimum:</strong> 300 km per day. If you drive less on a day, 300 km is billed.</li>
+  <li><strong>Driver Bata:</strong> ₹500 per day, plus extra Bata for duty after 10:00 PM.</li>
+  <li><strong>Extras at actuals:</strong> tolls, parking, interstate permits and state taxes.</li>
+</ol>
+
+<h3>An illustrative example: a 2-day Coorg trip</h3>
+<p>Bangalore to Coorg is about 255 km each way. A 2-day round trip covers roughly 510 km plus local sightseeing. That falls under the 600 km minimum for two days, so 600 km is billed:</p>
+<ul>
+  <li>600 km × ₹28 = ₹16,800</li>
+  <li>2 days of driver Bata × ₹500 = ₹1,000</li>
+  <li><strong>Estimated total: about ₹17,800</strong>, plus tolls and parking</li>
+</ul>
+<p>Split nine ways, that's close to ₹2,000 per person for transport. Your quotation confirms the exact figure for your dates and route. For other destinations, see the fare guides for <a href="/blog/cost/bangalore-to-mysore-9-seater-tempo" class="text-brand-700 underline font-medium">Mysore</a>, <a href="/blog/cost/bangalore-to-coorg-9-seater-tempo" class="text-brand-700 underline font-medium">Coorg</a>, <a href="/blog/cost/bangalore-to-ooty-9-seater-tempo" class="text-brand-700 underline font-medium">Ooty</a>, <a href="/blog/cost/bangalore-to-wayanad-9-seater-tempo" class="text-brand-700 underline font-medium">Wayanad</a> and <a href="/blog/cost/bangalore-to-tirupati-9-seater-tempo" class="text-brand-700 underline font-medium">Tirupati</a> by 9 seater Tempo Traveller.</p>
+
+<h3>Local use within Bangalore</h3>
+<p>Local city travel and airport runs are quoted per trip instead of on the outstation per-km terms. The <a href="/services/local-intercity-travel" class="text-brand-700 underline font-medium">local and intercity packages</a> come in 8 hours/80 km and 12 hours/120 km sizes.</p>
+
+<h2>Popular 9 Seater Tempo Traveller Routes from Bangalore</h2>
+<p>These are the outstation routes that list the 9 seater Tempo Traveller as a recommended vehicle. Distances and drive times are approximate.</p>
+
+<table class="w-full text-sm border-collapse border border-ink-200 my-6">
+  <thead>
+    <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+      <th class="p-3 border border-ink-200">Route</th>
+      <th class="p-3 border border-ink-200">Distance</th>
+      <th class="p-3 border border-ink-200">Approx. drive time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-mysore-cab" class="text-brand-700 underline">Bangalore to Mysore</a></td><td class="p-3 border border-ink-200">145 km</td><td class="p-3 border border-ink-200">3–3.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-chikmagalur-cab" class="text-brand-700 underline">Bangalore to Chikmagalur</a></td><td class="p-3 border border-ink-200">245 km</td><td class="p-3 border border-ink-200">5.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-coorg-cab" class="text-brand-700 underline">Bangalore to Coorg</a></td><td class="p-3 border border-ink-200">255 km</td><td class="p-3 border border-ink-200">5.5–6 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-tirupati-cab" class="text-brand-700 underline">Bangalore to Tirupati</a></td><td class="p-3 border border-ink-200">255 km</td><td class="p-3 border border-ink-200">5.5–6 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-ooty-cab" class="text-brand-700 underline">Bangalore to Ooty</a></td><td class="p-3 border border-ink-200">275 km</td><td class="p-3 border border-ink-200">6.5–7 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-wayanad-cab" class="text-brand-700 underline">Bangalore to Wayanad</a></td><td class="p-3 border border-ink-200">290 km</td><td class="p-3 border border-ink-200">6–6.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-hampi-cab" class="text-brand-700 underline">Bangalore to Hampi</a></td><td class="p-3 border border-ink-200">345 km</td><td class="p-3 border border-ink-200">6.5–7 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-mangalore-cab" class="text-brand-700 underline">Bangalore to Mangalore</a></td><td class="p-3 border border-ink-200">355 km</td><td class="p-3 border border-ink-200">7.5–8 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-munnar-cab" class="text-brand-700 underline">Bangalore to Munnar</a></td><td class="p-3 border border-ink-200">475 km</td><td class="p-3 border border-ink-200">9.5–10 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-kerala-backwaters-cab" class="text-brand-700 underline">Bangalore to Kerala Backwaters</a></td><td class="p-3 border border-ink-200">590 km</td><td class="p-3 border border-ink-200">11–12 hours</td></tr>
+  </tbody>
+</table>
+
+<h3>Tour packages that offer the 9 seater</h3>
+<p>These ready-made packages list the 9 seater Tempo Traveller as a vehicle option, and each can be adjusted to your dates and stops:</p>
+<ul>
+  <li><a href="/tour-packages/coorg-getaway" class="text-brand-700 underline font-medium">Coorg Getaway</a>: 2 days/1 night.</li>
+  <li><a href="/tour-packages/chikmagalur-coffee-trails" class="text-brand-700 underline font-medium">Chikmagalur Coffee Trails</a>: 2 days/1 night.</li>
+  <li><a href="/tour-packages/hampi-heritage-trail" class="text-brand-700 underline font-medium">Hampi Heritage Trail</a>: 2 days/1 night.</li>
+  <li><a href="/tour-packages/ooty-coonoor-hill-tour" class="text-brand-700 underline font-medium">Ooty &amp; Coonoor Hill Tour</a>: 3 days/2 nights.</li>
+  <li><a href="/tour-packages/wayanad-nature-escape" class="text-brand-700 underline font-medium">Wayanad Nature Escape</a>: 3 days/2 nights.</li>
+</ul>
+<p>Want a different plan? <a href="/services/customized-tours" class="text-brand-700 underline font-medium">Customized tour packages in Bangalore</a> are built around your destinations, days and group size.</p>
+
+<h3>Planning for hill roads</h3>
+<p>Hill routes need planning for a Tempo Traveller. On the <a href="/blog/bangalore-to-ooty-road-trip-guide-hairpin-bends-vehicle" class="text-brand-700 underline font-medium">Bangalore to Ooty drive</a>, the Bandipur and Mudumalai forest check-posts are closed from 9:00 PM to 6:00 AM, so departures are timed to cross in daylight. Tempo Travellers take the gentler Gudalur highway instead of the steep Kalhatty ghat. The <a href="/blog/bangalore-to-coorg-road-trip-itinerary-tempo-traveller" class="text-brand-700 underline font-medium">Coorg itinerary by Tempo Traveller</a> covers the route choice between the Mysore Expressway and NH75.</p>
+
+<h2>9 Seater Tempo Traveller Pickups Across Bangalore</h2>
+<p>Pickups are available from any Bangalore locality and from Kempegowda International Airport. Each of these areas has its own 9 seater Tempo Traveller page:</p>
+<ul>
+  <li><a href="/9seater-tempotraveller/whitefield" class="text-brand-700 underline font-medium">Whitefield</a></li>
+  <li><a href="/9seater-tempotraveller/electronic-city" class="text-brand-700 underline font-medium">Electronic City</a></li>
+  <li><a href="/9seater-tempotraveller/koramangala" class="text-brand-700 underline font-medium">Koramangala</a></li>
+  <li><a href="/9seater-tempotraveller/indiranagar" class="text-brand-700 underline font-medium">Indiranagar</a></li>
+  <li><a href="/9seater-tempotraveller/hsr-layout" class="text-brand-700 underline font-medium">HSR Layout</a></li>
+  <li><a href="/9seater-tempotraveller/jayanagar" class="text-brand-700 underline font-medium">Jayanagar</a></li>
+  <li><a href="/9seater-tempotraveller/marathahalli" class="text-brand-700 underline font-medium">Marathahalli</a></li>
+  <li><a href="/9seater-tempotraveller/hebbal" class="text-brand-700 underline font-medium">Hebbal</a></li>
+  <li><a href="/9seater-tempotraveller/yelahanka" class="text-brand-700 underline font-medium">Yelahanka</a></li>
+</ul>
+
+<h2>Why Book Your 9 Seater Tempo Traveller with Yogi Tours &amp; Travels</h2>
+<ul>
+  <li><strong>A rating you can check:</strong> 4.9 out of 5 from 210+ reviews on the company's verified Google Business Profile. The business has been carrying passengers in Bangalore since 2011.</li>
+  <li><strong>Licensed and invoice-ready:</strong> All India Tourist Permit (AITP), compliance with the Karnataka Transport Department, commercial-badge chauffeurs and GST invoices for companies.</li>
+  <li><strong>Itemised quotations:</strong> The per-km rate, daily minimum, Bata, duty hours and extra charges are written down before you pay.</li>
+  <li><strong>Drivers who know the routes:</strong> Forest-gate timings, ghat restrictions and route choices are planned in advance, not worked out on the day.</li>
+  <li><strong>Room to scale up:</strong> If your group grows, the same team can add a 12 or 17-seater, a mini bus or a coach. <a href="/services/group-transportation" class="text-brand-700 underline font-medium">Group transportation in Bangalore</a> coordinates several vehicles from one point of contact.</li>
+  <li><strong>A clear cancellation policy:</strong> Terms are confirmed at booking, and if the company cancels a confirmed booking, any advance is refunded in full. See the <a href="/cancellation-policy" class="text-brand-700 underline font-medium">cancellation policy</a>.</li>
+</ul>
+<p>Beyond the 9 seater, the company is a full <a href="/about" class="text-brand-700 underline font-medium">Bangalore tour and travel agency</a>, covering <a href="/fleet/car" class="text-brand-700 underline font-medium">car rental in Bangalore</a>, <a href="/services/outstation-travel" class="text-brand-700 underline font-medium">outstation travel from Bangalore</a>, bus rental and <a href="/services/event-transportation" class="text-brand-700 underline font-medium">event transportation</a>.</p>
+
+<h2>What Customers Say: Google Reviews</h2>
+<p>Yogi Tours &amp; Travels has 228 reviews on its Google Business Profile, and 221 of them are five-star (as of October 2026). The ten below are quoted as written, from customers who travelled by Tempo Traveller or on group and pilgrimage trips. Each one links to the original review on Google.</p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 my-6">
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Fabulous wonderful vehicle We booked a 9 seater tempo traveller super New vehicle neat and clean interior and wonderful driver and howsom experience That's why I'm giving a 5 Star ✨✨</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Rakesh G.</span> <span class="text-xs text-ink-500">· 9 seater Tempo Traveller · March 2024 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUM5dE8tenl3RRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CIHM0ogKEICAgIC9tO-zywE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Travelled in a TT for 1 day. Vehicle has been maintained very well and clean. Swaroop was very polite and expert in his work. Rate is very genuine and the best in the area. Overall no complaints whatsoever. Thank you yogi travels.</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Mohith N.</span> <span class="text-xs text-ink-500">· Tempo Traveller, 1-day hire · November 2025 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tJMFdYTlJjbUk1ZUdadFdsYzJSbHBaT1ZwV1pVRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOkI0WXNRcmI5eGZtWlc2RlpZOVpWZUE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Excellent service, had booked TT for 12 people here had a hassle free trip to coorg. Our driver was very generous and TT was well maintained. Highly Recommend.</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">MrPrashantpk</span> <span class="text-xs text-ink-500">· Tempo Traveller to Coorg, 12 people · May 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25kTlZXaGpSV2hIWTJ4NmNIaEtiM2MxVkcxSUxWRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOndNVWhjRWhHY2x6cHhKb3c1VG1ILVE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">We hired a TT with driver from them for our Kerala trip. The vehicle was clean and comfortable, and the driving was safe throughout. Special thanks to Sumanth, the driver, for being punctual, professional, and cooperative. Very satisfied with the driving service.</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Manoj R.</span> <span class="text-xs text-ink-500">· Tempo Traveller to Kerala · January 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25acGJIRmxUVWg2Yld0WVQxVk5SM0kxWDAxelVIYxAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOnZpbHFlTUh6bWtYT1VNR3I1X01zUHc%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Had a great trip in the tempo. The driver was very courteous and drove safely. The ride was smooth, comfortable, and stress-free. Excellent service and a wonderful experience. Highly recommended!</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Akanksha G.</span> <span class="text-xs text-ink-500">· Tempo Traveller trip · June 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWM2NtOXFSelJRVFhOWE5IUjJSRlZwY0VOTVQzYxAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOkV3cm9qRzRQTXNXNHR2RFVpcENMT3c%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Very good service. We booked a 12 seater TT. The driver arrived before hand and also helped us loading our luggage. Highly recommended</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Sharath C.</span> <span class="text-xs text-ink-500">· 12 seater Tempo Traveller · November 2025 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKcllVcFZaa1kzU2sxM1FUQjFiUzFWTlZsSFMwRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOlJrYUpVZkY3Sk13QTB1bS1VNVlHS0E%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">We had an amazing 3-day friends' trip to Mangalore, and a huge part of the credit goes to Mr Kallesh! He was a fantastic driver—incredibly friendly, highly professional, and his safe driving made our long journey completely smooth and stress-free. The vehicle provided was also in excellent, pristine condition, ensuring our group stayed comfortable throughout the ride. We highly recommend Mr.Kallesh for any road trip and will definitely book with him again for our next adventure! Thank you Yogi tour's and travels and Kallesh</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Mahesh G.</span> <span class="text-xs text-ink-500">· 3-day group trip to Mangalore · June 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21WUUxXbHRTMVl0WDA5NGFtVlNkMGRETFV4aFNGRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOmVQLWltS1YtX094amVSd0dDLUxhSFE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">We had an absolutely fantastic experience with Yogi Tours and Travels! From the start, they were incredibly responsive and tailored our itinerary to Mantralaya perfectly. A huge thank you to our driver, Kallesh, who was punctual, professional, and went above and beyond to ensure our comfort and safety. His deep knowledge of the routes and local spots was invaluable. We felt very well taken care of throughout the pilgrimage. Highly recommend them to anyone looking for a reliable and stress-free travel experience!</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Prashanth K.</span> <span class="text-xs text-ink-500">· Pilgrimage to Mantralaya · March 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkaE9YcDJiSG81Y2tReVpuSk9ZVlZpZWpoSVVsRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOkdhOXp2bHo5ckQyZnJOYVViejhIUlE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Really very good service. We traveled manthralaya trip with family 15 members. Driving is very very happy. Mr nagaraj is very good person and his behaviour is very good. Thank you nagraj</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Srinivasa G.</span> <span class="text-xs text-ink-500">· Family pilgrimage to Mantralaya, 15 people · March 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poM2RVUjVXRmw2T1ZodmNUbDRYM1V6VG5aTVRIYxAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOjh3dUR5WFl6OVhvcTl4X3UzTnZMTHc%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">I had a great experience with Yogi Travels during our 8-day trip. The driver was extremely responsible, punctual, and professional throughout the journey. He maintained excellent driving discipline and always ensured our safety and comfort. What stood out the most was his helpful nature—he assisted us with packing and arranging our luggage and was always cooperative with our plans. He drove according to our preferences without any hesitation and was friendly and engaging, which made the trip even more enjoyable. Overall, I’m very satisfied with the service and would highly recommend Yogi Travels for a comfortable and hassle-free travel experience.</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Rajesh K.</span> <span class="text-xs text-ink-500">· 8-day trip · May 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21FMlNYY3lPWGhxVXpGV09VSTFMVmR0VTE5aFluYxAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOmE2SXcyOXhqUzFWOUI1LVdtU19hYnc%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+</div>
+<p>Read every review on the <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" target="_blank" rel="noopener" class="text-brand-700 underline font-medium">Yogi Tours &amp; Travels Google Business Profile</a>.</p>
+
+<h2>How to Book a 9 Seater Tempo Traveller</h2>
+<ol>
+  <li><strong>Share the trip:</strong> pickup point, destination, dates, number of travellers and luggage.</li>
+  <li><strong>Confirm the size:</strong> if you're eight or nine people, the 9 seater is usually right. Ten or more means stepping up a size.</li>
+  <li><strong>Review the quotation:</strong> check the per-km rate, daily minimum, Bata and expected tolls or permits.</li>
+  <li><strong>Confirm and travel:</strong> the driver arrives on time, and support is a call or message away throughout.</li>
+</ol>
+<p>Enquire through the form on the <a href="/fleet/tempo-traveller/9-seater-tempo-traveller" class="text-brand-700 underline font-medium">9 seater Tempo Traveller page</a>, call +91 97410 32020, or send a WhatsApp message to +91 98867 70099.</p>
+
+<h2>The Right Size for Groups of Eight or Nine</h2>
+<p>For groups of eight or nine, the 9 seater Tempo Traveller is usually the most practical vehicle. Everyone travels together, the luggage fits, and you pay for one vehicle and one driver instead of two. With Yogi Tours &amp; Travels you also get transparent pricing, a licensed and reviewed operator, and drivers who know the roads to Coorg, Ooty, Mysore, Tirupati and beyond. <a href="/contact" class="text-brand-700 underline font-medium">Get a free quote</a> for your 9 seater Tempo Traveller trip.</p>`,
+    author: "Yogi Tours & Travels",
+    published: 1,
+    publishedAt: "2026-10-06 10:00:00",
+    sortOrder: 7,
+    createdAt: "2026-10-06 10:00:00",
+    updatedAt: "2026-10-06 10:00:00"
   }
 ];

@@ -50,6 +50,19 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Belur Chennakeshava Temple", type: "TouristAttraction" },
     { name: "Halebidu Hoysaleshwara Temple", type: "TouristAttraction" },
     { name: "Baba Budangiri", type: "Place" }
+  ],
+  "9-seater-tempo-traveller-bangalore-guide": [
+    { name: "9 Seater Tempo Traveller", type: "Product" },
+    { name: "Tempo Traveller", type: "Product" },
+    { name: "Toyota Innova Crysta", type: "Product" },
+    { name: "Bengaluru", type: "City" },
+    { name: "Kempegowda International Airport", type: "Airport" },
+    { name: "Coorg", type: "Place" },
+    { name: "Ooty", type: "Place" },
+    { name: "Mysore", type: "City" },
+    { name: "Tirupati", type: "City" },
+    { name: "Chikmagalur", type: "Place" },
+    { name: "Wayanad", type: "Place" }
   ]
 };
 
@@ -146,6 +159,43 @@ const POST_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
       question: "Can Tempo Travellers reach Mullayanagiri peak in Chikmagalur?",
       answer:
         "Yes, our experienced drivers can navigate the winding road up to the Mullayanagiri parking base steps, where travellers can climb the final 500 steps to the summit temple."
+    }
+  ],
+  "9-seater-tempo-traveller-bangalore-guide": [
+    {
+      question: "How much does a 9 seater Tempo Traveller cost in Bangalore?",
+      answer:
+        "With Yogi Tours & Travels, a 9 seater Tempo Traveller costs ₹28/km (AC) for outstation trips, with a 300 km daily minimum and ₹500/day driver Bata, so at least ₹8,900 per day. Tolls, parking, interstate permits and state taxes are extra. A 2-day Bangalore to Coorg round trip, for example, comes to about ₹17,800 plus tolls. Local and airport trips are quoted per trip."
+    },
+    {
+      question: "How many people and how much luggage fit in a 9 seater Tempo Traveller?",
+      answer:
+        "It seats 9 passengers in forward-facing push-back seats (1x1 and 2x1 layout). There's a dedicated luggage boot plus a roof carrier, with room for about 9 bags."
+    },
+    {
+      question: "Is a 9 seater Tempo Traveller better than booking two cars?",
+      answer:
+        "For a group of eight or nine, usually yes. One Tempo Traveller means one driver, one driver Bata and one set of tolls, and the whole group travels together. For seven or fewer people, an Innova Crysta at ₹19/km is the more economical choice."
+    },
+    {
+      question: "Which routes from Bangalore suit a 9 seater Tempo Traveller?",
+      answer:
+        "Popular 9 seater Tempo Traveller routes from Bangalore include Mysore (145 km), Chikmagalur (245 km), Coorg (255 km), Tirupati (255 km), Ooty (275 km), Wayanad (290 km), Hampi (345 km), Mangalore (355 km), Munnar (475 km) and the Kerala backwaters (590 km)."
+    },
+    {
+      question: "Can I book a 9 seater Tempo Traveller for a Bangalore airport pickup?",
+      answer:
+        "Yes. Yogi Tours & Travels provides 9 seater Tempo Traveller pickups and drops at Kempegowda International Airport (BLR), with the driver briefed on your flight timing. It suits families and teams with too much luggage for one car."
+    },
+    {
+      question: "Where can I find a 9 seater Tempo Traveller near me in Bangalore?",
+      answer:
+        "Yogi Tours & Travels picks up from any Bangalore locality, including Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Jayanagar, Marathahalli, Hebbal and Yelahanka, as well as Kempegowda International Airport. Bookings are taken 24/7."
+    },
+    {
+      question: "Why book a 9 seater Tempo Traveller with Yogi Tours & Travels?",
+      answer:
+        "Yogi Tours & Travels has been operating in Bangalore since 2011, and 221 of its 228 Google reviews are five-star (October 2026). It runs under the All India Tourist Permit with commercial-badge chauffeurs, issues GST invoices, and puts the per-km rate, daily minimum and driver Bata in writing before you pay."
     }
   ]
 };
