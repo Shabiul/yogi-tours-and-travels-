@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ARTIFACTS_DIR = 'C:/Users/Shabiul/.gemini/antigravity-ide/brain/e3079786-f3bb-4633-920c-b50e7f741c40';
+const ARTIFACTS_DIR = 'C:/Users/Shabiul/.gemini/antigravity-ide/brain/2a53f73a-18f5-4208-8992-39b67770acb1';
 const VEHICLES_DIR = 'public/assets/images/vehicles';
 const GALLERY_DIR = 'public/assets/images/gallery';
 
@@ -21,11 +21,16 @@ async function processImage(srcPath, targets, options = {}) {
     pipeline = pipeline.resize(options.resize);
   }
 
-  const webpBuf = await pipeline.webp({ quality: 84, effort: 4 }).toBuffer();
+  const webpBuf = await pipeline.webp({ quality: 86, effort: 4 }).toBuffer();
 
   for (const target of targets) {
-    fs.writeFileSync(target, webpBuf);
-    console.log(`✓ Created ${target} (${(webpBuf.length / 1024).toFixed(1)} KB)`);
+    if (target.endsWith('.jpg') || target.endsWith('.jpeg')) {
+      const jpgBuf = await sharp(inBuf).rotate().resize(options.resize || {}).jpeg({ quality: 90 }).toBuffer();
+      fs.writeFileSync(target, jpgBuf);
+    } else {
+      fs.writeFileSync(target, webpBuf);
+    }
+    console.log(`✓ Created ${target}`);
   }
 }
 
@@ -33,38 +38,43 @@ async function run() {
   console.log('Processing Tourist Bus and Vehicle Images...');
 
   // 1. 33 Seater Tourist Bus
-  const bus33Src = path.join(ARTIFACTS_DIR, 'bus_thirtythree_seater_1790856322268.jpg');
+  const bus33Src = path.join(ARTIFACTS_DIR, 'bus_33_yogi_1791266933002.jpg');
   await processImage(bus33Src, [
     path.join(VEHICLES_DIR, 'tourist-bus-33-seater--front-01.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-33-seater.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-33-seater.jpg'),
+    path.join(VEHICLES_DIR, 'tourist-bus-33-seater--front-01.jpg'),
     path.join(GALLERY_DIR, 'tourist-bus-33-seater-white-coach.webp')
   ], { resize: { width: 1280, height: 960, fit: 'cover' } });
 
   // 2. 45 Seater Tourist Bus
-  const bus45Src = path.join(ARTIFACTS_DIR, 'bus_fortyfive_seater_1790856352667.jpg');
+  const bus45Src = path.join(ARTIFACTS_DIR, 'bus_45_yogi_1791266905037.jpg');
   await processImage(bus45Src, [
     path.join(VEHICLES_DIR, 'tourist-bus-45-seater--front-01.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-45-seater.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-45-seater.jpg'),
+    path.join(VEHICLES_DIR, 'tourist-bus-45-seater--front-01.jpg'),
     path.join(GALLERY_DIR, 'tourist-bus-45-seater-luxury-coach.webp')
   ], { resize: { width: 1280, height: 960, fit: 'cover' } });
 
   // 3. 49 Seater Tourist Bus
-  const bus49Src = path.join(ARTIFACTS_DIR, 'bus_fortynine_seater_1790856380298.jpg');
+  const bus49Src = path.join(ARTIFACTS_DIR, 'bus_49_yogi_1791266959243.jpg');
   await processImage(bus49Src, [
     path.join(VEHICLES_DIR, 'tourist-bus-49-seater--front-01.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-49-seater.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-49-seater.jpg'),
+    path.join(VEHICLES_DIR, 'tourist-bus-49-seater--front-01.jpg'),
     path.join(GALLERY_DIR, 'tourist-bus-49-seater-volvo-coach.webp')
   ], { resize: { width: 1280, height: 960, fit: 'cover' } });
 
   // 4. 50 Seater Tourist Bus
   const bus50Src = path.join(ARTIFACTS_DIR, 'bus_fifty_seater_1790856412621.jpg');
-  await processImage(bus50Src, [
+  const bus50Yogi = path.join(ARTIFACTS_DIR, 'bus_50_yogi_1791266871419.jpg');
+  await processImage(bus50Yogi, [
     path.join(VEHICLES_DIR, 'tourist-bus-50-seater--front-01.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-50-seater.webp'),
     path.join(VEHICLES_DIR, 'tourist-bus-50-seater.jpg'),
+    path.join(VEHICLES_DIR, 'tourist-bus-50-seater--front-01.jpg'),
     path.join(GALLERY_DIR, 'tourist-bus-50-seater-express-coach.webp')
   ], { resize: { width: 1280, height: 960, fit: 'cover' } });
 

@@ -1,0 +1,46 @@
+# Disavow file for www.yogitourstravels.com
+# Automated Web 2.0 / bookmark / wiki network links
+domain:pointblog.net
+domain:blogdigy.com
+domain:blog5.net
+domain:mpeblog.com
+domain:blognody.com
+domain:activoblog.com
+domain:veronicablog.com
+domain:newsyblog.com
+domain:wikipublicity.com
+domain:wikiannouncement.com
+domain:wikicommunications.com
+domain:wikicorrespondence.com
+domain:wikiexpression.com
+domain:wikiannouncing.com
+domain:mediajx.com
+domain:bookmark-dofollow.com
+domain:bookmark-template.com
+domain:prbookmarkingwebsites.com
+domain:socialmediainuk.com
+domain:dirstop.com
+domain:opensocialfactory.com
+domain:ztndz.com
+domain:gorillasocialwork.com
+domain:socialrus.com
+domain:bookmarklinking.com
+domain:bookmarks-hit.com
+# Link-vendor, DA/DR checker and scraper spam
+domain:plurio.shop
+domain:newblogerseo.com
+domain:linktexa.shop
+domain:indexlora.shop
+domain:sharpseolink.shop
+domain:nextseolink.shop
+domain:rankqaro.shop
+domain:bulkdacheckerfree.website
+domain:dapacheckerguest.shop
+domain:drchecker.site
+domain:siterankingchecker.shop
+domain:dapaonlinechecker.store
+domain:sitecheckerfree.store
+domain:dapacheckersite.website
+domain:freeserpcheckertool.online
+domain:oneclickseochecker.space
+domain:seocheckers.site
