@@ -288,7 +288,7 @@ export const CURATED_BLOG_POSTS: BlogPost[] = [
 <p>The <a href="/fleet/car/innova-crysta" class="text-brand-700 underline font-medium">Toyota Innova Crysta</a> seats 7 and starts at ₹19/km with ₹400/day Bata. If your group is seven or fewer with normal luggage, the Crysta is the more economical choice. Once you're eight or nine people, or carrying a lot of luggage, the 9 seater Tempo Traveller is the better fit.</p>
 
 <h3>9 seater vs larger Tempo Travellers</h3>
-<p>For 10 to 12 people, the <a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="text-brand-700 underline font-medium">12 seater Tempo Traveller</a> comes in a Maharaja layout with wide, sofa-style seating. For 13 to 17, choose the <a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">17 seater Tempo Traveller</a> or the premium <a href="/fleet/tempo-traveller/force-urbania" class="text-brand-700 underline font-medium">Force Urbania</a>. Bigger groups move up to the <a href="/fleet/mini-bus" class="text-brand-700 underline font-medium">21 and 25-seater mini buses</a>, or to <a href="/fleet/tourist-bus" class="text-brand-700 underline font-medium">tourist bus rental in Bangalore</a> with 33 to 50-seater coaches. The full <a href="/fleet/tempo-traveller" class="text-brand-700 underline font-medium">Tempo Traveller rental in Bangalore</a> range is on one page.</p>
+<p>For 10 to 12 people, the <a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="text-brand-700 underline font-medium">12 seater Tempo Traveller</a> comes in a Maharaja layout with wide, sofa-style seating. For 13 to 17, choose the <a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">17 seater Tempo Traveller</a> or the premium <a href="/fleet/tempo-traveller/force-urbania" class="text-brand-700 underline font-medium">Force Urbania</a>. Bigger groups move up to the <a href="/fleet/mini-bus" class="text-brand-700 underline font-medium">21 and 25-seater mini buses</a>, or to <a href="/fleet/tourist-bus" class="text-brand-700 underline font-medium">tourist bus rental in Bangalore</a> with 33 to 50-seater coaches. The full <a href="/fleet/tempo-traveller" class="text-brand-700 underline font-medium">Tempo Traveller rental in Bangalore</a> range is on one page. Compare them side by side in the <a href="/blog/17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide" class="text-brand-700 underline font-medium">17 seater and 21 seater vehicle rental guide</a>.</p>
 
 <h2>How 9 Seater Tempo Traveller Pricing Works</h2>
 <p>Outstation hire of the 9 seater Tempo Traveller is billed on four terms, all stated in your quotation before you pay:</p>
@@ -449,5 +449,164 @@ export const CURATED_BLOG_POSTS: BlogPost[] = [
     sortOrder: 7,
     createdAt: "2026-10-06 10:00:00",
     updatedAt: "2026-10-06 10:00:00"
+  },
+  {
+    id: 8,
+    title: "17 Seater & 21 Seater Vehicle Rental in Bangalore: Tempo Traveller, Force Urbania & Mini Bus Guide",
+    slug: "17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide",
+    excerpt: "Hiring for 13 to 21 people in Bangalore? Compare the 17 seater Tempo Traveller (₹30/km), the 17 seater Force Urbania (₹38/km) and the 21 seater mini bus (₹34/km), with routes, a Tirupati cost example and FAQs.",
+    coverImageKey: "/assets/images/vehicles/tempo-traveller-17-seater.webp",
+    content: `<p><strong>The short answer:</strong> For 13 to 17 people, Yogi Tours &amp; Travels rents a 17 seater Tempo Traveller in Bangalore from ₹30/km with AC (₹28/km non-AC), or the premium 17 seater Force Urbania from ₹38/km. For 18 to 21 people, the 21 seater mini bus starts at ₹34/km. Pickups are available across Bangalore and from Kempegowda International Airport, and every quotation states the rate, daily minimum and driver Bata upfront.</p>
+
+<p>Group sizes in this range are awkward: too big for a 12 seater, too small to justify a 33-seater coach. Searching for a <em>17 seater Tempo Traveller in Bangalore</em>, a <em>17 seater Urbania</em> or a <em>21 seater mini bus on rent</em> usually means you are planning a pilgrimage, a wedding, an office offsite or a family reunion and want one vehicle, not three cars. This guide compares the three options, explains how the pricing works and shows which routes they suit.</p>
+
+<h2>17 Seater and 21 Seater Vehicles at a Glance</h2>
+<table class="w-full text-sm border-collapse border border-ink-200 my-6">
+  <thead>
+    <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+      <th class="p-3 border border-ink-200">Vehicle</th>
+      <th class="p-3 border border-ink-200">Seats</th>
+      <th class="p-3 border border-ink-200">Rate</th>
+      <th class="p-3 border border-ink-200">Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="p-3 border border-ink-200"><a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">17 Seater Tempo Traveller</a></td><td class="p-3 border border-ink-200">17</td><td class="p-3 border border-ink-200">₹30/km AC, ₹28/km non-AC</td><td class="p-3 border border-ink-200">Pilgrimages, family groups, value outstation trips</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/fleet/tempo-traveller/force-urbania" class="text-brand-700 underline font-medium">17 Seater Force Urbania</a></td><td class="p-3 border border-ink-200">17</td><td class="p-3 border border-ink-200">₹38/km</td><td class="p-3 border border-ink-200">VIP guests, corporate delegations, luxury tours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/fleet/mini-bus/mini-bus-21-seater" class="text-brand-700 underline font-medium">21 Seater Mini Bus</a></td><td class="p-3 border border-ink-200">21</td><td class="p-3 border border-ink-200">₹34/km</td><td class="p-3 border border-ink-200">Offsites, wedding groups, school and college outings</td></tr>
+  </tbody>
+</table>
+
+<h2>17 Seater Tempo Traveller: The Value Choice for Large Groups</h2>
+<p>The <a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">17 seater Tempo Traveller rental in Bangalore</a> is a Force-built van with push-back seats, individual windows, reading lights, charging points and a dedicated luggage boot plus roof carrier for about 17 bags. It is the most economical way to move a full group of up to 17 on a single booking.</p>
+<ul>
+  <li><strong>Rate:</strong> ₹30/km with AC, ₹28/km non-AC.</li>
+  <li><strong>Terms:</strong> 300 km daily minimum and ₹700/day driver Bata. Tolls, parking, permits and state taxes are extra.</li>
+  <li><strong>Duty hours:</strong> 6:00 AM to 10:00 PM. Extra driver Bata applies after 10:00 PM.</li>
+</ul>
+<p>It is the usual pick for Tirupati and Mantralaya pilgrimages, multi-family trips and wedding guest transfers. Compare it with the <a href="/fleet/tempo-traveller/9-seater-tempo-traveller" class="text-brand-700 underline font-medium">9 seater</a> and <a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="text-brand-700 underline font-medium">12 seater Tempo Traveller</a> if your group is smaller, and read the <a href="/blog/9-seater-tempo-traveller-bangalore-guide" class="text-brand-700 underline font-medium">9 seater Tempo Traveller hiring guide</a> for the same pricing logic at a smaller size.</p>
+
+<h2>17 Seater Force Urbania: Luxury for Large Groups</h2>
+<p>The <a href="/fleet/tempo-traveller/force-urbania" class="text-brand-700 underline font-medium">17 seater Force Urbania in Bangalore</a> is built on Force's Urbania platform, with a car-like monocoque ride, a quiet insulated cabin and a high-roof walkthrough interior. Our Urbania adds Maharaja recliner captain seats with calf support, a mounted Sony Bravia Smart TV, an on-board chiller, ambient lighting, individual USB chargers and retractable sunblinds.</p>
+<ul>
+  <li><strong>Rate:</strong> ₹38/km, 300 km daily minimum, ₹700/day driver Bata.</li>
+  <li><strong>Luggage:</strong> about 17 bags with dedicated rear storage.</li>
+  <li><strong>Best for:</strong> executive delegations, VIP wedding guests and long luxury tours.</li>
+</ul>
+<p>Looking for a smaller Urbania? The <a href="/fleet/tempo-traveller/urbania-12-seater-maharaja" class="text-brand-700 underline font-medium">12 seater Maharaja Urbania</a> uses the same platform with wider business-class recliners. Route-specific Urbania fares are in our cost guides for <a href="/blog/cost/bangalore-to-coorg-force-urbania" class="text-brand-700 underline font-medium">Coorg</a>, <a href="/blog/cost/bangalore-to-ooty-force-urbania" class="text-brand-700 underline font-medium">Ooty</a>, <a href="/blog/cost/bangalore-to-tirupati-force-urbania" class="text-brand-700 underline font-medium">Tirupati</a> and <a href="/blog/cost/bangalore-to-wayanad-force-urbania" class="text-brand-700 underline font-medium">Wayanad</a>.</p>
+<p><strong>A note on a "21 seater Urbania":</strong> the Force Urbania seats up to 17 passengers, and we do not operate a 21 seater Urbania. If your group is 18 to 21, the right vehicle is the 21 seater mini bus below.</p>
+
+<h2>21 Seater Mini Bus: When 17 Is Not Enough</h2>
+<p>The <a href="/fleet/mini-bus/mini-bus-21-seater" class="text-brand-700 underline font-medium">21 seater mini bus rental in Bangalore</a> is the entry point of our mini bus range. It has air conditioning, push-back seats, reading lights, a PA system, a first-aid kit and overhead luggage racks, plus a rear boot. It costs from ₹34/km, and the daily minimum, driver Bata and permits are confirmed in your written quotation.</p>
+<p>It suits office teams, wedding guest groups and school or college outings that need more capacity than a Tempo Traveller but not a full-size coach. For 22 to 25 people, see the <a href="/fleet/mini-bus/mini-bus-25-seater" class="text-brand-700 underline font-medium">25 seater mini bus</a>, and for larger events the <a href="/fleet/tourist-bus" class="text-brand-700 underline font-medium">tourist buses</a>.</p>
+
+<h2>Which Should You Choose?</h2>
+<ul>
+  <li><strong>13 to 17 people, lowest cost:</strong> 17 seater Tempo Traveller.</li>
+  <li><strong>13 to 17 people, premium comfort:</strong> 17 seater Force Urbania.</li>
+  <li><strong>18 to 21 people:</strong> 21 seater mini bus.</li>
+  <li><strong>Mixed group of VIPs and staff:</strong> pair an Urbania with a Tempo Traveller through <a href="/services/group-transportation" class="text-brand-700 underline font-medium">group transportation in Bangalore</a>.</li>
+</ul>
+
+<h2>How Pricing Works: A Tirupati Example</h2>
+<p>Bangalore to Tirupati is about 255 km each way, roughly 510 km for a 2-day round trip. That is under the 600 km minimum for two days, so 600 km is billed:</p>
+<ul>
+  <li><strong>17 seater Tempo Traveller:</strong> 600 km × ₹30 = ₹18,000, plus 2 days of Bata at ₹700 = ₹1,400. About ₹19,400 plus tolls and parking, or roughly ₹1,150 per person for 17 travellers.</li>
+  <li><strong>17 seater Force Urbania:</strong> 600 km × ₹38 = ₹22,800, plus ₹1,400 Bata. About ₹24,200 plus tolls and parking.</li>
+</ul>
+<p>Your quotation confirms the exact figure for your dates. Local and airport trips are quoted per trip; see <a href="/services/local-intercity-travel" class="text-brand-700 underline font-medium">local and intercity packages</a>.</p>
+
+<h2>Popular Routes for 17 and 21 Seater Groups</h2>
+<p>Distances and drive times are approximate.</p>
+<table class="w-full text-sm border-collapse border border-ink-200 my-6">
+  <thead>
+    <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+      <th class="p-3 border border-ink-200">Route</th>
+      <th class="p-3 border border-ink-200">Distance</th>
+      <th class="p-3 border border-ink-200">Approx. drive time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-mysore-cab" class="text-brand-700 underline font-medium">Bangalore to Mysore</a></td><td class="p-3 border border-ink-200">145 km</td><td class="p-3 border border-ink-200">3–3.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-chikmagalur-cab" class="text-brand-700 underline font-medium">Bangalore to Chikmagalur</a></td><td class="p-3 border border-ink-200">245 km</td><td class="p-3 border border-ink-200">5.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-coorg-cab" class="text-brand-700 underline font-medium">Bangalore to Coorg</a></td><td class="p-3 border border-ink-200">255 km</td><td class="p-3 border border-ink-200">5.5–6 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-tirupati-cab" class="text-brand-700 underline font-medium">Bangalore to Tirupati</a></td><td class="p-3 border border-ink-200">255 km</td><td class="p-3 border border-ink-200">5.5–6 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-ooty-cab" class="text-brand-700 underline font-medium">Bangalore to Ooty</a></td><td class="p-3 border border-ink-200">275 km</td><td class="p-3 border border-ink-200">6.5–7 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-wayanad-cab" class="text-brand-700 underline font-medium">Bangalore to Wayanad</a></td><td class="p-3 border border-ink-200">290 km</td><td class="p-3 border border-ink-200">6–6.5 hours</td></tr>
+    <tr><td class="p-3 border border-ink-200"><a href="/routes/bangalore-to-hampi-cab" class="text-brand-700 underline font-medium">Bangalore to Hampi</a></td><td class="p-3 border border-ink-200">345 km</td><td class="p-3 border border-ink-200">6.5–7 hours</td></tr>
+  </tbody>
+</table>
+<p>Ready-made itineraries: <a href="/tour-packages/coorg-getaway" class="text-brand-700 underline font-medium">Coorg Getaway</a>, <a href="/tour-packages/ooty-coonoor-hill-tour" class="text-brand-700 underline font-medium">Ooty &amp; Coonoor Hill Tour</a>, <a href="/tour-packages/wayanad-nature-escape" class="text-brand-700 underline font-medium">Wayanad Nature Escape</a> and <a href="/services/pilgrimage-tours" class="text-brand-700 underline font-medium">pilgrimage tours</a>. For a different plan, ask for a <a href="/services/customized-tours" class="text-brand-700 underline font-medium">customized tour package</a>.</p>
+
+<h2>17 Seater Tempo Traveller Pickups Across Bangalore</h2>
+<ul>
+  <li><a href="/17seater-tempotraveller/whitefield" class="text-brand-700 underline font-medium">Whitefield</a></li>
+  <li><a href="/17seater-tempotraveller/electronic-city" class="text-brand-700 underline font-medium">Electronic City</a></li>
+  <li><a href="/17seater-tempotraveller/koramangala" class="text-brand-700 underline font-medium">Koramangala</a></li>
+  <li><a href="/17seater-tempotraveller/indiranagar" class="text-brand-700 underline font-medium">Indiranagar</a></li>
+  <li><a href="/17seater-tempotraveller/hsr-layout" class="text-brand-700 underline font-medium">HSR Layout</a></li>
+  <li><a href="/17seater-tempotraveller/jayanagar" class="text-brand-700 underline font-medium">Jayanagar</a></li>
+  <li><a href="/17seater-tempotraveller/marathahalli" class="text-brand-700 underline font-medium">Marathahalli</a></li>
+  <li><a href="/17seater-tempotraveller/hebbal" class="text-brand-700 underline font-medium">Hebbal</a></li>
+  <li><a href="/17seater-tempotraveller/yelahanka" class="text-brand-700 underline font-medium">Yelahanka</a></li>
+</ul>
+
+<h2>21 Seater Mini Bus Pickups Across Bangalore</h2>
+<ul>
+  <li><a href="/mini-bus-rental/whitefield" class="text-brand-700 underline font-medium">Whitefield</a></li>
+  <li><a href="/mini-bus-rental/electronic-city" class="text-brand-700 underline font-medium">Electronic City</a></li>
+  <li><a href="/mini-bus-rental/koramangala" class="text-brand-700 underline font-medium">Koramangala</a></li>
+  <li><a href="/mini-bus-rental/indiranagar" class="text-brand-700 underline font-medium">Indiranagar</a></li>
+  <li><a href="/mini-bus-rental/hsr-layout" class="text-brand-700 underline font-medium">HSR Layout</a></li>
+  <li><a href="/mini-bus-rental/jayanagar" class="text-brand-700 underline font-medium">Jayanagar</a></li>
+  <li><a href="/mini-bus-rental/marathahalli" class="text-brand-700 underline font-medium">Marathahalli</a></li>
+  <li><a href="/mini-bus-rental/hebbal" class="text-brand-700 underline font-medium">Hebbal</a></li>
+  <li><a href="/mini-bus-rental/yelahanka" class="text-brand-700 underline font-medium">Yelahanka</a></li>
+</ul>
+
+<h2>Why Book with Yogi Tours &amp; Travels</h2>
+<ul>
+  <li><strong>A rating you can check:</strong> 4.9 out of 5 from 210+ reviews on the verified Google Business Profile, operating in Bangalore since 2011.</li>
+  <li><strong>Licensed and invoice-ready:</strong> All India Tourist Permit (AITP), commercial-badge chauffeurs and GST invoices.</li>
+  <li><strong>Itemised quotations:</strong> rate, daily minimum, Bata and extras are written down before you pay.</li>
+  <li><strong>One point of contact</strong> when your group needs more than one vehicle.</li>
+  <li><strong>Clear cancellation terms:</strong> see the <a href="/cancellation-policy" class="text-brand-700 underline font-medium">cancellation policy</a>.</li>
+</ul>
+
+<h2>What Customers Say: Google Reviews</h2>
+<p>These group trips are quoted as written, each linked to the original review on Google.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 my-6">
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Really very good service. We traveled manthralaya trip with family 15 members. Driving is very very happy. Mr nagaraj is very good person and his behaviour is very good. Thank you nagraj</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Srinivasa G.</span> <span class="text-xs text-ink-500">· Family pilgrimage to Mantralaya, 15 people · March 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poM2RVUjVXRmw2T1ZodmNUbDRYM1V6VG5aTVRIYxAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOjh3dUR5WFl6OVhvcTl4X3UzTnZMTHc%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">Excellent service, had booked TT for 12 people here had a hassle free trip to coorg. Our driver was very generous and TT was well maintained. Highly Recommend.</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">MrPrashantpk</span> <span class="text-xs text-ink-500">· Tempo Traveller to Coorg, 12 people · May 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25kTlZXaGpSV2hIWTJ4NmNIaEtiM2MxVkcxSUxWRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOndNVWhjRWhHY2x6cHhKb3c1VG1ILVE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">We had an absolutely fantastic experience with Yogi Tours and Travels! From the start, they were incredibly responsive and tailored our itinerary to Mantralaya perfectly. A huge thank you to our driver, Kallesh, who was punctual, professional, and went above and beyond to ensure our comfort and safety. His deep knowledge of the routes and local spots was invaluable. We felt very well taken care of throughout the pilgrimage. Highly recommend them to anyone looking for a reliable and stress-free travel experience!</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Prashanth K.</span> <span class="text-xs text-ink-500">· Pilgrimage to Mantralaya · March 2026 · <a href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkaE9YcDJiSG81Y2tReVpuSk9ZVlZpZWpoSVVsRRAB!2m1!1s0x0:0xdf589f94b49f7575!3m1!1s2@1:CAIQACodChtycF9oOkdhOXp2bHo5ckQyZnJOYVViejhIUlE%7C%7C?hl=en" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+</div>
+<p>Read every review on the <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" class="text-brand-700 underline font-medium">Yogi Tours &amp; Travels Google Business Profile</a>.</p>
+
+<h2>How to Book</h2>
+<ol>
+  <li><strong>Share the trip:</strong> pickup point, destination, dates, group size and luggage.</li>
+  <li><strong>Pick the size:</strong> up to 17, choose a Tempo Traveller or Urbania; 18 to 21, the mini bus.</li>
+  <li><strong>Review the quotation:</strong> rate, daily minimum, Bata and expected tolls or permits.</li>
+  <li><strong>Confirm and travel:</strong> support is a call or message away throughout.</li>
+</ol>
+<p>Call +91 97410 32020 or WhatsApp +91 98867 70099, or <a href="/contact" class="text-brand-700 underline font-medium">get a free quote</a> for your 17 or 21 seater group trip.</p>`,
+    author: "Yogi Tours & Travels",
+    published: 1,
+    publishedAt: "2026-10-21 10:00:00",
+    sortOrder: 8,
+    createdAt: "2026-10-21 10:00:00",
+    updatedAt: "2026-10-21 10:00:00"
   }
 ];

@@ -178,7 +178,7 @@ export const DEFAULT_VEHICLES: Vehicle[] = [
     featured: 0,
     sortOrder: 6,
     createdAt: "2026-08-01 00:00:00",
-    updatedAt: "2026-10-02 00:00:00"
+    updatedAt: "2026-10-21 00:00:00"
   },
   {
     id: 9,
@@ -210,7 +210,7 @@ export const DEFAULT_VEHICLES: Vehicle[] = [
     featured: 1,
     sortOrder: 6,
     createdAt: "2026-08-01 00:00:00",
-    updatedAt: "2026-10-02 00:00:00"
+    updatedAt: "2026-10-21 00:00:00"
   },
   {
     id: 10,
@@ -263,7 +263,7 @@ export const DEFAULT_VEHICLES: Vehicle[] = [
     featured: 0,
     sortOrder: 1,
     createdAt: "2026-08-01 00:00:00",
-    updatedAt: "2026-10-02 00:00:00"
+    updatedAt: "2026-10-21 00:00:00"
   },
   {
     id: 12,

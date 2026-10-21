@@ -33,10 +33,11 @@ const CATEGORY_RENTAL_LABEL: Record<VehicleCategory, string> = {
 // Google rating stated in the meta description below, not an empty boast.
 const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
   "9-seater-tempo-traveller": "9 Seater Tempo Traveller Rental Bangalore | AC Luxury Van | Yogi Tours",
-  "force-urbania": "Force Urbania Rental Bangalore | Luxury 17 Seater Maharaja Van | Yogi Tours",
+  "force-urbania": "17 Seater Force Urbania Rental Bangalore | Luxury Maharaja Van | Yogi Tours",
   "urbania-12-seater-maharaja": "12 Seater Maharaja Force Urbania Bangalore | Luxury Recliner Van | Yogi Tours",
   "maharaja-tempo-traveller": "Best 12 Seater Tempo Traveller Bangalore | Yogi Tours",
-  "tempo-traveller-17-seater": "Best 17 Seater Tempo Traveller Bangalore | Yogi Tours",
+  "tempo-traveller-17-seater": "17 Seater Tempo Traveller Rental Bangalore | AC Group Van | Yogi Tours",
+  "mini-bus-21-seater": "21 Seater Mini Bus Rental Bangalore | AC Group Coach | Yogi Tours",
   "innova-crysta": "Toyota Innova Crysta Rental Bangalore | Premium 7 Seater Cab | Yogi Tours"
 };
 
@@ -99,6 +100,21 @@ const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> 
       question: "Can I book the Force Urbania for outstation trips from Bangalore?",
       answer:
         "Yes — the Force Urbania is our most popular luxury group vehicle for multi-day outstation tours across Karnataka and South India, including Coorg, Ooty, Chikmagalur, Wayanad, Mysore, Hampi, Tirupati, and Goa."
+    },
+    {
+      question: "How much luggage fits in the 17 seater Force Urbania?",
+      answer:
+        "The 17 seater Force Urbania is set up for about 17 bags, with a dedicated rear storage area, so a full group can travel with its luggage inside the same vehicle."
+    },
+    {
+      question: "Is the 17 seater Force Urbania better than a 17 seater Tempo Traveller?",
+      answer:
+        "Both seat 17. The Force Urbania costs more (₹38/km versus ₹30/km AC for the Tempo Traveller) and gives a quieter, car-like ride with a high-roof cabin, Maharaja recliner seats, a Smart TV and a chiller. Choose the Tempo Traveller for the lowest cost and the Urbania for VIP guests and long luxury trips."
+    },
+    {
+      question: "Is there a Force Urbania for groups larger than 17?",
+      answer:
+        "The Force Urbania seats up to 17 passengers. For 18 to 21 people we offer a 21 seater mini bus from ₹34/km, and for larger groups 25 seater mini buses and 33 to 50 seater tourist buses."
     }
   ],
   "urbania-12-seater-maharaja": [
@@ -143,6 +159,48 @@ const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> 
       question: "What is the rate for a 17 seater Tempo Traveller in Bangalore?",
       answer:
         "₹30/km AC and ₹28/km Non-AC, with a ₹700/day driver Bata — confirmed rates, not an estimate. Tolls, parking, permit and state taxes are additional and shown in your quotation."
+    },
+    {
+      question: "Can I hire a 17 seater Tempo Traveller from Bangalore to Tirupati, Coorg or Ooty?",
+      answer:
+        "Yes. The 17 seater Tempo Traveller is regularly booked for Tirupati pilgrimages and for Coorg, Ooty, Mysore, Chikmagalur and Wayanad group trips, with a 300 km daily minimum and a ₹700/day driver Bata. Tolls, parking and interstate permits are billed at actuals."
+    },
+    {
+      question: "What is the difference between a 17 seater Tempo Traveller and a 17 seater Force Urbania?",
+      answer:
+        "Both carry 17 passengers. The 17 seater Tempo Traveller is the value choice at ₹30/km AC with push-back seats and a luggage boot. The 17 seater Force Urbania is the premium choice at ₹38/km, with a quieter car-like ride, a high-roof cabin, Maharaja recliner seats, a Smart TV and an on-board chiller."
+    },
+    {
+      question: "Should I book a 17 seater Tempo Traveller or a 21 seater mini bus?",
+      answer:
+        "Up to 17 people, the 17 seater Tempo Traveller is cheaper per km and easier to drive on hill roads. For 18 to 21 people, step up to the 21 seater mini bus, which starts at ₹34/km, instead of booking two vehicles."
+    }
+  ],
+  "mini-bus-21-seater": [
+    {
+      question: "Where can I rent a 21 seater mini bus in Bangalore?",
+      answer:
+        "Yogi Tours & Travels rents 21 seater AC mini buses with driver across Bangalore (Bengaluru), with pickups from Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Yelahanka, Hebbal, Jayanagar, JP Nagar, Marathahalli and Kempegowda International Airport (BLR). Bookings are taken 24/7."
+    },
+    {
+      question: "What is the rental rate for a 21 seater mini bus in Bangalore?",
+      answer:
+        "The 21 seater mini bus starts at ₹34/km with AC. The daily minimum kilometres, driver Bata, tolls, parking and permits are itemised in your written quotation before you pay, so there are no surprises on the trip."
+    },
+    {
+      question: "What features does the 21 seater mini bus have?",
+      answer:
+        "It has air conditioning, push-back seats, reading lights, a PA system, a first-aid kit and overhead luggage racks, plus a rear boot, with an experienced commercial driver."
+    },
+    {
+      question: "Which groups is a 21 seater mini bus best for?",
+      answer:
+        "It suits office teams, wedding guest groups, school and college outings and community groups of 18 to 21 people who need more room than a 17 seater Tempo Traveller or Force Urbania but not a full-size coach."
+    },
+    {
+      question: "Can I book a 21 seater mini bus for outstation trips from Bangalore?",
+      answer:
+        "Yes. The 21 seater mini bus is available for local Bangalore hire and for outstation trips across Karnataka and South India, with the route and terms confirmed in the quotation."
     }
   ]
 };
@@ -203,6 +261,17 @@ function vehicleKeywords(vehicle: Vehicle, label: string): string {
       `12 seater maharaja urbania bangalore`
     );
   }
+  if (vehicle.seats === 17) {
+    base.push(
+      `17 seater tempo traveller on rent in bangalore`,
+      `17 seater urbania in bangalore`,
+      `17 seater urbania rental bangalore`,
+      `17 seater tempo traveller for tirupati from bangalore`
+    );
+  }
+  if (vehicle.slug === "mini-bus-21-seater") {
+    base.push(`21 seater bus on rent in bangalore`, `21 seater mini bus in bangalore`, `21 seater mini bus rental bangalore with driver`);
+  }
   return base.join(", ");
 }
 
@@ -240,7 +309,10 @@ function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
     return "Hire 9 Seater Tempo Traveller in Bangalore with verified driver. Pushback recliner seats, AC, carrier & ₹28/km transparent tariff. Rated 4.9★ for outstation trips.";
   }
   if (vehicle.slug === "force-urbania") {
-    return "Rent luxury Force Urbania in Bangalore with Maharaja recliner captain seats, Sony Bravia Smart TV & chiller box. Verified chauffeur & transparent per-km rates.";
+    return "Rent 17 Seater Force Urbania in Bangalore with Maharaja recliner seats, Sony Bravia Smart TV & chiller box. Verified chauffeur & transparent ₹38/km rates.";
+  }
+  if (vehicle.slug === "mini-bus-21-seater") {
+    return "Hire 21 Seater Mini Bus in Bangalore with driver. AC, push-back seats, PA system & luggage racks from ₹34/km. Ideal for corporate, wedding & school groups.";
   }
   if (vehicle.slug === "urbania-12-seater-maharaja") {
     return "Book 12 Seater Maharaja Force Urbania in Bangalore with ultra-plush calf-support recliners & ambient lighting. Ideal for VIP wedding guest & corporate travel.";
@@ -249,7 +321,7 @@ function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
     return "Hire Toyota Innova Crysta in Bangalore with experienced driver for outstation trips, Kempegowda airport transfers & family vacations. Starting ₹19/km.";
   }
   if (vehicle.slug === "tempo-traveller-17-seater") {
-    return "Book 17 Seater Tempo Traveller in Bangalore for group outstation trips & Tirupati pilgrimage. Pushback seats, ample luggage space & transparent pricing.";
+    return "Hire 17 Seater Tempo Traveller in Bangalore with driver. AC push-back seats, luggage boot & ₹30/km (₹28 non-AC). Rated 4.9★ for Tirupati & group tours.";
   }
   if (vehicle.slug === "maharaja-tempo-traveller") {
     return "Rent 12 Seater Maharaja Tempo Traveller in Bangalore featuring sofa-style pushback seats & spacious legroom. Rated 4.9★ for Karnataka group tours.";

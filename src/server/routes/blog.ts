@@ -63,6 +63,18 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Tirupati", type: "City" },
     { name: "Chikmagalur", type: "Place" },
     { name: "Wayanad", type: "Place" }
+  ],
+  "17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide": [
+    { name: "17 Seater Tempo Traveller", type: "Product" },
+    { name: "Force Urbania", type: "Product" },
+    { name: "21 Seater Mini Bus", type: "Product" },
+    { name: "Bengaluru", type: "City" },
+    { name: "Kempegowda International Airport", type: "Airport" },
+    { name: "Tirupati", type: "City" },
+    { name: "Mantralaya", type: "Place" },
+    { name: "Coorg", type: "Place" },
+    { name: "Ooty", type: "Place" },
+    { name: "Wayanad", type: "Place" }
   ]
 };
 
@@ -196,6 +208,48 @@ const POST_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
       question: "Why book a 9 seater Tempo Traveller with Yogi Tours & Travels?",
       answer:
         "Yogi Tours & Travels has been operating in Bangalore since 2011, and 221 of its 228 Google reviews are five-star (October 2026). It runs under the All India Tourist Permit with commercial-badge chauffeurs, issues GST invoices, and puts the per-km rate, daily minimum and driver Bata in writing before you pay."
+    }
+  ],
+  "17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide": [
+    {
+      question: "How much does a 17 seater Tempo Traveller cost in Bangalore?",
+      answer:
+        "With Yogi Tours & Travels, a 17 seater Tempo Traveller costs ₹30/km with AC (₹28/km non-AC), with a 300 km daily minimum and ₹700/day driver Bata. A 2-day Bangalore to Tirupati round trip comes to about ₹19,400 plus tolls and parking."
+    },
+    {
+      question: "How much does a 17 seater Force Urbania cost in Bangalore?",
+      answer:
+        "The 17 seater Force Urbania starts at ₹38/km with a 300 km daily minimum and ₹700/day driver Bata. A 2-day Tirupati round trip comes to about ₹24,200 plus tolls and parking."
+    },
+    {
+      question: "Is there a 21 seater Urbania in Bangalore?",
+      answer:
+        "No. The Force Urbania seats up to 17 passengers. For 18 to 21 people, Yogi Tours & Travels offers a 21 seater AC mini bus from ₹34/km."
+    },
+    {
+      question: "How much does a 21 seater mini bus cost in Bangalore?",
+      answer:
+        "The 21 seater mini bus starts at ₹34/km with AC. The daily minimum, driver Bata, tolls and permits are itemised in your written quotation before you pay."
+    },
+    {
+      question: "Which is better, a 17 seater Tempo Traveller or a Force Urbania?",
+      answer:
+        "Both carry 17 people. The Tempo Traveller is cheaper at ₹30/km AC. The Force Urbania costs ₹38/km and adds a quieter ride, Maharaja recliner seats, a Smart TV and an on-board chiller, which suits VIP guests and long luxury trips."
+    },
+    {
+      question: "What size vehicle do I need for 18 to 21 people?",
+      answer:
+        "Choose the 21 seater mini bus. It has overhead luggage racks, a PA system, push-back seats and AC, and avoids booking two separate vehicles."
+    },
+    {
+      question: "Can I book a 17 or 21 seater from Bangalore for Tirupati or Mantralaya?",
+      answer:
+        "Yes. Pilgrimage groups regularly book Tempo Travellers for Tirupati and Mantralaya, and the 17 seater Tempo Traveller, Force Urbania and 21 seater mini bus are all available for these routes, with route and terms confirmed in the quotation."
+    },
+    {
+      question: "Where can I find a 17 seater Tempo Traveller or 21 seater mini bus near me in Bangalore?",
+      answer:
+        "Yogi Tours & Travels picks up from any Bangalore locality, including Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Jayanagar, Marathahalli, Hebbal and Yelahanka, as well as Kempegowda International Airport. Bookings are taken 24/7."
     }
   ]
 };
