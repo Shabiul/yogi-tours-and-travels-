@@ -33,8 +33,8 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Nilgiri Hills", type: "Place" }
   ],
   "force-urbania-vs-tempo-traveller-luxury-van-rental-bangalore": [
-    { name: "Force Urbania", type: "Product" },
-    { name: "Tempo Traveller", type: "Product" },
+    { name: "Force Urbania", type: "Vehicle" },
+    { name: "Tempo Traveller", type: "Vehicle" },
     { name: "Force Motors", type: "Organization" },
     { name: "Bengaluru", type: "City" }
   ],
@@ -52,9 +52,9 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Baba Budangiri", type: "Place" }
   ],
   "9-seater-tempo-traveller-bangalore-guide": [
-    { name: "9 Seater Tempo Traveller", type: "Product" },
-    { name: "Tempo Traveller", type: "Product" },
-    { name: "Toyota Innova Crysta", type: "Product" },
+    { name: "9 Seater Tempo Traveller", type: "Vehicle" },
+    { name: "Tempo Traveller", type: "Vehicle" },
+    { name: "Toyota Innova Crysta", type: "Vehicle" },
     { name: "Bengaluru", type: "City" },
     { name: "Kempegowda International Airport", type: "Airport" },
     { name: "Coorg", type: "Place" },
@@ -65,9 +65,9 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Wayanad", type: "Place" }
   ],
   "17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide": [
-    { name: "17 Seater Tempo Traveller", type: "Product" },
-    { name: "Force Urbania", type: "Product" },
-    { name: "21 Seater Mini Bus", type: "Product" },
+    { name: "17 Seater Tempo Traveller", type: "Vehicle" },
+    { name: "Force Urbania", type: "Vehicle" },
+    { name: "21 Seater Mini Bus", type: "Vehicle" },
     { name: "Bengaluru", type: "City" },
     { name: "Kempegowda International Airport", type: "Airport" },
     { name: "Tirupati", type: "City" },
@@ -313,7 +313,7 @@ router.get("/cost/:slug", (req, res, next) => {
         mentions: [
           { name: post.destination.name, type: "Place" },
           { name: post.origin.name, type: "Place" },
-          { name: post.vehicle.name, type: "Product" }
+          { name: post.vehicle.name, type: "Vehicle" }
         ]
       }),
       breadcrumbSchema([
@@ -359,8 +359,8 @@ router.get("/compare/:slug", (req, res, next) => {
         image: photo,
         mentions: [
           { name: post.destination.name, type: "Place" },
-          { name: post.vehicleA.name, type: "Product" },
-          { name: post.vehicleB.name, type: "Product" }
+          { name: post.vehicleA.name, type: "Vehicle" },
+          { name: post.vehicleB.name, type: "Vehicle" }
         ]
       }),
       breadcrumbSchema([
@@ -407,7 +407,7 @@ router.get("/itinerary/:slug", (req, res, next) => {
         mentions: [
           { name: post.destination.name, type: "Place" },
           { name: post.origin.name, type: "Place" },
-          { name: post.vehicle.name, type: "Product" }
+          { name: post.vehicle.name, type: "Vehicle" }
         ]
       }),
       breadcrumbSchema([
