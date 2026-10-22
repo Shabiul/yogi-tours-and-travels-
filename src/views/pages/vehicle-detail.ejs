@@ -60,6 +60,21 @@
       </div>
       <% } %>
 
+      <% if (typeof quickFacts !== "undefined" && quickFacts) { %>
+      <div id="quick-answer" class="mt-8 rounded-2xl bg-brand-50/60 ring-1 ring-inset ring-brand-100 p-5 sm:p-6">
+        <h2 class="font-display font-bold text-xl text-ink-900 mb-2"><%= quickFacts.heading %></h2>
+        <p class="text-[15px] text-ink-700 leading-relaxed"><%= quickFacts.answer %></p>
+        <dl class="mt-4 divide-y divide-ink-100 text-sm">
+          <% quickFacts.specs.forEach(function(row) { %>
+          <div class="grid grid-cols-5 gap-3 py-2">
+            <dt class="col-span-2 text-ink-500"><%= row[0] %></dt>
+            <dd class="col-span-3 font-medium text-ink-900"><%= row[1] %></dd>
+          </div>
+          <% }); %>
+        </dl>
+      </div>
+      <% } %>
+
       <div class="mt-8">
         <h2 class="font-display font-bold text-xl text-ink-900 mb-3">About the <%= vehicle.name %></h2>
         <p class="text-[15px] text-ink-600 leading-relaxed"><%= vehicle.description %></p>

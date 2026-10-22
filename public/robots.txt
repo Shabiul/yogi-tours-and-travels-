@@ -3,21 +3,6 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-# Disallow legacy WordPress paths & spam query parameters to stop crawl waste
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/
-Disallow: /xmlrpc.php
-Disallow: /wp-json/
-Disallow: /trackback/
-Disallow: /comments/
-Disallow: /feed/
-Disallow: /*?*s=*
-Disallow: /*?*p=*
-Disallow: /*?*attachment_id=*
-Disallow: /*?*replytocom=*
-Disallow: /*?*author=*
-
 # Major Search Engines
 User-agent: Googlebot
 Allow: /

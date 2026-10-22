@@ -52,6 +52,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/about", priority: "0.7", changefreq: "monthly" },
   { path: "/fleet", priority: "0.9", changefreq: "weekly" },
+  { path: "/force-urbania", priority: "0.9", changefreq: "weekly" },
   { path: "/services", priority: "0.9", changefreq: "weekly" },
   { path: "/tour-packages", priority: "0.9", changefreq: "weekly" },
   { path: "/locations", priority: "0.7", changefreq: "monthly" },

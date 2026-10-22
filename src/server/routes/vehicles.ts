@@ -33,7 +33,7 @@ const CATEGORY_RENTAL_LABEL: Record<VehicleCategory, string> = {
 // Google rating stated in the meta description below, not an empty boast.
 const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
   "9-seater-tempo-traveller": "9 Seater Tempo Traveller Rental Bangalore | AC Luxury Van | Yogi Tours",
-  "force-urbania": "17 Seater Force Urbania Rental Bangalore | Luxury Maharaja Van | Yogi Tours",
+  "force-urbania": "17 Seater Urbania Rental Bangalore | Force Urbania ₹38/km | Yogi Tours",
   "urbania-12-seater-maharaja": "12 Seater Maharaja Force Urbania Bangalore | Luxury Recliner Van | Yogi Tours",
   "maharaja-tempo-traveller": "Best 12 Seater Tempo Traveller Bangalore | Yogi Tours",
   "tempo-traveller-17-seater": "17 Seater Tempo Traveller Rental Bangalore | AC Group Van | Yogi Tours",
@@ -76,6 +76,16 @@ const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> 
     }
   ],
   "force-urbania": [
+    {
+      question: "What is the best 17 seater Urbania rental in Bangalore?",
+      answer:
+        "Yogi Tours & Travels offers a 17 seater Force Urbania rental in Bangalore at ₹38/km with a verified chauffeur, Maharaja recliner seats, a Sony Bravia Smart TV and an on-board chiller. The business has operated since 2011, holds an All India Tourist Permit, and is rated 4.9 out of 5 on Google from 210+ reviews. The per-km rate, 300 km daily minimum and ₹700 Bata are confirmed in writing before you pay."
+    },
+    {
+      question: "How do I book a 17 seater Urbania for rental in Bangalore?",
+      answer:
+        "Call or WhatsApp +91 98867 70099 at any hour with your pickup point, destination, dates and group size. You receive an itemised quotation with the rate, daily minimum, Bata and expected extras, confirm it, and the chauffeur arrives at your pickup point on time."
+    },
     {
       question: "Where can I rent a luxury Force Urbania in Bangalore?",
       answer:
@@ -206,6 +216,36 @@ const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> 
 };
 
 /**
+ * Visible "quick answer" + spec table shown at the top of a vehicle page.
+ * Written as a short, self-contained, quotable answer so search snippets and
+ * AI answer engines can lift it directly. Every value here is already stated
+ * elsewhere in this app (vehicle data, pricing.ts, FAQs).
+ */
+const VEHICLE_QUICK_FACTS: Record<string, { heading: string; answer: string; specs: Array<[string, string]> }> = {
+  "force-urbania": {
+    heading: "17 Seater Urbania Rental in Bangalore: Quick Answer",
+    answer:
+      "Yogi Tours & Travels rents a 17 seater Force Urbania in Bangalore with a verified chauffeur at ₹38 per km, with a 300 km daily minimum and ₹700 per day driver Bata. Tolls, parking, permits and state taxes are extra and itemised in the quotation. It is available 24/7 for outstation trips, weddings, corporate travel and airport transfers, with pickups across Bangalore and from Kempegowda International Airport.",
+    specs: [
+      ["Vehicle", "Force Urbania (17 seater)"],
+      ["Seating capacity", "17 passengers plus driver"],
+      ["Fuel type", "Diesel"],
+      ["Air conditioning", "Yes, individual AC louvers"],
+      ["Seats", "Maharaja recliner captain seats with calf rests"],
+      ["Entertainment", "Sony Bravia Smart TV"],
+      ["Refreshments", "On-board chiller"],
+      ["Luggage", "About 17 bags with rear storage"],
+      ["Rate", "₹38 per km"],
+      ["Daily minimum", "300 km per day"],
+      ["Driver Bata", "₹700 per day, extra after 10:00 PM"],
+      ["Extras", "Tolls, parking, permits and state taxes at actuals"],
+      ["Pickup", "Anywhere in Bangalore and Kempegowda Airport (BLR)"],
+      ["Booking", "24/7 by call or WhatsApp +91 98867 70099"]
+    ]
+  }
+};
+
+/**
  * Direct-answer Q&A for vehicles without a hand-curated VEHICLE_FAQS entry —
  * generated only from real, already-confirmed data on the vehicle (seats,
  * rate, service area), so it stays honest without needing per-vehicle
@@ -309,7 +349,7 @@ function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
     return "Hire 9 Seater Tempo Traveller in Bangalore with verified driver. Pushback recliner seats, AC, carrier & ₹28/km transparent tariff. Rated 4.9★ for outstation trips.";
   }
   if (vehicle.slug === "force-urbania") {
-    return "Rent 17 Seater Force Urbania in Bangalore with Maharaja recliner seats, Sony Bravia Smart TV & chiller box. Verified chauffeur & transparent ₹38/km rates.";
+    return "17 seater Urbania rental in Bangalore at ₹38/km with driver. Maharaja recliner seats, Smart TV & chiller. 300 km/day, ₹700 Bata, all terms upfront. Rated 4.9★.";
   }
   if (vehicle.slug === "mini-bus-21-seater") {
     return "Hire 21 Seater Mini Bus in Bangalore with driver. AC, push-back seats, PA system & luggage racks from ₹34/km. Ideal for corporate, wedding & school groups.";
@@ -468,6 +508,7 @@ router.get("/:category/:slug", async (req, res, next) => {
       featuredInPackages,
       relevantRoutes,
       vehicleFaqs,
+      quickFacts: VEHICLE_QUICK_FACTS[vehicle.slug],
       schemas: [
         vehicleServiceSchema({
           name: vehicle.name,
@@ -502,7 +543,7 @@ router.get("/:category/:slug", async (req, res, next) => {
             ]
           : []),
         ...(vehicleFaqs
-          ? [faqSchema(vehicleFaqs), speakableSchema(`/fleet/${category}/${vehicle.slug}`, ["#faq"])]
+          ? [faqSchema(vehicleFaqs), speakableSchema(`/fleet/${category}/${vehicle.slug}`, VEHICLE_QUICK_FACTS[vehicle.slug] ? ["#quick-answer", "#faq"] : ["#faq"])]
           : [])
       ]
     });
