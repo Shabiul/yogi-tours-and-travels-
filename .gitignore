@@ -19,3 +19,9 @@ yogesh.zip
 *.zip
 
 .env*
+
+# Google Search Console exports
+Chart.csv
+Critical issues.csv
+Metadata.csv
+Non-critical issues.csv
