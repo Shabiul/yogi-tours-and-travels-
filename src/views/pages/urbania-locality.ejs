@@ -1,0 +1,94 @@
+<%- include('../partials/page-start') %>
+<%- include('../partials/breadcrumbs') %>
+
+<%
+const __l = "text-brand-700 underline font-medium";
+const __dests = [["coorg", "Coorg"], ["mysore", "Mysore"], ["ooty", "Ooty"], ["wayanad", "Wayanad"], ["tirupati", "Tirupati"], ["chikmagalur", "Chikmagalur"], ["goa", "Goa"], ["hampi", "Hampi"]];
+const __rentOrigin = rentOriginSlug;
+%>
+
+<section class="py-10 lg:py-16">
+  <div class="container max-w-4xl">
+    <span class="badge badge-brand mb-3">Force Urbania · <%= location.name %></span>
+    <h1 class="font-display font-bold tracking-tight text-3xl sm:text-4xl lg:text-5xl text-ink-900 leading-[1.1]">Urbania Rent in <%= location.name %>, Bangalore</h1>
+    <p class="mt-5 text-base sm:text-lg text-ink-600 leading-relaxed">Looking for an Urbania on rent in <%= location.name %>? Yogi Tours &amp; Travels sends a <a href="/17-seater-urbania-for-rent-in-bangalore" class="<%= __l %>">17 seater Force Urbania</a> or a <a href="/12-seater-urbania-for-rent-in-bangalore" class="<%= __l %>">12 seater Maharaja Urbania</a> with a verified chauffeur directly to your door in <%= location.name %>, at ₹<%= urbaniaRate %> per km with a <%= urbaniaTariff.minKmPerDay %> km daily minimum and ₹<%= urbaniaTariff.driverBata %> per day driver Bata.</p>
+
+    <div id="quick-answer" class="mt-8 rounded-2xl bg-brand-50/60 ring-1 ring-inset ring-brand-100 p-5 sm:p-6">
+      <h2 class="font-display font-bold text-xl text-ink-900 mb-2">Urbania Rent in <%= location.name %>: Quick Answer</h2>
+      <p class="text-[15px] text-ink-700 leading-relaxed">Urbania rental in <%= location.name %> costs ₹<%= urbaniaRate %> per km for both the 17 seater Urbania and the 12 seater Maharaja Urbania. Billing uses a <%= urbaniaTariff.minKmPerDay %> km daily minimum and ₹<%= urbaniaTariff.driverBata %> per day driver Bata. Tolls, parking, permits and state taxes are extra and itemised in your written quotation. Bookings are open 24/7 on +91 97410 32020 or WhatsApp +91 98867 70099.</p>
+      <div class="flex flex-wrap gap-3 mt-5">
+        <button type="button" class="btn btn-accent" data-enquiry-trigger data-enquiry-type="quote" data-enquiry-context="Urbania Rent <%= location.name %>">
+          <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %><span>Get Urbania Quote from <%= location.name %></span>
+        </button>
+        <a href="https://wa.me/<%= whatsappDigits %>" title="WhatsApp for Urbania rent in <%= location.name %>" target="_blank" rel="noopener" class="btn btn-outline">
+          <%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">About Force Urbania Rental from <%= location.name %></h2>
+    <p><%= location.intro %></p>
+    <p><%= location.detail %></p>
+    <% if (location.landmarks && location.landmarks.length) { %>
+    <p>Urbania pickups in <%= location.name %> are commonly arranged near <%= location.landmarks.join(', ') %>. Share your exact pickup address and the chauffeur will confirm the timing before the trip, so the whole group boards together.</p>
+    <% } %>
+    <p>Whether you need an Urbania on rent in <%= location.name %> for a wedding, a corporate delegation, an airport pickup or an outstation tour, the booking works the same way: you send the trip details, receive an itemised quotation, and the Force Urbania arrives at your <%= location.name %> pickup point on time.</p>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Which Urbania Should You Rent in <%= location.name %>?</h2>
+    <div class="overflow-x-auto rounded-xl border border-ink-100">
+      <table class="w-full text-sm min-w-[520px]">
+        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Urbania rent in <%= location.name %></th><th class="p-3">Seats</th><th class="p-3">Rate</th><th class="p-3">Best for</th></tr></thead>
+        <tbody class="divide-y divide-ink-100">
+          <tr><td class="p-3 font-medium"><a href="/17-seater-urbania-for-rent-in-bangalore" class="<%= __l %>">17 seater Urbania</a></td><td class="p-3">17</td><td class="p-3">₹<%= urbaniaRate %>/km</td><td class="p-3">Large families, weddings, offsites</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/12-seater-urbania-for-rent-in-bangalore" class="<%= __l %>">12 seater Maharaja Urbania</a></td><td class="p-3">12</td><td class="p-3">₹<%= urbaniaRate %>/km</td><td class="p-3">VIP guests, executive delegations</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Groups of 18 to 21 from <%= location.name %> should take the <a href="/fleet/mini-bus/mini-bus-21-seater" class="<%= __l %>">21 seater mini bus</a>, since there is no 21 seater Urbania. For a lower-cost option see the <a href="/17seater-tempotraveller/<%= location.slug %>" class="<%= __l %>">17 seater vehicles in <%= location.name %></a>.</p>
+  </div>
+</section>
+
+<%- include('../partials/urbania-rich') %>
+
+<section class="py-14 lg:py-20">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Routes', heading: 'Urbania Rent from ' + location.name + ' to Popular Destinations' }) %>
+    <div class="flex flex-wrap gap-2.5 mt-5">
+      <% __dests.forEach(function(d) { %>
+      <a href="/rent/force-urbania/<%= __rentOrigin %>-to-<%= d[0] %>" title="Urbania rent <%= location.name %> to <%= d[1] %>" class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700">Urbania rent <%= location.name %> to <%= d[1] %></a>
+      <% }); %>
+    </div>
+    <h3 class="font-display font-semibold text-lg text-ink-900 mt-10">Urbania Rent in Nearby Areas</h3>
+    <div class="flex flex-wrap gap-2.5 mt-4">
+      <% nearby.forEach(function(n) { %>
+      <a href="/urbania-rent-<%= n.slug %>" title="Urbania rent in <%= n.name %>" class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700">Urbania rent in <%= n.name %></a>
+      <% }); %>
+    </div>
+    <p class="mt-6 text-sm text-ink-500">Back to <a href="/force-urbania" class="<%= __l %>">Force Urbania rental in Bangalore</a>, or see the <a href="/locations/car-rental-<%= location.slug %>" class="<%= __l %>">full fleet in <%= location.name %></a>.</p>
+  </div>
+</section>
+
+<section id="faq" class="py-16 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-3xl">
+    <%- include('../components/section-heading', { eyebrow: 'FAQs', heading: 'Urbania Rent in ' + location.name + ': Frequently Asked Questions' }) %>
+    <div class="space-y-5 mt-8">
+      <% faqs.forEach(function(f) { %>
+      <div class="rounded-xl bg-white border border-ink-100 p-5">
+        <p class="font-semibold text-ink-900 text-[15px]"><%= f.question %></p>
+        <p class="mt-1.5 text-sm text-ink-600 leading-relaxed"><%= f.answer %></p>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-section', { ctaHeading: 'Book an Urbania in ' + location.name, ctaSub: 'Send your ' + location.name + ' pickup point, destination, dates and group size. We reply with an itemised Urbania quotation.' }) %>
+<%- include('../partials/page-end') %>

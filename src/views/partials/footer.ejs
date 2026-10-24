@@ -90,6 +90,21 @@
     </div>
   </div>
 
+  <% if (typeof urbaniaAreas !== "undefined" && urbaniaAreas.length) { %>
+  <div class="border-t border-white/10">
+    <nav class="container py-6" aria-label="Force Urbania rental by area">
+      <h3 class="font-display font-semibold text-white text-sm tracking-wide uppercase mb-3">Force Urbania Rental in Bangalore</h3>
+      <ul class="flex flex-wrap gap-x-4 gap-y-1.5 text-xs">
+        <li><a href="/17-seater-urbania-for-rent-in-bangalore" title="17 seater Urbania for rent in Bangalore" class="hover:text-white transition-colors">17 Seater Urbania for Rent</a></li>
+        <li><a href="/12-seater-urbania-for-rent-in-bangalore" title="12 seater Urbania for rent in Bangalore" class="hover:text-white transition-colors">12 Seater Urbania for Rent</a></li>
+        <% urbaniaAreas.forEach(function(a) { %>
+        <li><a href="/urbania-rent-<%= a.slug %>" title="Urbania rent in <%= a.name %>" class="hover:text-white transition-colors">Urbania Rent <%= a.name %></a></li>
+        <% }); %>
+      </ul>
+    </nav>
+  </div>
+  <% } %>
+
   <div class="border-t border-white/10">
     <div class="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500">
       <p>&copy; <%= new Date().getFullYear() %> <%= business.name %>. All rights reserved.</p>

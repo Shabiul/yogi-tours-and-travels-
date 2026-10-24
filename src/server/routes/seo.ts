@@ -54,6 +54,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
   { path: "/fleet", priority: "0.9", changefreq: "weekly" },
   { path: "/force-urbania", priority: "0.9", changefreq: "weekly" },
   { path: "/17-seater-urbania-for-rent-in-bangalore", priority: "0.9", changefreq: "weekly" },
+  { path: "/12-seater-urbania-for-rent-in-bangalore", priority: "0.9", changefreq: "weekly" },
   { path: "/services", priority: "0.9", changefreq: "weekly" },
   { path: "/tour-packages", priority: "0.9", changefreq: "weekly" },
   { path: "/locations", priority: "0.7", changefreq: "monthly" },
@@ -248,6 +249,7 @@ async function buildSitemapData(): Promise<SitemapUrl[]> {
   // Location hub pages
   for (const l of LOCATIONS) {
     urls.push({ path: `/locations/car-rental-${l.slug}`, priority: "0.6", changefreq: "monthly" });
+    urls.push({ path: `/urbania-rent-${l.slug}`, priority: "0.7", changefreq: "monthly" });
   }
 
   // Popular outstation route pages

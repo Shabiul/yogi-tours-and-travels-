@@ -14,6 +14,9 @@ export const mainNav: NavLink[] = [
 export const footerServiceLinks: NavLink[] = [
   { label: "Car Rental", href: "/fleet/car", match: "/fleet/car" },
   { label: "Tempo Traveller", href: "/fleet/tempo-traveller", match: "/fleet/tempo-traveller" },
+  { label: "Force Urbania Rental", href: "/force-urbania", match: "/force-urbania" },
+  { label: "17 Seater Urbania for Rent", href: "/17-seater-urbania-for-rent-in-bangalore", match: "/17-seater-urbania" },
+  { label: "12 Seater Urbania for Rent", href: "/12-seater-urbania-for-rent-in-bangalore", match: "/12-seater-urbania" },
   { label: "Force Urbania Hire", href: "/rent/force-urbania", match: "/rent/force-urbania" },
   { label: "Mini Bus Rental", href: "/fleet/mini-bus", match: "/fleet/mini-bus" },
   { label: "Tourist Bus Hire", href: "/fleet/tourist-bus", match: "/fleet/tourist-bus" },

@@ -8,7 +8,7 @@ const __rate = urbaniaRate;
     <p class="mt-4 text-[15px] text-ink-600 leading-relaxed">These Urbania rental fares use the live tariff: ₹<%= __rate %> per km, a <%= urbaniaTariff.minKmPerDay %> km daily minimum and ₹<%= urbaniaTariff.driverBata %> per day driver Bata. Billed distance is the larger of the round-trip distance and the daily minimum. Tolls, parking, permits and state taxes are extra. Distances are approximate. Last updated 24 October 2026.</p>
     <div class="overflow-x-auto mt-6 rounded-xl border border-ink-100">
       <table class="w-full text-sm min-w-[560px]">
-        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Urbania rental trip</th><th class="p-3">One way</th><th class="p-3">Days</th><th class="p-3">Billed km</th><th class="p-3">Estimated total</th><th class="p-3">Per person (17)</th></tr></thead>
+        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Urbania rental trip</th><th class="p-3">One way</th><th class="p-3">Days</th><th class="p-3">Billed km</th><th class="p-3">Estimated total</th><th class="p-3">Per person (<%= typeof urbaniaPax !== "undefined" ? urbaniaPax : 17 %>)</th></tr></thead>
         <tbody class="divide-y divide-ink-100 text-ink-700">
           <% urbaniaFares.forEach(function(r) { %>
           <tr>
@@ -17,7 +17,7 @@ const __rate = urbaniaRate;
             <td class="p-3"><%= r.days %></td>
             <td class="p-3"><%= r.billedKm %> km</td>
             <td class="p-3 font-medium text-ink-900">₹<%= r.total.toLocaleString('en-IN') %></td>
-            <td class="p-3">₹<%= r.perPerson17.toLocaleString('en-IN') %></td>
+            <td class="p-3">₹<%= Math.round(r.total / (typeof urbaniaPax !== 'undefined' ? urbaniaPax : 17)).toLocaleString('en-IN') %></td>
           </tr>
           <% }); %>
         </tbody>
@@ -84,3 +84,18 @@ const __rate = urbaniaRate;
     <p class="mt-6 text-[15px] text-ink-700">Call +91 97410 32020 or WhatsApp +91 98867 70099. More: <a href="/17-seater-urbania-for-rent-in-bangalore" class="<%= __l %>">17 seater Urbania for rent in Bangalore</a>, <a href="/force-urbania" class="<%= __l %>">Force Urbania rental in Bangalore</a>, <a href="/rent/force-urbania" class="<%= __l %>">Urbania rental hub</a>, <a href="/blog/force-urbania-vs-tempo-traveller-luxury-van-rental-bangalore" class="<%= __l %>">Urbania vs Tempo Traveller</a>.</p>
   </div>
 </section>
+
+<% if (typeof urbaniaAreas !== "undefined" && urbaniaAreas.length) { %>
+<section id="urbania-areas" class="py-14 lg:py-20">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Pickup Areas', heading: 'Urbania Rent Across Bangalore' }) %>
+    <p class="mt-4 text-[15px] text-ink-600 leading-relaxed">Every Force Urbania rental can be arranged from your doorstep. Choose your area for an Urbania on rent near you:</p>
+    <div class="flex flex-wrap gap-2 mt-5">
+      <% urbaniaAreas.forEach(function(a) { %>
+      <a href="/urbania-rent-<%= a.slug %>" title="Urbania rent in <%= a.name %>" class="rounded-full border border-ink-200 bg-white px-3.5 py-1.5 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700">Urbania rent in <%= a.name %></a>
+      <% }); %>
+    </div>
+    <p class="mt-5 text-sm text-ink-500"><a href="/17-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">17 seater Urbania</a> · <a href="/12-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">12 seater Urbania</a> · <a href="/force-urbania" class="text-brand-700 underline font-medium">Force Urbania rental in Bangalore</a></p>
+  </div>
+</section>
+<% } %>
