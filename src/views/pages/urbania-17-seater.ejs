@@ -1,0 +1,178 @@
+<%- include('../partials/page-start') %>
+<%- include('../partials/breadcrumbs') %>
+
+<%
+const __l = "text-brand-700 underline font-medium";
+const __routes = [
+  ["coorg", "Coorg"], ["mysore", "Mysore"], ["ooty", "Ooty"], ["wayanad", "Wayanad"], ["tirupati", "Tirupati"],
+  ["chikmagalur", "Chikmagalur"], ["sakleshpur", "Sakleshpur"], ["goa", "Goa"], ["hampi", "Hampi"], ["gokarna", "Gokarna"]
+];
+const __pickups = [
+  ["whitefield", "Whitefield"], ["koramangala", "Koramangala"], ["electronic-city", "Electronic City"],
+  ["indiranagar", "Indiranagar"], ["jayanagar", "Jayanagar"], ["hebbal", "Hebbal"], ["yelahanka", "Yelahanka"],
+  ["marathahalli", "Marathahalli"], ["kempegowda-airport", "Kempegowda Airport"]
+];
+%>
+
+<section class="py-10 lg:py-16">
+  <div class="container grid lg:grid-cols-5 gap-8 lg:gap-12">
+    <div class="lg:col-span-3">
+      <div class="rounded-2xl overflow-hidden shadow-card aspect-[4/3]">
+        <%- include('../components/smart-image', {
+          src: vehicle.imageKey, seed: vehicle.slug, icon: 'bus', label: '17 Seater Urbania', eager: true,
+          alt: '17 seater Urbania for rent in Bangalore', title: '17 seater Urbania for rent in Bangalore', cls: 'w-full h-full'
+        }) %>
+      </div>
+      <% if (gallery.length) { %>
+      <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5 mt-3">
+        <% gallery.slice(0, 8).forEach(function(img, i) { %>
+        <a href="<%= img %>" target="_blank" rel="noopener" title="17 seater Urbania for rent in Bangalore, photo <%= i + 1 %>" class="block rounded-xl overflow-hidden aspect-[4/3] ring-1 ring-ink-100">
+          <%- include('../components/smart-image', {
+            src: img, seed: `u17-${i}`, icon: 'bus', label: '',
+            alt: `17 seater Urbania for rent in Bangalore, photo ${i + 1}`, title: `17 seater Urbania photo ${i + 1}`, cls: 'w-full h-full object-cover'
+          }) %>
+        </a>
+        <% }); %>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="lg:col-span-2">
+      <span class="badge badge-brand mb-3">17 Passengers · Luxury</span>
+      <h1 class="font-display font-bold tracking-tight text-3xl sm:text-4xl text-ink-900 leading-[1.1]">17 Seater Urbania for Rent in Bangalore</h1>
+      <p class="mt-4 text-[15px] text-ink-600 leading-relaxed">The 17 seater Force Urbania is our largest luxury van: Maharaja recliner seats, a Smart TV and an on-board chiller for groups of up to 17, with a verified chauffeur and a written quotation before you pay.</p>
+      <div class="mt-5 rounded-xl bg-sun-50 ring-1 ring-inset ring-sun-200 px-4 py-4">
+        <p class="font-display font-bold text-3xl text-sun-700">₹<%= urbaniaRate %><span class="text-sm font-medium text-sun-600">/km</span></p>
+        <dl class="mt-3 space-y-1.5 text-[13px]">
+          <div class="flex justify-between"><dt class="text-ink-500">Minimum running</dt><dd class="font-semibold text-ink-900"><%= urbaniaTariff.minKmPerDay %> km/day</dd></div>
+          <div class="flex justify-between"><dt class="text-ink-500">Driver Bata</dt><dd class="font-semibold text-ink-900">₹<%= urbaniaTariff.driverBata %>/day</dd></div>
+          <div class="flex justify-between"><dt class="text-ink-500">Duty time</dt><dd class="font-semibold text-ink-900">6:00 AM to 10:00 PM</dd></div>
+        </dl>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-5">
+        <button type="button" class="btn btn-accent" data-enquiry-trigger data-enquiry-type="quote" data-enquiry-context="17 Seater Urbania Rental">
+          <%- include('../partials/icon', { name: 'send', cls: 'w-4 h-4' }) %><span>Get 17 Seater Urbania Quote</span>
+        </button>
+        <a href="https://wa.me/<%= whatsappDigits %>" title="WhatsApp for 17 seater Urbania rental" target="_blank" rel="noopener" class="btn btn-outline">
+          <%- include('../partials/icon', { name: 'whatsapp', cls: 'w-4 h-4' }) %><span>WhatsApp</span>
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-ink-500">Call +91 97410 32020 · WhatsApp +91 98867 70099 · 24/7</p>
+    </div>
+  </div>
+</section>
+
+<section class="pb-10">
+  <div id="quick-answer" class="container max-w-4xl rounded-2xl bg-brand-50/60 ring-1 ring-inset ring-brand-100 p-5 sm:p-6">
+    <h2 class="font-display font-bold text-xl text-ink-900 mb-2">17 Seater Urbania for Rent in Bangalore: Quick Answer</h2>
+    <p class="text-[15px] text-ink-700 leading-relaxed">A 17 seater Urbania for rent in Bangalore with Yogi Tours &amp; Travels costs ₹<%= urbaniaRate %> per km, with a <%= urbaniaTariff.minKmPerDay %> km daily minimum and a ₹<%= urbaniaTariff.driverBata %> per day driver Bata. It seats 17 passengers plus the driver and carries about 17 bags. Tolls, parking, permits and state taxes are extra and itemised in the quotation. It is available 24/7 for outstation trips, weddings, corporate travel and airport transfers.</p>
+    <dl class="mt-4 divide-y divide-ink-100 text-sm">
+      <% [["Vehicle", "Force Urbania, 17 seater"], ["Seating capacity", "17 passengers plus driver"], ["Fuel type", "Diesel"], ["Seats", "Maharaja recliner captain seats with calf rests"], ["Entertainment", "Sony Bravia Smart TV"], ["Refreshments", "On-board chiller"], ["Luggage", "About 17 bags with rear storage"], ["Rate", "₹" + urbaniaRate + " per km"], ["Daily minimum", urbaniaTariff.minKmPerDay + " km per day"], ["Driver Bata", "₹" + urbaniaTariff.driverBata + " per day, extra after 10:00 PM"], ["Pickup", "Anywhere in Bangalore and Kempegowda Airport (BLR)"]].forEach(function(row) { %>
+      <div class="grid grid-cols-5 gap-3 py-2"><dt class="col-span-2 text-ink-500"><%= row[0] %></dt><dd class="col-span-3 font-medium text-ink-900"><%= row[1] %></dd></div>
+      <% }); %>
+    </dl>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">What You Get Inside the 17 Seater Urbania</h2>
+    <p>The Force Urbania is not a stretched Tempo Traveller. It is built on a monocoque body, so it rides like a large car, and its insulated cabin keeps road noise down on long highway stretches. The high-roof, walkthrough interior lets passengers stand and move about. Every 17 seater Urbania we rent out carries these features:</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+      <% ["Maharaja recliner captain seats", "Motorized calf and leg rests", "Sony Bravia Smart TV", "On-board refrigerator / chiller", "Ambient blue neon mood lighting", "Individual USB fast chargers", "Individual AC louvers", "Panoramic tinted windows", "Retractable sunblinds", "Dedicated rear luggage storage", "High-roof walkthrough cabin", "Experienced uniformed chauffeur"].forEach(function(f) { %>
+      <div class="flex items-center gap-2 py-2.5 border-b border-ink-100 text-sm"><%- include('../partials/icon', { name: 'check-circle', cls: 'w-4 h-4 text-brand-500 shrink-0' }) %><span><%= f %></span></div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Is 17 the Right Size for Your Group?</h2>
+    <p>Choose the vehicle by headcount first, then by comfort. This is how our fleet maps to group size:</p>
+    <div class="overflow-x-auto rounded-xl border border-ink-100">
+      <table class="w-full text-sm min-w-[520px]">
+        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Group size</th><th class="p-3">Best vehicle</th><th class="p-3">Rate per km</th></tr></thead>
+        <tbody class="divide-y divide-ink-100">
+          <tr><td class="p-3">Up to 9</td><td class="p-3"><a href="/fleet/tempo-traveller/9-seater-tempo-traveller" class="<%= __l %>">9 seater Tempo Traveller</a></td><td class="p-3">₹28</td></tr>
+          <tr><td class="p-3">10 to 12, luxury</td><td class="p-3"><a href="/fleet/tempo-traveller/urbania-12-seater-maharaja" class="<%= __l %>">12 seater Maharaja Urbania</a></td><td class="p-3">₹38</td></tr>
+          <tr><td class="p-3">10 to 12, value</td><td class="p-3"><a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="<%= __l %>">12 seater Tempo Traveller</a></td><td class="p-3">₹22</td></tr>
+          <tr><td class="p-3 font-medium">13 to 17, luxury</td><td class="p-3 font-medium">17 seater Urbania (this page)</td><td class="p-3 font-medium">₹<%= urbaniaRate %></td></tr>
+          <tr><td class="p-3">13 to 17, value</td><td class="p-3"><a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="<%= __l %>">17 seater Tempo Traveller</a></td><td class="p-3">₹30</td></tr>
+          <tr><td class="p-3">18 to 21</td><td class="p-3"><a href="/fleet/mini-bus/mini-bus-21-seater" class="<%= __l %>">21 seater mini bus</a></td><td class="p-3">₹34</td></tr>
+          <tr><td class="p-3">22 to 25</td><td class="p-3"><a href="/fleet/mini-bus/mini-bus-25-seater" class="<%= __l %>">25 seater mini bus</a></td><td class="p-3">₹38</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Luggage matters as much as seats.</strong> A full 17 seater Urbania carries about 17 bags in its rear storage. If your group is 15 or 16 people with heavy luggage, it is still the right size, and it is better than splitting into two cars. There is no 21 seater Urbania, because the Force Urbania seats 17 at most. See the full <a href="/force-urbania" class="<%= __l %>">Force Urbania rental guide</a> for the 12 seater Maharaja option.</p>
+  </div>
+</section>
+
+<%- include('../partials/urbania-rich') %>
+
+<section class="py-14 lg:py-20">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Who Rents a 17 Seater Urbania</h2>
+    <h3 class="font-display font-semibold text-lg text-ink-900">Weddings and family functions</h3>
+    <p>One 17 seater Urbania keeps a family group together between the venue, hotels and homes. See our <a href="/services/wedding-transportation" class="<%= __l %>">wedding transportation service</a>.</p>
+    <h3 class="font-display font-semibold text-lg text-ink-900">Corporate offsites and delegations</h3>
+    <p>Teams and visiting delegations arrive together, in one vehicle with a Smart TV and charging at every seat. GST invoices are available through <a href="/services/corporate-travel" class="<%= __l %>">corporate travel</a>.</p>
+    <h3 class="font-display font-semibold text-lg text-ink-900">Outstation tours</h3>
+    <p>Coorg, Ooty, Wayanad, Chikmagalur and Hampi are the classic Urbania trips. Plan one with <a href="/services/outstation-travel" class="<%= __l %>">outstation travel</a> or a <a href="/services/customized-tours" class="<%= __l %>">customized tour</a>.</p>
+    <h3 class="font-display font-semibold text-lg text-ink-900">Pilgrimage groups</h3>
+    <p>Recliner seats make long Tirupati and Mantralaya drives easier for elderly travellers. See <a href="/services/pilgrimage-tours" class="<%= __l %>">pilgrimage tours</a>.</p>
+    <h3 class="font-display font-semibold text-lg text-ink-900">Airport group pickups</h3>
+    <p>One vehicle for a whole arriving group at Kempegowda International Airport. See <a href="/services/airport-transfer" class="<%= __l %>">airport transfer</a>.</p>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-4xl space-y-5 text-[15px] text-ink-700 leading-relaxed">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900">Checklist Before You Rent Any 17 Seater Urbania</h2>
+    <p>Use this list with any operator, including us. It protects you from the most common surprises:</p>
+    <ol class="list-decimal pl-6 space-y-2">
+      <li><strong>Confirm the real seat count in writing.</strong> Urbanias run in several layouts. Ask for the exact number of passenger seats for your vehicle.</li>
+      <li><strong>Ask for the full price, not just the per-km rate.</strong> Get the daily minimum km, driver Bata, night Bata and what is billed at actuals.</li>
+      <li><strong>Check that rates match everywhere.</strong> The rate on a website, on the phone and in the written quotation should be identical.</li>
+      <li><strong>Ask for photos of the actual vehicle.</strong> Seat style and cabin features vary between vehicles.</li>
+      <li><strong>Verify the permit and driver.</strong> Ask for the tourist permit and a commercial-badge driver for outstation trips.</li>
+      <li><strong>Ask about luggage.</strong> Confirm how many bags fit with a full load of passengers.</li>
+      <li><strong>Read the cancellation terms</strong> before paying an advance. Ours are in the <a href="/cancellation-policy" class="<%= __l %>">cancellation policy</a>.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="py-14 lg:py-20">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Routes and Pickups', heading: '17 Seater Urbania Routes from Bangalore' }) %>
+    <div class="flex flex-wrap gap-2.5 mt-5">
+      <% __routes.forEach(function(r) { %>
+      <a href="/rent/force-urbania/bangalore-city-to-<%= r[0] %>" title="17 seater Urbania Bangalore to <%= r[1] %>" class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700">17 seater Urbania Bangalore to <%= r[1] %></a>
+      <% }); %>
+    </div>
+    <h3 class="font-display font-semibold text-lg text-ink-900 mt-10">17 Seater Urbania Pickups Across Bangalore</h3>
+    <div class="flex flex-wrap gap-2.5 mt-4">
+      <% __pickups.forEach(function(p) { %>
+      <a href="/rent/force-urbania/<%= p[0] %>-to-coorg" title="17 seater Urbania from <%= p[1] %>" class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700">17 seater Urbania from <%= p[1] %></a>
+      <% }); %>
+    </div>
+    <p class="mt-6 text-sm text-ink-500">Also see the <a href="/17seater-tempotraveller/whitefield" class="<%= __l %>">17 seater vehicles by area</a> and the <a href="/blog/17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide" class="<%= __l %>">17 and 21 seater rental guide</a>.</p>
+  </div>
+</section>
+
+<section id="faq" class="py-16 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-3xl">
+    <%- include('../components/section-heading', { eyebrow: 'FAQs', heading: '17 Seater Urbania for Rent: Frequently Asked Questions' }) %>
+    <div class="space-y-5 mt-8">
+      <% faqs.forEach(function(f) { %>
+      <div class="rounded-xl bg-white border border-ink-100 p-5">
+        <p class="font-semibold text-ink-900 text-[15px]"><%= f.question %></p>
+        <p class="mt-1.5 text-sm text-ink-600 leading-relaxed"><%= f.answer %></p>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/cta-section', { ctaHeading: 'Book Your 17 Seater Urbania in Bangalore', ctaSub: 'Send your pickup point, destination, dates and group size. We reply with an itemised quotation for the 17 seater Urbania.' }) %>
+<%- include('../partials/page-end') %>

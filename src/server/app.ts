@@ -16,6 +16,7 @@ import { LEGACY_REDIRECTS } from "./config/redirects.js";
 import { getCacheVersion, getCachedPage, setCachedPage } from "./utils/cache.js";
 
 import pagesRouter from "./routes/pages.js";
+import urbania17Router from "./routes/urbania17.js";
 import vehiclesRouter from "./routes/vehicles.js";
 import servicesRouter from "./routes/services.js";
 import packagesRouter from "./routes/packages.js";
@@ -318,6 +319,7 @@ app.use("/admin/settings/password", loginLimiter);
 
 app.use(seoRouter);
 app.use(pagesRouter);
+app.use(urbania17Router);
 app.use("/fleet", vehiclesRouter);
 app.use("/services", servicesRouter);
 app.use("/tour-packages", packagesRouter);
