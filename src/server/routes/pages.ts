@@ -18,6 +18,8 @@ import { faqSchema, websiteSchema, breadcrumbSchema, speakableSchema, serviceSch
 import { business } from "../config/env.js";
 import { orgSchemaWithRating } from "../middleware/viewLocals.js";
 import { TRIP_ROUTES } from "../config/tripRoutes.js";
+import { dutyTariff } from "../db/pricing.js";
+import { urbaniaFareRows } from "../utils/urbaniaFares.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const creditsPath = path.resolve(__dirname, "../../../IMAGE_CREDITS.json");
@@ -138,7 +140,12 @@ router.get("/force-urbania", async (req, res, next) => {
       (v) => v.category !== "car" && v.seats !== 9 && !v.name.toLowerCase().includes("urbania")
     );
     const cars = sorted.filter((v) => v.category === "car");
+    const urbTariff = dutyTariff("force-urbania")!;
+    const urbaniaRate = urbanias.find((v) => v.slug === "force-urbania")?.ratePerKm ?? 38;
     res.render("pages/force-urbania", {
+      urbaniaRate,
+      urbaniaTariff: urbTariff,
+      urbaniaFares: urbaniaFareRows(urbaniaRate, urbTariff.minKmPerDay, urbTariff.driverBata),
       title: "Force Urbania Rental in Bangalore | 17 Seater & Maharaja Urbania | Yogi Tours",
       metaDescription:
         "Force Urbania rental in Bangalore: 17 seater Urbania & Maharaja Urbania at ₹38/km with driver. Plus 12, 17, 21, 25 seaters & buses. Rated 4.9★, 24/7.",

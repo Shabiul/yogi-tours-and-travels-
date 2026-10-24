@@ -13,6 +13,8 @@ import { vehicleServiceSchema, breadcrumbSchema, serviceSchema, faqSchema, speak
 import { env, business } from "../config/env.js";
 import { clampDescription } from "../utils/meta.js";
 import { TRIP_ROUTES } from "../config/tripRoutes.js";
+import { dutyTariff } from "../db/pricing.js";
+import { urbaniaFareRows } from "../utils/urbaniaFares.js";
 import type { Vehicle, VehicleCategory } from "../types/models.js";
 
 const router = Router();
@@ -493,6 +495,8 @@ router.get("/:category/:slug", async (req, res, next) => {
     // Only vehicles named without a seat count (Force Urbania, Toyota Innova
     // Crysta, etc.) get it appended.
     const seatSuffix = vehicle.name.toLowerCase().includes(`${vehicle.seats} seat`) ? "" : ` (${vehicle.seats} seater)`;
+    const isUrbania = vehicle.slug === "force-urbania" || vehicle.slug === "urbania-12-seater-maharaja";
+    const urbTariff = dutyTariff(vehicle.slug);
     const vehicleFaqs = VEHICLE_FAQS[vehicle.slug] ?? genericVehicleFaqs(vehicle, CATEGORY_RENTAL_LABEL[category]);
     const features = vehicleFeatures(vehicle);
     const gallery = vehicleGallery(vehicle);
@@ -529,6 +533,13 @@ router.get("/:category/:slug", async (req, res, next) => {
       relevantRoutes,
       vehicleFaqs,
       quickFacts: VEHICLE_QUICK_FACTS[vehicle.slug],
+      ...(isUrbania && urbTariff && vehicle.ratePerKm
+        ? {
+            urbaniaRate: vehicle.ratePerKm,
+            urbaniaTariff: urbTariff,
+            urbaniaFares: urbaniaFareRows(vehicle.ratePerKm, urbTariff.minKmPerDay, urbTariff.driverBata)
+          }
+        : {}),
       schemas: [
         vehicleServiceSchema({
           name: vehicle.name,

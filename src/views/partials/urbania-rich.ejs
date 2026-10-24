@@ -1,0 +1,86 @@
+<%
+const __l = "text-brand-700 underline font-medium";
+const __rate = urbaniaRate;
+%>
+<section id="urbania-fares" class="py-14 lg:py-20">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Sample Fares', heading: 'Force Urbania Rental Fares from Bangalore' }) %>
+    <p class="mt-4 text-[15px] text-ink-600 leading-relaxed">These Urbania rental fares use the live tariff: ₹<%= __rate %> per km, a <%= urbaniaTariff.minKmPerDay %> km daily minimum and ₹<%= urbaniaTariff.driverBata %> per day driver Bata. Billed distance is the larger of the round-trip distance and the daily minimum. Tolls, parking, permits and state taxes are extra. Distances are approximate. Last updated 24 October 2026.</p>
+    <div class="overflow-x-auto mt-6 rounded-xl border border-ink-100">
+      <table class="w-full text-sm min-w-[560px]">
+        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Urbania rental trip</th><th class="p-3">One way</th><th class="p-3">Days</th><th class="p-3">Billed km</th><th class="p-3">Estimated total</th><th class="p-3">Per person (17)</th></tr></thead>
+        <tbody class="divide-y divide-ink-100 text-ink-700">
+          <% urbaniaFares.forEach(function(r) { %>
+          <tr>
+            <td class="p-3 font-medium"><a href="/rent/force-urbania/bangalore-city-to-<%= r.slug %>" class="<%= __l %>">Force Urbania Bangalore to <%= r.place %></a></td>
+            <td class="p-3"><%= r.oneWayKm %> km</td>
+            <td class="p-3"><%= r.days %></td>
+            <td class="p-3"><%= r.billedKm %> km</td>
+            <td class="p-3 font-medium text-ink-900">₹<%= r.total.toLocaleString('en-IN') %></td>
+            <td class="p-3">₹<%= r.perPerson17.toLocaleString('en-IN') %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-sm text-ink-500">Example: Bangalore to Coorg is 255 km each way. For 2 days the minimum is 600 km, so 600 × ₹<%= __rate %> = ₹<%= (600 * __rate).toLocaleString('en-IN') %>, plus 2 days of Bata (₹<%= (2 * urbaniaTariff.driverBata).toLocaleString('en-IN') %>). Fare guides: <a href="/blog/cost/bangalore-to-coorg-force-urbania" class="<%= __l %>">Coorg</a>, <a href="/blog/cost/bangalore-to-ooty-force-urbania" class="<%= __l %>">Ooty</a>, <a href="/blog/cost/bangalore-to-mysore-force-urbania" class="<%= __l %>">Mysore</a>, <a href="/blog/cost/bangalore-to-wayanad-force-urbania" class="<%= __l %>">Wayanad</a>, <a href="/blog/cost/bangalore-to-tirupati-force-urbania" class="<%= __l %>">Tirupati</a>.</p>
+  </div>
+</section>
+
+<section id="urbania-compare" class="py-14 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Choose Right', heading: 'Force Urbania vs Other Group Vehicles' }) %>
+    <div class="overflow-x-auto mt-6 rounded-xl border border-ink-100 bg-white">
+      <table class="w-full text-sm min-w-[600px]">
+        <thead class="bg-ink-100 text-ink-900 text-left"><tr><th class="p-3">Vehicle</th><th class="p-3">Seats</th><th class="p-3">Rate per km</th><th class="p-3">Pick it when</th></tr></thead>
+        <tbody class="divide-y divide-ink-100 text-ink-700">
+          <tr><td class="p-3 font-medium"><a href="/fleet/tempo-traveller/force-urbania" class="<%= __l %>">17 seater Force Urbania</a></td><td class="p-3">17</td><td class="p-3">₹38</td><td class="p-3">You want luxury for up to 17 guests</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/fleet/tempo-traveller/urbania-12-seater-maharaja" class="<%= __l %>">12 seater Maharaja Urbania</a></td><td class="p-3">12</td><td class="p-3">₹38</td><td class="p-3">You want the widest recliners for up to 12</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="<%= __l %>">17 seater Tempo Traveller</a></td><td class="p-3">17</td><td class="p-3">₹30 AC</td><td class="p-3">You want the lowest cost for 17</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/fleet/tempo-traveller/maharaja-tempo-traveller" class="<%= __l %>">12 seater Maharaja Tempo Traveller</a></td><td class="p-3">12</td><td class="p-3">₹22 AC</td><td class="p-3">You want comfort at a lower cost for 12</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/fleet/mini-bus/mini-bus-21-seater" class="<%= __l %>">21 seater mini bus</a></td><td class="p-3">21</td><td class="p-3">₹34</td><td class="p-3">Your group is 18 to 21 people</td></tr>
+          <tr><td class="p-3 font-medium"><a href="/fleet/mini-bus/mini-bus-25-seater" class="<%= __l %>">25 seater mini bus</a></td><td class="p-3">25</td><td class="p-3">₹38</td><td class="p-3">Your group is 22 to 25 people</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-sm text-ink-500">There is no 21 seater Urbania. The Force Urbania seats up to 17 passengers.</p>
+  </div>
+</section>
+
+<section id="urbania-included" class="py-14 lg:py-20">
+  <div class="container max-w-4xl grid md:grid-cols-2 gap-8">
+    <div>
+      <h2 class="font-display font-bold text-2xl text-ink-900">Included in every Urbania rental</h2>
+      <ul class="mt-4 space-y-2 text-[15px] text-ink-700 list-disc pl-5">
+        <li>Verified commercial-badge chauffeur in uniform</li>
+        <li>Air-conditioned Force Urbania with recliner seats</li>
+        <li>Smart TV, on-board chiller and USB charging</li>
+        <li>Itemised written quotation before you pay</li>
+        <li>24/7 booking and trip support</li>
+        <li>GST invoice on request</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="font-display font-bold text-2xl text-ink-900">Billed at actuals</h2>
+      <ul class="mt-4 space-y-2 text-[15px] text-ink-700 list-disc pl-5">
+        <li>Tolls and parking</li>
+        <li>Interstate permits and state taxes</li>
+        <li>Extra driver Bata for duty after 10:00 PM</li>
+        <li>Kilometres beyond the daily minimum</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="urbania-book" class="py-14 lg:py-20 bg-ink-50/60">
+  <div class="container max-w-4xl">
+    <%- include('../components/section-heading', { eyebrow: 'Booking', heading: 'How to Book a Force Urbania Rental' }) %>
+    <ol class="mt-6 grid sm:grid-cols-2 gap-5 text-[15px] text-ink-700">
+      <li class="border-t-2 border-ink-900 pt-3"><strong class="text-ink-900">Send the trip.</strong> Pickup point, destination, dates, group size and luggage, by call or WhatsApp.</li>
+      <li class="border-t-2 border-ink-900 pt-3"><strong class="text-ink-900">Pick the Urbania.</strong> Choose the 17 seater Urbania or the 12 seater Maharaja Urbania for your group size.</li>
+      <li class="border-t-2 border-ink-900 pt-3"><strong class="text-ink-900">Review the quotation.</strong> Rate, daily minimum, Bata and expected tolls and permits, in writing.</li>
+      <li class="border-t-2 border-ink-900 pt-3"><strong class="text-ink-900">Travel.</strong> The chauffeur arrives on time and support stays a call away.</li>
+    </ol>
+    <p class="mt-6 text-[15px] text-ink-700">Call +91 97410 32020 or WhatsApp +91 98867 70099. More: <a href="/force-urbania" class="<%= __l %>">Force Urbania rental in Bangalore</a>, <a href="/rent/force-urbania" class="<%= __l %>">Urbania rental hub</a>, <a href="/blog/force-urbania-vs-tempo-traveller-luxury-van-rental-bangalore" class="<%= __l %>">Urbania vs Tempo Traveller</a>.</p>
+  </div>
+</section>
