@@ -21,6 +21,15 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
 
   // WordPress tag-archive pages
   "/tag/urbania-10-seater-for-rent-in-bangalore": "/fleet/tempo-traveller/force-urbania",
+  "/tag/luxurious-force-urbania-hire-in-bangalore-9886770099": "/force-urbania",
+  "/tag/urbania-rental-bangalore-to-coorg-with-price": "/rent/force-urbania/bangalore-city-to-coorg",
+  "/tag/top-9-seater-tempo-traveller-in-bangalore": "/fleet/tempo-traveller/9-seater-tempo-traveller",
+  "/tag/best-9-seater-tempo-traveller-rent-in-bangalore": "/fleet/tempo-traveller/9-seater-tempo-traveller",
+  "/tag/top-9-seater-tempo-traveller-rental-in-bangalore": "/fleet/tempo-traveller/9-seater-tempo-traveller",
+  "/tag/best-12-seater-tempo-traveller-for-family-trip-in-bangalore": "/fleet/tempo-traveller/maharaja-tempo-traveller",
+  "/tag/best-suv-cars-for-outstation-travel-from-bangalore-price": "/fleet/car",
+  "/category/suv-car": "/fleet/car",
+  "/innova-crysta-car-rental-in-bangalore-for-outstation": "/fleet/car/innova-crysta",
   "/tag/mini-bus-rental-bangalore-12-seater": "/fleet/mini-bus",
   "/tag/tempo-traveller-rental-bangalore": "/fleet/tempo-traveller",
   "/tag/book-tempo-traveller-on-rent-in-bangalore-online": "/fleet/tempo-traveller",

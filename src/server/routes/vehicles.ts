@@ -34,7 +34,7 @@ const CATEGORY_RENTAL_LABEL: Record<VehicleCategory, string> = {
 const VEHICLE_TITLE_OVERRIDE: Record<string, string> = {
   "9-seater-tempo-traveller": "9 Seater Tempo Traveller Rental Bangalore | AC Luxury Van | Yogi Tours",
   "force-urbania": "17 Seater Urbania Rental Bangalore | Force Urbania ₹38/km | Yogi Tours",
-  "urbania-12-seater-maharaja": "12 Seater Maharaja Force Urbania Bangalore | Luxury Recliner Van | Yogi Tours",
+  "urbania-12-seater-maharaja": "12 Seater Maharaja Urbania Rental Bangalore | ₹38/km | Yogi Tours",
   "maharaja-tempo-traveller": "Best 12 Seater Tempo Traveller Bangalore | Yogi Tours",
   "tempo-traveller-17-seater": "17 Seater Tempo Traveller Rental Bangalore | AC Group Van | Yogi Tours",
   "mini-bus-21-seater": "21 Seater Mini Bus Rental Bangalore | AC Group Coach | Yogi Tours",
@@ -222,6 +222,26 @@ const VEHICLE_FAQS: Record<string, Array<{ question: string; answer: string }>> 
  * elsewhere in this app (vehicle data, pricing.ts, FAQs).
  */
 const VEHICLE_QUICK_FACTS: Record<string, { heading: string; answer: string; specs: Array<[string, string]> }> = {
+  "urbania-12-seater-maharaja": {
+    heading: "12 Seater Maharaja Urbania Rental in Bangalore: Quick Answer",
+    answer:
+      "Yogi Tours & Travels rents the 12 seater Maharaja Urbania in Bangalore with a verified chauffeur at ₹38 per km, with a 300 km daily minimum and ₹700 per day driver Bata. It has business-class leather captain recliners in a 2+1 and 1+1 layout, extendable calf rests, a Smart TV and on-board cold storage. Tolls, parking, permits and state taxes are extra and itemised in the quotation. Booking is open 24/7.",
+    specs: [
+      ["Vehicle", "Force Urbania Maharaja (12 seater)"],
+      ["Seating capacity", "12 passengers plus driver"],
+      ["Fuel type", "Diesel"],
+      ["Seats", "Leather captain recliners, 2+1 and 1+1, with calf rests"],
+      ["Entertainment", "Sony Bravia Smart TV"],
+      ["Refreshments", "On-board cold storage"],
+      ["Lighting", "Dual blue neon ceiling light rails"],
+      ["Luggage", "About 12 bags with rear storage"],
+      ["Rate", "₹38 per km"],
+      ["Daily minimum", "300 km per day"],
+      ["Driver Bata", "₹700 per day, extra after 10:00 PM"],
+      ["Extras", "Tolls, parking, permits and state taxes at actuals"],
+      ["Booking", "24/7 by call or WhatsApp +91 98867 70099"]
+    ]
+  },
   "force-urbania": {
     heading: "17 Seater Urbania Rental in Bangalore: Quick Answer",
     answer:
@@ -355,7 +375,7 @@ function vehicleMetaDescription(vehicle: Vehicle, seatSuffix: string): string {
     return "Hire 21 Seater Mini Bus in Bangalore with driver. AC, push-back seats, PA system & luggage racks from ₹34/km. Ideal for corporate, wedding & school groups.";
   }
   if (vehicle.slug === "urbania-12-seater-maharaja") {
-    return "Book 12 Seater Maharaja Force Urbania in Bangalore with ultra-plush calf-support recliners & ambient lighting. Ideal for VIP wedding guest & corporate travel.";
+    return "Maharaja Urbania 12 seater rental in Bangalore at ₹38/km with driver. Business-class recliners, calf rests, Smart TV & chiller. Rated 4.9★. Book 24/7.";
   }
   if (vehicle.slug === "innova-crysta") {
     return "Hire Toyota Innova Crysta in Bangalore with experienced driver for outstation trips, Kempegowda airport transfers & family vacations. Starting ₹19/km.";
