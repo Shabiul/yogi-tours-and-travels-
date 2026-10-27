@@ -27,15 +27,41 @@ export const VEHICLE_SLUG_ALIASES: Record<string, string> = {
 };
 
 /**
+ * Resolves an image path from DB or config against public directory.
+ * If file exists as-is, returns it. If not, tests alternate extensions
+ * (.webp, .jpg, .jpeg, .png). Returns null if not found on disk.
+ */
+export function resolveExistingImagePath(filePath: string | null | undefined): string | null {
+  if (!filePath || typeof filePath !== "string") return null;
+  const clean = filePath.trim();
+  if (!clean) return null;
+
+  const local = path.join(publicDir, clean.replace(/^\//, ""));
+  if (fs.existsSync(local)) return clean;
+
+  const ext = path.extname(clean);
+  if (ext) {
+    const withoutExt = clean.slice(0, -ext.length);
+    for (const alt of [".webp", ".jpg", ".jpeg", ".png"]) {
+      if (alt.toLowerCase() === ext.toLowerCase()) continue;
+      const candidate = `${withoutExt}${alt}`;
+      if (fs.existsSync(path.join(publicDir, candidate.replace(/^\//, "")))) {
+        return candidate;
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
  * Resolves the primary customer-facing image for a vehicle.
  * Checks the database imageKey first; if empty, missing, or pointing to a non-existent file,
  * dynamically discovers the best matching photo from public/assets/images/vehicles.
  */
 export function resolveVehicleImage(v: { slug: string; category?: string; imageKey?: string | null }): string {
-  if (v.imageKey && v.imageKey.trim() !== "") {
-    const local = path.join(publicDir, v.imageKey.replace(/^\//, ""));
-    if (fs.existsSync(local)) return v.imageKey;
-  }
+  const existing = resolveExistingImagePath(v.imageKey);
+  if (existing) return existing;
 
   const vDir = path.join(publicDir, "assets/images/vehicles");
   if (!fs.existsSync(vDir)) return v.imageKey || "";
@@ -563,79 +589,100 @@ export function vehicleFeatures(v: Vehicle): string[] {
 }
 
 export function vehicleGallery(v: Vehicle): string[] {
-  const fromDb = parseJsonArray(v.gallery);
-  if (fromDb.length > 0) return fromDb;
+  // Resolve and sanitize any gallery paths stored in the database.
+  // Validate every path against disk, remapping extensions (.jpg -> .webp) if needed,
+  // and discarding obsolete/purged references.
+  const fromDbRaw = parseJsonArray(v.gallery);
+  const fromDbResolved: string[] = [];
+  for (const item of fromDbRaw) {
+    const resolved = resolveExistingImagePath(item);
+    if (resolved && !fromDbResolved.includes(resolved)) {
+      fromDbResolved.push(resolved);
+    }
+  }
+
+  const isUrbania = v.slug === "force-urbania" || v.slug === "urbania-12-seater-maharaja";
+  const matches: string[] = [...fromDbResolved];
 
   // Dynamically discover all matching vehicle photos saved in public/assets/images/vehicles
   const vDir = path.join(publicDir, "assets/images/vehicles");
-  if (!fs.existsSync(vDir)) return [];
-  try {
-    const files = fs.readdirSync(vDir);
-    const prefix = `${v.slug}--`;
-    const aliasPrefix = VEHICLE_SLUG_ALIASES[v.slug] ? `${VEHICLE_SLUG_ALIASES[v.slug]}--` : null;
-    const matches = files
-      .filter(
-        (f) =>
-          (f.startsWith(prefix) || (aliasPrefix && f.startsWith(aliasPrefix))) &&
-          /\.(webp|jpg|jpeg|png)$/i.test(f)
-      )
-      .map((f) => `/assets/images/vehicles/${f}`);
+  if (fs.existsSync(vDir)) {
+    try {
+      const files = fs.readdirSync(vDir);
+      const prefix = `${v.slug}--`;
+      const aliasPrefix = VEHICLE_SLUG_ALIASES[v.slug] ? `${VEHICLE_SLUG_ALIASES[v.slug]}--` : null;
+      const discovered = files
+        .filter(
+          (f) =>
+            (f.startsWith(prefix) || (aliasPrefix && f.startsWith(aliasPrefix))) &&
+            /\.(webp|jpg|jpeg|png)$/i.test(f)
+        )
+        .map((f) => `/assets/images/vehicles/${f}`);
 
-    // Prefer WebP versions and sort hero/front first
-    matches.sort((a, b) => {
-      if (a.includes("hero") || a.includes("front")) return -1;
-      if (b.includes("hero") || b.includes("front")) return 1;
-      return a.localeCompare(b);
-    });
-
-    if (v.slug === "force-urbania" || v.slug === "urbania-12-seater-maharaja") {
-      const allUrbaniaAssets = [
-        v.slug === "force-urbania"
-          ? "/assets/images/vehicles/force-urbania--front-grey.webp"
-          : "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp",
-        v.slug === "force-urbania"
-          ? "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp"
-          : "/assets/images/vehicles/force-urbania--front-grey.webp",
-        "/assets/images/vehicles/force-urbania--hero-interior.webp",
-        "/assets/images/vehicles/urbania-12-seater-maharaja--interior.webp",
-        "/assets/images/vehicles/urbania-maharaja--tan-seats.webp",
-        "/assets/images/vehicles/force-urbania--maharaja-recliner.webp",
-        "/assets/images/vehicles/force-urbania--ambient-lighting.webp",
-        "/assets/images/vehicles/force-urbania--sony-tv.webp",
-        "/assets/images/vehicles/force-urbania--fridge-open.webp",
-        "/assets/images/vehicles/force-urbania--fridge-closed.webp",
-        "/assets/images/vehicles/force-urbania--cockpit-dashboard.webp",
-        "/assets/images/vehicles/force-urbania--passenger-cabin.webp",
-        "/assets/images/vehicles/force-urbania--aisle-seats.webp",
-        "/assets/images/vehicles/force-urbania--window-blind.webp",
-        "/assets/images/vehicles/force-urbania--ac-vents.webp",
-        "/assets/images/vehicles/force-urbania--footrest-detail.webp",
-        "/assets/images/vehicles/force-urbania--panoramic-view.webp",
-        "/assets/images/vehicles/force-urbania--rear-grey.webp"
-      ];
-      for (const asset of allUrbaniaAssets) {
-        if (!matches.includes(asset) && fs.existsSync(path.join(publicDir, asset.replace(/^\//, "")))) {
-          matches.push(asset);
-        }
+      for (const d of discovered) {
+        if (!matches.includes(d)) matches.push(d);
       }
+    } catch {
+      // ignore readdir error
     }
-
-    // Ensure primary resolved image is always first in gallery if available
-    const primary = resolveVehicleImage(v);
-    if (primary && fs.existsSync(path.join(publicDir, primary.replace(/^\//, "")))) {
-      const existingIdx = matches.indexOf(primary);
-      if (existingIdx > 0) {
-        matches.splice(existingIdx, 1);
-      }
-      if (existingIdx !== 0) {
-        matches.unshift(primary);
-      }
-    }
-
-    return matches;
-  } catch {
-    return [];
   }
+
+  // Ensure all 18 authentic Force Urbania assets are unified across all Urbania fleet listings
+  if (isUrbania) {
+    const allUrbaniaAssets = [
+      v.slug === "force-urbania"
+        ? "/assets/images/vehicles/force-urbania--front-grey.webp"
+        : "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp",
+      v.slug === "force-urbania"
+        ? "/assets/images/vehicles/urbania-12-seater-maharaja--exterior.webp"
+        : "/assets/images/vehicles/force-urbania--front-grey.webp",
+      "/assets/images/vehicles/force-urbania--hero-interior.webp",
+      "/assets/images/vehicles/urbania-12-seater-maharaja--interior.webp",
+      "/assets/images/vehicles/urbania-maharaja--tan-seats.webp",
+      "/assets/images/vehicles/force-urbania--maharaja-recliner.webp",
+      "/assets/images/vehicles/force-urbania--ambient-lighting.webp",
+      "/assets/images/vehicles/force-urbania--sony-tv.webp",
+      "/assets/images/vehicles/force-urbania--fridge-open.webp",
+      "/assets/images/vehicles/force-urbania--fridge-closed.webp",
+      "/assets/images/vehicles/force-urbania--cockpit-dashboard.webp",
+      "/assets/images/vehicles/force-urbania--passenger-cabin.webp",
+      "/assets/images/vehicles/force-urbania--aisle-seats.webp",
+      "/assets/images/vehicles/force-urbania--window-blind.webp",
+      "/assets/images/vehicles/force-urbania--ac-vents.webp",
+      "/assets/images/vehicles/force-urbania--footrest-detail.webp",
+      "/assets/images/vehicles/force-urbania--panoramic-view.webp",
+      "/assets/images/vehicles/force-urbania--rear-grey.webp"
+    ];
+    for (const asset of allUrbaniaAssets) {
+      if (!matches.includes(asset) && fs.existsSync(path.join(publicDir, asset.replace(/^\//, "")))) {
+        matches.push(asset);
+      }
+    }
+  }
+
+  // Ensure every file in matches actually exists on disk
+  const validMatches = matches.filter((m) => fs.existsSync(path.join(publicDir, m.replace(/^\//, ""))));
+
+  // Prefer WebP versions and sort hero/front first
+  validMatches.sort((a, b) => {
+    if (a.includes("hero") || a.includes("front")) return -1;
+    if (b.includes("hero") || b.includes("front")) return 1;
+    return a.localeCompare(b);
+  });
+
+  // Ensure primary resolved image is always first in gallery if available
+  const primary = resolveVehicleImage(v);
+  if (primary && fs.existsSync(path.join(publicDir, primary.replace(/^\//, "")))) {
+    const existingIdx = validMatches.indexOf(primary);
+    if (existingIdx > 0) {
+      validMatches.splice(existingIdx, 1);
+    }
+    if (existingIdx !== 0) {
+      validMatches.unshift(primary);
+    }
+  }
+
+  return validMatches;
 }
 
 export function serviceHighlights(s: Service): string[] {

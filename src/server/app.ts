@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import express from "express";
 import session from "express-session";
@@ -234,6 +235,28 @@ app.use(
   express.static(path.join(projectRoot, "public/assets/uploads"), { maxAge: env.isProd ? "7d" : 0 })
 );
 app.use(express.static(path.join(projectRoot, "public"), { maxAge: env.isProd ? "1d" : 0 }));
+
+// Legacy asset extension fallback (e.g. .jpg -> .webp) for converted/purged fleet photography
+app.use("/assets/images", (req, res, next) => {
+  if (req.method !== "GET" && req.method !== "HEAD") {
+    next();
+    return;
+  }
+  const reqPath = decodeURIComponent(req.path);
+  const ext = path.extname(reqPath);
+  if (ext) {
+    const withoutExt = reqPath.slice(0, -ext.length);
+    for (const alt of [".webp", ".jpg", ".jpeg", ".png"]) {
+      if (alt.toLowerCase() === ext.toLowerCase()) continue;
+      const candidatePath = path.join(projectRoot, "public/assets/images", `${withoutExt.replace(/^\//, "")}${alt}`);
+      if (fs.existsSync(candidatePath)) {
+        res.redirect(301, `/assets/images${withoutExt}${alt}`);
+        return;
+      }
+    }
+  }
+  next();
+});
 
 // Redis-backed page cache for the same public/non-personalized routes as the
 // header middleware above. This is what actually keeps repeat requests off

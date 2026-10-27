@@ -83,7 +83,19 @@ export function initSchema(): Promise<void> {
     } else {
       schemaReady = pool
         .query(SCHEMA_SQL)
-        .then(() => undefined)
+        .then(async () => {
+          // Self-healing migration: reset obsolete .jpg gallery arrays in vehicles table
+          try {
+            await pool.query(`
+              UPDATE vehicles 
+              SET gallery = '[]' 
+              WHERE (slug = 'force-urbania' OR slug = 'urbania-12-seater-maharaja') 
+                AND gallery LIKE '%.jpg%'
+            `);
+          } catch {
+            // Non-critical, ignore if query fails
+          }
+        })
         .catch((err: unknown) => {
           if (!env.isProd) {
             const error = err as { message?: string };
