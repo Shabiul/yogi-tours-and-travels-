@@ -94,10 +94,16 @@ export function resolveVehicleImage(v: { slug: string; category?: string; imageK
   return v.imageKey || "";
 }
 
+/** Old DB slugs that must always be emitted as their current URL, so internal links never point at a redirect. */
+const CANONICAL_VEHICLE_SLUG: Record<string, string> = {
+  "tempo-traveller-12-seater": "9-seater-tempo-traveller"
+};
+
 export function hydrateVehicle<T extends Vehicle>(v: T): T {
   const resolved = resolveVehicleImage(v);
-  if (resolved && v.imageKey !== resolved) {
-    return { ...v, imageKey: resolved };
+  const slug = CANONICAL_VEHICLE_SLUG[v.slug] ?? v.slug;
+  if ((resolved && v.imageKey !== resolved) || slug !== v.slug) {
+    return { ...v, imageKey: resolved || v.imageKey, slug };
   }
   return v;
 }
@@ -343,6 +349,7 @@ export async function featuredServices(limit = 6): Promise<Service[]> {
 }
 
 import { CURATED_BLOG_POSTS } from "../data/blogPosts.js";
+import { LEGACY_REDIRECTS } from "../config/redirects.js";
 
 export async function publishedBlogPosts(): Promise<BlogPost[]> {
   return cached("blog:published", CONTENT_CACHE_TTL_SECONDS, async () => {
@@ -354,7 +361,10 @@ export async function publishedBlogPosts(): Promise<BlogPost[]> {
     }
     const existingSlugs = new Set(dbPosts.map((p) => p.slug));
     const missing = CURATED_BLOG_POSTS.filter((p) => !existingSlugs.has(p.slug) && p.published === 1);
-    return [...dbPosts, ...missing].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+    // Posts that are deliberately 301-redirected elsewhere must not be listed or put in the sitemap.
+    return [...dbPosts, ...missing]
+      .filter((p) => !LEGACY_REDIRECTS[`/blog/${p.slug}`])
+      .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
   });
 }
 
@@ -700,8 +710,9 @@ export function packageVehicleOptions(p: TourPackage): string[] {
 /** Resolves a vehicle by slug, falling back to its known alias if the DB holds the other spelling. */
 export async function findVehicleBySlugOrAlias(slug: string): Promise<Vehicle | undefined> {
   const direct = await vehiclesRepo.findBySlug(slug);
-  if (direct) return direct;
+  if (direct) return hydrateVehicle(direct);
   const alias = VEHICLE_SLUG_ALIASES[slug];
-  return alias ? await vehiclesRepo.findBySlug(alias) : undefined;
+  const found = alias ? await vehiclesRepo.findBySlug(alias) : undefined;
+  return found ? hydrateVehicle(found) : undefined;
 }
 
