@@ -108,6 +108,15 @@ const VIDEO_ENTRIES: VideoSitemapEntry[] = [
     publicationDate: "2026-10-01T10:30:00+05:30"
   },
   {
+    pagePath: "/blog/16-seater-force-urbania-rental-bangalore-guide",
+    thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
+    title: "16 Seater Force Urbania Luxury Van Rental Bangalore — Walkthrough",
+    description: "Authentic video walkthrough of the 16 Seater Force Urbania luxury passenger van in Bangalore. Recliner seats, Sony Bravia Smart TV, onboard chiller, and ambient lighting.",
+    contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
+    duration: 104,
+    publicationDate: "2026-11-05T10:00:00+05:30"
+  },
+  {
     pagePath: "/",
     thumbnailLoc: `${env.siteUrl}/assets/images/destinations/hero-bangalore.webp`,
     title: "Yogi Tours & Travels Bangalore — Luxury Fleet & Outstation Cab Service",

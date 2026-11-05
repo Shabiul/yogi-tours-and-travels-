@@ -417,6 +417,19 @@ ${(u.images || [])
     </video:video>
   </url>
   <url>
+    <loc>${siteUrl}/blog/16-seater-force-urbania-rental-bangalore-guide</loc>
+    <video:video>
+      <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
+      <video:title>16 Seater Force Urbania Luxury Van Rental Bangalore — Walkthrough</video:title>
+      <video:description>Authentic video walkthrough of the 16 Seater Force Urbania luxury passenger van in Bangalore. Recliner seats, Sony Bravia Smart TV, onboard chiller, and ambient lighting.</video:description>
+      <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
+      <video:duration>104</video:duration>
+      <video:publication_date>2026-11-05T10:00:00+05:30</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>${siteUrl}/</loc>
     <video:video>
       <video:thumbnail_loc>${siteUrl}/assets/images/destinations/hero-bangalore.webp</video:thumbnail_loc>

@@ -608,5 +608,562 @@ export const CURATED_BLOG_POSTS: BlogPost[] = [
     sortOrder: 8,
     createdAt: "2026-10-21 10:00:00",
     updatedAt: "2026-10-21 10:00:00"
+  },
+  {
+    id: 9,
+    title: "16 Seater Force Urbania Rental in Bangalore: Complete Guide, Price Per KM, Cabin Specs & Booking",
+    slug: "16-seater-force-urbania-rental-bangalore-guide",
+    excerpt: "The definitive 2026 guide to renting a 16 seater Force Urbania in Bangalore: ₹38/km outstation tariff, 16+D seating layout, Maharaja calf recliners, luggage space, top routes, specs & booking tips.",
+    coverImageKey: "/assets/images/gallery/force-urbania-front-exterior.webp",
+    content: `<div id="ai-overview-answer" class="rounded-2xl bg-gradient-to-br from-brand-50/80 via-white to-brand-50/40 border-2 border-brand-200/90 p-5 sm:p-6 shadow-xs my-6 relative">
+  <div class="flex items-center gap-2 text-xs font-bold text-brand-800 uppercase tracking-wider mb-2">
+    <span>Direct Answer / 16 Seater Force Urbania Rental Snapshot</span>
+  </div>
+  <p class="text-ink-900 font-semibold text-base sm:text-[17px] leading-relaxed">
+    <strong>The Short Answer:</strong> A 16 seater Force Urbania rental in Bangalore with Yogi Tours &amp; Travels costs <strong>₹38 per km</strong> for outstation hire, with a <strong>300 km daily minimum allowance</strong> and a <strong>₹700 per day driver Bata</strong> (totaling a daily base tariff of ₹12,100). Engineered on Force Motors' flagship 4,400 mm Long Wheelbase (LWB) monocoque platform with independent front suspension and a 2.6L Common Rail TCIC diesel engine (115 HP, 350 Nm torque), the vehicle seats 16 passengers plus a commercial-badge chauffeur (16+D layout). Cabin amenities include Maharaja captain recliners with motorized calf supports, a 24-inch Sony Bravia Smart LED TV, an on-board Blackcat chiller box, individual fast-charging USB ports, 6 ft 3 in interior standing clearance, and dedicated rear boot space for 16 large bags. Pickups are available 24/7 across Bangalore—including Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Hebbal—and Kempegowda International Airport (BLR). For bookings and transparent written quotations, call +91 97410 32020 or WhatsApp +91 98867 70099.
+  </p>
+</div>
+
+<p>When planning executive corporate retreats, premium wedding guest shuttles, multi-family holidays, or extended pilgrimages across South India, group organizers frequently encounter a difficult sizing dilemma. A 7-seater SUV like the Innova Crysta is far too small, booking two or three separate cars divides the group and triples toll expenses, while a standard 33-seater bus is cumbersome on mountain ghats and prohibitively bulky for city access. The <strong>16 seater Force Urbania</strong> fills this exact gap: offering true first-class passenger comfort, executive styling, car-like highway stability, and generous luggage capacity on a single unified booking.</p>
+
+<p>If you are searching for a <em>16 seater Urbania on rent in Bangalore</em>, comparing <em>16 seater Force Urbania price per km</em>, or evaluating whether an Urbania is superior to a standard Tempo Traveller, this comprehensive guide delivers all verified technical specifications, transparent fare calculations, cabin dimensions, seating blueprints, route itineraries, and booking procedures.</p>
+
+<h2>16 Seater Force Urbania at a Glance</h2>
+<ul class="list-disc pl-6 space-y-1.5 my-4">
+  <li><strong>Seating Capacity:</strong> 16 passengers + 1 commercial chauffeur (16+D configuration).</li>
+  <li><strong>Seat Architecture:</strong> Ergonomic Maharaja captain recliners in a 1x1 and 2x1 configuration with motorized calf and leg supports.</li>
+  <li><strong>Chassis Architecture:</strong> European-style monocoque body with independent front suspension and rear parabolic springs (no rigid truck axles).</li>
+  <li><strong>Engine &amp; Performance:</strong> Mercedes-derived FM 2.6 CR ED TCIC 4-cylinder BS6 diesel engine generating 115 HP @ 2,950 RPM and 350 Nm torque @ 1,400–2,200 RPM.</li>
+  <li><strong>Luggage Capacity:</strong> Dedicated rear luggage hold storing up to 16 full-sized 24–28 inch trolley suitcases plus overhead parcel racks for backpacks and laptop bags.</li>
+  <li><strong>Standing Height:</strong> 6 ft 3 in (1,905 mm) interior walkthrough clearance allowing adult passengers to walk without ducking.</li>
+  <li><strong>On-Board Entertainment:</strong> 24-inch Sony Bravia Smart LED TV with YouTube, HDMI connectivity, and high-fidelity surround acoustics.</li>
+  <li><strong>Refreshments:</strong> Integrated Blackcat compressor refrigerator/chiller box keeping drinking water and refreshments cooled to 4°C.</li>
+  <li><strong>Outstation Rental Tariff:</strong> ₹38/km with full air-conditioning, 300 km daily minimum billing, and ₹700/day driver Bata.</li>
+  <li><strong>Operating Permits:</strong> All India Tourist Permit (AITP) with pan-India commercial clearance and statutory 80 km/h speed governor compliance.</li>
+</ul>
+
+<a href="/assets/images/gallery/force-urbania-front-exterior.webp" target="_blank" rel="noopener" title="Force Urbania 16 seater luxury van front exterior in Bangalore" class="block my-6 rounded-2xl overflow-hidden shadow-card">
+  <img src="/assets/images/gallery/force-urbania-front-exterior.webp" alt="Force Urbania 16 seater luxury van front exterior parked in Bangalore" title="Force Urbania 16 seater luxury van front exterior in Bangalore" loading="lazy" class="w-full object-cover aspect-[16/9]" />
+</a>
+<figcaption class="text-sm text-ink-500 text-center mt-1">Force Urbania 16 seater luxury van front profile — modern European styling, LED daytime running lights, and aerodynamic monocoque design.</figcaption>
+
+<h2>Technical Specifications: Engineering &amp; Platform Architecture</h2>
+<p>Unlike conventional commercial vans that mount an aftermarket passenger shell onto a stiff commercial truck ladder chassis, the Force Urbania was developed from the ground up on a world-class passenger van monocoque platform. Manufactured by Force Motors in India with powertrain heritage tracing back to Mercedes-Benz licensed engineering, the Urbania delivers structural rigidity, exceptional acoustic isolation, and passenger safety complying with European crash-worthiness regulations.</p>
+
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse border border-ink-200 shadow-2xs">
+    <thead>
+      <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+        <th class="p-3 border border-ink-200">Engineering Parameter</th>
+        <th class="p-3 border border-ink-200">Force Urbania 16 Seater (LWB Specification)</th>
+        <th class="p-3 border border-ink-200">Passenger Benefit</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-ink-100">
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Chassis Type</td>
+        <td class="p-3 border border-ink-200">High-tensile steel Monocoque frame</td>
+        <td class="p-3 border border-ink-200">Zero ladder-frame shudder, passenger car ride comfort, reduced rollover risk.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Wheelbase</td>
+        <td class="p-3 border border-ink-200">4,400 mm (Long Wheelbase - LWB)</td>
+        <td class="p-3 border border-ink-200">Extra legroom across all 5 rows and stability at 80 km/h highway speeds.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Engine Model</td>
+        <td class="p-3 border border-ink-200">FM 2.6 CR ED TCIC, 4-Cylinder BS6 Phase 2</td>
+        <td class="p-3 border border-ink-200">High low-end torque for smooth uphill acceleration on steep Western Ghats curves.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Displacement &amp; Power</td>
+        <td class="p-3 border border-ink-200">2,596 cc &bull; 115 HP (85 kW) @ 2,950 RPM</td>
+        <td class="p-3 border border-ink-200">Effortless sustained highway cruising even with 16 passengers and full AC.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Peak Torque</td>
+        <td class="p-3 border border-ink-200">350 Nm @ 1,400 – 2,200 RPM</td>
+        <td class="p-3 border border-ink-200">Peak pull delivered at low engine RPM, eliminating harsh downshifts and gear hunting.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Front Suspension</td>
+        <td class="p-3 border border-ink-200">Independent with transverse parabolic leaf &amp; double wishbone</td>
+        <td class="p-3 border border-ink-200">Absorbs bridge expansion joints, road rumblers, and potholes without jarring.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Rear Suspension</td>
+        <td class="p-3 border border-ink-200">Parabolic leaf springs with hydraulic telescopic dampers</td>
+        <td class="p-3 border border-ink-200">Smooth, flat ride for rear-row passengers without the rear-bounce of leaf springs.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Braking System</td>
+        <td class="p-3 border border-ink-200">All-wheel ventilated disc brakes with ABS, EBD &amp; ESP</td>
+        <td class="p-3 border border-ink-200">Shorter stopping distances and anti-skid stability on wet monsoon highways.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Cabin Standing Clearance</td>
+        <td class="p-3 border border-ink-200">1,905 mm (6 ft 3 in) interior height</td>
+        <td class="p-3 border border-ink-200">Tall adults walk upright along the central aisle without slouching or bending.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Safety Compliance</td>
+        <td class="p-3 border border-ink-200">AIS-052 Bus Code, UN-ECE R29 crash &amp; rollover certified</td>
+        <td class="p-3 border border-ink-200">Meets stringent crash-protection and roof-crush structural benchmarks.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Inside the 16 Seater Maharaja Cabin: Luxury Features &amp; Comfort</h2>
+<p>The interior of the Yogi Tours &amp; Travels 16 seater Force Urbania is tailored for executive hospitality. Every seat is engineered as a primary VIP position, ensuring no passenger feels relegated to an uncomfortable middle or back bench.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+  <div class="rounded-xl overflow-hidden border border-ink-200 bg-white p-4 shadow-2xs">
+    <a href="/assets/images/gallery/force-urbania-luxury-cabin-interior.webp" target="_blank" rel="noopener" title="Force Urbania luxury cabin interior with Sony Smart TV" class="block rounded-lg overflow-hidden aspect-[4/3] mb-3">
+      <img src="/assets/images/gallery/force-urbania-luxury-cabin-interior.webp" alt="Force Urbania luxury cabin interior showing ambient lighting and Smart TV" title="Force Urbania luxury cabin interior" loading="lazy" class="w-full h-full object-cover" />
+    </a>
+    <h3 class="font-display font-bold text-lg text-ink-900">Maharaja Recliner Captain Seats with Calf Support</h3>
+    <p class="text-sm text-ink-600 mt-2">Every passenger seat is an extra-wide ergonomic captain chair upholstered in premium dual-tone tan and ivory leatherette. Seats recline up to 150 degrees and feature deployable calf and foot rests that elevate passenger legs for strain-free travel over 8 to 12 hour highway journeys.</p>
+  </div>
+
+  <div class="rounded-xl overflow-hidden border border-ink-200 bg-white p-4 shadow-2xs">
+    <a href="/assets/images/gallery/force-urbania-maharaja-recliner-seat.webp" target="_blank" rel="noopener" title="Maharaja recliner captain seat detail with calf support" class="block rounded-lg overflow-hidden aspect-[4/3] mb-3">
+      <img src="/assets/images/gallery/force-urbania-maharaja-recliner-seat.webp" alt="Motorized calf support and calf rest on Force Urbania Maharaja captain seat" title="Maharaja recliner captain seat detail" loading="lazy" class="w-full h-full object-cover" />
+    </a>
+    <h3 class="font-display font-bold text-lg text-ink-900">Dedicated Individual Air Conditioning &amp; Charging</h3>
+    <p class="text-sm text-ink-600 mt-2">Unlike shared blowers, the Urbania features individual ceiling-mounted directional AC louvers with personal flow control knobs for every passenger. High-output 2.4A USB fast-charging ports and smartphone storage pockets are provided at every row.</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+  <div class="rounded-xl overflow-hidden border border-ink-200 bg-white p-4 shadow-2xs">
+    <a href="/assets/images/gallery/force-urbania-entertainment-smart-tv.webp" target="_blank" rel="noopener" title="Mounted Sony Bravia Smart LED TV inside Force Urbania" class="block rounded-lg overflow-hidden aspect-[4/3] mb-3">
+      <img src="/assets/images/gallery/force-urbania-entertainment-smart-tv.webp" alt="24 inch Sony Bravia Smart LED TV mounted on Force Urbania bulkhead" title="Mounted Sony Bravia Smart LED TV" loading="lazy" class="w-full h-full object-cover" />
+    </a>
+    <h3 class="font-display font-bold text-lg text-ink-900">Smart Entertainment System</h3>
+    <p class="text-sm text-ink-600 mt-2">A 24-inch Sony Bravia Smart LED TV is mounted on the front cabin bulkhead. Connect via HDMI or wireless screen-mirroring for corporate presentations, streaming movies, or YouTube music playlists during road trips.</p>
+  </div>
+
+  <div class="rounded-xl overflow-hidden border border-ink-200 bg-white p-4 shadow-2xs">
+    <a href="/assets/images/gallery/force-urbania-onboard-chiller-fridge.webp" target="_blank" rel="noopener" title="On-board Blackcat refrigerator and chiller box inside Force Urbania" class="block rounded-lg overflow-hidden aspect-[4/3] mb-3">
+      <img src="/assets/images/gallery/force-urbania-onboard-chiller-fridge.webp" alt="Blackcat 12V compressor refrigerator chiller box inside Force Urbania" title="On-board Blackcat chiller box" loading="lazy" class="w-full h-full object-cover" />
+    </a>
+    <h3 class="font-display font-bold text-lg text-ink-900">On-Board Chiller Refrigerator Box</h3>
+    <p class="text-sm text-ink-600 mt-2">Equipped with a built-in Blackcat compressor refrigerator, the vehicle keeps drinking water, soft drinks, fruit, and snacks cold even under peak summer highway heat without needing melted ice packs.</p>
+  </div>
+</div>
+
+<h2>Seating Blueprint &amp; Luggage Capacity (16 Passenger + Driver)</h2>
+<p>The 16 seater Force Urbania is configured in an intelligent <strong>1x1 and 2x1 seating layout</strong> separated by a spacious central gangway. This ensures that every traveller has direct aisle access or immediate window sightlines, eliminating the awkward scramble over adjacent passengers.</p>
+
+<div class="rounded-2xl bg-ink-50/80 border border-ink-200 p-6 my-6">
+  <h3 class="font-display font-bold text-lg text-ink-900 mb-3">Cabin Layout Blueprint (16+D)</h3>
+  <div class="space-y-2 text-sm text-ink-700">
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Front Row (Cockpit):</span>
+      <span class="font-semibold text-brand-900">[ Chauffeur / Driver ] &bull;&bull; [ Co-Driver / Guide Seat ]</span>
+    </div>
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Passenger Row 1:</span>
+      <span class="font-semibold text-brand-900">[ Single Captain Chair ] &bull; Aisle &bull; [ Double Recliner Bench ] (3 Seats)</span>
+    </div>
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Passenger Row 2:</span>
+      <span class="font-semibold text-brand-900">[ Single Captain Chair ] &bull; Aisle &bull; [ Double Recliner Bench ] (3 Seats)</span>
+    </div>
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Passenger Row 3:</span>
+      <span class="font-semibold text-brand-900">[ Single Captain Chair ] &bull; Aisle &bull; [ Double Recliner Bench ] (3 Seats)</span>
+    </div>
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Passenger Row 4:</span>
+      <span class="font-semibold text-brand-900">[ Single Captain Chair ] &bull; Aisle &bull; [ Double Recliner Bench ] (3 Seats)</span>
+    </div>
+    <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-ink-200 font-mono">
+      <span>Rear Row 5:</span>
+      <span class="font-semibold text-brand-900">[ Full 4-Passenger Executive Recliner Bench ] (4 Seats)</span>
+    </div>
+  </div>
+  <p class="text-xs text-ink-500 mt-3">&bull; Total Passenger Capacity: 16 Passengers + 1 Chauffeur = 17 Total Occupants.</p>
+</div>
+
+<h3>Luggage Capacity: 16 Trolley Bags Without Sacrificing Legroom</h3>
+<p>One of the primary frustrations when booking smaller vans or converted cabs is the lack of luggage space. Groups are often forced to stack heavy bags on empty seats, place luggage in the central aisle, or mount an open luggage carrier on the roof where bags are exposed to rain and highway dust. The Force Urbania 4,400 mm LWB features a <strong>dedicated enclosed rear cargo hold</strong> accessible via dual 270-degree swing-open barn doors. It easily swallows:</p>
+<ul class="list-disc pl-6 space-y-1.5 my-3">
+  <li><strong>16 Large Check-In Bags:</strong> Accommodates sixteen 24 to 28-inch hard-shell trolley suitcases standing vertically.</li>
+  <li><strong>Overhead Aircraft-Style Parcel Racks:</strong> Continuous roof racks on both sides accommodate backpacks, laptops, hand baggage, and coats without crowding passenger leg space.</li>
+  <li><strong>Weatherproof Interior Boot:</strong> Your luggage remains completely sealed from monsoon rain, highway road dust, and highway exhaust grime.</li>
+</ul>
+
+<a href="/assets/images/vehicles/force-urbania--rear-grey.webp" target="_blank" rel="noopener" title="Force Urbania rear view showing dual luggage barn doors in Bangalore" class="block my-6 rounded-2xl overflow-hidden shadow-card">
+  <img src="/assets/images/vehicles/force-urbania--rear-grey.webp" alt="Force Urbania rear luggage doors and exterior profile in Bangalore" title="Force Urbania rear view showing luggage cargo access" loading="lazy" class="w-full object-cover aspect-[16/9]" />
+</a>
+<figcaption class="text-sm text-ink-500 text-center mt-1">Wide rear luggage access doors on the Force Urbania LWB, designed for rapid loading of 16 suitcases at airport terminals and hotel lobbies.</figcaption>
+
+<h2>Video Walkthrough: Take a Virtual Tour Inside the 16 Seater Urbania</h2>
+<p>See the vehicle before you book. Watch this high-definition walkthrough showing the genuine exterior finish, the Maharaja calf-support recliners, the mounted Sony Bravia TV, the chiller box, and the ambient lighting in action:</p>
+
+<div class="my-6 rounded-2xl overflow-hidden border border-ink-200 bg-ink-950 shadow-card">
+  <video
+    controls
+    preload="metadata"
+    poster="/assets/images/gallery/force-urbania-luxury-cabin-interior.webp"
+    class="w-full aspect-[16/9] object-cover"
+  >
+    <source src="/assets/video/force-urbania-luxury-walkthrough.mp4" type="video/mp4" />
+    Your browser does not support the video tag. Please view the walkthrough video directly at <a href="/assets/video/force-urbania-luxury-walkthrough.mp4" class="text-brand-400 underline">this link</a>.
+  </video>
+  <div class="p-4 bg-ink-900 text-white flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+    <div>
+      <p class="text-sm font-semibold">Force Urbania Luxury Van Walkthrough (Duration: 104 sec)</p>
+      <p class="text-xs text-ink-400">Filmed on location at Yogi Tours &amp; Travels Bangalore Fleet Yard.</p>
+    </div>
+    <button type="button" class="btn btn-accent btn-sm shrink-0" data-enquiry-trigger data-enquiry-type="quote" data-enquiry-context="16 Seater Urbania Walkthrough">
+      Request Exact Van Video
+    </button>
+  </div>
+</div>
+
+<h2>Transparent Pricing: How 16 Seater Force Urbania Tariff Works in Bangalore</h2>
+<p>Yogi Tours &amp; Travels operates on strict tariff transparency. We do not engage in hidden mileage markups, arbitrary peak-hour surge multipliers, or unexpected driver surcharges upon drop-off. For outstation travel from Bangalore, the 16 seater Force Urbania is billed on clear commercial terms:</p>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-6">
+  <div class="rounded-xl bg-white border border-ink-200 p-5 shadow-2xs text-center">
+    <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">Per-KM Tariff</p>
+    <p class="font-display font-bold text-3xl text-brand-900 mt-2">₹38<span class="text-sm font-medium text-ink-500">/km</span></p>
+    <p class="text-xs text-ink-600 mt-2">Full vehicle air-conditioning included. Billed garage-to-garage or on verified odometer readings.</p>
+  </div>
+  <div class="rounded-xl bg-white border border-ink-200 p-5 shadow-2xs text-center">
+    <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">Daily Minimum Distance</p>
+    <p class="font-display font-bold text-3xl text-brand-900 mt-2">300<span class="text-sm font-medium text-ink-500"> km/day</span></p>
+    <p class="text-xs text-ink-600 mt-2">Standard commercial transport standard across Karnataka. Running is averaged over the total trip days.</p>
+  </div>
+  <div class="rounded-xl bg-white border border-ink-200 p-5 shadow-2xs text-center">
+    <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">Driver Bata (Allowance)</p>
+    <p class="font-display font-bold text-3xl text-brand-900 mt-2">₹700<span class="text-sm font-medium text-ink-500">/day</span></p>
+    <p class="text-xs text-ink-600 mt-2">Covers chauffeur lodging, meals &amp; outstation duty between 6:00 AM and 10:00 PM.</p>
+  </div>
+</div>
+
+<h3>Understanding the 300 KM Daily Average Rule</h3>
+<p>The daily minimum distance is calculated as an average across your entire journey duration, not on a rigid single-day cutoff. For example, if you book a 3-day round trip from Bangalore to Ooty, your total package minimum allowance is <strong>900 km (3 days &times; 300 km)</strong>. If you travel 350 km on Day 1, 100 km sightseeing on Day 2, and 350 km on Day 3 (total 800 km), you are simply billed for the 900 km package minimum. If your actual trip covers 960 km, you are only charged the base 900 km plus 60 km &times; ₹38 = ₹2,280 extra. Every single kilometer is accounted for on a printed trip sheet.</p>
+
+<h3>Outstation Billing Inclusions &amp; Direct Exclusions</h3>
+<ul class="list-disc pl-6 space-y-1.5 my-3">
+  <li><strong>Included in Base Tariff:</strong> Vehicle hire, diesel fuel charges, chauffeur service, vehicle insurance, and full air conditioning throughout the trip.</li>
+  <li><strong>Driver Night Surcharge:</strong> ₹300 per night applies only if duty extends between 10:00 PM and 6:00 AM.</li>
+  <li><strong>Tolls &amp; Parking at Actuals:</strong> Electronic FASTag toll deductions and destination parking receipts are billed transparently at actual costs.</li>
+  <li><strong>Interstate Border Permits at Actuals:</strong> When traveling outside Karnataka into Tamil Nadu, Kerala, Andhra Pradesh, or Goa, state motor vehicle entry permits are paid online via the MoRTH Vahan portal and billed at actual government fees.</li>
+  <li><strong>GST Invoicing:</strong> 5% GST is applicable for commercial tourist transport, and full Input Tax Credit (ITC) compliant GST invoices are provided for corporate accounts.</li>
+</ul>
+
+<h2>10 Popular Outstation Route Fares &amp; Drive Times from Bangalore</h2>
+<p>The table below provides realistic, itemized cost estimates for the 16 seater Force Urbania across the top 10 group travel corridors departing from Bangalore. All calculations include base kilometers, driver Bata, and anticipated FASTag tolls:</p>
+
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse border border-ink-200 shadow-2xs">
+    <thead>
+      <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+        <th class="p-3 border border-ink-200">Outstation Route</th>
+        <th class="p-3 border border-ink-200">One-Way Distance</th>
+        <th class="p-3 border border-ink-200">Drive Time &amp; Highway</th>
+        <th class="p-3 border border-ink-200">Trip Duration</th>
+        <th class="p-3 border border-ink-200">Estimated Total Fare</th>
+        <th class="p-3 border border-ink-200">Cost Per Person (16 Pax)</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-ink-100">
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-coorg-cab" class="text-brand-700 underline font-medium">Bangalore to Coorg (Madikeri)</a></td>
+        <td class="p-3 border border-ink-200">255 km</td>
+        <td class="p-3 border border-ink-200">5.5 hrs via Mysore Exp &amp; Kushalnagar</td>
+        <td class="p-3 border border-ink-200">2 Days (600 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹24,850</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹1,553 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-ooty-cab" class="text-brand-700 underline font-medium">Bangalore to Ooty &amp; Coonoor</a></td>
+        <td class="p-3 border border-ink-200">275 km</td>
+        <td class="p-3 border border-ink-200">6.5 hrs via Bandipur &amp; Gudalur</td>
+        <td class="p-3 border border-ink-200">3 Days (900 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹39,350 <span class="text-xs text-ink-500">(incl TN permit)</span></td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹2,459 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-chikmagalur-cab" class="text-brand-700 underline font-medium">Bangalore to Chikmagalur</a></td>
+        <td class="p-3 border border-ink-200">245 km</td>
+        <td class="p-3 border border-ink-200">4.5 hrs via NH75 &amp; Hassan</td>
+        <td class="p-3 border border-ink-200">2 Days (600 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹24,800</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹1,550 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-mysore-cab" class="text-brand-700 underline font-medium">Bangalore to Mysore (Day Trip)</a></td>
+        <td class="p-3 border border-ink-200">145 km</td>
+        <td class="p-3 border border-ink-200">3.0 hrs via NH275 Expressway</td>
+        <td class="p-3 border border-ink-200">1 Day (300 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹12,760</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹797 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-wayanad-cab" class="text-brand-700 underline font-medium">Bangalore to Wayanad (Vythiri)</a></td>
+        <td class="p-3 border border-ink-200">290 km</td>
+        <td class="p-3 border border-ink-200">6.0 hrs via Gundlupet &amp; Sulthan Bathery</td>
+        <td class="p-3 border border-ink-200">3 Days (900 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹39,450 <span class="text-xs text-ink-500">(incl KL permit)</span></td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹2,465 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-tirupati-cab" class="text-brand-700 underline font-medium">Bangalore to Tirupati Balaji</a></td>
+        <td class="p-3 border border-ink-200">255 km</td>
+        <td class="p-3 border border-ink-200">5.0 hrs via Hoskote &amp; Chittoor</td>
+        <td class="p-3 border border-ink-200">2 Days (600 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹26,550 <span class="text-xs text-ink-500">(incl AP permit)</span></td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹1,659 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-hampi-cab" class="text-brand-700 underline font-medium">Bangalore to Hampi Heritage</a></td>
+        <td class="p-3 border border-ink-200">345 km</td>
+        <td class="p-3 border border-ink-200">6.5 hrs via NH48 &amp; Chitradurga</td>
+        <td class="p-3 border border-ink-200">3 Days (900 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹37,000</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹2,312 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/tour-packages/sakleshpur-nature-escape" class="text-brand-700 underline font-medium">Bangalore to Sakleshpur</a></td>
+        <td class="p-3 border border-ink-200">220 km</td>
+        <td class="p-3 border border-ink-200">4.5 hrs via NH75 &amp; Hassan</td>
+        <td class="p-3 border border-ink-200">2 Days (600 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹24,700</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹1,543 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-gokarna-cab" class="text-brand-700 underline font-medium">Bangalore to Gokarna &amp; Murudeshwar</a></td>
+        <td class="p-3 border border-ink-200">485 km</td>
+        <td class="p-3 border border-ink-200">9.5 hrs via Shimoga &amp; Honnavar</td>
+        <td class="p-3 border border-ink-200">3 Days (1,000 km run)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹40,800</td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹2,550 / person</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-semibold"><a href="/routes/bangalore-to-goa-cab" class="text-brand-700 underline font-medium">Bangalore to Goa (Panaji/Candolim)</a></td>
+        <td class="p-3 border border-ink-200">560 km</td>
+        <td class="p-3 border border-ink-200">11 hrs via Hubli &amp; Dharwad</td>
+        <td class="p-3 border border-ink-200">4 Days (1,200 km min)</td>
+        <td class="p-3 border border-ink-200 font-semibold text-ink-900">~₹53,000 <span class="text-xs text-ink-500">(incl Goa permit)</span></td>
+        <td class="p-3 border border-ink-200 font-bold text-brand-900">₹3,312 / person</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p><em>*Note: Figures above reflect standard outstation mileage, driver allowance, and round-trip toll estimates. Exact tolls, interstate permits, and parking are confirmed in writing prior to payment.</em></p>
+
+<h2>Vehicle Comparison: 16 Seater Urbania vs. Fleet Alternatives</h2>
+<p>How does the 16 seater Force Urbania compare against other group transport alternatives available in Bangalore? The comparison matrix below details the mechanical, financial, and comfort distinctions across our fleet:</p>
+
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse border border-ink-200 shadow-2xs">
+    <thead>
+      <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+        <th class="p-3 border border-ink-200">Vehicle Category</th>
+        <th class="p-3 border border-ink-200">Seating Capacity</th>
+        <th class="p-3 border border-ink-200">Starting Rate</th>
+        <th class="p-3 border border-ink-200">Chassis &amp; Suspension</th>
+        <th class="p-3 border border-ink-200">Cabin Standing Height</th>
+        <th class="p-3 border border-ink-200">Best Use Case</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-ink-100">
+      <tr class="bg-brand-50/60 font-semibold">
+        <td class="p-3 border border-ink-200 text-brand-900">16 Seater Force Urbania</td>
+        <td class="p-3 border border-ink-200 text-brand-900">16 + 1 Driver</td>
+        <td class="p-3 border border-ink-200 text-brand-900">₹38 / km</td>
+        <td class="p-3 border border-ink-200 text-brand-900">Monocoque + Independent front double wishbone</td>
+        <td class="p-3 border border-ink-200 text-brand-900">6 ft 3 in (Walkthrough)</td>
+        <td class="p-3 border border-ink-200 text-brand-900">Executive retreats, VIP wedding shuttles, luxury outstation tours.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">17 Seater Force Urbania</a></td>
+        <td class="p-3 border border-ink-200">17 + 1 Driver</td>
+        <td class="p-3 border border-ink-200">₹38 / km</td>
+        <td class="p-3 border border-ink-200">Monocoque + Independent front double wishbone</td>
+        <td class="p-3 border border-ink-200">6 ft 3 in (Walkthrough)</td>
+        <td class="p-3 border border-ink-200">Maximum capacity luxury van for up to 17 passengers.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/12-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">12 Seater Maharaja Urbania</a></td>
+        <td class="p-3 border border-ink-200">12 + 1 Driver</td>
+        <td class="p-3 border border-ink-200">₹38 / km</td>
+        <td class="p-3 border border-ink-200">Monocoque + Independent front double wishbone</td>
+        <td class="p-3 border border-ink-200">6 ft 3 in (Walkthrough)</td>
+        <td class="p-3 border border-ink-200">Ultra-wide business-class recliners for 10–12 VIP delegates.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/fleet/tempo-traveller/tempo-traveller-17-seater" class="text-brand-700 underline font-medium">Standard 17 Seater Tempo Traveller</a></td>
+        <td class="p-3 border border-ink-200">17 + 1 Driver</td>
+        <td class="p-3 border border-ink-200">₹30 / km AC</td>
+        <td class="p-3 border border-ink-200">Ladder-frame chassis with rigid leaf springs</td>
+        <td class="p-3 border border-ink-200">5 ft 9 in</td>
+        <td class="p-3 border border-ink-200">Budget-conscious family groups, college outings, pilgrimage circuits.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/fleet/mini-bus/mini-bus-21-seater" class="text-brand-700 underline font-medium">21 Seater Mini Bus</a></td>
+        <td class="p-3 border border-ink-200">21 + 1 Driver</td>
+        <td class="p-3 border border-ink-200">₹34 / km</td>
+        <td class="p-3 border border-ink-200">Commercial bus chassis with air brakes</td>
+        <td class="p-3 border border-ink-200">6 ft 2 in</td>
+        <td class="p-3 border border-ink-200">Groups of 18 to 21 requiring coach capacity without hiring full-size buses.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Two Toyota Innova Crystas</td>
+        <td class="p-3 border border-ink-200">2 &times; 7 = 14 Pax</td>
+        <td class="p-3 border border-ink-200">2 &times; ₹19 = ₹38 / km</td>
+        <td class="p-3 border border-ink-200">Body-on-frame SUV chassis</td>
+        <td class="p-3 border border-ink-200">Seated only (No standing)</td>
+        <td class="p-3 border border-ink-200">Small family convoys, but doubles tolls, Bata, and splits the group.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>For more detailed vehicle comparisons, read our in-depth guides: <a href="/blog/force-urbania-vs-tempo-traveller-luxury-van-rental-bangalore" class="text-brand-700 underline font-medium">Force Urbania vs. Tempo Traveller</a> and <a href="/blog/17-seater-21-seater-tempo-traveller-urbania-mini-bus-bangalore-guide" class="text-brand-700 underline font-medium">17 Seater vs. 21 Seater Vehicle Guide</a>.</p>
+
+<h2>Bangalore Locality Pickups &amp; Highway Access Logistics</h2>
+<p>Yogi Tours &amp; Travels operates vehicle depots strategically located across North, East, and South Bengaluru. We provide door-to-door pickups from corporate tech parks, residential gated communities, and luxury hotels across all major Bangalore micro-markets:</p>
+
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse border border-ink-200 shadow-2xs">
+    <thead>
+      <tr class="bg-ink-100 text-ink-900 font-semibold text-left">
+        <th class="p-3 border border-ink-200">Bangalore Locality</th>
+        <th class="p-3 border border-ink-200">Primary Highway Access Route</th>
+        <th class="p-3 border border-ink-200">Travel Time to BLR Airport</th>
+        <th class="p-3 border border-ink-200">Key Outstation Corridors</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-ink-100">
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/whitefield" class="text-brand-700 underline font-medium">Whitefield &amp; ITPL</a></td>
+        <td class="p-3 border border-ink-200">SH104 / Budigere Cross / Old Madras Rd</td>
+        <td class="p-3 border border-ink-200">60–75 mins (via SH104)</td>
+        <td class="p-3 border border-ink-200">Tirupati (NH75), Chennai (NH48), Pondicherry.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/electronic-city" class="text-brand-700 underline font-medium">Electronic City &amp; Bommasandra</a></td>
+        <td class="p-3 border border-ink-200">Elevated Expressway / NICE Road / NH44</td>
+        <td class="p-3 border border-ink-200">75–90 mins (via NICE &amp; Bellary Rd)</td>
+        <td class="p-3 border border-ink-200">Mysore Expressway, Coorg, Ooty, Salem, Wayanad.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/koramangala" class="text-brand-700 underline font-medium">Koramangala &amp; HSR Layout</a></td>
+        <td class="p-3 border border-ink-200">Outer Ring Road (ORR) / Hosur Road</td>
+        <td class="p-3 border border-ink-200">60–80 mins</td>
+        <td class="p-3 border border-ink-200">Mysore, Coorg, Chikmagalur, Tirupati.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/indiranagar" class="text-brand-700 underline font-medium">Indiranagar &amp; Domlur</a></td>
+        <td class="p-3 border border-ink-200">Old Airport Road / Inner Ring Road / NH44</td>
+        <td class="p-3 border border-ink-200">55–70 mins</td>
+        <td class="p-3 border border-ink-200">Direct access to Hebbal flyover and NH44 highway.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/jayanagar" class="text-brand-700 underline font-medium">Jayanagar &amp; JP Nagar</a></td>
+        <td class="p-3 border border-ink-200">Kanakapura Road / Bannerghatta Rd / NICE Rd</td>
+        <td class="p-3 border border-ink-200">70–85 mins</td>
+        <td class="p-3 border border-ink-200">Mysore Expressway (NH275), Coorg, Sakleshpur.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/marathahalli" class="text-brand-700 underline font-medium">Marathahalli &amp; Bellandur</a></td>
+        <td class="p-3 border border-ink-200">Outer Ring Road / Varthur Road / Old Airport Rd</td>
+        <td class="p-3 border border-ink-200">65–80 mins</td>
+        <td class="p-3 border border-ink-200">Hoskote, Kolar, Tirupati, Ooty, Coorg.</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium"><a href="/17seater-tempotraveller/hebbal" class="text-brand-700 underline font-medium">Hebbal &amp; Yelahanka</a></td>
+        <td class="p-3 border border-ink-200">Bellary Road (NH44) / Airport Expressway</td>
+        <td class="p-3 border border-ink-200">25–35 mins</td>
+        <td class="p-3 border border-ink-200">Kempegowda Airport, Nandi Hills, Hyderabad (NH44).</td>
+      </tr>
+      <tr>
+        <td class="p-3 border border-ink-200 font-medium">Kempegowda Int. Airport (BLR)</td>
+        <td class="p-3 border border-ink-200">Terminal 1 (P4/P5 Commercial) &amp; Terminal 2 Concourse</td>
+        <td class="p-3 border border-ink-200">0 mins (At Terminal)</td>
+        <td class="p-3 border border-ink-200">Direct flight transfers to Coorg, Mysore, Chikmagalur, Ooty.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Primary Use Cases: Who Rents the 16 Seater Force Urbania?</h2>
+<p>The 16 seater Force Urbania is tailored for specific high-value travel scenarios where traditional commercial vans fail to meet quality or executive standards:</p>
+
+<h3>1. Corporate Executive Offsites &amp; Visiting Delegations</h3>
+<p>Fortune 500 enterprises, tech firms in Whitefield and Electronic City, and consulting agencies choose the Urbania for leadership summits, annual management offsites, and client visits. The on-board 24" Sony TV allows presentations and video conferences en route, while whisper-quiet cabin acoustics allow telephone meetings without highway tire howl. Full GST tax invoices with HSN code 9966 are issued for corporate expense filings through our <a href="/services/corporate-travel" class="text-brand-700 underline font-medium">corporate car rental service</a>.</p>
+
+<h3>2. Destination Weddings &amp; VIP Family Convoys</h3>
+<p>Moving close family, in-laws, and wedding VIPs between Bangalore luxury hotels (e.g. The Leela Palace, ITC Gardenia, Taj West End), wedding venues on Kanakapura Road or Palace Grounds, and outstation destination wedding venues requires premium aesthetics. The metallic dark grey or pearl white exterior finish of the Force Urbania photographs elegantly in bridal convoys through our <a href="/services/wedding-transportation" class="text-brand-700 underline font-medium">wedding transportation service</a>.</p>
+
+<h3>3. South India Temple Pilgrimages &amp; Extended Family Circuits</h3>
+<p>Multi-generational pilgrimage tours to Tirupati Balaji, Mantralaya, Kukke Subramanya, Dharmasthala, and Murudeshwar frequently involve elderly grandparents who find traditional van leaf springs painful on long drives. The Urbania's independent front suspension, smooth rear parabolic setup, and motorized calf recliners significantly reduce lower-back fatigue. Learn more on our <a href="/services/pilgrimage-tours" class="text-brand-700 underline font-medium">pilgrimage tours service</a>.</p>
+
+<h3>4. Kempegowda International Airport (BLR) Group Transfers</h3>
+<p>When an international flight lands at Terminal 2 with 12 to 16 delegates carrying multiple 30 kg bags, booking multiple sedans creates logistical chaos, missed connections, and app-based surge multipliers. Our <a href="/services/airport-transfer" class="text-brand-700 underline font-medium">airport transfer service in Bangalore</a> provides dedicated chauffeur meet-and-greet with flight tracking and flat-rate pricing.</p>
+
+<h2>Statutory Compliance, Safety Standards &amp; Verified Chauffeurs</h2>
+<p>Passenger safety and regulatory compliance are non-negotiable standards at Yogi Tours &amp; Travels:</p>
+<ul class="list-disc pl-6 space-y-2 my-4">
+  <li><strong>All India Tourist Permit (AITP):</strong> Authorized under the Motor Vehicles Act 1988 and CMVR for seamless interstate travel across Karnataka, Tamil Nadu, Kerala, Andhra Pradesh, Telangana, Maharashtra, and Goa.</li>
+  <li><strong>Commercial Transport Badged Chauffeurs:</strong> Every driver carries a verified commercial passenger badge issued by the Karnataka Transport Department. Drivers have a minimum of 10 years of professional highway experience, clean background checks, and specific expertise navigating steep mountain hairpins (such as the Gudalur-Ooty ghat or the Charmadi Ghat).</li>
+  <li><strong>Statutory Speed Governor:</strong> Every Urbania is equipped with an electronic speed governor calibrated to the legal 80 km/h ceiling mandated by CMVR Rule 118, preventing erratic speeding and maintaining relaxed highway cruising.</li>
+  <li><strong>GPS Telematics &amp; 24/7 Dispatch Monitoring:</strong> Vehicles feature dual-camera GPS telematics and live tracking monitored 24/7 by our operations desk in Bangalore.</li>
+  <li><strong>Daily Sanitization &amp; Maintenance:</strong> Every van undergoes rigorous pre-trip inspection, tire pressure calibration, AC filter cleaning, and cabin detailing prior to every client pickup.</li>
+</ul>
+
+<h2>Verified Customer Experiences: 4.9★ Google Reviews</h2>
+<p>Yogi Tours &amp; Travels has maintained an exceptional 4.9 out of 5-star rating across 228 verified Google Business Profile reviews since 2011. Below are genuine, unedited quotes from clients who experienced our group and outstation transport:</p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 my-6">
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">"Fabulous wonderful vehicle We booked a luxury tempo traveller super New vehicle neat and clean interior and wonderful driver and howsom experience That's why I'm giving a 5 Star ✨✨"</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Rakesh G.</span> <span class="text-xs text-ink-500">&bull; Group Outstation Trip &bull; <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">"We traveled manthralaya trip with family 15 members. Driving is very very happy. Mr nagaraj is very good person and his behaviour is very good. Thank you nagraj"</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Srinivasa G.</span> <span class="text-xs text-ink-500">&bull; 15-Person Pilgrimage Trip &bull; <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">"Excellent service, had booked TT for 12 people here had a hassle free trip to coorg. Our driver was very generous and TT was well maintained. Highly Recommend."</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">MrPrashantpk</span> <span class="text-xs text-ink-500">&bull; Coorg Family Holiday &bull; <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+
+  <figure class="flex flex-col h-full bg-white rounded-2xl border border-ink-100 shadow-card p-6">
+    <p class="flex items-center gap-0.5 text-sun-400" aria-label="Rated 5 out of 5">★★★★★</p>
+    <blockquote class="text-[15px] text-ink-700 leading-relaxed mt-4 flex-1">"I had a great experience with Yogi Travels during our 8-day trip. The driver was extremely responsible, punctual, and professional throughout the journey. He maintained excellent driving discipline and always ensured our safety and comfort."</blockquote>
+    <figcaption class="mt-5 pt-4 border-t border-ink-100"><span class="font-semibold text-ink-900 text-sm">Rajesh K.</span> <span class="text-xs text-ink-500">&bull; 8-Day South India Tour &bull; <a href="https://www.google.com/search?kgmid=/g/11ld89nkjl" target="_blank" rel="noopener nofollow" class="text-brand-700 underline font-medium">Read on Google</a></span></figcaption>
+  </figure>
+</div>
+
+<h2>How to Book Your 16 Seater Force Urbania in Bangalore</h2>
+<ol class="list-decimal pl-6 space-y-2 my-4">
+  <li><strong>Submit Your Trip Itinerary:</strong> Share your departure date, return date, pickup locality in Bangalore, destination stops, and approximate number of passengers.</li>
+  <li><strong>Receive an Itemized Quotation:</strong> Our dispatch desk generates a clear, transparent quotation detailing the ₹38/km base tariff, daily 300 km allowance, driver Bata, and anticipated tolls/permits with zero hidden clauses.</li>
+  <li><strong>Confirm Vehicle Booking:</strong> Confirm your reservation with an advance booking token. You receive immediate written booking confirmation and GST tax invoice details.</li>
+  <li><strong>Chauffeur &amp; Vehicle Allocation:</strong> 12 hours prior to your journey, you receive full vehicle registration details, sanitized inspection confirmation, and your chauffeur's contact number.</li>
+  <li><strong>Enjoy Seamless Travel:</strong> Your chauffeur arrives punctually at your Bangalore doorstep, assists with luggage loading, and ensures a safe, relaxing journey.</li>
+</ol>
+
+<p>Ready to reserve your 16 seater Force Urbania? Speak directly with our travel operations team: call <strong>+91 97410 32020</strong>, send a WhatsApp message to <strong>+91 98867 70099</strong>, or <a href="/contact" class="text-brand-700 underline font-medium">request a free online quotation</a> today.</p>`,
+    author: "Yogi Tours & Travels",
+    published: 1,
+    publishedAt: "2026-11-05 10:00:00",
+    sortOrder: 9,
+    createdAt: "2026-11-05 10:00:00",
+    updatedAt: "2026-11-05 10:00:00"
   }
 ];

@@ -1,6 +1,14 @@
 import { Router } from "express";
 import { publishedBlogPosts, findBlogPostBySlug } from "../db/content.js";
-import { blogPostingSchema, breadcrumbSchema, faqSchema, speakableSchema, toIso } from "../utils/schema.js";
+import {
+  blogPostingSchema,
+  breadcrumbSchema,
+  faqSchema,
+  speakableSchema,
+  toIso,
+  videoObjectSchema,
+  vehicleServiceSchema
+} from "../utils/schema.js";
 import { clampDescription } from "../utils/meta.js";
 import { business, env } from "../config/env.js";
 import { resolveCostPost, resolveComparePost, resolveItineraryPost } from "../config/programmaticBlog.js";
@@ -75,6 +83,24 @@ const POST_MENTIONS: Record<string, Array<{ name: string; type?: string }>> = {
     { name: "Coorg", type: "Place" },
     { name: "Ooty", type: "Place" },
     { name: "Wayanad", type: "Place" }
+  ],
+  "16-seater-force-urbania-rental-bangalore-guide": [
+    { name: "Force Urbania", type: "Vehicle" },
+    { name: "Force Motors", type: "Organization" },
+    { name: "16 Seater Force Urbania", type: "Vehicle" },
+    { name: "Bengaluru", type: "City" },
+    { name: "Kempegowda International Airport", type: "Airport" },
+    { name: "Karnataka", type: "State" },
+    { name: "Coorg", type: "Place" },
+    { name: "Ooty", type: "Place" },
+    { name: "Chikmagalur", type: "Place" },
+    { name: "Mysore", type: "City" },
+    { name: "Tirupati", type: "City" },
+    { name: "Wayanad", type: "Place" },
+    { name: "Hampi", type: "Place" },
+    { name: "Sakleshpur", type: "Place" },
+    { name: "Gokarna", type: "Place" },
+    { name: "Goa", type: "State" }
   ]
 };
 
@@ -250,6 +276,68 @@ const POST_FAQS: Record<string, Array<{ question: string; answer: string }>> = {
       question: "Where can I find a 17 seater Tempo Traveller or 21 seater mini bus near me in Bangalore?",
       answer:
         "Yogi Tours & Travels picks up from any Bangalore locality, including Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Jayanagar, Marathahalli, Hebbal and Yelahanka, as well as Kempegowda International Airport. Bookings are taken 24/7."
+    }
+  ],
+  "16-seater-force-urbania-rental-bangalore-guide": [
+    {
+      question: "How much does a 16 seater Force Urbania cost to rent in Bangalore?",
+      answer:
+        "A 16 seater Force Urbania in Bangalore costs ₹38 per km for outstation trips with full air-conditioning. It carries a standard 300 km daily minimum allowance and a ₹700 per day commercial driver Bata, bringing the base daily rental to ₹12,100 per day before tolls and permits."
+    },
+    {
+      question: "What is the seating capacity of the 16 seater Force Urbania?",
+      answer:
+        "It accommodates 16 passengers plus 1 commercial chauffeur (16+D layout). The cabin is configured in an ergonomic 1x1 and 2x1 luxury gangway layout with wide aisle access."
+    },
+    {
+      question: "How many luggage bags fit in a 16 seater Force Urbania?",
+      answer:
+        "It carries up to 16 full-sized 24-28 inch trolley suitcases in a dedicated rear cargo compartment accessible by dual 270-degree swing doors, plus continuous overhead aircraft-style racks for backpacks and laptop bags."
+    },
+    {
+      question: "How does the 16 seater Urbania compare to a traditional Tempo Traveller?",
+      answer:
+        "The Force Urbania is built on a car-like monocoque body with independent front suspension and whisper-quiet acoustic dampening, whereas traditional Tempo Travellers use a rigid truck ladder-frame chassis. The Urbania eliminates highway body roll and provides 6 ft 3 in standing clearance."
+    },
+    {
+      question: "What luxury amenities are included inside the 16 seater Urbania cabin?",
+      answer:
+        "It includes Maharaja captain recliners with motorized calf supports, a 24-inch Sony Bravia Smart LED TV, an on-board Blackcat chiller/refrigerator box, individual USB fast-charging ports, individual directional AC vents, aircraft-style ambient blue neon lighting, and retractable privacy roller blinds."
+    },
+    {
+      question: "Can the 16 seater Force Urbania handle steep mountain ghats like Ooty and Coorg?",
+      answer:
+        "Yes. Powered by a 2.6L 4-cylinder Common Rail TCIC diesel engine producing 115 HP and 350 Nm of low-end torque @ 1400-2200 RPM, it easily navigates steep Western Ghats and Nilgiri inclines under the control of experienced commercial chauffeurs."
+    },
+    {
+      question: "How much does a 2-day Bangalore to Coorg trip cost in a 16 seater Urbania?",
+      answer:
+        "A 2-day Coorg round trip covers the 600 km minimum (600 km × ₹38 = ₹22,800) plus 2 days driver Bata (₹1,400) and ~₹650 tolls, totaling approximately ₹24,850. For 16 travellers, that is only ~₹1,553 per person."
+    },
+    {
+      question: "Is booking a 16 seater Urbania cheaper than booking two 7-seater cars?",
+      answer:
+        "Yes. Two Innova Crystas at ₹19/km also equal ₹38/km, but two cars require two driver Batas (2 × ₹400 = ₹800/day), double toll charges at every toll plaza, separate parking fees, and divide your group across two vehicles. One Urbania keeps all 16 travellers together in superior luxury."
+    },
+    {
+      question: "Does Yogi Tours & Travels offer airport pickup in the 16 seater Urbania at Kempegowda Airport?",
+      answer:
+        "Yes. Pickups and drops are provided 24/7 at Kempegowda International Airport (BLR) Terminal 1 and Terminal 2. Chauffeurs track incoming flight numbers in real time with zero surge pricing."
+    },
+    {
+      question: "What are the driver duty timings and night Bata charges?",
+      answer:
+        "Standard driver duty runs from 6:00 AM to 10:00 PM. A night driving allowance of ₹300 applies only if duty extends between 10:00 PM and 6:00 AM."
+    },
+    {
+      question: "How are interstate permits and state taxes handled for trips to Ooty, Wayanad, or Tirupati?",
+      answer:
+        "When crossing state borders into Tamil Nadu, Kerala, or Andhra Pradesh, interstate entry permits are paid online via the official MoRTH Vahan portal and billed transparently at actual government receipts without markups."
+    },
+    {
+      question: "Where in Bangalore can the 16 seater Force Urbania pick up my group?",
+      answer:
+        "Doorstep pickups are available across all Bangalore localities, including Whitefield, Electronic City, Koramangala, Indiranagar, HSR Layout, Jayanagar, Marathahalli, Hebbal, Yelahanka, Malleshwaram, and JP Nagar, as well as Kempegowda Airport."
     }
   ]
 };
@@ -470,7 +558,48 @@ router.get("/:slug", async (req, res, next) => {
           { name: "Blog", url: "/blog" },
           { name: post.title, url: `/blog/${post.slug}` }
         ]),
-        ...(faqs ? [faqSchema(faqs), speakableSchema(`/blog/${post.slug}`, ["#faq"])] : [])
+        ...(faqs ? [faqSchema(faqs), speakableSchema(`/blog/${post.slug}`, ["#ai-overview-answer", "#faq"])] : []),
+        ...(post.slug === "16-seater-force-urbania-rental-bangalore-guide"
+          ? [
+              videoObjectSchema({
+                name: "16 Seater Force Urbania Luxury Walkthrough — Bangalore",
+                description:
+                  "Authentic video walkthrough of the 16 Seater Force Urbania luxury van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.",
+                thumbnailUrl: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
+                uploadDate: "2026-11-05T10:00:00+05:30",
+                contentUrl: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
+                embedUrl: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
+                duration: "PT1M44S"
+              }),
+              vehicleServiceSchema({
+                name: "16 Seater Force Urbania",
+                description:
+                  "16 Seater Force Urbania luxury van rental in Bangalore with verified chauffeur. Monocoque chassis, Maharaja calf-support recliners, Sony Smart TV, chiller box, and 16 bags luggage capacity.",
+                url: `/blog/${post.slug}`,
+                imageUrl: `${env.siteUrl}/assets/images/gallery/force-urbania-front-exterior.webp`,
+                images: [
+                  `${env.siteUrl}/assets/images/gallery/force-urbania-front-exterior.webp`,
+                  `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
+                  `${env.siteUrl}/assets/images/gallery/force-urbania-maharaja-recliner-seat.webp`,
+                  `${env.siteUrl}/assets/images/gallery/force-urbania-entertainment-smart-tv.webp`,
+                  `${env.siteUrl}/assets/images/gallery/force-urbania-onboard-chiller-fridge.webp`
+                ],
+                features: [
+                  "16 Passenger Captain Recliners",
+                  "Motorized Calf & Leg Rests",
+                  "Sony Bravia Smart TV",
+                  "On-Board Chiller Box",
+                  "Ambient Blue Neon Lighting",
+                  "6ft 3in Standing Height",
+                  "16 Bags Dedicated Luggage Boot"
+                ],
+                seats: 16,
+                brand: "Force Motors",
+                model: "Urbania LWB 4400mm",
+                ratePerKm: 38
+              })
+            ]
+          : [])
       ]
     });
   } catch (err) {

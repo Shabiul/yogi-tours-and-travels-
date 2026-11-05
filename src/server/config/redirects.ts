@@ -47,6 +47,12 @@ export const LEGACY_REDIRECTS: Record<string, string> = {
   "/fleet/tempo-traveller/force-urbania-12-seater-maharaja": "/fleet/tempo-traveller/urbania-12-seater-maharaja",
   "/fleet/tempo-traveller/force-urbania-17-seater-luxury": "/fleet/tempo-traveller/force-urbania",
   "/blog/outstation-taxi-service-bangalore-what-to-expect": "/services/outstation-travel",
+  "/16-seater-urbania": "/blog/16-seater-force-urbania-rental-bangalore-guide",
+  "/16-seater-force-urbania": "/blog/16-seater-force-urbania-rental-bangalore-guide",
+  "/16-seater-urbania-bangalore-guide": "/blog/16-seater-force-urbania-rental-bangalore-guide",
+  "/16-seater-urbania-for-rent-in-bangalore": "/blog/16-seater-force-urbania-rental-bangalore-guide",
+  "/force-urbania-16-seater-rental-bangalore": "/blog/16-seater-force-urbania-rental-bangalore-guide",
+  "/blog/16-seater-urbania-bangalore-guide": "/blog/16-seater-force-urbania-rental-bangalore-guide",
 
   // Site structure pages
   "/about-us": "/about",
