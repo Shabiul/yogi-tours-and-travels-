@@ -49,3 +49,14 @@ export const legalLinks: NavLink[] = [
   { label: "Photo Credits", href: "/photo-credits", match: "/photo-credits" },
   { label: "Sitemap", href: "/sitemap.xml", match: "/sitemap.xml" }
 ];
+
+/**
+ * Partner sites linked once from every page's footer. Set PARTNER_LINK_REL to
+ * "noopener nofollow" to stop passing link credit without removing the links.
+ */
+export const PARTNER_LINK_REL = "noopener";
+export const partnerLinks: Array<{ label: string; href: string }> = [
+  { label: "Sushi Travels", href: "https://www.sushitravels.com/" },
+  { label: "Shanvi Tours & Travels", href: "https://www.shanvitoursandtravels.com/" },
+  { label: "Somu Holidays", href: "https://www.somuholidays.com/" }
+];

@@ -105,6 +105,19 @@
   </div>
   <% } %>
 
+  <% if (typeof partnerLinks !== "undefined" && partnerLinks.length) { %>
+  <div class="border-t border-white/10">
+    <nav class="container py-4" aria-label="Travel partners">
+      <p class="text-xs text-ink-400 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+        <span class="font-semibold text-ink-300">Travel partners:</span>
+        <% partnerLinks.forEach(function(p) { %>
+        <a href="<%= p.href %>" target="_blank" rel="<%= partnerLinkRel %>" title="<%= p.label %>" class="hover:text-white transition-colors"><%= p.label %></a>
+        <% }); %>
+      </p>
+    </nav>
+  </div>
+  <% } %>
+
   <div class="border-t border-white/10">
     <div class="container py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink-500">
       <p>&copy; <%= new Date().getFullYear() %> <%= business.name %>. All rights reserved.</p>

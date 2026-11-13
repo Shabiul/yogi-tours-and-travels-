@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import { business, env, telHref, mailtoHref, whatsappDigits, mapsEmbedUrl } from "../config/env.js";
-import { mainNav, footerServiceLinks, footerToursLinks, footerCompanyLinks, legalLinks } from "../config/nav.js";
+import { mainNav, footerServiceLinks, footerToursLinks, footerCompanyLinks, legalLinks, partnerLinks, PARTNER_LINK_REL } from "../config/nav.js";
 import { organizationSchema } from "../utils/schema.js";
 import { parseJsonArray } from "../db/repo.js";
 import { VEHICLE_CATEGORY_LABELS, matchVehicleByLabel } from "../db/content.js";
@@ -32,6 +32,8 @@ export function injectViewLocals(req: Request, res: Response, next: NextFunction
   res.locals.whatsappDigits = whatsappDigits();
   res.locals.mainNav = mainNav;
   res.locals.footerServiceLinks = footerServiceLinks;
+  res.locals.partnerLinks = partnerLinks;
+  res.locals.partnerLinkRel = PARTNER_LINK_REL;
   res.locals.urbaniaAreas = LOCATIONS.map((l) => ({ slug: l.slug, name: l.name }));
   res.locals.footerToursLinks = footerToursLinks;
   res.locals.footerCompanyLinks = footerCompanyLinks;
