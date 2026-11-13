@@ -142,7 +142,7 @@ app.use((req, res, next) => {
 // 3. Obsolete WordPress / scanner / defaced PHP paths, plus WP date archives, /page/N pagination, /amp, /feed and .html/.asp leftovers (Resolves 82,195 404s, 17,609 403s & April 2026 legacy artifacts):
 // Returning HTTP 410 Gone with X-Robots-Tag: noindex tells Googlebot that these legacy resources
 // were permanently removed, protecting domain reputation and clearing crawl waste.
-const JUNK_PATH_RE = /(?:\.php(?:\/|$)|\/\d{4}\/\d{1,2}(?:\/|$)|\/page\/\d+|\/comment-page-\d+|\/amp\/?$|\/feed\/?$|\.(?:html?|aspx?|jsp|cgi)$|\/attachment\/|^\/(?:wp-|xmlrpc|comments\/feed|tag\/|category\/|author\/|feed\/|trackback|cate-\d|\.env|\.git|phpmyadmin|wordpress\/|shell|wso|c99|alfa|adminer|cgi-bin))/i;
+const JUNK_PATH_RE = /(?:\.php(?:\/|$)|\/\d{4}\/\d{1,2}(?:\/|$)|\/page\/\d+|\/comment-page-\d+|\/amp\/?$|\/feed\/?$|\.(?:html?|aspx?|jsp|cgi)$|\/attachment\/|^\/(?:details\/\d|home\/|products?\/|wp-|xmlrpc|comments\/feed|tag\/|category\/|author\/|feed\/|trackback|cate-\d|\.env|\.git|phpmyadmin|wordpress\/|shell|wso|c99|alfa|adminer|cgi-bin))/i;
 app.use((req, res, next) => {
   if (req.method === "GET" && JUNK_PATH_RE.test(req.path)) {
     res
