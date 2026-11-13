@@ -267,6 +267,13 @@ const VEHICLE_QUICK_FACTS: Record<string, { heading: string; answer: string; spe
   }
 };
 
+/** Long-form guide partial shown on a vehicle page, keyed by vehicle slug. */
+const VEHICLE_GUIDE_PARTIAL: Record<string, string> = {
+  "9-seater-tempo-traveller": "guide-tt-9",
+  "maharaja-tempo-traveller": "guide-tt-12",
+  "tempo-traveller-17-seater": "guide-tt-17"
+};
+
 /**
  * Direct-answer Q&A for vehicles without a hand-curated VEHICLE_FAQS entry —
  * generated only from real, already-confirmed data on the vehicle (seats,
@@ -533,6 +540,7 @@ router.get("/:category/:slug", async (req, res, next) => {
       relevantRoutes,
       vehicleFaqs,
       quickFacts: VEHICLE_QUICK_FACTS[vehicle.slug],
+      guidePartial: VEHICLE_GUIDE_PARTIAL[vehicle.slug],
       ...(isUrbania && urbTariff && vehicle.ratePerKm
         ? {
             urbaniaRate: vehicle.ratePerKm,
