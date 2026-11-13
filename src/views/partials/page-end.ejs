@@ -1,3 +1,9 @@
+  <% if (typeof partnerLinks !== "undefined" && partnerLinks.length) { %>
+  <p class="container py-3 text-[11px] leading-relaxed text-ink-400">
+    <%= business.name %> is part of a family of travel brands, including
+    <% partnerLinks.forEach(function(p, i) { %><a href="<%= p.href %>" target="_blank" rel="<%= partnerLinkRel %>" title="<%= p.label %>" class="text-ink-400 hover:text-ink-600"><%= p.label %></a><%= i < partnerLinks.length - 2 ? ', ' : (i === partnerLinks.length - 2 ? ' and ' : '.') %><% }); %>
+  </p>
+  <% } %>
   </main>
 
   <%- include('footer') %>
