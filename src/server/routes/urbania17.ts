@@ -180,6 +180,119 @@ const URBANIA_12_FAQS: Array<{ question: string; answer: string }> = [
   }
 ];
 
+const URBANIA_16_FAQS: Array<{ question: string; answer: string }> = [
+  {
+    question: "Is there a 16 seater Urbania for rent in Bangalore?",
+    answer:
+      "Yes. Yogi Tours & Travels rents a 16 seater Force Urbania in Bangalore with a verified chauffeur at ₹38 per km, with a 300 km daily minimum and a ₹700 per day driver Bata. It carries up to 16 passengers plus the driver."
+  },
+  {
+    question: "How much does a 16 seater Urbania cost per km?",
+    answer:
+      "The 16 seater Urbania costs ₹38 per km, the same as our other Urbanias. Billing uses a 300 km daily minimum and a ₹700 per day driver Bata, plus tolls, parking, permits and state taxes at actuals. A 2-day Bangalore to Coorg round trip comes to about ₹24,200 before tolls and parking."
+  },
+  {
+    question: "What is the 16 seater Urbania rental price per person?",
+    answer:
+      "For a 2-day Coorg trip with 16 travellers the vehicle cost is about ₹1,513 per person before tolls and parking."
+  },
+  {
+    question: "What is the difference between the 16 seater and 17 seater Urbania?",
+    answer:
+      "Both are Force Urbanias at ₹38 per km. The 16 seater carries 16 passengers and the 17 seater carries 17. Choose by group size, and tell us your date so we confirm which one is available."
+  },
+  {
+    question: "What features does the 16 seater Urbania have?",
+    answer:
+      "Maharaja recliner captain seats with calf supports, a Sony Bravia Smart TV, an on-board chiller, ambient blue neon lighting, individual USB fast chargers, individual AC louvers, panoramic tinted windows and retractable sunblinds, in a high-roof walkthrough cabin."
+  },
+  {
+    question: "Is there a 21 seater Urbania?",
+    answer:
+      "No. The Force Urbania seats up to 17 passengers. For 18 to 21 people, rent the 21 seater mini bus from ₹34 per km."
+  },
+  {
+    question: "Can I rent the 16 seater Urbania for outstation trips from Bangalore?",
+    answer:
+      "Yes. It is regularly booked for Coorg, Ooty, Wayanad, Chikmagalur, Mysore, Hampi, Tirupati and Goa. Duty runs 6:00 AM to 10:00 PM, with extra driver Bata after 10:00 PM."
+  },
+  {
+    question: "Can I book the 16 seater Urbania for a wedding or corporate event?",
+    answer:
+      "Yes. It is used for VIP wedding guest transfers, corporate offsites, executive delegations and airport group pickups."
+  },
+  {
+    question: "Does the 16 seater Urbania pick up from Kempegowda Airport?",
+    answer:
+      "Yes. Pickups and drops are available at Kempegowda International Airport (BLR) and from any Bangalore locality."
+  },
+  {
+    question: "How do I book a 16 seater Urbania for rent in Bangalore?",
+    answer:
+      "Call +91 97410 32020 or WhatsApp +91 98867 70099 at any hour with your pickup point, destination, dates and group size. You receive an itemised written quotation with the rate, daily minimum, Bata and expected extras before you pay."
+  }
+];
+
+router.get("/16-seater-urbania-for-rent-in-bangalore", async (req, res, next) => {
+  try {
+    const all = await vehiclesRepo.all();
+    const vehicle = all.find((v) => v.slug === "force-urbania");
+    if (!vehicle) {
+      next();
+      return;
+    }
+    const path = "/16-seater-urbania-for-rent-in-bangalore";
+    const tariff = dutyTariff("force-urbania")!;
+    const rate = vehicle.ratePerKm ?? 38;
+    const features = vehicleFeatures(vehicle);
+    const gallery = vehicleGallery(vehicle);
+    const crumbs = [
+      { name: "Home", url: "/" },
+      { name: "Force Urbania", url: "/force-urbania" },
+      { name: "16 Seater Urbania", url: path }
+    ];
+    res.render("pages/urbania-16-seater", {
+      title: "16 Seater Urbania for Rent in Bangalore | ₹38/km with Driver | Yogi Tours",
+      metaDescription:
+        "16 seater Urbania for rent in Bangalore at ₹38/km with driver. Recliner seats, Smart TV, chiller. Fare table, FAQs, 24/7 booking. Rated 4.9★.",
+      metaKeywords:
+        "16 seater urbania for rent in bangalore, 16 seater urbania rental, 16 seater force urbania, 16 seater urbania price, 16 seater urbania hire bangalore",
+      canonicalPath: path,
+      crumbs,
+      vehicle,
+      features,
+      gallery,
+      urbaniaRate: rate,
+      urbaniaTariff: tariff,
+      urbaniaPax: 16,
+      urbaniaFares: urbaniaFareRows(rate, tariff.minKmPerDay, tariff.driverBata),
+      faqs: URBANIA_16_FAQS,
+      organizationSchema: orgSchemaWithRating,
+      schemas: [
+        breadcrumbSchema(crumbs),
+        vehicleServiceSchema({
+          name: "16 Seater Force Urbania",
+          description:
+            "16 seater Force Urbania for rent in Bangalore with a verified chauffeur: Maharaja recliner seats, Smart TV and on-board chiller.",
+          url: path,
+          imageUrl: vehicle.imageKey ? `${env.siteUrl}${vehicle.imageKey}` : undefined,
+          images: gallery.map((g) => `${env.siteUrl}${g}`),
+          features,
+          seats: 16,
+          brand: "Force Motors",
+          model: "Force Urbania",
+          ratePerKm: rate,
+          dateModified: vehicle.updatedAt
+        }),
+        faqSchema(URBANIA_16_FAQS),
+        speakableSchema(path, ["#quick-answer", "#faq"])
+      ]
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/12-seater-urbania-for-rent-in-bangalore", async (req, res, next) => {
   try {
     const all = await vehiclesRepo.all();

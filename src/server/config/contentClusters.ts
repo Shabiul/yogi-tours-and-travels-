@@ -27,6 +27,7 @@ export const CONTENT_CLUSTERS: ContentCluster[] = [
     spokes: [
       { path: "/17-seater-urbania-for-rent-in-bangalore", anchor: "17 seater Urbania for rent" },
       { path: "/12-seater-urbania-for-rent-in-bangalore", anchor: "12 seater Maharaja Urbania for rent" },
+      { path: "/16-seater-urbania-for-rent-in-bangalore", anchor: "16 seater Urbania for rent" },
       { path: "/blog/16-seater-force-urbania-rental-bangalore-guide", anchor: "16 seater Force Urbania guide" },
       { path: "/fleet/tempo-traveller/force-urbania", anchor: "Force Urbania vehicle page and photos" },
       { path: "/fleet/tempo-traveller/urbania-12-seater-maharaja", anchor: "Maharaja Urbania vehicle page" },

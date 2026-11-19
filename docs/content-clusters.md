@@ -20,7 +20,7 @@ Rule from the Rankknar framework: one page per search intent, merge or redirect 
 | force urbania rental in bangalore, urbania rental in bangalore, urbania hire | `/force-urbania` | Broad head term. Pillar. |
 | 17 seater urbania for rent / rental / price / per km | `/fleet/tempo-traveller/force-urbania` (ranking today) and `/17-seater-urbania-for-rent-in-bangalore` | OVERLAP. Check indexing of the dedicated page after 3 to 4 weeks. If not indexed, merge it into the vehicle page and 301. |
 | maharaja urbania 12 seater, 12 seater urbania | `/fleet/tempo-traveller/urbania-12-seater-maharaja` and `/12-seater-urbania-for-rent-in-bangalore` | OVERLAP. Same decision as above. |
-| 16 seater urbania | `/blog/16-seater-force-urbania-rental-bangalore-guide` | Guide only, no vehicle page. Confirm the real seat count. |
+| 16 seater urbania | `/16-seater-urbania-for-rent-in-bangalore` | Dedicated page. The blog guide `/blog/16-seater-force-urbania-rental-bangalore-guide` is the supporting spec write-up. |
 | 21 seater urbania | `/force-urbania#urbania-21` | Answer block on the pillar. No page needed. |
 | 9 seater tempo traveller (bangalore, on rent, near me) | `/fleet/tempo-traveller/9-seater-tempo-traveller` | Best performer. Guide blog is a supporting page. |
 | 12 seater tempo traveller / maharaja tempo traveller | `/fleet/tempo-traveller/maharaja-tempo-traveller` | Position 37 to 52 for "12 seater tempo traveller bangalore". Needs work. |

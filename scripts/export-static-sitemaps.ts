@@ -43,6 +43,7 @@ const STATIC_PATHS: Array<{ path: string; priority: string; changefreq: string }
   { path: "/force-urbania", priority: "0.9", changefreq: "weekly" },
   { path: "/17-seater-urbania-for-rent-in-bangalore", priority: "0.9", changefreq: "weekly" },
   { path: "/12-seater-urbania-for-rent-in-bangalore", priority: "0.9", changefreq: "weekly" },
+  { path: "/16-seater-urbania-for-rent-in-bangalore", priority: "0.9", changefreq: "weekly" },
   { path: "/services", priority: "0.9", changefreq: "weekly" },
   { path: "/tour-packages", priority: "0.9", changefreq: "weekly" },
   { path: "/locations", priority: "0.7", changefreq: "monthly" },
