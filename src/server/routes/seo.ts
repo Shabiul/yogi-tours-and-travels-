@@ -81,19 +81,10 @@ interface VideoSitemapEntry {
 
 const VIDEO_ENTRIES: VideoSitemapEntry[] = [
   {
-    pagePath: "/fleet/tempo-traveller/force-urbania-12-seater-maharaja",
+    pagePath: "/fleet/tempo-traveller/urbania-12-seater-maharaja",
     thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
     title: "Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore",
     description: "Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.",
-    contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
-    duration: 104,
-    publicationDate: "2026-10-01T10:30:00+05:30"
-  },
-  {
-    pagePath: "/fleet/tempo-traveller/force-urbania-17-seater-luxury",
-    thumbnailLoc: `${env.siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp`,
-    title: "Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental",
-    description: "Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.",
     contentLoc: `${env.siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4`,
     duration: 104,
     publicationDate: "2026-10-01T10:30:00+05:30"
@@ -525,87 +516,115 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-# Disallow legacy WordPress paths & spam query parameters to stop crawl waste
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/
-Disallow: /xmlrpc.php
-Disallow: /wp-json/
-Disallow: /trackback/
-Disallow: /comments/
-Disallow: /feed/
-Disallow: /*?*s=*
-Disallow: /*?*p=*
-Disallow: /*?*attachment_id=*
-Disallow: /*?*replytocom=*
-Disallow: /*?*author=*
-Disallow: /*.php$
-Disallow: /*.php?
+# Legacy WordPress and spam URLs are answered with 410 Gone, so crawlers must be allowed to fetch them.
+# Every named group repeats the Disallow lines, because a bot that matches its own group ignores "User-agent: *".
 
 # Major Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Video
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: bingbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 # Generative AI, LLM & Answer Engine Crawlers (AEO / GEO / AIEO)
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Bytespider
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: CCBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 Sitemap: ${env.siteUrl}/sitemap.xml
 Sitemap: ${env.siteUrl}/sitemap-pages.xml

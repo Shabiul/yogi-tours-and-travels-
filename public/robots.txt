@@ -3,85 +3,115 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-# Disallow legacy WordPress paths & spam query parameters to stop crawl waste
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/
-Disallow: /xmlrpc.php
-Disallow: /wp-json/
-Disallow: /trackback/
-Disallow: /comments/
-Disallow: /feed/
-Disallow: /*?*s=*
-Disallow: /*?*p=*
-Disallow: /*?*attachment_id=*
-Disallow: /*?*replytocom=*
-Disallow: /*?*author=*
+# Legacy WordPress and spam URLs are answered with 410 Gone, so crawlers must be allowed to fetch them.
+# Every named group repeats the Disallow lines, because a bot that matches its own group ignores "User-agent: *".
 
 # Major Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Video
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: bingbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 # Generative AI, LLM & Answer Engine Crawlers (AEO / GEO / AIEO)
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Bytespider
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: CCBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 Sitemap: https://www.yogitourstravels.com/sitemap.xml
 Sitemap: https://www.yogitourstravels.com/sitemap-pages.xml

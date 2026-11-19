@@ -24,7 +24,9 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <meta name="keywords" content="<%= __keywords %>" />
   <meta name="publisher" content="<%= business.name %>" />
   <meta name="author" content="<%= business.name %>" />
+  <% if (!__noindex) { %>
   <link rel="canonical" href="<%= __canonical %>" />
+  <% } %>
   <% if (env.googleSiteVerification) { %>
   <meta name="google-site-verification" content="<%= env.googleSiteVerification %>" />
   <% } %>
@@ -35,8 +37,10 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <% } %>
+  <% if (!__noindex) { %>
   <link rel="alternate" hreflang="en-IN" href="<%= __canonical %>" />
   <link rel="alternate" hreflang="x-default" href="<%= __canonical %>" />
+  <% } %>
   <meta name="rating" content="general" />
 
   <!-- Geo tags — legacy but still read by local directories and local search engines -->

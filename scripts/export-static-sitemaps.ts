@@ -382,24 +382,11 @@ ${(u.images || [])
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>${siteUrl}/fleet/tempo-traveller/force-urbania-12-seater-maharaja</loc>
+    <loc>${siteUrl}/fleet/tempo-traveller/urbania-12-seater-maharaja</loc>
     <video:video>
       <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
       <video:title>Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore</video:title>
       <video:description>Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.</video:description>
-      <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:duration>104</video:duration>
-      <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>${siteUrl}/fleet/tempo-traveller/force-urbania-17-seater-luxury</loc>
-    <video:video>
-      <video:thumbnail_loc>${siteUrl}/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
-      <video:title>Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental</video:title>
-      <video:description>Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.</video:description>
       <video:content_loc>${siteUrl}/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
@@ -475,85 +462,115 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-# Disallow legacy WordPress paths & spam query parameters to stop crawl waste
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/
-Disallow: /xmlrpc.php
-Disallow: /wp-json/
-Disallow: /trackback/
-Disallow: /comments/
-Disallow: /feed/
-Disallow: /*?*s=*
-Disallow: /*?*p=*
-Disallow: /*?*attachment_id=*
-Disallow: /*?*replytocom=*
-Disallow: /*?*author=*
+# Legacy WordPress and spam URLs are answered with 410 Gone, so crawlers must be allowed to fetch them.
+# Every named group repeats the Disallow lines, because a bot that matches its own group ignores "User-agent: *".
 
 # Major Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Googlebot-Video
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: bingbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 # Generative AI, LLM & Answer Engine Crawlers (AEO / GEO / AIEO)
 User-agent: GPTBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-User
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: Bytespider
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 User-agent: CCBot
 Allow: /
+Disallow: /admin
+Disallow: /api
 
 Sitemap: ${siteUrl}/sitemap.xml
 Sitemap: ${siteUrl}/sitemap-pages.xml

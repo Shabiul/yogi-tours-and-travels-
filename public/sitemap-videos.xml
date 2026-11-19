@@ -2,24 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://www.yogitourstravels.com/fleet/tempo-traveller/force-urbania-12-seater-maharaja</loc>
+    <loc>https://www.yogitourstravels.com/fleet/tempo-traveller/urbania-12-seater-maharaja</loc>
     <video:video>
       <video:thumbnail_loc>https://www.yogitourstravels.com/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
       <video:title>Force Urbania 12 Seater Maharaja Luxury Cabin Walkthrough — Bangalore</video:title>
       <video:description>Authentic video walkthrough of the 12 Seater Force Urbania Maharaja van in Bangalore. Features motorized calf-support captain recliners, Sony Bravia Smart LED TV, on-board chiller box, and ambient blue neon ceiling.</video:description>
-      <video:content_loc>https://www.yogitourstravels.com/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
-      <video:duration>104</video:duration>
-      <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://www.yogitourstravels.com/fleet/tempo-traveller/force-urbania-17-seater-luxury</loc>
-    <video:video>
-      <video:thumbnail_loc>https://www.yogitourstravels.com/assets/images/gallery/force-urbania-luxury-cabin-interior.webp</video:thumbnail_loc>
-      <video:title>Force Urbania 17 Seater Executive Van Walkthrough — Bangalore Rental</video:title>
-      <video:description>Video tour of the 17 Seater Force Urbania luxury van available for hire with driver in Bangalore. Designed for corporate and family tours with panoramic windows, individual AC vents, and USB charging ports.</video:description>
       <video:content_loc>https://www.yogitourstravels.com/assets/video/force-urbania-luxury-walkthrough.mp4</video:content_loc>
       <video:duration>104</video:duration>
       <video:publication_date>2026-10-01T10:30:00+05:30</video:publication_date>
