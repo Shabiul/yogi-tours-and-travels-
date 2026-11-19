@@ -41,6 +41,8 @@ export const env = {
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || "",
   bingSiteVerification: process.env.BING_SITE_VERIFICATION || "",
   /** Microsoft Clarity project id (from Bing Webmaster Tools). Loaded only after cookie consent. */
+  /** Google tag id (GTM-...) from Google Analytics. When set it replaces gaMeasurementId, so only one Google tag loads. Consent-gated. */
+  googleTagId: process.env.GOOGLE_TAG_ID ?? "GTM-P4X8BRVD",
   clarityProjectId: process.env.CLARITY_PROJECT_ID ?? "zg49lzhftu",
   sessionSecret: required("SESSION_SECRET", "dev-secret-change-me"),
   /** Postgres connection string (e.g. from Vercel Postgres/Neon/Supabase). Required in production. */

@@ -109,7 +109,10 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <!-- Microsoft Clarity is NOT loaded here either: cookieConsent.ts injects it after consent. -->
   <script>window.__clarityProjectId = "<%= env.clarityProjectId %>";</script>
   <% } %>
-  <% if (env.gaMeasurementId) { %>
+  <% if (env.googleTagId) { %>
+  <!-- The Google tag is NOT loaded here: cookieConsent.ts injects it after consent. -->
+  <script>window.__googleTagId = "<%= env.googleTagId %>";</script>
+  <% } else if (env.gaMeasurementId) { %>
   <!-- Google Analytics is NOT loaded here. cookieConsent.ts injects it only
        after the visitor accepts analytics cookies in the consent banner. -->
   <script>window.__gaMeasurementId = "<%= env.gaMeasurementId %>";</script>

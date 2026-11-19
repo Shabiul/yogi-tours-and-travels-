@@ -17,6 +17,7 @@ type Consent = "accepted" | "rejected";
 declare global {
   interface Window {
     __gaMeasurementId?: string;
+    __googleTagId?: string;
     __clarityProjectId?: string;
     clarity?: ((...args: unknown[]) => void) & { q?: unknown[] };
     dataLayer?: unknown[];
@@ -44,8 +45,27 @@ function writeConsent(value: Consent): void {
 let analyticsLoaded = false;
 
 function loadAnalytics(): void {
+  if (analyticsLoaded) return;
+
+  // Google tag (GTM-...) from Google Analytics: one tag per page, so it replaces the GA4 id.
+  const tagId = window.__googleTagId;
+  if (tagId) {
+    analyticsLoaded = true;
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(tagId)}`;
+    document.head.appendChild(tag);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag(): void {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer!.push(arguments);
+    };
+    window.gtag("js", new Date());
+    return;
+  }
+
   const id = window.__gaMeasurementId;
-  if (analyticsLoaded || !id) return;
+  if (!id) return;
   analyticsLoaded = true;
 
   const script = document.createElement("script");
