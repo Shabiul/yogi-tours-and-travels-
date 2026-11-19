@@ -1,3 +1,13 @@
+  <% if (typeof clusterNav !== "undefined" && clusterNav && clusterNav.links.length) { %>
+  <nav class="container py-8" aria-label="Related pages: <%= clusterNav.name %>">
+    <h2 class="font-display font-semibold text-lg text-ink-900">More about <%= clusterNav.name.toLowerCase() %></h2>
+    <ul class="mt-3 flex flex-wrap gap-2.5">
+      <% clusterNav.links.forEach(function(l) { %>
+      <li><a href="<%= l.path %>" title="<%= l.anchor %>" class="block rounded-full border border-ink-200 bg-white px-4 py-2 text-sm text-ink-800 hover:border-brand-500 hover:text-brand-700"><%= l.anchor %></a></li>
+      <% }); %>
+    </ul>
+  </nav>
+  <% } %>
   <% if (typeof partnerLinks !== "undefined" && partnerLinks.length) { %>
   <p class="container py-3 text-[11px] leading-relaxed text-ink-400">
     <%= business.name %> is part of a family of travel brands, including

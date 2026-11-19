@@ -5,6 +5,7 @@ import { organizationSchema } from "../utils/schema.js";
 import { parseJsonArray } from "../db/repo.js";
 import { VEHICLE_CATEGORY_LABELS, matchVehicleByLabel } from "../db/content.js";
 import { LOCATIONS } from "../config/locations.js";
+import { clusterNavFor } from "../config/contentClusters.js";
 import { dutyTariff, estimatedMinimumDailyTotal, DUTY_POLICY } from "../db/pricing.js";
 import type { Vehicle, VehicleCategory } from "../types/models.js";
 
@@ -32,6 +33,7 @@ export function injectViewLocals(req: Request, res: Response, next: NextFunction
   res.locals.whatsappDigits = whatsappDigits();
   res.locals.mainNav = mainNav;
   res.locals.footerServiceLinks = footerServiceLinks;
+  res.locals.clusterNav = clusterNavFor(req.path);
   res.locals.partnerLinks = partnerLinks;
   res.locals.partnerLinkRel = PARTNER_LINK_REL;
   res.locals.urbaniaAreas = LOCATIONS.map((l) => ({ slug: l.slug, name: l.name }));
