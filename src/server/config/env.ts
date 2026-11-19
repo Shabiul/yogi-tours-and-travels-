@@ -40,6 +40,8 @@ export const env = {
   /** Google Search Console HTML-tag verification token (the content= value only, not the whole meta tag) — leave unset to skip the tag. */
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || "",
   bingSiteVerification: process.env.BING_SITE_VERIFICATION || "",
+  /** Microsoft Clarity project id (from Bing Webmaster Tools). Loaded only after cookie consent. */
+  clarityProjectId: process.env.CLARITY_PROJECT_ID ?? "zg49lzhftu",
   sessionSecret: required("SESSION_SECRET", "dev-secret-change-me"),
   /** Postgres connection string (e.g. from Vercel Postgres/Neon/Supabase). Required in production. */
   databaseUrl: process.env.DATABASE_URL || "",

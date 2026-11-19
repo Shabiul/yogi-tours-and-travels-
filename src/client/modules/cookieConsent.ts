@@ -17,6 +17,8 @@ type Consent = "accepted" | "rejected";
 declare global {
   interface Window {
     __gaMeasurementId?: string;
+    __clarityProjectId?: string;
+    clarity?: ((...args: unknown[]) => void) & { q?: unknown[] };
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
   }
@@ -60,13 +62,33 @@ function loadAnalytics(): void {
   window.gtag("config", id, { anonymize_ip: true });
 }
 
+let clarityLoaded = false;
+
+// Microsoft Clarity (from Bing Webmaster Tools). Same consent rule as GA4.
+function loadClarity(): void {
+  const id = window.__clarityProjectId;
+  if (clarityLoaded || !id) return;
+  clarityLoaded = true;
+
+  window.clarity =
+    window.clarity ||
+    function clarityQueue(...args: unknown[]): void {
+      const fn = window.clarity as ((...a: unknown[]) => void) & { q?: unknown[] };
+      (fn.q = fn.q || []).push(args);
+    };
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.clarity.ms/tag/${encodeURIComponent(id)}?ref=bwt`;
+  document.head.appendChild(script);
+}
+
 function clearAnalyticsCookies(): void {
   const host = window.location.hostname;
   // Try the exact host and the registrable-domain form GA uses (".example.com").
   const domains = [host, `.${host}`, `.${host.split(".").slice(-2).join(".")}`];
   for (const cookie of document.cookie.split(";")) {
     const name = cookie.split("=")[0]?.trim();
-    if (!name || !(name === "_ga" || name === "_gid" || name.startsWith("_ga_") || name.startsWith("_gat"))) continue;
+    if (!name || !(name === "_ga" || name === "_gid" || name.startsWith("_ga_") || name.startsWith("_gat") || name === "_clck" || name === "_clsk" || name === "CLID" || name === "MUID" || name === "ANONCHK" || name === "SM")) continue;
     for (const domain of domains) {
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain}`;
     }
@@ -87,8 +109,12 @@ export function initCookieConsent(): void {
   function apply(consent: Consent): void {
     writeConsent(consent);
     hideBanner();
-    if (consent === "accepted") loadAnalytics();
-    else clearAnalyticsCookies();
+    if (consent === "accepted") {
+      loadAnalytics();
+      loadClarity();
+    } else {
+      clearAnalyticsCookies();
+    }
   }
 
   if (banner) {
@@ -111,6 +137,7 @@ export function initCookieConsent(): void {
   const existing = readConsent();
   if (existing === "accepted") {
     loadAnalytics();
+    loadClarity();
   } else if (existing === null) {
     showBanner();
   }

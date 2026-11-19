@@ -50,13 +50,13 @@ app.use(
         // none of the templates take unescaped user input into a <script>
         // tag (verified: every dynamic value in views renders via EJS's
         // auto-escaping <%= %>), so this doesn't reopen an existing hole.
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.clarity.ms", "https://scripts.clarity.ms"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         // GA4 beacons post to google-analytics.com; the pixel fallback and
         // Google Tag Manager assets need image + script allowances too. These
         // only ever fire after the visitor accepts analytics cookies.
-        imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://*.google-analytics.com", "https://*.googletagmanager.com"],
+        imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://*.google-analytics.com", "https://*.googletagmanager.com", "https://*.clarity.ms", "https://c.bing.com"],
         connectSrc: [
           "'self'",
           "https://fonts.googleapis.com",
@@ -64,7 +64,9 @@ app.use(
           "https://www.google-analytics.com",
           "https://*.google-analytics.com",
           "https://*.analytics.google.com",
-          "https://*.googletagmanager.com"
+          "https://*.googletagmanager.com",
+          "https://*.clarity.ms",
+          "https://c.bing.com"
         ],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
