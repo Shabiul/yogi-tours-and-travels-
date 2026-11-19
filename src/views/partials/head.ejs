@@ -27,6 +27,9 @@ const __keywords = typeof metaKeywords !== "undefined" ? metaKeywords :
   <% if (!__noindex) { %>
   <link rel="canonical" href="<%= __canonical %>" />
   <% } %>
+  <% if (env.bingSiteVerification) { %>
+  <meta name="msvalidate.01" content="<%= env.bingSiteVerification %>" />
+  <% } %>
   <% if (env.googleSiteVerification) { %>
   <meta name="google-site-verification" content="<%= env.googleSiteVerification %>" />
   <% } %>

@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "seed": "tsx src/server/db/seed.ts",
+    "indexnow": "node scripts/indexnow-submit.mjs",
     "migrate:postgres": "node scripts/migrate-to-postgres.mjs",
     "dev:server": "tsx watch src/server/app.ts",
     "dev:css": "tailwindcss -i ./src/styles/main.css -o ./public/css/main.css --watch",

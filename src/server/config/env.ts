@@ -39,6 +39,7 @@ export const env = {
   gaMeasurementId: process.env.GA_MEASUREMENT_ID || "",
   /** Google Search Console HTML-tag verification token (the content= value only, not the whole meta tag) — leave unset to skip the tag. */
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || "",
+  bingSiteVerification: process.env.BING_SITE_VERIFICATION || "",
   sessionSecret: required("SESSION_SECRET", "dev-secret-change-me"),
   /** Postgres connection string (e.g. from Vercel Postgres/Neon/Supabase). Required in production. */
   databaseUrl: process.env.DATABASE_URL || "",
