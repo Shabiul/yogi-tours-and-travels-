@@ -10,7 +10,7 @@
 const HOST = "www.yogitourstravels.com";
 const KEY = "c8883e3464ba95d7666af9c523a433fc";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const ENDPOINT = "https://api.indexnow.org/indexnow";
+const ENDPOINT = "https://www.bing.com/indexnow";
 
 const args = process.argv.slice(2);
 const submit = args.includes("--submit");
