@@ -611,11 +611,12 @@ export const CURATED_BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 9,
-    title: "16 Seater Force Urbania Rental in Bangalore: Complete Guide, Price Per KM, Cabin Specs & Booking",
+    title: "16 Seater Force Urbania Guide: Specs & Seating Layout",
     slug: "16-seater-force-urbania-rental-bangalore-guide",
-    excerpt: "The definitive 2026 guide to renting a 16 seater Force Urbania in Bangalore: ₹38/km outstation tariff, 16+D seating layout, Maharaja calf recliners, luggage space, top routes, specs & booking tips.",
+    excerpt: "The specification guide to the 16 seater Force Urbania in Bangalore: seating layout, cabin features, luggage space and popular routes. For rates, fares and booking, see the 16 seater Urbania rental page.",
     coverImageKey: "/assets/images/gallery/force-urbania-front-exterior.webp",
-    content: `<div id="ai-overview-answer" class="rounded-2xl bg-gradient-to-br from-brand-50/80 via-white to-brand-50/40 border-2 border-brand-200/90 p-5 sm:p-6 shadow-xs my-6 relative">
+    content: `<p><strong>Ready to book?</strong> See the <a href="/16-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">16 seater Urbania for rent in Bangalore</a> page for rates, fare table and FAQs, or compare it with the <a href="/17-seater-urbania-for-rent-in-bangalore" class="text-brand-700 underline font-medium">17 seater Urbania</a>.</p>
+<div id="ai-overview-answer" class="rounded-2xl bg-gradient-to-br from-brand-50/80 via-white to-brand-50/40 border-2 border-brand-200/90 p-5 sm:p-6 shadow-xs my-6 relative">
   <div class="flex items-center gap-2 text-xs font-bold text-brand-800 uppercase tracking-wider mb-2">
     <span>Direct Answer / 16 Seater Force Urbania Rental Snapshot</span>
   </div>
